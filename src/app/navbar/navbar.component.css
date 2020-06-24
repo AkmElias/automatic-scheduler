@@ -1,0 +1,20 @@
+.spacer {
+  flex : 1 1 auto;
+}
+
+/* mat-icon{
+  font-size : 40px;
+} */
+
+.mat-button{
+  background-color:greenyellow;
+}
+
+/* .mat-button.mat-success,
+.mat-stroked-button.mat-success {
+    color: #155724;
+} */
+
+/* .mat-button, .mat-raised-button{
+  background-color:red;
+} */
