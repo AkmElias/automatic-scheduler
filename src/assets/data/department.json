@@ -1,0 +1,42 @@
+[
+  {
+      "DepartmentID": "2",
+      "dpt_code": "EEE",
+      "dpt_name": "Electrical & Electronics Engineering"
+  },
+  {
+      "DepartmentID": "3",
+      "dpt_code": "ENG",
+      "dpt_name": "English"
+  },
+  {
+      "DepartmentID": "4",
+      "dpt_code": "ECO",
+      "dpt_name": "Economics"
+  },
+  {
+      "DepartmentID": "5",
+      "dpt_code": "LLB",
+      "dpt_name": "Law & Justice"
+  },
+  {
+      "DepartmentID": "6",
+      "dpt_code": "BBA",
+      "dpt_name": "Business Administration"
+  },
+  {
+      "DepartmentID": "",
+      "dpt_code": "",
+      "dpt_name": ""
+  },
+  {
+      "DepartmentID": " 1",
+      "dpt_code": " CSE",
+      "dpt_name": " Computer Science & Engineering"
+  },
+  {
+      "DepartmentID": "1",
+      "dpt_code": "CSE",
+      "dpt_name": "Computer Science & Engineering"
+  }
+]

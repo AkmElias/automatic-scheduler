@@ -1,0 +1,59 @@
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">List of Exam</h3>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Exam</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div class="container text-center">
+  <!-- <h1>{{title}}</h1> -->
+</div>
+<div class="container">
+<div class="row">
+  <div class="container">
+    <div class="text-right">
+      <b><h1><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Exam" (click)="Createexam()" class="btn btn-primary mr-2" style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
+    </div>
+  </div>
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+       <!-- <th>Exam ID</th> -->
+       <th>Type</th>
+       <th>Term</th>
+       <th>Year</th>
+       <th></th>
+       <th></th>
+       <th></th>
+       <!-- <th>View</th>
+       <th>Edit</th>
+       <th>Delete</th> -->
+    </tr>
+ </thead>
+<tbody>
+  <tr *ngFor="let exam of exams" (click)="examClicked(exam)">
+    <!-- <td><h6 (click)="examClicked(exam)"><tr>{{ exam.examID }}</tr></h6></td> -->
+    <td><h6 (click)="examClicked(exam)"><tr>{{ exam.exm_type }}</tr></h6></td>
+    <td><h6 (click)="examClicked(exam)"><tr>{{ exam.exm_term }}</tr></h6></td>
+    <td><h6 (click)="examClicked(exam)"><tr>{{ exam.exm_year }}</tr></h6></td>
+   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="examDetails(exam.examID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
+   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="Updateexam(exam.examID)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
+   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedExam.examID" (click)="deleteExam()"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+
+  </tr>
+  </tbody>
+</table>
+
+</div>
+</div>

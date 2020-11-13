@@ -1,0 +1,94 @@
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
+/* <div class="form-group" style="width: 400px;">
+  <label for="name">Department ID</label>
+  <input type="text" class="form-control" id="DepartmentID" required [(ngModel)]="faculty.DepartmentID" name="DepartmentID">
+</div> */
+
+/* <div class="form-group">
+<label for="name">Designation</label>
+<input type="text" class="form-control" id="fac_designation" required [(ngModel)]="faculty.fac_designation" name="fac_designation">
+</div> */
+
+/* <div class="form-group">
+<label for="name">Faculty Title</label>
+<input type="text" class="form-control" id="fac_title" required [(ngModel)]="faculty.fac_title" name="fac_title">
+</div> */
+
+/* <div class="form-group">
+<label for="name">Gender</label>
+<input type="radio" id="male" name="gender" value="male">
+<label for="male">Male</label><br>
+<input type="radio" id="female" name="gender" value="female">
+<label for="female">Female</label><br>
+</div>  */
+
+/* import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-update-faculty',
+  templateUrl: './update-faculty.component.html',
+  styleUrls: ['./update-faculty.component.css']
+})
+export class UpdateFacultyComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */
+
+/*
+ faculties = [{facultyCode: ''}];
+ Faculty;
+{
+  this.getFaculties();
+  this.Faculty = {id: '-1', facultyCode: 'test',  crs_title: '', crs_shortName: '', crs_category: '', programCode: '' };
+}
+getFaculties = () => {
+  this.facultyService.getAllFacultyes().subscribe(
+    data => {
+      this.faculties = data;
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+
+facultyClicked = (faculty) => {
+  this.facultyService.getOneFaculty(faculty.id).subscribe(
+    data => {
+      this.Faculty = data;
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+
+updateFaculty = () => {
+  this.facultyService.updateFaculty(this.Faculty).subscribe(
+    data => {
+      this.getFaculties();
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+
+onSubmit() {
+  this.updateFaculty();
+}
+
+gotoList() {
+  this.router.navigate(['/faculty']);
+}
+
+list(){
+  this.router.navigate(['faculty']);
+} */

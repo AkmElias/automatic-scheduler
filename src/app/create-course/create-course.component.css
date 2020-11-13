@@ -1,0 +1,61 @@
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
+
+/* <div class="form-group">
+  <label for="name">Program Code</label>
+  <input category="text" class="form-control" id="programCode" required [(ngModel)]="Course.programCode" name="programCode">
+</div> */
+
+/* <div class="form-group">
+<label for="name">Category</label>
+<input category="text" class="form-control" id="crs_category" required [(ngModel)]="Course.crs_category" name="crs_category">
+</div> */
+
+
+/* <div class="form-group"
+[class.has-error]="category.invalid && category.touched">
+<label class="control-label">Category</label>
+<div class="form-control">
+    <label class="radio-inline">
+        <input category="radio" name="category" required #category="ngModel"
+               value="major" [(ngModel)]="Course.crs_category"> major
+    </label>
+    <label class="radio-inline">
+        <input category="radio" name="category" required #category="ngModel"
+               value="core" [(ngModel)]="Course.crs_category"> core
+    </label>
+    <label class="radio-inline">
+      <input category="radio" name="category" required #category="ngModel"
+             value="science & mathematics" [(ngModel)]="Course.crs_category"> science & mathematics
+  </label>
+  <label class="radio-inline">
+    <input category="radio" name="category" required #category="ngModel"
+           value="general education" [(ngModel)]="Course.crs_category"> general education
+</label>
+<label class="radio-inline">
+  <input category="radio" name="category" required #category="ngModel"
+         value="optional" [(ngModel)]="Course.crs_category"> optional
+</label>
+</div>
+<span class="help-block" *ngIf="category.errors?.required && category.touched">
+    Category is required
+</span>
+</div> */
+
+/* import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-create-course',
+  templateUrl: './create-course.component.html',
+  styleUrls: ['./create-course.component.css']
+})
+export class CreateCourseComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */

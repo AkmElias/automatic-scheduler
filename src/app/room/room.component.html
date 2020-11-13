@@ -1,0 +1,64 @@
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">List of Room</h3>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Room</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div class="container text-center">
+  <!-- <h1>{{title}}</h1> -->
+</div>
+<div class="container">
+  <div class="row">
+    <!-- <div class="search-rooms">
+      <input class="form-control" type="text" name="search" size="60"  value="" id="searchbar" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a room by code">
+    </div> -->
+  <div class="container">
+    <div class="text-right">
+      <b><h1><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Room" (click)="Createroom()" class="btn btn-primary mr-2" style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
+    </div>
+  </div>
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Room Code</th>
+      <th>Capacity</th>
+      <th>Floor</th>
+      <th>Type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+       <!-- <th>View</th>
+       <th>Edit</th>
+       <th>Delete</th> -->
+    </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let room of rooms" (click)="roomClicked(room)">
+  <tr *ngFor="let room of rooms  | filter:searchText">
+    <td><h6 (click)="roomClicked(room)"><tr>{{ room.roomCode }}</tr></h6></td>
+    <td><h6 (click)="roomClicked(room)"><tr>{{ room.rom_capacity }}</tr></h6></td>
+    <td><h6 (click)="roomClicked(room)"><tr>{{ room.rom_floor }}</tr></h6></td>
+    <td><h6 (click)="roomClicked(room)"><tr>{{ room.rom_type }}</tr></h6></td>
+
+   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="roomDetails(room.roomCode)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
+   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="Updateroom(room.roomCode)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
+   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedRoom.roomCode" (click)="deleteRoom()"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+
+  </tr>
+  </tbody>
+</table>
+
+</div>
+</div>

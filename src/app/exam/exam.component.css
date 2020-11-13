@@ -1,0 +1,93 @@
+th {
+  background-color: SlateBlue;
+  color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+/* td, th {
+  border: 1px solid #ddd;
+  padding: 8px
+}
+
+table, th, td {
+  border: 1px solid black;
+} */
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+}
+
+
+/* <h2>List of Exam</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+       <th>Exam ID</th>
+       <th>Type</th>
+       <th>Term</th>
+       <th>Year</th>
+       <!-- <th>Action</th> -->
+    </tr>
+ </thead>
+  <td>
+    <tr *ngFor="let exam of exams">
+       <h6 (click)="examClicked(exam)">{{exam.examID}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let exam of exams">
+       <h6 (click)="examClicked(exam)">{{exam.exm_type}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let exam of exams">
+       <h6 (click)="examClicked(exam)">{{exam.exm_term}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let exam of exams">
+       <h6 (click)="examClicked(exam)">{{exam.exm_year}}</h6>
+   </tr>
+  </td>
+
+  <td>
+    Exam ID <input type="text" [(ngModel)]="selectedExam.examID"/><br>
+    Type <input type="text" [(ngModel)]="selectedExam.exm_type"/><br>
+    Term <input type="text" [(ngModel)]="selectedExam.exm_term"/><br>
+    Year <input type="text" [(ngModel)]="selectedExam.exm_year"/><br>
+    <button class="btn btn-primary" *ngIf="selectedExam.exm_type" (click)="updateExam()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedExam.exm_type" (click)="createExam()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedExam.exm_type" (click)="deleteExam()"> DELETE </button>
+
+  </td>
+</table> */
+
+/*
+<h2>List of Exam</h2>
+<ul>
+  <li *ngFor="let exam of exams">
+    <h2 (click)="examClicked(exam)">{{exam.examID}}</h2>
+    <h2 (click)="examClicked(exam)">{{exam.exm_type}}</h2>
+  </li>
+</ul>
+<hr>
+exm_ID <input type="text" [(ngModel)]="selectedExam.examID"/><br>
+exm_type <input type="text" [(ngModel)]="selectedExam.exm_type"/><br>
+exm_term <input type="text" [(ngModel)]="selectedExam.exm_term"/><br>
+exm_year <input type="text" [(ngModel)]="selectedExam.exm_year"/><br>
+<button class="btn btn-primary" *ngIf="selectedExam.exm_type" (click)="updateExam()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedExam.exm_type" (click)="createExam()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedExam.exm_type" (click)="deleteExam()"> DELETE </button> */

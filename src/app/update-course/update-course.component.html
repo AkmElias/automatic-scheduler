@@ -1,0 +1,88 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">Edit Course</h3>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Edit Course</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+<div class="text-center">
+  <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
+</div>
+<br>
+<div  style="width:800px; margin:0 auto;">
+   <form>
+      <div class="form-group" style="width: 400px;">
+        <label for="name">Course ID</label>
+        <input type="text" class="form-control" id="courseID" required [(ngModel)]="course.courseID" name="courseID">
+      </div>
+
+      <div class="form-group" style="width: 400px;">
+        <label for="name">Course Title</label>
+        <input type="text" class="form-control" id="crs_title" required [(ngModel)]="course.crs_title" name="crs_title">
+      </div>
+
+      <div class="form-group" style="width: 400px;">
+        <label for="name">Course Code</label>
+        <input type="text" class="form-control" id="courseCode" required [(ngModel)]="course.courseCode" name="courseCode">
+      </div>
+
+      <div class="form-group" style="width: 400px;">
+        <label for="name">Short Name</label>
+        <input type="text" class="form-control" id="crs_shortName" required [(ngModel)]="course.crs_shortName" name="crs_shortName">
+      </div>
+
+      <div class="form-group" style="width: 400px;">
+        <label for="name">Category</label>
+        <input type="text" class="form-control" id="crs_category" required [(ngModel)]="course.crs_category" name="crs_category">
+        </div>
+
+        <div class="form-group">
+          <label>Course Title</label>
+          <div class="form-control" style="width: 800px;">
+            <label class="radio-inline">
+              <input type="radio" name="crs_category" value="major" [(ngModel)]="course.crs_category" >
+              major
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="crs_category" value="core" [(ngModel)]="course.crs_category">
+              core
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="crs_category" value="science & mathematics" [(ngModel)]="course.crs_category">
+              science & mathematics
+            </label>
+          <label class="radio-inline">
+            <input type="radio" name="crs_category" value="general education" [(ngModel)]="course.crs_category">
+            general education
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="crs_category" value="optional" [(ngModel)]="course.crs_category">
+            optional
+          </label>
+          </div>
+          </div>
+
+      <div class="form-group" style="width: 400px;">
+        <label for="program">Program Code</label>
+        <select id="programCode" name="programCode" [(ngModel)]="course.programCode"
+                class="form-control">
+          <option *ngFor="let program of programs" [value]="program.programCode">
+            {{program.pro_name}}
+          </option>
+        </select>
+      </div>
+
+      <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Edit Course" class="btn btn-success" (click)="updateCourse()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> EDIT </button>
+   </form>
+  </div>
+</div>

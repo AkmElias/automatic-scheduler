@@ -1,0 +1,80 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">Add Routine</h3>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Add Routine</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid h-100 bg-light text-dark">
+<div class="text-center">
+  <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
+</div>
+<br>
+<div  style="width:800px; margin:0 auto;">
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <!-- <div class="form-group">
+      <label for="name">Routine ID</label>
+      <input type="text" class="form-control" id="routineID" required [(ngModel)]="Routine.routineID" name="Routine ID">
+    </div> -->
+
+    <div class="form-group">
+      <label for="courseOffered">CourseOffered</label>
+      <select id="courseOfferedID" name="courseOfferedID" [(ngModel)]="Routine.courseOfferedID"
+              class="form-control">
+        <option *ngFor="let courseOffered of coursesOffered" [value]="courseOffered.courseOfferedID">
+          {{courseOffered.courseOfferedID}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="room">Room</label>
+      <select id="roomCode" name="roomCode" [(ngModel)]="Routine.roomCode"
+              class="form-control">
+        <option *ngFor="let room of rooms" [value]="room.roomCode">
+          {{room.roomCode}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="exam">Exam</label>
+      <select id="examID" name="examID" [(ngModel)]="Routine.examID"
+              class="form-control">
+        <option *ngFor="let exam of exams" [value]="exam.examID">
+          {{exam.exm_type}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="timeSlot">timeSlot</label>
+      <select id="timeSlotID" name="timeSlotID" [(ngModel)]="Routine.timeSlotID"
+              class="form-control">
+        <option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.timeSlotID">
+          {{timeSlot.tst_day + timeSlot.tst_duration}}
+        </option>
+      </select>
+    </div>
+
+    <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Add Routine" class="btn btn-success" (click)="createRoutine()">  <i class="fa fa-plus" aria-hidden="true"></i> ADD </button>
+ </form>
+</div>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="createRoutine()">Add</button>
+</div>
+
+</div>

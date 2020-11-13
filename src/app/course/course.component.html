@@ -1,0 +1,71 @@
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">List of Course</h3>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Course</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div class="container text-center">
+  <!-- <h1>{{title}}</h1> -->
+</div>
+<div class="container">
+  <div class="row">
+    <div class="search-courses" style="width:800px; margin:0 auto;">
+      <input class="form-control" type="text" name="search" size="60"  value="" id="searchbar" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a course by name or code">
+    </div>
+
+    <b><h1><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Course" (click)="Createcourse()" class="btn btn-primary mr-2" style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
+
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <!-- <th>Course ID</th> -->
+          <th>Course Code</th>
+          <th>Course Title</th>
+          <th>Short Name</th>
+          <th>Category</th>
+          <th>Program Code</th>
+          <th>CourseOffered</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <!-- <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th> -->
+        </tr>
+     </thead>
+ <tbody>
+  <tr *ngFor="let course of courses" (click)="courseClicked(course)">
+  <tr *ngFor="let course of courses  | filter:searchText">
+    <!-- <td><h6 (click)="courseClicked(course)"><tr>{{course.courseID}}</tr></h6></td> -->
+    <td><h6 (click)="courseClicked(course)"><tr>{{course.courseCode}}</tr></h6></td>
+    <td><h6 (click)="courseClicked(course)"><tr>{{course.crs_title}}</tr></h6></td>
+    <td><h6 (click)="courseClicked(course)"><tr>{{course.crs_shortName}}</tr></h6></td>
+    <td><h6 (click)="courseClicked(course)"><tr>{{course.crs_category}}</tr></h6></td>
+    <td><h6 (click)="courseClicked(course)"><tr>{{course.programCode}}</tr></h6></td>
+
+  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="CourseOffered" (click)="gotoCourseOffered()" class="btn btn-secondary" style="margin-left: 10px"><i class="nav-icon fa fa-envelope"></i></button></td>
+  <!-- <td><a href="http://localhost:4200/courseOffered" title="CourseOffered" class="btn btn-secondary" style="margin-left: 10px">
+  <i class="nav-icon fa fa-envelope"></i></a></td> -->
+  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="courseDetails(course.courseID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
+  <!-- <td><button class="btn btn-primary" *ngIf="selectedCourse.courseCode" (click)="updateCourse()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td> -->
+  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="Updatecourse(course.courseID)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o"></i></button></td>
+  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedCourse.courseID" (click)="deleteCourse()"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
+
+  </tr>
+  </tbody>
+</table>
+
+</div>
+</div>

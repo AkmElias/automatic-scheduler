@@ -1,0 +1,97 @@
+th {
+  background-color: SlateBlue;
+  color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+/* td, th {
+  border: 1px solid #ddd;
+  padding: 8px
+}
+
+table, th, td {
+  border: 1px solid black;
+} */
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+}
+
+
+
+/*
+
+<h2>List of Room</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+       <th>Room Code</th>
+       <th>Capacity</th>
+       <th>Floor</th>
+       <th>Type</th>
+       <th>Action</th>
+    </tr>
+ </thead>
+  <td>
+    <tr *ngFor="let room of rooms">
+       <h6 (click)="roomClicked(room)">{{room.roomCode}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let room of rooms">
+       <h6 (click)="roomClicked(room)">{{room.rom_capacity}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let room of rooms">
+       <h6 (click)="roomClicked(room)">{{room.rom_floor}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let room of rooms">
+       <h6 (click)="roomClicked(room)">{{room.rom_type}}</h6>
+   </tr>
+  </td>
+
+  <td>
+    Room Code <input type="text" [(ngModel)]="selectedRoom.roomCode"/><br>
+    Capacity <input type="text" [(ngModel)]="selectedRoom.rom_capacity"/><br>
+    Floor <input type="text" [(ngModel)]="selectedRoom.rom_floor"/><br>
+    Type <input type="text" [(ngModel)]="selectedRoom.rom_type"/><br>
+
+    <button class="btn btn-primary" *ngIf="selectedRoom.roomCode" (click)="updateRoom()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedRoom.roomCode" (click)="createRoom()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedRoom.roomCode" (click)="deleteRoom()"> DELETE </button>
+   </td>
+</table>
+
+   <!-- <td><button (click)="roomDetails(room.roomCode)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td> -->
+
+
+   <h2>List of Room</h2>
+<ul>
+  <li *ngFor="let room of rooms">
+    <h2 (click)="roomClicked(room)">{{room.roomCode}}</h2>
+  </li>
+</ul>
+<hr>
+roomCode <input type="text" [(ngModel)]="selectedRoom.roomCode"/><br>
+rom_capacity <input type="text" [(ngModel)]="selectedRoom.rom_capacity"/><br>
+rom_floor <input type="text" [(ngModel)]="selectedRoom.rom_floor"/><br>
+rom_type <input type="text" [(ngModel)]="selectedRoom.rom_type"/><br>
+<button class="btn btn-primary" *ngIf="selectedRoom.roomCode" (click)="updateRoom()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedRoom.roomCode" (click)="createRoom()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedRoom.roomCode" (click)="deleteRoom()"> DELETE </button> */

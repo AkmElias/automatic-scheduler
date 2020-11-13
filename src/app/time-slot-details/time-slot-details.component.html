@@ -1,0 +1,43 @@
+<!-- Content Header (Page header) -->
+ <div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">View TimeSlot</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">View TimeSlot</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div  style="width:800px; margin:0 auto;">
+
+<hr/>
+<div *ngIf="timeSlot">
+  <div>
+    <label><b>TimeSlot ID: </b></label> {{timeSlot.timeSlotID}}
+  </div>
+  <div>
+    <label><b>Day: </b></label> {{timeSlot.tst_day}}
+  </div>
+  <div>
+    <label><b>Duration: </b></label> {{timeSlot.tst_duration}}
+  </div>
+  <div>
+    <label><b>Type: </b></label> {{timeSlot.tst_type}}
+  </div>
+</div>
+
+<br>
+<br>
+<!-- <button (click)="list()" class="btn btn-primary">Back to TimeSlot List</button><br> -->
+
+<button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="TimeSlotlist()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button><br>
+
+</div>

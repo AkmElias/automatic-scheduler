@@ -1,0 +1,120 @@
+th {
+  background-color: SlateBlue;
+  color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+/* td, th {
+  border: 1px solid #ddd;
+  padding: 8px
+}
+
+table, th, td {
+  border: 1px solid black;
+} */
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+}
+
+
+
+/* <h2>List of CourseOffered</h2>
+<ul>
+  <li *ngFor="let courseOffered of coursesOffered">
+    <h2 (click)="courseOfferedClicked(courseOffered)">{{courseOffered.courseOfferedID}}</h2>
+  </li>
+</ul>
+<hr>
+courseOfferedID <input type="text" [(ngModel)]="selectedCourseOffered.courseOfferedID"/><br>
+ofr_term <input type="text" [(ngModel)]="selectedCourseOffered.ofr_term"/><br>
+ofr_year <input type="text" [(ngModel)]="selectedCourseOffered.ofr_year"/><br>
+courseCode <input type="text" [(ngModel)]="selectedCourseOffered.courseCode"/><br>
+batchName <input type="text" [(ngModel)]="selectedCourseOffered.batchName"/><br>
+facultyID <input type="text" [(ngModel)]="selectedCourseOffered.facultyID"/><br>
+<button class="btn btn-primary" *ngIf="selectedCourseOffered.courseOfferedID" (click)="updateCourseOffered()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedCourseOffered.courseOfferedID" (click)="createCourseOffered()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedCourseOffered.courseOfferedID" (click)="deleteCourseOffered()"> DELETE </button>
+
+
+<td>
+CourseOffered ID <input type="text" [(ngModel)]="selectedCourseOffered.courseOfferedID"/><br>
+Term <input type="text" [(ngModel)]="selectedCourseOffered.ofr_term"/><br>
+Year <input type="text" [(ngModel)]="selectedCourseOffered.ofr_year"/><br>
+Course <input type="text" [(ngModel)]="selectedCourseOffered.courseCode"/><br>
+batch <input type="text" [(ngModel)]="selectedCourseOffered.batchName"/><br>
+Faculty <input type="text" [(ngModel)]="selectedCourseOffered.facultyID"/><br>
+<button class="btn btn-primary" *ngIf="selectedCourseOffered.courseOfferedID" (click)="updateCourseOffered()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedCourseOffered.courseOfferedID" (click)="createCourseOffered()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedCourseOffered.courseOfferedID" (click)="deleteCourseOffered()"> DELETE </button>
+</td> */
+
+
+/*
+<table class="table table-bordered">
+  <thead>
+    <tr>
+       <th>courseOfferedID</th>
+       <th>Term</th>
+       <th>Year</th>
+       <th>Course</th>
+       <th>Batch</th>
+       <th>Faculty</th>
+    </tr>
+ </thead>
+  <td>
+    <tr *ngFor="let courseOffered of coursesOffered">
+       <h6 (click)="courseOfferedClicked(courseOffered)">{{courseOffered.courseOfferedID}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let courseOffered of coursesOffered">
+       <h6 (click)="courseOfferedClicked(courseOffered)">{{courseOffered.ofr_term}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let courseOffered of coursesOffered">
+       <h6 (click)="courseOfferedClicked(courseOffered)">{{courseOffered.ofr_year}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let courseOffered of coursesOffered">
+       <h6 (click)="courseOfferedClicked(courseOffered)">{{courseOffered.courseCode}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let courseOffered of coursesOffered">
+       <h6 (click)="courseOfferedClicked(courseOffered)">{{courseOffered.batchName}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let courseOffered of coursesOffered">
+       <h6 (click)="courseOfferedClicked(courseOffered)">{{courseOffered.facultyID}}</h6>
+   </tr>
+  </td>
+
+  <td>
+    CourseOffered ID <input type="text" [(ngModel)]="selectedCourseOffered.courseOfferedID"/><br>
+    Term <input type="text" [(ngModel)]="selectedCourseOffered.ofr_term"/><br>
+    Year <input type="text" [(ngModel)]="selectedCourseOffered.ofr_year"/><br>
+    Course <input type="text" [(ngModel)]="selectedCourseOffered.courseCode"/><br>
+    batch <input type="text" [(ngModel)]="selectedCourseOffered.batchName"/><br>
+    Faculty <input type="text" [(ngModel)]="selectedCourseOffered.facultyID"/><br>
+    <button class="btn btn-primary" *ngIf="selectedCourseOffered.courseOfferedID" (click)="updateCourseOffered()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedCourseOffered.courseOfferedID" (click)="createCourseOffered()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedCourseOffered.courseOfferedID" (click)="deleteCourseOffered()"> DELETE </button>
+  </td>
+</table> */

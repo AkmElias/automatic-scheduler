@@ -1,0 +1,94 @@
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">List of CourseOffered</h3>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">CourseOffered</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div *ngIf="sectionOne">
+  <h1>Term</h1>
+  <input class="form-control" [(ngModel)]="one">
+  <button class="btn btn-primary" (click)="stepOne()">Submit</button>
+</div>
+<div *ngIf="sectionTwo">
+  <h1>Year</h1>
+</div>
+<div *ngIf="sectionThree">
+</div>
+
+<div *ngIf="sectionTwo">
+  <input class="form-control" [(ngModel)]="two">
+  <button class="btn btn-primary" (click)="stepTwo()">Submit</button>
+</div>
+<div *ngIf="sectionThree">
+  <h1>Department</h1>
+</div>
+<div *ngIf="sectionOne">
+</div>
+
+<div *ngIf="sectionThree">
+  <input class="form-control" [(ngModel)]="three">
+  <button class="btn btn-primary" (click)="stepThree()">Submit</button>
+</div>
+<div *ngIf="sectionTwo">
+</div>
+<div *ngIf="sectionOne">
+</div>
+
+<div class="container text-center">
+  <!-- <h1>{{title}}</h1> -->
+</div>
+<div class="container">
+<div class="row">
+ <div class="container">
+  <div class="text-right">
+    <b><h1><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add CourseOffered" (click)="CreatecourseOffered()" class="btn btn-info" style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
+  </div>
+ </div>
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+       <!-- <th>courseOfferedID</th> -->
+       <th>Term</th>
+       <th>Year</th>
+       <th>Course</th>
+       <th>Batch</th>
+       <th>Section</th>
+       <th>Faculty</th>
+       <th></th>
+       <th></th>
+       <th></th>
+       <!-- <th>View</th>
+       <th>Edit</th>
+       <th>Delete</th> -->
+    </tr>
+ </thead>
+<tbody>
+  <tr *ngFor="let courseOffered of finalCoursesOffered" (click)="courseOfferedClicked(courseOffered)">
+    <!-- <td><h6 (click)="courseOfferedClicked(courseOffered)"><tr>{{courseOffered.courseOfferedID}}</tr></h6></td> -->
+    <td><h6 (click)="courseOfferedClicked(courseOffered)"><tr>{{courseOffered.term}}</tr></h6></td>
+    <td><h6 (click)="courseOfferedClicked(courseOffered)"><tr>{{courseOffered.year}}</tr></h6></td>
+    <td><h6 (click)="courseOfferedClicked(courseOffered)"><tr>{{courseOffered.course}}</tr></h6></td>
+    <td><h6 (click)="courseOfferedClicked(courseOffered)"><tr>{{courseOffered.batch + ' ' +courseOffered.section}}</tr></h6></td>
+    <td><h6 (click)="courseOfferedClicked(courseOffered)"><tr>{{courseOffered.faculty}}</tr></h6></td>
+
+    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="courseOfferedDetails(courseOffered.id)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
+    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="UpdatecourseOffered(courseOffered.courseOfferedID)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o"></i></button></td>
+    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedCourseOffered.courseOfferedID" (click)="deleteCourseOffered()"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</div>

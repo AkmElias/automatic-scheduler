@@ -1,0 +1,81 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">Edit Exam</h3>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Edit Exam</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+<div class="text-center">
+  <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
+</div>
+<br>
+<div  style="width:800px; margin:0 auto;">
+  <form>
+    <!-- <div class="form-group" style="width: 400px;">
+      <label for="name">Exam ID</label>
+      <input type="text" class="form-control" id="examID" required [(ngModel)]="exam.examID" name="examID">
+    </div> -->
+
+    <div class="form-group" style="width: 400px;"
+    [class.has-error]="type.invalid && type.touched">
+    <label class="control-label">Type</label>
+    <div class="form-control" style="width: 400px;">
+        <label class="radio-inline">
+            <input type="radio" name="type" required #type="ngModel"
+                   value="Supplymentary" [(ngModel)]="exam.exm_type"> Supplymentary
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="type" required #type="ngModel"
+                   value="Mid Term" [(ngModel)]="exam.exm_type"> Mid Term
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="type" required #type="ngModel"
+                 value="Final" [(ngModel)]="exam.exm_type"> Final
+      </label>
+    </div>
+    <span class="help-block" *ngIf="type.errors?.required && type.touched">
+        Type is required
+    </span>
+    </div>
+
+    <div class="form-group" style="width: 400px;"
+    [class.has-error]="term.invalid && term.touched">
+    <label class="control-label">Term</label>
+    <div class="form-control">
+        <label class="radio-inline">
+            <input type="radio" name="term" required #term="ngModel"
+                   value="Spring" [(ngModel)]="exam.exm_term"> Spring
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="term" required #term="ngModel"
+                   value="Summer" [(ngModel)]="exam.exm_term"> Summer
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="term" required #term="ngModel"
+                 value="Autumn" [(ngModel)]="exam.exm_term"> Autumn
+      </label>
+    </div>
+    <span class="help-block" *ngIf="term.errors?.required && term.touched">
+        Term is required
+    </span>
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="name">Year</label>
+      <input type="text" class="form-control" id="exm_year" required [(ngModel)]="exam.exm_year" name="Year">
+    </div>
+
+    <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Edit Exam" class="btn btn-success" (click)="updateExam()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> EDIT </button>
+  </form>
+  </div>
+</div>

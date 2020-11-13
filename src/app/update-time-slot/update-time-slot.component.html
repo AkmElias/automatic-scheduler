@@ -1,0 +1,65 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">Edit TimeSlot</h3>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Edit TimeSlot</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+<div class="text-center">
+  <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
+</div>
+<br>
+<div  style="width:800px; margin:0 auto;">
+  <form>
+    <!-- <div class="form-group" style="width: 400px;">
+      <label for="name">TimeSlot ID</label>
+      <input type="text" class="form-control" id="timeSlotID" required [(ngModel)]="timeSlot.timeSlotID" name="timeSlotID">
+    </div> -->
+
+    <div class="form-group" style="width: 400px;">
+      <label for="name">Day</label>
+      <input type="text" class="form-control" id="tst_day" required [(ngModel)]="timeSlot.tst_day" name="Day">
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="name">Day</label>
+      <select class="form-control" id="tst_day" required [(ngModel)]="timeSlot.tst_day" name="Day">
+        <option>Sun</option>
+        <option>Mon</option>
+        <option>Tue</option>
+        <option>Wed</option>
+        <option>Thurs</option>
+        <option>Fri</option>
+        <option>Sat</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="name">Duration</label>
+      <input type="text" class="form-control" id="tst_duration" required [(ngModel)]="timeSlot.tst_duration" name="Duration">
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="type">Type:</label>
+      <select class="form-control" id="tst_type" required [(ngModel)]="timeSlot.tst_type" name="Type">
+        <option>Classroom</option>
+        <option>Final</option>
+        <option>MidTerm</option>
+        <option>Supplymentary</option>
+      </select>
+    </div>
+
+    <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Edit TimeSlot" class="btn btn-success" (click)="updateTimeSlot()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> EDIT </button>
+  </form>
+</div>
+</div>

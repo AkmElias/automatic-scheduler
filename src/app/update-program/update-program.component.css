@@ -1,0 +1,112 @@
+/* <div class="form-group" style="width: 400px;">
+      <label for="name">Department ID</label>
+      <input type="text" class="form-control" id="DepartmentID" required [(ngModel)]="program.DepartmentID" name="DepartmentID">
+</div> */
+
+/*
+  <div class="form-group" style="width: 400px;">
+    <label for="name">Type</label>
+    <input type="text" class="form-control" id="pro_type" required [(ngModel)]="program.pro_type" name="Type">
+  </div> */
+
+/* import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-update-program',
+  templateUrl: './update-program.component.html',
+  styleUrls: ['./update-program.component.css']
+})
+export class UpdateProgramComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */
+
+/*
+programs = [{pro_name: ''}];
+  Program;
+  {
+    this.getPrograms();
+    this.Program = {programCode: '', pro_name: '' , pro_shortForm: '', DepartmentID: '', pro_type: ''};
+  }
+
+  getPrograms = () => {
+    this.programService.getAllPrograms().subscribe(
+      data => {
+        this.programs = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  programClicked = (program) => {
+    this.programService.getOneProgram(program.ProgramID).subscribe(
+      data => {
+        this.Program = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  updateProgram = () => {
+    this.programService.updateProgram(this.Program).subscribe(
+      data => {
+        this.getPrograms();
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  onSubmit() {
+    this.updateProgram();
+  }
+
+
+  gotoList() {
+    this.router.navigate(['/program']);
+  } */
+
+
+
+  /* <h3>Update Program</h3>
+<div [hidden]="onSubmit" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Program Code</label>
+      <input type="text" class="form-control" id="programCode" required [(ngModel)]="Program.programCode" name="programCode">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="pro_name" required [(ngModel)]="Program.pro_name" name="pro_name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Short Form</label>
+      <input type="text" class="form-control" id="pro_shortForm" required [(ngModel)]="Program.pro_shortForm" name="pro_shortForm">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Department ID</label>
+      <input type="text" class="form-control" id="DepartmentID" required [(ngModel)]="Program.DepartmentID" name="DepartmentID">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Type</label>
+      <input type="text" class="form-control" id="pro_type" required [(ngModel)]="Program.pro_type" name="Type">
+    </div>
+
+
+    <button class="btn btn-success"  (click)="updateProgram()"> EDIT </button>
+  </form>
+
+</div> */

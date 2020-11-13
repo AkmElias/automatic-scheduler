@@ -1,0 +1,81 @@
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">List of Program</h3>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Program</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div class="container text-center">
+  <!-- <h1>{{title}}</h1> -->
+</div>
+<div class="container">
+  <div class="row">
+    <div class="search-programs" style="width:800px; margin:0 auto;">
+      <form>
+      <input class="form-control" type="text" name="search" size="60" name="q" value="" id="searchbar" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a program by name or code">
+      <!-- <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button> -->
+    </form>
+    </div>
+
+    <b><h1> <button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Program" (click)="Createprogram()" class="btn btn-primary mr-2" style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
+
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+           <th>Program Code</th>
+           <th>Name</th>
+           <th>Short Form</th>
+           <th>Department ID</th>
+           <th>Type</th>
+           <th>Batch</th>
+           <th>Course</th>
+           <th></th>
+           <th></th>
+           <th></th>
+           <!-- <th>View</th>
+           <th>Edit</th>
+           <th>Delete</th> -->
+        </tr>
+     </thead>
+ <tbody>
+  <tr *ngFor="let program of programs" (click)="programClicked(program)">
+  <tr *ngFor="let program of programs  | filter:searchText">
+    <td><h6 (click)="programClicked(program)"><tr>{{program.programCode}}</tr></h6></td>
+    <td><h6 (click)="programClicked(program)"><tr>{{program.pro_name}}</tr></h6></td>
+    <td><h6 (click)="programClicked(program)"><tr>{{program.pro_shortForm}}</tr></h6></td>
+    <td><h6 (click)="programClicked(program)"><tr>{{program.DepartmentID}}</tr></h6></td>
+    <td><h6 (click)="programClicked(program)"><tr>{{program.pro_type}}</tr></h6></td>
+
+    <td><a class ="btn btn-info" routerLink="/batch/{{program.programCode}}"><i class="fas fa-laptop-code"></i></a>
+    <td><a class ="btn btn-info" routerLink="/course/{{program.programCode}}"><i class="fas fa-laptop-code"></i></a>
+    <!-- <td><a class ="btn btn-info" routerLink="/program/{{program.DepartmentID}}"><i class="fas fa-laptop-code"></i></a> -->
+
+    <!-- <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Batch" (click)="gotoBatch()" class="btn btn-dark" style="margin-left: 10px"><i class="fas fa-university"></i></button></td> -->
+
+    <!-- <td><a href="http://localhost:4200/batch" title="Batch" class="btn btn-dark" style="margin-left: 10px">
+    <i class="nav-icon fa fa-university"></i></a></td> -->
+
+    <!-- <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Course" (click)="gotoCourse()" class="btn btn-secondary" style="margin-left: 10px"><i class="nav-icon fa fa-book"></i></button></td> -->
+
+    <!-- <td><a href="http://localhost:4200/course" title="Course" class="btn btn-secondary" style="margin-left: 10px">
+    <i class="nav-icon fa fa-book"></i></a></td> -->
+    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="programDetails(program.programCode)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
+    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="Updateprogram(program.programCode)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o"></i></button></td>
+    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedProgram.programCode" (click)="deleteProgram()"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</div>

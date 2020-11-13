@@ -1,0 +1,63 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">Edit Program</h3>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Edit Program</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+<div class="text-center">
+  <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
+</div>
+<br>
+<div  style="width:800px; margin:0 auto;">
+  <form>
+    <div class="form-group" style="width: 400px;">
+      <label for="name">Program Code</label>
+      <input type="text" class="form-control" id="programCode" required [(ngModel)]="program.programCode" name="programCode">
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="pro_name" required [(ngModel)]="program.pro_name" name="pro_name">
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="name">Short Form</label>
+      <input type="text" class="form-control" id="pro_shortForm" required [(ngModel)]="program.pro_shortForm" name="pro_shortForm">
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="department">Department </label>
+      <select id="DepartmentID" name="DepartmentID" [(ngModel)]="program.DepartmentID"
+              class="form-control">
+        <option *ngFor="let department of departments" [value]="department.DepartmentID">
+          {{department.dpt_name}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="type">Type</label>
+      <select class="form-control" id="pro_type" required [(ngModel)]="program.pro_type" name="Type">
+        <option>honours</option>
+        <option>masters</option>
+        <option>diploma</option>
+        <option>PhD</option>
+      </select>
+    </div>
+    <br>
+    <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Edit Program" class="btn btn-success" (click)="updateProgram()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> EDIT </button>
+  </form>
+</div>
+
+</div>

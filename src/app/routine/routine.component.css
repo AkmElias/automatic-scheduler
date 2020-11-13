@@ -1,0 +1,123 @@
+th {
+  background-color: SlateBlue;
+  color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+/* td, th {
+  border: 1px solid #ddd;
+  padding: 8px
+}
+
+table, th, td {
+  border: 1px solid black;
+} */
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+}
+
+
+/* <div class="form-group">
+  <label for="name">Code</label>
+  <input type="text" class="form-control" id="dpt_code" required [(ngModel)]="Department.dpt_code" name="Code">
+</div>
+
+<div class="form-group">
+  <label for="name">Program Code</label>
+  <input type="text" class="form-control" id="programCode" required [(ngModel)]="Program.programCode" name="programCode">
+</div>
+
+<div class="form-group">
+  <label for="name">CourseOffered ID</label>
+  <input type="text" class="form-control" id="routineID" required [(ngModel)]="CourseOffered.routineID" name="CourseOffered ID">
+</div>
+
+
+<label for="name">Room Code</label>
+<input type="text" class="form-control" id="roomCode" required [(ngModel)]="Room.roomCode" name="roomCode">
+</div> */
+
+/* <td>
+<tr *ngFor="let routine of routines">
+  <h6 (click)="routineClicked(routine)">{{routine.routineID}}</h6>
+</tr>
+</td>
+<td>
+<tr *ngFor="let routine of routines">
+  <h6 (click)="routineClicked(routine)">{{routine.routineID}}</h6>
+</tr>
+</td>
+<td>
+<tr *ngFor="let routine of routines">
+  <h6 (click)="routineClicked(routine)">{{routine.roomCode}}</h6>
+</tr>
+</td>
+<td>
+<tr *ngFor="let routine of routines">
+  <h6 (click)="routineClicked(routine)">{{routine.examID}}</h6>
+</tr>
+<tr *ngFor="let routine of routines">
+  <h6 (click)="routineClicked(routine)">{{routine.timeSlotID}}</h6>
+</tr>
+</td> */
+
+/* <td>
+routineID <input type="text" [(ngModel)]="selectedRoutine.routineID"/><br>
+routineID <input type="text" [(ngModel)]="selectedRoutine.routineID"/><br>
+roomCode <input type="text" [(ngModel)]="selectedRoutine.roomCode"/><br>
+routine ID <input type="text" [(ngModel)]="selectedRoutine.routineID"/><br>
+timeSlotID <input type="text" [(ngModel)]="selectedRoutine.timeSlotID"/><br>
+<button class="btn btn-primary" *ngIf="selectedRoutine.routineID" (click)="updateRoutine()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedRoutine.routineID" (click)="createRoutine()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedRoutine.routineID" (click)="deleteRoutine()"> DELETE </button>
+
+</td> */
+
+/*
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-routine',
+  templateUrl: './routine.component.html',
+  styleUrls: ['./routine.component.css']
+})
+export class RoutineComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */
+
+
+/* routineID <input type="text" [(ngModel)]="selectedRoutine.routineID"/><br>
+courseOfferedID <input type="text" [(ngModel)]="selectedRoutine.courseOfferedID"/><br>
+roomCode <input type="text" [(ngModel)]="selectedRoutine.roomCode"/><br>
+routine ID <input type="text" [(ngModel)]="selectedRoutine.routineID"/><br>
+timeSlotID <input type="text" [(ngModel)]="selectedRoutine.timeSlotID"/><br>
+<button class="btn btn-primary" *ngIf="selectedRoutine.routineID" (click)="updateRoutine()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedRoutine.routineID" (click)="createRoutine()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedRoutine.routineID" (click)="deleteRoutine()"> DELETE </button> */
+
+/*
+<ul>
+  <li *ngFor="let routine of routines">
+    <h2 (click)="routineClicked(routine)">{{routine.routineID}}</h2>
+  </li>
+</ul>
+<hr> */

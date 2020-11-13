@@ -1,0 +1,121 @@
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
+/* <div class="form-group" style="width: 400px;">
+  <label for="name">Program Code</label>
+  <input type="text" class="form-control" id="programCode" required [(ngModel)]="course.programCode" name="programCode">
+</div> */
+
+/* <div class="form-group">
+<label for="name">Category</label>
+<input type="text" class="form-control" id="crs_category" required [(ngModel)]="course.crs_category" name="crs_category">
+</div> */
+
+/* import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-update-course',
+  templateUrl: './update-course.component.html',
+  styleUrls: ['./update-course.component.css']
+})
+export class UpdateCourseComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */
+
+/*
+courses = [{courseCode: ''}];
+Course;
+{
+  this.getCourses();
+  this.Course = {courseID: '-1', courseCode: 'test',  crs_title: '', crs_shortName: '', crs_category: '', programCode: '' };
+}
+getCourses = () => {
+  this.courseService.getAllCourses().subscribe(
+    data => {
+      this.courses = data;
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+
+courseClicked = (course) => {
+  this.courseService.getOneCourse(course.CourseID).subscribe(
+    data => {
+      this.Course = data;
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+
+updateCourse = () => {
+  this.courseService.updateCourse(this.Course).subscribe(
+    data => {
+      this.getCourses();
+    },
+    error => {
+      console.log(error);
+    }
+  );
+    list(){
+    this.router.navigate(['course']);
+  }
+} */
+
+
+/*
+
+<h3>Update Course</h3>
+<div [hidden]="onSubmit" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Course ID</label>
+        <input type="text" class="form-control" id="courseID" required [(ngModel)]="Course.courseID" name="courseID">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Course Title</label>
+        <input type="text" class="form-control" id="crs_title" required [(ngModel)]="Course.crs_title" name="crs_title">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Course Code</label>
+        <input type="text" class="form-control" id="courseCode" required [(ngModel)]="Course.courseCode" name="courseCode">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Short Name</label>
+        <input type="text" class="form-control" id="crs_shortName" required [(ngModel)]="Course.crs_shortName" name="crs_shortName">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Category</label>
+        <input type="text" class="form-control" id="crs_category" required [(ngModel)]="Course.crs_category" name="crs_category">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Program Code</label>
+        <input type="text" class="form-control" id="programCode" required [(ngModel)]="Course.programCode" name="programCode">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Type</label>
+        <input type="text" class="form-control" id="pro_type" required [(ngModel)]="Course.pro_type" name="Type">
+      </div>
+
+      <button class="btn btn-success"  (click)="updateCourse()"> EDIT </button>
+   </form>
+
+
+</div>
+
+<button (click)="list()" class="btn btn-primary">Back to Course</button><br> */

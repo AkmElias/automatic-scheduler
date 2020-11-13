@@ -1,0 +1,45 @@
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
+/* <div class="form-group">
+  <label for="name">Term</label>
+  <input type="text" class="form-control" id="CourseOffered.ofr_term" required [(ngModel)]="CourseOffered.ofr_term" name="Term">
+</div> */
+
+/* <div class="form-group">
+  <label for="name">Year</label>
+  <input type="text" class="form-control" id="ofr_year" required [(ngModel)]="CourseOffered.ofr_year" name="Year">
+</div> */
+
+/* <div class="form-group">
+  <label for="name">Course</label>
+  <input type="text" class="form-control" id="courseCode" required [(ngModel)]="CourseOffered.courseCode" name="courseCode">
+</div> */
+
+/* <div class="form-group">
+  <label for="name">Batch</label>
+  <input type="text" class="form-control" id="batchName" required [(ngModel)]="CourseOffered.batchName" name="batchName">
+</div> */
+
+/* <div class="form-group">
+  <label for="name">Faculty</label>
+  <input type="text" class="form-control" id="facultyID" required [(ngModel)]="CourseOffered.facultyID" name="facultyID">
+</div>
+ */
+
+/* import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-create-course-offered',
+  templateUrl: './create-course-offered.component.html',
+  styleUrls: ['./create-course-offered.component.css']
+})
+export class CreateCourseOfferedComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */

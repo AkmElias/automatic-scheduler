@@ -1,0 +1,117 @@
+<p>update-create-routine works!</p>
+
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Edit CreateRoutine</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Edit CreateRoutine</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid h-100 bg-light text-dark">
+<div class="text-center">
+  <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
+</div>
+<br>
+<div  style="width:800px; margin:0 auto;">
+<h3>Update CreateRoutine</h3>
+<div>
+  <form>
+    <!-- <div class="form-group">
+      <label for="name">Routine ID</label>
+      <input type="text" class="form-control" id="routineID" required [(ngModel)]="CreateRoutine.routineID" name="Routine ID">
+    </div> -->
+
+    <div class="form-group">
+      <label for="faculty">Faculty</label>
+      <select id="fac_shortName" name="fac_shortName" [(ngModel)]="createRoutine.fac_shortName"
+              class="form-control">
+        <option *ngFor="let faculty of faculties" [value]="faculty.fac_shortName">
+          {{faculty.fac_shortName}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="batch">Batch</label>
+      <select id="batch" name="batch" [(ngModel)]="createRoutine.batch"
+              class="form-control">
+        <option *ngFor="let batch of batches" [value]="batch.batchName">
+          {{batch.batchName}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="batch">Section</label>
+      <select id="section" name="section" [(ngModel)]="createRoutine.section"
+              class="form-control">
+        <option *ngFor="let batch of batches" [value]="batch.sectionName">
+          {{batch.sectionName}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="course">CourseCode</label>
+      <select id="courseCode" name="courseCode" [(ngModel)]="createRoutine.courseCode"
+              class="form-control">
+        <option *ngFor="let course of courses" [value]="course.courseCode">
+          {{course.courseCode}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="course">Course</label>
+      <select id="crs_shortName" name="crs_shortName" [(ngModel)]="createRoutine.crs_shortName"
+              class="form-control">
+        <option *ngFor="let course of courses" [value]="course.crs_shortName">
+          {{course.crs_shortName}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="room">Room</label>
+      <select id="roomCode" name="roomCode" [(ngModel)]="createRoutine.roomCode"
+              class="form-control">
+        <option *ngFor="let room of rooms" [value]="room.roomCode">
+          {{room.roomCode}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="timeSlot">Day</label>
+      <select id="day" name="day" [(ngModel)]="createRoutine.day"
+              class="form-control">
+        <option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.tst_day">
+          {{timeSlot.tst_day}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="timeSlot">Duration</label>
+      <select id="duration" name="duration" [(ngModel)]="createRoutine.duration"
+              class="form-control">
+        <option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.tst_duration">
+          {{timeSlot.tst_duration}}
+        </option>
+      </select>
+    </div>
+
+
+    <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Edit CreateRoutine" class="btn btn-success" (click)="updateCreateRoutine()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> EDIT </button>
+  </form>
+</div>
+</div>

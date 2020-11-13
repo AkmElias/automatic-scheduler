@@ -1,0 +1,317 @@
+th {
+  background-color: SlateBlue;
+  color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+/* td, th {
+  border: 1px solid #ddd;
+  padding: 8px
+}
+
+table, th, td {
+  border: 1px solid black;
+} */
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+}
+
+
+
+.container {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #405065;
+}
+
+.search-faculties {
+  max-width: 500px;
+  padding-bottom: 50px;
+  margin:auto;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+.form-control::placeholder  {
+  font-family: FontAwesome;
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* <div class="container">
+  <h2 style="text-align:center">Faculty</h2>
+
+  facultyID <input type="text" [(ngModel)]="selectedFaculty.facultyID"/><br>
+  Title <input type="text" [(ngModel)]="selectedFaculty.fac_title"/><br>
+  First Name <input type="text" [(ngModel)]="selectedFaculty.fac_firstName"/><br>
+  Last Name <input type="text" [(ngModel)]="selectedFaculty.fac_lastName"/><br>
+  Short Name <input type="text" [(ngModel)]="selectedFaculty.fac_shortName"/><br>
+  Gender <input type="text" [(ngModel)]="selectedFaculty.fac_gender"/><br>
+  Designation <input type="text" [(ngModel)]="selectedFaculty.fac_designation"/><br>
+  Department ID <input type="text" [(ngModel)]="selectedFaculty.DepartmentID"/><br>
+
+  <div class="row">
+    <button class="btn btn-primary" *ngIf="selectedFaculty.facultyID" (click)="updateFaculty()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedFaculty.facultyID" (click)="createFaculty()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedFaculty.facultyID" (click)="deleteFaculty()"> DELETE </button>
+  </div>
+</div> */
+
+/*
+
+<h2>List of Faculty</h2>
+<ul>
+  <li *ngFor="let faculty of faculties">
+    <h2 (click)="facultyClicked(faculty)">{{faculty.fac_shortName}}</h2>
+    <h2 (click)="facultyClicked(faculty)">{{faculty.fac_firstName}}</h2>
+    <h2 (click)="facultyClicked(faculty)">{{faculty.fac_lastName}}</h2>
+  </li>
+</ul>
+<hr>
+facultyID <input type="text" [(ngModel)]="selectedFaculty.facultyID"/><br>
+fac_title <input type="text" [(ngModel)]="selectedFaculty.fac_title"/><br>
+fac_firstName <input type="text" [(ngModel)]="selectedFaculty.fac_firstName"/><br>
+fac_lastName <input type="text" [(ngModel)]="selectedFaculty.fac_lastName"/><br>
+fac_shortName <input type="text" [(ngModel)]="selectedFaculty.fac_shortName"/><br>
+fac_gender <input type="text" [(ngModel)]="selectedFaculty.fac_gender"/><br>
+fac_designation <input type="text" [(ngModel)]="selectedFaculty.fac_designation"/><br>
+DepartmentID <input type="text" [(ngModel)]="selectedFaculty.DepartmentID"/><br>
+<button class="btn btn-primary" *ngIf="selectedFaculty.facultyID" (click)="updateFaculty()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedFaculty.facultyID" (click)="createFaculty()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedFaculty.facultyID" (click)="deleteFaculty()"> DELETE </button>
+
+<div class="container">
+  <h2 style="text-align:center">Faculty</h2>
+
+  facultyID <input type="text" [(ngModel)]="selectedFaculty.facultyID"/><br>
+  Title <input type="text" [(ngModel)]="selectedFaculty.fac_title"/><br>
+  First Name <input type="text" [(ngModel)]="selectedFaculty.fac_firstName"/><br>
+  Last Name <input type="text" [(ngModel)]="selectedFaculty.fac_lastName"/><br>
+  Short Name <input type="text" [(ngModel)]="selectedFaculty.fac_shortName"/><br>
+  Gender <input type="text" [(ngModel)]="selectedFaculty.fac_gender"/><br>
+  Designation <input type="text" [(ngModel)]="selectedFaculty.fac_designation"/><br>
+  Department ID <input type="text" [(ngModel)]="selectedFaculty.DepartmentID"/><br>
+
+  <div class="row">
+    <button class="btn btn-primary" *ngIf="selectedFaculty.facultyID" (click)="updateFaculty()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedFaculty.facultyID" (click)="createFaculty()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedFaculty.facultyID" (click)="deleteFaculty()"> DELETE </button>
+  </div>
+</div>
+
+
+<h2>List of Faculty</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+       <th>Faculty ID</th>
+       <th>Faculty Title</th>
+       <th>First Name</th>
+       <th>Last Name</th>
+       <th>Short Name</th>
+       <th>Gender</th>
+       <th>Designation</th>
+       <th>DepartmentID</th>
+       <th>Action</th>
+    </tr>
+ </thead>
+ <td>
+  <tr *ngFor="let faculty of faculties">
+     <h6 (click)="facultyClicked(faculty)">{{faculty.facultyID}}</h6>
+ </tr>
+</td>
+<td>
+  <tr *ngFor="let faculty of faculties">
+     <h6 (click)="facultyClicked(faculty)">{{faculty.fac_title}}</h6>
+ </tr>
+</td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.fac_firstName}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.fac_lastName}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.fac_shortName}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.fac_gender}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.fac_designation}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.DepartmentID}}</h6>
+   </tr>
+  </td>
+
+  <td>
+    facultyID <input type="text" [(ngModel)]="selectedFaculty.facultyID"/><br>
+    Title <input type="text" [(ngModel)]="selectedFaculty.fac_title"/><br>
+    First Name <input type="text" [(ngModel)]="selectedFaculty.fac_firstName"/><br>
+    Last Name <input type="text" [(ngModel)]="selectedFaculty.fac_lastName"/><br>
+    Short Name <input type="text" [(ngModel)]="selectedFaculty.fac_shortName"/><br>
+    Gender <input type="text" [(ngModel)]="selectedFaculty.fac_gender"/><br>
+    Designation <input type="text" [(ngModel)]="selectedFaculty.fac_designation"/><br>
+    Department ID <input type="text" [(ngModel)]="selectedFaculty.DepartmentID"/><br>
+    <button class="btn btn-primary" *ngIf="selectedFaculty.facultyID" (click)="updateFaculty()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedFaculty.facultyID" (click)="createFaculty()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedFaculty.facultyID" (click)="deleteFaculty()"> DELETE </button>
+    </td>
+</table>
+
+
+
+<h2>List of Faculty</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+       <th>Faculty ID</th>
+       <th>Faculty Title</th>
+       <th>First Name</th>
+       <th>Last Name</th>
+       <th>Short Name</th>
+       <th>Gender</th>
+       <th>Designation</th>
+       <th>DepartmentID</th>
+       <th>Action</th>
+    </tr>
+ </thead>
+ <td>
+  <tr *ngFor="let faculty of faculties">
+     <h6 (click)="facultyClicked(faculty)">{{faculty.facultyID}}</h6>
+ </tr>
+</td>
+<td>
+  <tr *ngFor="let faculty of faculties">
+     <h6 (click)="facultyClicked(faculty)">{{faculty.fac_title}}</h6>
+ </tr>
+</td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.fac_firstName}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.fac_lastName}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.fac_shortName}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.fac_gender}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.fac_designation}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let faculty of faculties">
+       <h6 (click)="facultyClicked(faculty)">{{faculty.DepartmentID}}</h6>
+   </tr>
+  </td>
+
+  <td>
+    facultyID <input type="text" [(ngModel)]="selectedFaculty.facultyID"/><br>
+    Title <input type="text" [(ngModel)]="selectedFaculty.fac_title"/><br>
+    First Name <input type="text" [(ngModel)]="selectedFaculty.fac_firstName"/><br>
+    Last Name <input type="text" [(ngModel)]="selectedFaculty.fac_lastName"/><br>
+    Short Name <input type="text" [(ngModel)]="selectedFaculty.fac_shortName"/><br>
+    Gender <input type="text" [(ngModel)]="selectedFaculty.fac_gender"/><br>
+    Designation <input type="text" [(ngModel)]="selectedFaculty.fac_designation"/><br>
+    Department ID <input type="text" [(ngModel)]="selectedFaculty.DepartmentID"/><br>
+    <button class="btn btn-primary" *ngIf="selectedFaculty.facultyID" (click)="updateFaculty()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedFaculty.facultyID" (click)="createFaculty()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedFaculty.facultyID" (click)="deleteFaculty()"> DELETE </button>
+    </td>
+</table>  */

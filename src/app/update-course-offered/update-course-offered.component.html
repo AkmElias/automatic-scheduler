@@ -1,0 +1,107 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Edit CourseOffered</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Edit CourseOffered</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+<div class="text-center">
+  <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
+</div>
+<br>
+<div  style="width:800px; margin:0 auto;">
+  <form>
+    <!-- <div class="form-group">
+      <label for="name">CourseOffered ID</label>
+      <input type="text" class="form-control" id="courseOfferedID" required [(ngModel)]="courseOffered.courseOfferedID" name="CourseOffered ID">
+    </div> -->
+
+    <div class="form-group" style="width: 400px;"
+    [class.has-error]="term.invalid && term.touched">
+    <label class="control-label">Term</label>
+    <div class="form-control">
+        <label class="radio-inline">
+            <input type="radio" name="term" required #term="ngModel"
+                   value="Spring" [(ngModel)]="courseOffered.ofr_term"> Spring
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="term" required #term="ngModel"
+                   value="Summer" [(ngModel)]="courseOffered.ofr_term"> Summer
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="term" required #term="ngModel"
+                 value="Autumn" [(ngModel)]="courseOffered.ofr_term"> Autumn
+      </label>
+    </div>
+    <span class="help-block" *ngIf="term.errors?.required && term.touched">
+        Term is required
+    </span>
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="type">Year</label>
+      <select class="form-control" id="courseOffered.ofr_year" required [(ngModel)]="courseOffered.ofr_year" name="Year">
+        <option>2018</option>
+        <option>2019</option>
+        <option>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
+        <option>2025</option>
+        <option>2026</option>
+        <option>2027</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="course">Course</label>
+      <select id="courseCode" name="courseCode" [(ngModel)]="courseOffered.courseCode"
+              class="form-control">
+        <option *ngFor="let course of courses" [value]="course.courseCode">
+          {{course.courseCode + '-' + course.crs_shortName}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="batch">Batch</label>
+      <select id="sel1" name="batchName" [(ngModel)]="courseOffered.batchName"
+              class="form-control">
+        <option *ngFor="let batch of batches" [value]="batch.batchName">
+          {{batch.batchName +  batch.sectionName}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="name">Batch</label>
+      <input type="text" class="form-control" id="batchName" required [(ngModel)]="courseOffered.batchName" name="batchName">
+    </div>
+
+    <div class="form-group" style="width: 400px;">
+      <label for="faculty">Faculty</label>
+      <select id="facultyID" name="facultyID" [(ngModel)]="courseOffered.facultyID"
+              class="form-control">
+        <option *ngFor="let faculty of faculties" [value]="faculty.facultyID">
+          {{faculty.fac_shortName}}
+          <!-- {{faculty.fac_firstName + faculty.fac_lastName}} -->
+        </option>
+      </select>
+    </div>
+
+    <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Edit CourseOffered" class="btn btn-success" (click)="updateCourseOffered()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> EDIT </button>
+  </form>
+</div>
+</div>
+

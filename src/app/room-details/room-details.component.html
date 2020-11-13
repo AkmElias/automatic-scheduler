@@ -1,0 +1,43 @@
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">View Room</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">View Room</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div  style="width:800px; margin:0 auto;">
+
+<hr/>
+<div *ngIf="room">
+  <div>
+    <label><b>Room Code: </b></label> {{room.roomCode}}
+  </div>
+  <div>
+    <label><b>Capacity: </b></label> {{room.rom_capacity}}
+  </div>
+  <div>
+    <label><b>Floor: </b></label> {{room.rom_floor}}
+  </div>
+  <div>
+    <label><b>Type: </b></label> {{room.rom_type}}
+  </div>
+</div>
+
+<br>
+<br>
+<!-- <button (click)="list()" class="btn btn-primary">Back to Room List</button><br> -->
+
+<button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="Roomlist()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button><br>
+
+</div>

@@ -1,0 +1,302 @@
+input{
+  background-color: white;
+}
+
+
+/* <style> */
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+/* </style> */
+
+/*
+<div class="row">
+<div class="col-25">
+  <label for="fname">Name</label>
+</div>
+<div class="col-75">
+  <input [(ngModel)]="input.username" type="text" class="form-control" id="fname" name="name" placeholder="Name" required>
+</div>
+</div>
+<div class="row">
+<div class="col-25">
+  <label for="pword">Password</label>
+</div>
+<div class="col-75">
+  <input [(ngModel)]="input.password" type="password" class="form-control" id="pwd" name="password" placeholder="Password" required>
+</div>
+</div> */
+
+
+/*
+<div class="container">
+  <div class="logo">Create a new account!</div>
+  <div class="register-item">
+    <form #myform="ngForm" (ngSubmit)="(myform)" class="form form-register">
+
+      <div class="form-field">
+            <label class="user" for="register-username"><span class="hidden">Name</span></label>
+            <input name="name" id="register-username" type="email" class="form-input" placeholder="Name" ngModel required>
+      </div>
+      <div class="form-field">
+        <label class="user" for="register-email"><span class="hidden">Email</span></label>
+        <input name="email" id="register-email" type="email" class="form-input" placeholder="Email" ngModel required>
+      </div>
+
+      <div class="form-field">
+        <label class="lock" for="register-password"><span class="hidden">Password</span></label>
+        <input name="password" id="register-password" type="password" class="form-input" placeholder="Password" ngModel required>
+      </div>
+
+      <div class="form-field">
+        <input type="submit" value="Register">
+      </div>
+    </form>
+  </div>
+</div>
+
+
+ <div style="text-align:center">
+  <h1>
+    Register or Login
+  </h1>
+ <input [(ngModel)]="register.username" placeholder="username"><br>
+<input [(ngModel)]="register.password" placeholder="password" type="password"><br>
+<input [(ngModel)]="register.email" placeholder="email"><br>
+<button (click)="registerUser()">Register User</button>
+<input [(ngModel)]="input.username" class="form-control" placeholder="username" required>
+<br>
+<input [(ngModel)]="input.password" class="form-control" placeholder="password" type="password" required>
+<br>
+<input [(ngModel)]="input.email" placeholder="email">
+<br>
+<button class="btn btn-primary" (click)="onRegister()">Register User</button>
+<button class="btn btn-success" (click)="onLogin()">Login User</button>
+
+</div>
+
+<div style="text-align:center">
+  <h1>
+    Register or Login
+  </h1>
+<div class="form-group"
+     [class.has-error]="password.touched && password.invalid">
+  <label for="password" class="control-label">Username</label>
+  <input id="username" required type="username" class="form-control" placeholder="username"
+         name="username" [(ngModel)]="input.username"
+         #password="ngModel">
+</div>
+
+<div class="form-group"
+     [class.has-error]="password.touched && password.invalid">
+  <label for="password" class="control-label">Password</label>
+  <input id="password" required type="password" class="form-control" placeholder="password"
+         name="password" [(ngModel)]="input.password"
+         #password="ngModel">
+  <span class="help-block"
+        *ngIf="password.touched && password.errors?.required">
+    Password is required
+  </span>
+</div>
+
+<div class="form-group"
+     [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
+  <label for="confirmPassword" class="control-label">Confirm Password</label>
+  <input name="confirmPassword" appConfirmEqualValidator="password" required
+         id="confirmPassword" type="password" class="form-control" placeholder="confirm password"
+         [(ngModel)]="input.confirmPassword" #confirmPassword="ngModel">
+  <span class="help-block"
+        *ngIf="confirmPassword.touched && confirmPassword.errors?.required">
+    Confirm Password is required
+  </span>
+  <span class="help-block"
+        *ngIf="confirmPassword.touched && confirmPassword.errors?.notEqual &&
+          !confirmPassword.errors?.required">
+    Password and Confirm Password does not match
+  </span>
+</div>
+
+<button class="btn btn-primary" (click)="onRegister()">Register User</button>
+<button class="btn btn-success" (click)="onLogin()">Login User</button>
+
+</div>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+  <div class="container">
+    <h2 style="text-align:center">Register or Login</h2>
+    <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Name</label>
+      </div>
+      <div class="col-75">
+        <input [(ngModel)]="input.username" type="text" class="form-control" id="fname" name="name" placeholder="Your name.." required>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="pword">Password</label>
+      </div>
+      <div class="col-75">
+        <input [(ngModel)]="input.password" type="password" class="form-control" id="pwd" name="password" placeholder="Your password.." required>
+      </div>
+    </div>
+
+
+  <div class="row">
+    <button class="btn btn-primary" (click)="onRegister()">Register User</button>
+    <button class="btn btn-success" (click)="onLogin()">Login User</button>
+  </div>
+  </form>
+</div>
+
+</body>
+</html>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col s8 offset-s2">
+      <div class="card grey lighten-2">
+        <div class="card-tabs">
+          <ul class="tabs tabs-fixed-width tabs-transparent">
+            <li class="tab">
+              <a routerLink='/login' routerLinkActive='active'>Sign In</a>
+            </li>
+            <li class="tab">
+              <a  routerLink='/register' routerLinkActive='active'>Register</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-content white">
+          <div class="row">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="../../index2.html"><b>Admin</b>LTE</a>
+    </div>
+
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+
+        <form action="/action_page.php">
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">Name</label>
+            </div>
+            <div class="col-75">
+              <input [(ngModel)]="input.username" type="text" class="form-control" id="fname" name="name" placeholder="Name" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="pword">Password</label>
+            </div>
+            <div class="col-75">
+              <input [(ngModel)]="input.password" type="password" class="form-control" id="pwd" name="password" placeholder="Password" required>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input [(ngModel)]="input.username" type="text" class="form-control" id="fname" name="name" placeholder="Name" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input [(ngModel)]="input.password" type="password" class="form-control" id="pwd" name="password" placeholder="Password" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+
+        <div class="row">
+          <button class="btn btn-primary" (click)="onRegister()">Register User</button>
+          <button class="btn btn-success" (click)="onLogin()">Login User</button>
+        </div>
+</form> */
+
+

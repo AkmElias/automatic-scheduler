@@ -1,0 +1,58 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">View Faculty</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">View Faculty</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div  style="width:800px; margin:0 auto;">
+
+<hr/>
+<div *ngIf="faculty">
+  <div>
+    <div>
+      <label><b>Faculty ID: </b></label> {{faculty.facultyID}}
+  </div>
+  <div>
+    <label><b>Title: </b></label> {{faculty.fac_title}}
+  </div>
+    <label><b>First Name: </b></label> {{faculty.fac_firstName}}
+  </div>
+  <div>
+    <label><b>Last Name: </b></label> {{faculty.fac_lastName}}
+  </div>
+  <div>
+    <label><b>Short Name: </b></label> {{faculty.fac_shortName}}
+  </div>
+  <div>
+    <label><b>Gender: </b></label> {{faculty.fac_gender}}
+  </div>
+  <div>
+    <label><b>Designation: </b></label> {{faculty.fac_designation}}
+  </div>
+  <div>
+    <label><b>DepartmentID: </b></label> {{faculty.DepartmentID}}
+  </div>
+  <div>
+    <label><b>Gender: </b></label> {{faculty.fac_gender}}
+  </div>
+</div>
+
+<br>
+<br>
+<!-- <button (click)="list()" class="btn btn-primary">Back to Faculty List</button><br> -->
+
+<button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="Facultylist()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button><br><br>
+
+</div>

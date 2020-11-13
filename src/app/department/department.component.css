@@ -1,0 +1,320 @@
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
+/* @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"; */
+th {
+  background-color: SlateBlue;
+  color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+ /* td, th {
+  border: 1px solid #ddd;
+  padding: 8px
+}
+
+ table, th, td {
+  border: 1px solid black;
+}  */
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+}
+
+
+
+.container {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #405065;
+}
+
+.search-departments {
+  max-width: 500px;
+  padding-bottom: 50px;
+  margin:auto;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+.form-control::placeholder  {
+  font-family: FontAwesome;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* button{
+  background-color:green;
+} */
+
+/* <div class="container">
+  <h2 style="text-align:center">Department</h2>
+
+    DepartmentID <input type="text" [(ngModel)]="selectedDepartment.DepartmentID"/><br>
+    Code <input type="text" [(ngModel)]="selectedDepartment.dpt_code"/><br>
+    Name <input type="text" [(ngModel)]="selectedDepartment.dpt_name"/><br>
+
+
+<div class="row">
+  <button class="btn btn-success" *ngIf="selectedDepartment.DepartmentID" (click)="createDepartment()"> ADD </button>
+  <button class="btn btn-primary" *ngIf="selectedDepartment.DepartmentID" (click)="updateDepartment()"> EDIT </button>
+  <button class="btn btn-danger" *ngIf="selectedDepartment.DepartmentID" (click)="deleteDepartment()"> DELETE </button>
+
+</div>
+</div> */
+
+
+/*
+ <div class="container">
+    <h2 style="text-align:center">Department</h2>
+    <form action="/action_page.php">
+      DepartmentID <input type="text" [(ngModel)]="selectedDepartment.DepartmentID"/><br>
+      Code <input type="text" [(ngModel)]="selectedDepartment.dpt_code"/><br>
+      dpt_name <input type="text" [(ngModel)]="selectedDepartment.dpt_name"/><br>
+
+
+  <div class="row">
+    <button class="btn btn-primary" *ngIf="selectedDepartment.DepartmentID" (click)="updateDepartment()"> EDIT </button>
+    <button class="btn btn-danger" *ngIf="selectedDepartment.DepartmentID" (click)="deleteDepartment()"> DELETE </button> -->
+
+  </div>
+  </form>
+</div>  */
+
+
+
+
+
+/* <div class="container text-center">
+  <h1>{{title}}</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="search-departments">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a department by id or name or code">
+    </div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Department ID</th>
+      <th>Department Code</th>
+       <th>Department Name</th>
+       <!-- <th>Action</th> -->
+    </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let department of departments  | filter:searchText">
+    <td>{{ department.DepartmentID }}</td>
+    <td>{{ department.dpt_code }}</td>
+    <td>{{ department.dpt_name }}</td>
+
+    </tr>
+  </tbody>
+</table> */
+
+
+
+/* <h2> List of Department</h2>
+<button class="btn btn-success" *ngIf="selectedDepartment.DepartmentID" (click)="createDepartment()"> ADD </button>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Department ID</th>
+      <th>Department Code</th>
+       <th>Department Name</th>
+       <th>Action</th>
+    </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let department of departments" (click)="departmentClicked(department)">
+    <td>{{ department.DepartmentID }}</td>
+    <td>{{ department.dpt_code }}</td>
+    <td>{{ department.dpt_name }}</td>
+
+    <button class="btn btn-primary" *ngIf="selectedDepartment.DepartmentID" (click)="updateDepartment()"> EDIT </button>
+    <button class="btn btn-danger" *ngIf="selectedDepartment.DepartmentID" (click)="deleteDepartment()"> DELETE </button>
+
+    </tr>
+
+  <td>
+    <tr *ngFor="let department of departments">
+       <h6 (click)="departmentClicked(department)">{{department.DepartmentID}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let department of departments">
+       <h6 (click)="departmentClicked(department)">{{department.dpt_code}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let department of departments">
+       <h6 (click)="departmentClicked(department)">{{department.dpt_name}}</h6>
+   </tr>
+  </td>
+
+  <td>
+    Department ID <input type="text" [(ngModel)]="selectedDepartment.DepartmentID"/><br>
+    Code <input type="text" [(ngModel)]="selectedDepartment.dpt_code"/><br>
+    Name <input type="text" [(ngModel)]="selectedDepartment.dpt_name"/><br>
+    <button class="btn btn-primary" *ngIf="selectedDepartment.DepartmentID" (click)="updateDepartment()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedDepartment.DepartmentID" (click)="createDepartment()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedDepartment.DepartmentID" (click)="deleteDepartment()"> DELETE </button>
+  </td>
+</tbody>
+</table> */
+
+/*
+
+<div class="container text-center">
+  <h1>{{title}}</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="search-department">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a department by id or name or code">
+    </div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Department ID</th>
+      <th>Department Code</th>
+       <th>Department Name</th>
+       <!-- <th>Action</th> -->
+    </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let department of departments" (click)="departmentClicked(department)">
+  <tr *ngFor="let department of departments  | filter:searchText">
+    <td><h6 (click)="departmentClicked(department)"><tr>{{ department.DepartmentID }}</tr></h6></td>
+    <td><h6 (click)="departmentClicked(department)"><tr>{{ department.dpt_code }}</tr></h6></td>
+    <td><h6 (click)="departmentClicked(department)"><tr>{{ department.dpt_name }}</tr></h6></td>
+
+    </tr>
+  </tbody>
+</table>
+
+DepartmentID <input type="text" [(ngModel)]="selectedDepartment.DepartmentID"/><br>
+Code <input type="text" [(ngModel)]="selectedDepartment.dpt_code"/><br>
+Name <input type="text" [(ngModel)]="selectedDepartment.dpt_name"/><br>
+
+
+<div class="row">
+<button class="btn btn-success" *ngIf="selectedDepartment.DepartmentID" (click)="createDepartment()"> ADD </button>
+<button class="btn btn-primary" *ngIf="selectedDepartment.DepartmentID" (click)="updateDepartment()"> EDIT </button>
+<button class="btn btn-danger" *ngIf="selectedDepartment.DepartmentID" (click)="deleteDepartment()"> DELETE </button> */
+
+
+/*
+
+
+<div class="container text-center">
+<h1>{{title}}</h1>
+</div>
+<div class="container">
+<div class="row">
+  <div class="search-departments">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a department by id or name or code">
+  </div>
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Department ID</th>
+    <th>Department Code</th>
+     <th>Department Name</th>
+
+  </tr>
+</thead>
+<tbody>
+<tr *ngFor="let department of departments" (click)="departmentClicked(department)">
+<tr *ngFor="let department of departments  | filter:searchText">
+  <td>{{ department.DepartmentID }}</td>
+  <td>{{ department.dpt_code }}</td>
+  <td>{{ department.dpt_name }}</td>
+
+  <td><h6 (click)="departmentClicked(department)"><tr>{{ department.DepartmentID }}</tr></h6></td>
+  <td><h6 (click)="departmentClicked(department)"><tr>{{ department.dpt_code }}</tr></h6></td>
+  <td><h6 (click)="departmentClicked(department)"><tr>{{ department.dpt_name }}</tr></h6></td>
+
+  </tr>
+</tbody>
+</table>
+
+DepartmentID <input type="text" [(ngModel)]="selectedDepartment.DepartmentID"/><br>
+Code <input type="text" [(ngModel)]="selectedDepartment.dpt_code"/><br>
+Name <input type="text" [(ngModel)]="selectedDepartment.dpt_name"/><br>
+
+
+<div class="row">
+<button class="btn btn-success" *ngIf="selectedDepartment.DepartmentID" (click)="createDepartment()"> ADD <i class="fa fa-plus" aria-hidden="true"></i> </button>
+<button class="btn btn-primary" *ngIf="selectedDepartment.DepartmentID" (click)="updateDepartment()"> EDIT <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </button>
+<button class="btn btn-danger" *ngIf="selectedDepartment.DepartmentID" (click)="deleteDepartment()"> DELETE <i class="fa fa-trash" aria-hidden="true"></i> </button>
+</div> */

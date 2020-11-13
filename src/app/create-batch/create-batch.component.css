@@ -1,0 +1,30 @@
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
+/* <div class="form-group">
+  <label for="name">Program Code</label>
+  <input type="text" class="form-control" id="programCode" required [(ngModel)]="Batch.programCode" name="programCode">
+</div> */
+
+/* import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-create-batch',
+  templateUrl: './create-batch.component.html',
+  styleUrls: ['./create-batch.component.css']
+})
+export class CreateBatchComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */
+
+/*
+<div class="form-group">
+<label for="name">Term</label>
+<input type="text" class="form-control" id="Batch.bat_term" required [(ngModel)]="batch.bat_term" name="Term">
+</div> */

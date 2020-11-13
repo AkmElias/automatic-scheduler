@@ -1,0 +1,133 @@
+/* // import { Component, OnInit } from '@angular/core';
+
+// @Component({
+//   selector: 'app-update-department',
+//   templateUrl: './update-department.component.html',
+//   styleUrls: ['./update-department.component.css']
+// })
+// export class UpdateDepartmentComponent implements OnInit {
+
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+
+// }
+
+import { Component, OnInit } from '@angular/core';
+import { Department } from '../department';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DepartmentService } from '../department.service';
+
+@Component({
+  selector: 'app-update-department',
+  templateUrl: './update-department.component.html',
+  styleUrls: ['./update-department.component.css']
+})
+export class UpdateDepartmentComponent implements OnInit {
+
+  id: number;
+  department: Department;
+
+  constructor(private route: ActivatedRoute,private router: Router, private departmentService: DepartmentService) { }
+
+  ngOnInit() {
+    this.department = new Department();
+
+    this.id = this.route.snapshot.params['id'];
+
+    this.departmentService.getDepartment(this.id)
+      .subscribe(data => {
+        console.log(data)
+        this.department = data;
+      }, error => console.log(error));
+  }
+
+  updateDepartment() {
+    this.departmentService.updateDepartment(this.id, this.department)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.department = new Department();
+    this.gotoList();
+  }
+
+  onSubmit() {
+    this.updateDepartment();
+  }
+
+  gotoList() {
+    this.router.navigate(['/departmentlist']);
+  }
+} */
+/*
+<h3>Update Department</h3>
+<div [hidden]="onSubmit" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">DepartmentID</label>
+      <input type="text" class="form-control" id="DepartmentID" required [(ngModel)]="Department.DepartmentID" name="DepartmentID">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Code</label>
+      <input type="text" class="form-control" id="dpt_code" required [(ngModel)]="Department.dpt_code" name="dpt_code">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="dpt_name" required [(ngModel)]="Department.dpt_name" name="dpt_name">
+    </div>
+
+    <button class="btn btn-success" *ngIf="Department.DepartmentID" (click)="updateDepartment()"> EDIT </button>
+  </form>
+
+</div>
+
+<button (click)="list()" class="btn btn-primary">Back to Department List</button><br> */
+
+
+
+/* // departments = [{dpt_name: ''}];
+//  Department;
+
+
+// {
+//   this.getDepartments();
+//   this.Department = {DepartmentID: '', dpt_code: '' , dpt_name: '' };
+// }
+// getDepartments = () => {
+//   this.departmentService.getAllDepartments().subscribe(
+//     data => {
+//       this.departments = data;
+//     },
+//     error => {
+//       console.log(error);
+//     }
+//   );
+// }
+  // departmentClicked = (department) => {
+  //   this.departmentService.getOneDepartment(department.DepartmentID).subscribe(
+  //     data => {
+  //       this.Department = data;
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
+
+  // updateDepartment = () => {
+  //   this.departmentService.updateDepartment(this.Department).subscribe(
+  //     data => {
+  //       this.getDepartments();
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
+
+  // onSubmit() {
+  //   this.updateDepartment();
+  // } */
+
+

@@ -1,0 +1,61 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">View CreateRoutine</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">View CreateRoutine</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div  style="width:800px; margin:0 auto;">
+
+<hr/>
+<div *ngIf="createRoutine">
+  <div>
+    <label><b>CreateRoutine ID: </b></label> {{createRoutine.createRoutineID}}
+  </div>
+  <div>
+    <label><b>Department</b></label> {{createRoutine.dpt_code}}
+  </div>
+  <div>
+    <label><b>Faculty Short Name: </b></label> {{createRoutine.fac_shortName}}
+  </div>
+  <div>
+    <label><b>Name: </b></label> {{createRoutine.batch}}
+  </div>
+  <div>
+    <label><b>Sectioon: </b></label> {{createRoutine.section}}
+  </div>
+  <div>
+    <label><b>Course Code: </b></label>{{createRoutine.courseCode}}
+  </div>
+  <div>
+    <label><b>Course Short Name: </b></label> {{createRoutine.crs_shortName}}
+  </div>
+  <div>
+    <label><b>Room Code: </b></label> {{createRoutine.roomCode}}
+  </div>
+  <div>
+    <label><b>Day: </b></label> {{createRoutine.day}}
+  </div>
+  <div>
+    <label><b>Duration: </b></label> {{createRoutine.duration}}
+  </div>
+</div>
+
+<br>
+<br>
+<!-- <button (click)="list()" class="btn btn-primary">Back to createRoutine List</button><br> -->
+
+<button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="CreateRoutinelist()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button><br>
+
+</div>

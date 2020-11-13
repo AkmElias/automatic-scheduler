@@ -1,0 +1,35 @@
+    /* <div class="form-group">
+      <label for="name">CourseOffered ID</label>
+      <input type="text" class="form-control" id="Routine.courseOfferedID" required [(ngModel)]="routine.courseOfferedID" name="CourseOfferedID">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Room Code</label>
+      <input type="text" class="form-control" id="roomCode" required [(ngModel)]="routine.roomCode" name="roomCode">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Exam ID</label>
+      <input type="text" class="form-control" id="examID" required [(ngModel)]="routine.examID" name="examID">
+    </div>
+
+    <div class="form-group">
+      <label for="name">TimeSlot ID</label>
+      <input type="text" class="form-control" id="timeSlotID" required [(ngModel)]="routine.timeSlotID" name="timeSlotID">
+    </div> */
+
+/* import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-update-routine',
+  templateUrl: './update-routine.component.html',
+  styleUrls: ['./update-routine.component.css']
+})
+export class UpdateRoutineComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */

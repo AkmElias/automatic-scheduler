@@ -1,0 +1,49 @@
+<!-- Content Header (Page header) -->
+ <div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">View Course</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">View Course</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div  style="width:800px; margin:0 auto;">
+
+<hr/>
+<div *ngIf="course">
+  <div>
+    <div>
+      <label><b>Course ID: </b></label> {{course.courseID}}
+  </div>
+    <label><b>Course Code: </b></label> {{course.courseCode}}
+  </div>
+  <div>
+    <label><b>Title: </b></label> {{course.crs_title}}
+  </div>
+  <div>
+    <label><b>Short Name: </b></label> {{course.crs_shortName}}
+  </div>
+  <div>
+    <label><b>Category: </b></label> {{course.crs_category}}
+  </div>
+  <div>
+    <label><b>Program Code: </b></label> {{course.programCode}}
+  </div>
+</div>
+
+<br>
+<br>
+<!-- <button (click)="list()" class="btn btn-primary">Back to Course List</button><br> -->
+
+<button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="Courselist()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button><br>
+
+</div>

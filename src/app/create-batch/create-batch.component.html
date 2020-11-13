@@ -1,0 +1,83 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">Add Batch</h3>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Add Batch</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid h-100 bg-light text-dark">
+<div class="text-center">
+  <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
+</div>
+<br>
+<div  style="width:800px; margin:0 auto;">
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="batchName" required [(ngModel)]="Batch.batchName" name="Name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Section</label>
+      <input type="text" class="form-control" id="Batch_sectionName" required [(ngModel)]="Batch.sectionName" name="Section">
+    </div>
+
+    <div class="form-group"
+    [class.has-error]="term.invalid && term.touched">
+    <label class="control-label">Term</label>
+    <div class="form-control">
+        <label class="radio-inline">
+            <input type="radio" name="term" required #term="ngModel"
+                   value="Spring" [(ngModel)]="Batch.bat_term"> Spring
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="term" required #term="ngModel"
+                   value="Summer" [(ngModel)]="Batch.bat_term"> Summer
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="term" required #term="ngModel"
+                 value="Autumn" [(ngModel)]="Batch.bat_term"> Autumn
+      </label>
+    </div>
+    <span class="help-block" *ngIf="term.errors?.required && term.touched">
+        Term is required
+    </span>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Year</label>
+      <input type="text" class="form-control" id="bat_year" required [(ngModel)]="Batch.bat_year" name="Year">
+    </div>
+
+    <div class="form-group">
+      <label for="program">Program Code</label>
+      <select id="programCode" name="programCode" [(ngModel)]="Batch.programCode"
+              class="form-control">
+        <option *ngFor="let program of programs" [value]="program.programCode">
+          {{program.pro_name}}
+        </option>
+      </select>
+    </div>
+
+    <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Add Batch" class="btn btn-success" (click)="createBatch()"> <i class="fa fa-plus" aria-hidden="true"></i> ADD </button>
+ </form>
+</div>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="createBatch()">Add</button>
+</div>
+
+</div>

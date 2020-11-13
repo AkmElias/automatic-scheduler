@@ -1,0 +1,50 @@
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">List of Department</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">DepartmentList</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Department List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>DepartmentID</th>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let department of departments | async">
+          <td>{{department.DepartmentID}}</td>
+          <td>{{department.dpt_code}}</td>
+          <td>{{department.dpt_name}}</td>
+          <td><button (click)="deleteDepartment(department.DepartmentID)" class="btn btn-danger">Delete</button>
+              <button (click)="departmentDetails(department.DepartmentID)" class="btn btn-info" style="margin-left: 10px">Details</button>
+              <button (click)="Updatedepartment(department.DepartmentID)" class="btn btn-info" style="margin-left: 10px">Update</button>
+
+              <!-- <button class="btn btn-primary" *ngIf="selectedDepartment.DepartmentID" (click)="updateDepartment()"><i class="fa fa-pencil-square-o" aria-hidden="true" style="margin-left: 10px"></i></button>
+              <button class="btn btn-danger" *ngIf="selectedDepartment.DepartmentID" (click)="deleteDepartment()"><i class="fa fa-trash" aria-hidden="true" style="margin-left: 10px"></i></button> -->
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

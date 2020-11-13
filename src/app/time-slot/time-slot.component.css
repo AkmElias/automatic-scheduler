@@ -1,0 +1,110 @@
+th {
+  background-color: SlateBlue;
+  color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+/* td, th {
+  border: 1px solid #ddd;
+  padding: 8px
+}
+
+table, th, td {
+  border: 1px solid black;
+} */
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+}
+
+
+/*
+<h2>List of TimeSlot</h2>
+<ul>
+  <li *ngFor="let  timeSlot of timeSlots">
+    <h2 (click)="timeSlotClicked(timeSlot)">{{timeSlot.timeSlotID}}</h2>
+  </li>
+  <li *ngFor="let  timeSlot of timeSlots">
+    <h2 (click)="timeSlotClicked(timeSlot)">{{timeSlot.tst_day}}</h2>
+  </li>
+</ul>
+<hr>
+timeSlotID <input type="text" [(ngModel)]="selectedTimeSlot.timeSlotID"/><br>
+tst_day <input type="text" [(ngModel)]="selectedTimeSlot.tst_day"/><br>
+tst_duration <input type="text" [(ngModel)]="selectedTimeSlot.tst_duration"/><br>
+tst_type <input type="text" [(ngModel)]="selectedTimeSlot.tst_type"/><br>
+<button class="btn btn-primary" *ngIf="selectedTimeSlot.timeSlotID" (click)="updateTimeSlot()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedTimeSlot.timeSlotID" (click)="createTimeSlot()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedTimeSlot.timeSlotID" (click)="deleteTimeSlot()"> DELETE </button> */
+
+/*
+<td>
+    timeSlotID <input type="text" [(ngModel)]="selectedTimeSlot.timeSlotID"/><br>
+    Day <input type="text" [(ngModel)]="selectedTimeSlot.tst_day"/><br>
+    Duration <input type="text" [(ngModel)]="selectedTimeSlot.tst_duration"/><br>
+    Type <input type="text" [(ngModel)]="selectedTimeSlot.tst_type"/><br>
+    <button class="btn btn-primary" *ngIf="selectedTimeSlot.timeSlotID" (click)="updateTimeSlot()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedTimeSlot.timeSlotID" (click)="createTimeSlot()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedTimeSlot.timeSlotID" (click)="deleteTimeSlot()"> DELETE </button>
+  </td> */
+
+
+
+/*
+<h2>List of TimeSlot</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+       <th>TimeSlot ID</th>
+       <th>Day</th>
+       <th>Duration</th>
+       <th>Type</th>
+    </tr>
+ </thead>
+
+  <td>
+    <tr *ngFor="let timeSlot of timeSlots">
+       <h6 (click)="timeSlotClicked(timeSlot)">{{timeSlot.timeSlotID}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let timeSlot of timeSlots">
+       <h6 (click)="timeSlotClicked(timeSlot)">{{timeSlot.tst_day}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let timeSlot of timeSlots">
+       <h6 (click)="timeSlotClicked(timeSlot)">{{timeSlot.tst_duration}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let timeSlot of timeSlots">
+       <h6 (click)="timeSlotClicked(timeSlot)">{{timeSlot.tst_type}}</h6>
+   </tr>
+  </td>
+  <td>
+    timeSlotID <input type="text" [(ngModel)]="selectedTimeSlot.timeSlotID"/><br>
+    Day <input type="text" [(ngModel)]="selectedTimeSlot.tst_day"/><br>
+    Duration <input type="text" [(ngModel)]="selectedTimeSlot.tst_duration"/><br>
+    Type <input type="text" [(ngModel)]="selectedTimeSlot.tst_type"/><br>
+    <button class="btn btn-primary" *ngIf="selectedTimeSlot.timeSlotID" (click)="updateTimeSlot()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedTimeSlot.timeSlotID" (click)="createTimeSlot()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedTimeSlot.timeSlotID" (click)="deleteTimeSlot()"> DELETE </button>
+  </td>
+</table> */
+
+
+

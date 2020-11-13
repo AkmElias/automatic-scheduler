@@ -1,0 +1,110 @@
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
+
+/* <div class="form-group">
+<label for="name">Type</label>
+<input type="text" class="form-control" id="rom_type" required [(ngModel)]="room.rom_type" name="rom_type">
+</div> */
+
+/* import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-update-room',
+  templateUrl: './update-room.component.html',
+  styleUrls: ['./update-room.component.css']
+})
+export class UpdateRoomComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */
+
+/*
+ rooms = [{rom_type: 'test' }];
+  Room;
+{
+this.getRooms();
+this.Room = { roomCode: '-1', rom_capacity: '', rom_floor: '', rom_type: 'test'};
+}
+  getRooms = () => {
+  this.roomService.getAllRooms().subscribe(
+    data => {
+      this.rooms = data;
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+
+roomClicked = (room) => {
+  this.roomService.getOneRoom(room.RoomID).subscribe(
+    data => {
+      this.Room = data;
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+
+updateRoom = () => {
+  this.roomService.updateRoom(this.Room).subscribe(
+    data => {
+      this.getRooms();
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+
+onSubmit() {
+  this.updateRoom();
+}
+
+gotoList() {
+  this.router.navigate(['/room']);
+}
+
+list(){
+  this.router.navigate(['room']);
+} */
+
+
+
+/*
+<h3>Update Room</h3>
+<div [hidden]="onSubmit" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">roomCode</label>
+      <input type="text" class="form-control" id="roomCode" required [(ngModel)]="Room.roomCode" name="roomCode">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Capacity</label>
+      <input type="text" class="form-control" id="rom_capacity" required [(ngModel)]="Room.rom_capacity" name="rom_capacity">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Floor</label>
+      <input type="text" class="form-control" id="rom_floor" required [(ngModel)]="Room.rom_floor" name="rom_floor">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Type</label>
+      <input type="text" class="form-control" id="rom_type" required [(ngModel)]="Room.rom_type" name="rom_type">
+    </div>
+
+    <button class="btn btn-success"  (click)="updateRoom()"> EDIT </button>
+  </form>
+
+</div>
+
+<button (click)="list()" class="btn btn-primary">Back to Room</button><br> */

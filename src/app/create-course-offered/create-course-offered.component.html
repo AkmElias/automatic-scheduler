@@ -1,0 +1,109 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">Add CourseOffered</h3>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Add CourseOffered</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid h-100 bg-light text-dark">
+<div class="text-center">
+  <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
+</div>
+<br>
+<div  style="width:800px; margin:0 auto;">
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <!-- <div class="form-group">
+      <label for="name">CourseOffered ID</label>
+      <input type="text" class="form-control" id="courseOfferedID" required [(ngModel)]="CourseOffered.courseOfferedID" name="CourseOffered ID">
+    </div> -->
+
+    <div class="form-group"
+    [class.has-error]="term.invalid && term.touched">
+    <label class="control-label">Term</label>
+    <div class="form-control">
+        <label class="radio-inline">
+            <input type="radio" name="term" required #term="ngModel"
+                   value="Spring" [(ngModel)]="CourseOffered.ofr_term"> Spring
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="term" required #term="ngModel"
+                   value="Summer" [(ngModel)]="CourseOffered.ofr_term"> Summer
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="term" required #term="ngModel"
+                 value="Autumn" [(ngModel)]="CourseOffered.ofr_term"> Autumn
+      </label>
+    </div>
+    <span class="help-block" *ngIf="term.errors?.required && term.touched">
+        Term is required
+    </span>
+    </div>
+
+    <div class="form-group">
+      <label for="type">Year</label>
+      <select class="form-control" id="CourseOffered.ofr_year" required [(ngModel)]="CourseOffered.ofr_year" name="Year">
+        <option>2018</option>
+        <option>2019</option>
+        <option>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
+        <option>2025</option>
+        <option>2026</option>
+        <option>2027</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="course">Course</label>
+      <select id="courseCode" name="courseCode" [(ngModel)]="CourseOffered.courseCode"
+              class="form-control">
+        <option *ngFor="let course of courses" [value]="course.courseCode">
+          {{course.courseCode + '-' + course.crs_shortName}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="batch">Batch</label>
+      <select id="batchName" name="batchName" [(ngModel)]="CourseOffered.batchName"
+              class="form-control">
+        <option *ngFor="let batch of batches" [value]="batch.batchName">
+          {{batch.batchName + batch.sectionName}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="faculty">Faculty</label>
+      <select id="facultyID" name="facultyID" [(ngModel)]="CourseOffered.facultyID"
+              class="form-control">
+        <option *ngFor="let faculty of faculties" [value]="faculty.facultyID">
+          {{faculty.fac_shortName}}
+          <!-- {{faculty.fac_firstName + faculty.fac_lastName}} -->
+        </option>
+      </select>
+    </div>
+
+    <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Add CourseOffered" class="btn btn-success" (click)="createCourseOffered()"> <i class="fa fa-plus" aria-hidden="true"></i> ADD </button>
+ </form>
+</div>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="createCourseOffered()">Add</button>
+</div>
+
+</div>

@@ -1,0 +1,85 @@
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
+
+/* <div class="form-group">
+  <label for="name">Department ID</label>
+  <input type="text" class="form-control" id="DepartmentID" required [(ngModel)]="Faculty.DepartmentID" name="DepartmentID">
+</div> */
+
+/* <div class="form-group">
+<label for="name">Faculty Title</label>
+<input type="text" class="form-control" id="fac_title" required [(ngModel)]="Faculty.fac_title" name="fac_title">
+</div> */
+
+/* <div class="form-group">
+<label for="name">Designation</label>
+<input type="text" class="form-control" id="fac_designation" required [(ngModel)]="Faculty.fac_designation" name="fac_designation">
+</div> */
+
+
+/* <div class="form-group">
+<label for="name">Gender</label>
+<input type="radio" id="male" name="gender" value="male">
+<label for="male">Male</label><br>
+<input type="radio" id="female" name="gender" value="female">
+<label for="female">Female</label><br>
+</div>  */
+
+
+/* <div class="form-group">
+<label>Faculty Title</label>
+<div class="form-control">
+  <label class="radio-inline">
+    <input type="radio" name="fac_title" value="Mr" [(ngModel)]="Faculty.fac_title" >
+    Mr
+  </label>
+  <label class="radio-inline">
+    <input type="radio" name="fac_title" value="Mrs" [(ngModel)]="Faculty.fac_title">
+    Mrs
+  </label>
+  <label class="radio-inline">
+    <input type="radio" name="fac_title" value="Dr" [(ngModel)]="Faculty.fac_title" >
+    Dr
+  </label>
+  <label class="radio-inline">
+    <input type="radio" name="fac_title" value="Prof" [(ngModel)]="Faculty.fac_title">
+    Prof
+  </label>
+</div>
+</div> */
+
+
+/* <div class="form-group">
+<label>Gender</label>
+<div class="form-control">
+  <label class="radio-inline">
+    <input type="radio" name="gender" value="male" [(ngModel)]="gender" >
+    Male
+  </label>
+  <label class="radio-inline">
+    <input type="radio" name="gender" value="female" [(ngModel)]="gender">
+    Female
+  </label>
+
+</div>
+</div> */
+
+
+/* import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-create-faculty',
+  templateUrl: './create-faculty.component.html',
+  styleUrls: ['./create-faculty.component.css']
+})
+export class CreateFacultyComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */
+

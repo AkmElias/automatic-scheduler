@@ -1,0 +1,275 @@
+th {
+  background-color: SlateBlue;
+  color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+/* td, th {
+  border: 1px solid #ddd;
+  padding: 8px
+}
+
+table, th, td {
+  border: 1px solid black;
+} */
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+}
+
+
+
+
+.container {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #405065;
+}
+
+.search-programs {
+  max-width: 500px;
+  padding-bottom: 50px;
+  margin:auto;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+.form-control::placeholder  {
+  font-family: FontAwesome;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* <div class="container">
+  <h2 style="text-align:center">Program</h2>
+
+  Program Code <input type="text" [(ngModel)]="selectedProgram.programCode"/><br>
+  Name <input type="text" [(ngModel)]="selectedProgram.pro_name"/><br>
+  Short Form <input type="text" [(ngModel)]="selectedProgram.pro_shortForm"/><br>
+  DepartmentID <input type="text" [(ngModel)]="selectedProgram.DepartmentID"/><br>
+  Type <input type="text" [(ngModel)]="selectedProgram.pro_type"/><br>
+
+  <div class="row">
+  <button class="btn btn-primary" *ngIf="selectedProgram.programCode" (click)="updateProgram()"> PUT </button>
+  <button class="btn btn-success" *ngIf="selectedProgram.programCode" (click)="createProgram()"> POST </button>
+  <button class="btn btn-danger" *ngIf="selectedProgram.programCode" (click)="deleteProgram()"> DELETE </button>
+
+</div>
+
+</div> */
+
+/* <ul>
+  <li *ngFor="let program of programs">
+    <h2 (click)="programClicked(program)">{{program.pro_name}}</h2>
+  </li>
+</ul>
+<hr>
+programCode <input type="text" [(ngModel)]="selectedProgram.programCode"/><br>
+pro_name <input type="text" [(ngModel)]="selectedProgram.pro_name"/><br>
+pro_shortForm <input type="text" [(ngModel)]="selectedProgram.pro_shortForm"/><br>
+DepartmentID <input type="text" [(ngModel)]="selectedProgram.DepartmentID"/><br>
+pro_type <input type="text" [(ngModel)]="selectedProgram.pro_type"/><br>
+<button class="btn btn-primary" *ngIf="selectedProgram.programCode" (click)="updateProgram()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedProgram.programCode" (click)="createProgram()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedProgram.programCode" (click)="deleteProgram()"> DELETE </button>
+
+
+<h2>List of Program</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+       <th>Program Code</th>
+       <th>Name</th>
+       <th>Short Form</th>
+       <th>Department ID</th>
+       <th>Type</th>
+       <td button class="btn btn-primary">Department</td>
+       <th>Action</th>
+    </tr>
+ </thead>
+  <td>
+    <tr *ngFor="let program of programs">
+       <h6 (click)="programClicked(program)">{{program.programCode}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let program of programs">
+       <h6 (click)="programClicked(program)">{{program.pro_name}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let program of programs">
+       <h6 (click)="programClicked(program)">{{program.pro_shortForm}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let program of programs">
+       <h6 (click)="programClicked(program)">{{program.DepartmentID}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let program of programs">
+       <h6 (click)="programClicked(program)">{{program.pro_type}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let department of departments">
+       <h6 (click)="departmentClicked(department)">{{department.dpt_name}}</h6>
+   </tr>
+  </td>
+  <td>
+    Program Code   <input type="text" [(ngModel)]="selectedProgram.programCode"/><br>
+    Name      <input type="text" [(ngModel)]="selectedProgram.pro_name"/><br>
+    Short Form <input type="text" [(ngModel)]="selectedProgram.pro_shortForm"/><br>
+    Department ID <input type="text" [(ngModel)]="selectedProgram.DepartmentID"/><br>
+    Type <input type="text" [(ngModel)]="selectedProgram.pro_type"/><br>
+    <button class="btn btn-primary" *ngIf="selectedProgram.programCode" (click)="updateProgram()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedProgram.programCode" (click)="createProgram()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedProgram.programCode" (click)="deleteProgram()"> DELETE </button>
+
+</td>
+</table>
+
+
+ <h2>List of Program</h2>
+<table class="table table-bordered">
+  <thead>
+     <tr>
+        <th>Program Name</th>
+        <th>Program Code</th>
+     </tr>
+  </thead>
+  <tbody>
+
+      <td>
+        <tr *ngFor="let program of programs">
+           <h6>{{program.pro_name}}</h6>
+       </tr>
+      </td>
+      <td>
+        <tr *ngFor="let program of programs">
+           <h6>{{program.programCode}}</h6>
+       </tr>
+      </td>
+
+</tbody>
+</table>
+<hr>
+programCode <input type="text" [(ngModel)]="selectedProgram.programCode"/><br>
+pro_name <input type="text" [(ngModel)]="selectedProgram.pro_name"/><br>
+pro_shortForm <input type="text" [(ngModel)]="selectedProgram.pro_shortForm"/><br>
+DepartmentID <input type="text" [(ngModel)]="selectedProgram.DepartmentID"/><br>
+pro_type <input type="text" [(ngModel)]="selectedProgram.pro_type"/><br>
+<button class="btn btn-primary" *ngIf="selectedProgram.programCode" (click)="updateProgram()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedProgram.programCode" (click)="createProgram()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedProgram.programCode" (click)="deleteProgram()"> DELETE </button>
+
+<div class="table table-bordered">
+  <h1>List of Program</h1>
+  <table>
+     <thead>
+        <tr>
+           <th>Program Code</th>
+           <th>Program Name </th>
+           <th>Action</th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr *ngFor="let program of programs">
+           <th><h2 (click)="programClicked(program)">{{program.programCode}}</h2></th>
+           <td><h2 (click)="programClicked(program)">{{program.pro_name}}</h2></td>
+           <td>
+            <button class="btn btn-primary" *ngIf="selectedProgram.programCode" (click)="updateProgram()"> PUT </button>
+            <button class="btn btn-success" *ngIf="selectedProgram.programCode" (click)="createProgram()"> POST </button>
+            <button class="btn btn-danger" *ngIf="selectedProgram.programCode" (click)="deleteProgram()"> DELETE </button>
+           </td>
+        </tr>
+          programCode <input type="text" [(ngModel)]="selectedProgram.programCode"/><br>
+          pro_name <input type="text" [(ngModel)]="selectedProgram.pro_name"/><br>
+          pro_shortForm <input type="text" [(ngModel)]="selectedProgram.pro_shortForm"/><br>
+          DepartmentID <input type="text" [(ngModel)]="selectedProgram.DepartmentID"/><br>
+          pro_type <input type="text" [(ngModel)]="selectedProgram.pro_type"/><br>
+     </tbody>
+  </table>
+</div>
+
+
+
+
+<!-- <th>pro_shortForm</th>
+<th>DepartmentID</th>
+<th>pro_type</th>
+<td><h2 (click)="programClicked(program)">{{ program.pro_shortForm }}</h2></td>
+<td><h2 (click)="programClicked(program)">{{ program.DepartmentID}}</h2></td>
+<td><h2 (click)="programClicked(program)">{{ program.pro_type }}</h2></td> --> */

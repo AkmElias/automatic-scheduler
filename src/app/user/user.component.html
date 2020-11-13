@@ -1,0 +1,48 @@
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">List of User</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">User</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div class="container text-center">
+  <h1>{{title}}</h1>
+</div>
+
+<b><h1> Add User: <button (click)="Createuser()" class="btn btn-info" style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>User ID</th>
+       <th>Username</th>
+       <th>Email</th>
+       <th>View</th>
+       <th>Edit</th>
+       <th>Delete</th>
+    </tr>
+ </thead>
+<tbody>
+  <tr *ngFor="let user of users" (click)="userClicked(user)">
+    <td><h6 (click)="userClicked(user)"><tr>{{ user.id }}</tr></h6></td>
+    <td><h6 (click)="userClicked(user)"><tr>{{ user.username }}</tr></h6></td>
+    <td><h6 (click)="userClicked(user)"><tr>{{ user.email }}</tr></h6></td>
+   <td><button (click)="userDetails(user.id)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
+   <td><button (click)="Updateuser(user.id)" class="btn btn-info" style="margin-left: 10px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
+   <td><button class="btn btn-danger" *ngIf="selectedUser.id" (click)="deleteUser()"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+
+  </tr>
+  </tbody>
+</table>
+

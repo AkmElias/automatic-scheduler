@@ -1,0 +1,87 @@
+/* <button class="btn btn-success" *ngIf="Department.DepartmentID" (click)="createDepartment()"> ADD </button> -->
+<!-- <h3>Create Department</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">DepartmentID</label>
+      <input type="text" class="form-control" id="DepartmentID" required [(ngModel)]="department.DepartmentID" name="DepartmentID">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Code</label>
+      <input type="text" class="form-control" id="dpt_code" required [(ngModel)]="department.dpt_code" name="Code">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="dpt_name" required [(ngModel)]="department.dpt_name" name="Name">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="newDepartment()">Add</button>
+</div> */
+
+/* // import { Component, OnInit } from '@angular/core';
+
+// @Component({
+//   selector: 'app-create-department',
+//   templateUrl: './create-department.component.html',
+//   styleUrls: ['./create-department.component.css']
+// })
+// export class CreateDepartmentComponent implements OnInit {
+
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+
+// } */
+
+/*
+import { DepartmentapiService } from '../departmentapi.service';
+import { Department } from '../models/department';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-create-department',
+  templateUrl: './create-department.component.html',
+  styleUrls: ['./create-department.component.css'],
+  providers: [DepartmentapiService]
+})
+export class CreateDepartmentComponent implements OnInit {
+
+  department: Department = new Department();
+  submitted = false;
+
+  constructor(private departmentService: DepartmentapiService, private router: Router) { }
+
+  ngOnInit() {
+  }
+
+  newDepartment(): void {
+    this.submitted = false;
+    this.department = new Department();
+  }
+
+  save() {
+    this.departmentService.createDepartment(this.department)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.department = new Department();
+    this.gotoList();
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.save();
+  }
+
+  gotoList() {
+    this.router.navigate(['/departmentlist']);
+  }
+} */

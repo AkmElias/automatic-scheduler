@@ -1,0 +1,25 @@
+/* <div class="form-group" style="width: 400px;">
+  <label for="name">Day</label>
+  <input type="text" class="form-control" id="tst_day" required [(ngModel)]="timeSlot.tst_day" name="Day">
+</div> */
+
+/* <div class="form-group">
+  <label for="name">Type</label>
+  <input type="text" class="form-control" id="tst_type" required [(ngModel)]="TimeSlot.tst_type" name="Type">
+</div> */
+
+/* import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-update-time-slot',
+  templateUrl: './update-time-slot.component.html',
+  styleUrls: ['./update-time-slot.component.css']
+})
+export class UpdateTimeSlotComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */

@@ -1,0 +1,225 @@
+th {
+  background-color: SlateBlue;
+  color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+/* td, th {
+  border: 1px solid #ddd;
+  padding: 8px
+}
+
+table, th, td {
+  border: 1px solid black;
+} */
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+}
+
+
+
+.container {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #405065;
+}
+
+.search-batches {
+  max-width: 500px;
+  padding-bottom: 50px;
+  margin:auto;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+.form-control::placeholder  {
+  font-family: FontAwesome;
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* <div class="container">
+  <h2 style="text-align:center">Batch</h2>
+
+  Batch Name <input type="text" [(ngModel)]="selectedBatch.batchName"/><br>
+  Section Name <input type="text" [(ngModel)]="selectedBatch.sectionName"/><br>
+  Program <input type="text" [(ngModel)]="selectedBatch.programCode"/><br>
+  Term <input type="text" [(ngModel)]="selectedBatch.bat_term"/><br>
+  Year <input type="text" [(ngModel)]="selectedBatch.bat_year"/><br>
+
+
+<div class="row">
+  <button class="btn btn-primary" *ngIf="selectedBatch.batchName" (click)="updateBatch()"> PUT </button>
+  <button class="btn btn-success" *ngIf="selectedBatch.batchName" (click)="createBatch()"> POST </button>
+  <button class="btn btn-danger" *ngIf="selectedBatch.batchName" (click)="deleteBatch()"> DELETE </button>
+</div>
+
+</div> */
+
+/* <h2>List of Batch</h2>
+<ul>
+  <li *ngFor="let batch of batches">
+    <h2 (click)="batchClicked(batch)">{{batch.batchName}}</h2>
+    <h2 (click)="batchClicked(batch)">{{batch.sectionName}}</h2>
+  </li>
+</ul>
+<hr>
+batchName <input type="text" [(ngModel)]="selectedBatch.batchName"/><br>
+sectionName <input type="text" [(ngModel)]="selectedBatch.sectionName"/><br>
+programCode <input type="text" [(ngModel)]="selectedBatch.programCode"/><br>
+bat_term <input type="text" [(ngModel)]="selectedBatch.bat_term"/><br>
+bat_year <input type="text" [(ngModel)]="selectedBatch.bat_year"/><br>
+<button class="btn btn-primary" *ngIf="selectedBatch.batchName" (click)="updateBatch()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedBatch.batchName" (click)="createBatch()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedBatch.batchName" (click)="deleteBatch()"> DELETE </button>
+
+
+<div class="container">
+  <h2 style="text-align:center">Batch</h2>
+
+  Batch Name <input type="text" [(ngModel)]="selectedBatch.batchName"/><br>
+  Section Name <input type="text" [(ngModel)]="selectedBatch.sectionName"/><br>
+  Program <input type="text" [(ngModel)]="selectedBatch.programCode"/><br>
+  Term <input type="text" [(ngModel)]="selectedBatch.bat_term"/><br>
+  Year <input type="text" [(ngModel)]="selectedBatch.bat_year"/><br>
+
+
+<div class="row">
+  <button class="btn btn-primary" *ngIf="selectedBatch.batchName" (click)="updateBatch()"> PUT </button>
+  <button class="btn btn-success" *ngIf="selectedBatch.batchName" (click)="createBatch()"> POST </button>
+  <button class="btn btn-danger" *ngIf="selectedBatch.batchName" (click)="deleteBatch()"> DELETE </button>
+</div>
+
+</div>
+
+
+
+
+<h2>List of Batch</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+       <th>Batch Name</th>
+       <th>Section Name</th>
+       <th>Program Code</th>
+       <th>Term</th>
+       <th>Year</th>
+       <td button class="btn btn-primary">Program</td>
+       <th>Action</th>
+    </tr>
+ </thead>
+  <td>
+    <tr *ngFor="let batch of batches">
+       <h6 (click)="batchClicked(batch)">{{batch.batchName}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let batch of batches">
+       <h6 (click)="batchClicked(batch)">{{batch.sectionName}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let batch of batches">
+       <h6 (click)="batchClicked(batch)">{{batch.programCode}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let batch of batches">
+       <h6 (click)="batchClicked(batch)">{{batch.bat_term}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let batch of batches">
+       <h6 (click)="batchClicked(batch)">{{batch.bat_year}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let program of programs">
+       <h6 (click)="programClicked(program)">{{program.pro_name}}</h6>
+   </tr>
+  </td>
+
+  <td>
+  Batch Name <input type="text" [(ngModel)]="selectedBatch.batchName"/><br>
+  Section Name <input type="text" [(ngModel)]="selectedBatch.sectionName"/><br>
+  Program <input type="text" [(ngModel)]="selectedBatch.programCode"/><br>
+  Term <input type="text" [(ngModel)]="selectedBatch.bat_term"/><br>
+  Year <input type="text" [(ngModel)]="selectedBatch.bat_year"/><br>
+  <button class="btn btn-primary" *ngIf="selectedBatch.batchName" (click)="updateBatch()"> PUT </button>
+  <button class="btn btn-success" *ngIf="selectedBatch.batchName" (click)="createBatch()"> POST </button>
+  <button class="btn btn-danger" *ngIf="selectedBatch.batchName" (click)="deleteBatch()"> DELETE </button>
+  </td>
+</table>  */

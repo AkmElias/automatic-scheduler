@@ -1,0 +1,112 @@
+th {
+  background-color: SlateBlue;
+  color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px
+}
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th {
+  text-align: center;
+}
+
+
+/*
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
+})
+export class UserComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */
+
+
+/*
+<h2>List of User</h2>
+<ul>
+  <li *ngFor="let user of users">
+    <h2 (click)="userClicked(user)">{{user.username}}</h2>
+  </li>
+</ul>
+<hr>
+url <input type="text" [(ngModel)]="selectedUser.url"/><br>
+username <input type="text" [(ngModel)]="selectedUser.username"/><br>
+password <input type="text" [(ngModel)]="selectedUser.password"/><br>
+email <input type="text" [(ngModel)]="selectedUser.email"/><br>
+groups <input type="text" [(ngModel)]="selectedUser.groups"/><br>
+<button class="btn btn-primary" *ngIf="selectedUser.id" (click)="updateUser()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedUser.id" (click)="createUser()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedUser.id" (click)="deleteUser()"> DELETE </button>
+
+
+<td>
+url <input type="text" [(ngModel)]="selectedUser.url"/><br>
+username <input type="text" [(ngModel)]="selectedUser.username"/><br>
+password <input type="text" [(ngModel)]="selectedUser.password"/><br>
+email <input type="text" [(ngModel)]="selectedUser.email"/><br>
+groups <input type="text" [(ngModel)]="selectedUser.groups"/><br>
+<button class="btn btn-primary" *ngIf="selectedUser.id" (click)="updateUser()"> PUT </button>
+<button class="btn btn-success" *ngIf="selectedUser.id" (click)="createUser()"> POST </button>
+<button class="btn btn-danger" *ngIf="selectedUser.id" (click)="deleteUser()"> DELETE </button>
+</td> */
+
+
+/*
+<h2>List of User</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+       <th>Username</th>
+       <th>Email</th>
+    </tr>
+ </thead>
+  <td>
+    <tr *ngFor="let user of users">
+       <h6 (click)="userClicked(user)">{{user.username}}</h6>
+   </tr>
+  </td>
+  <td>
+    <tr *ngFor="let user of users">
+      <h6 (click)="userClicked(user)">{{user.email}}</h6>
+  </tr>
+  </td>
+
+  <td>
+    url <input type="text" [(ngModel)]="selectedUser.url"/><br>
+    username <input type="text" [(ngModel)]="selectedUser.username"/><br>
+    password <input type="text" [(ngModel)]="selectedUser.password"/><br>
+    email <input type="text" [(ngModel)]="selectedUser.email"/><br>
+    groups <input type="text" [(ngModel)]="selectedUser.groups"/><br>
+    <button class="btn btn-primary" *ngIf="selectedUser.id" (click)="updateUser()"> PUT </button>
+    <button class="btn btn-success" *ngIf="selectedUser.id" (click)="createUser()"> POST </button>
+    <button class="btn btn-danger" *ngIf="selectedUser.id" (click)="deleteUser()"> DELETE </button>
+  </td>
+</table> */

@@ -1,0 +1,72 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h3 class="m-0 text-dark">Add Room</h3>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Add Room</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid h-100 bg-light text-dark">
+<div class="text-center">
+  <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
+</div>
+<br>
+<div  style="width:800px; margin:0 auto;">
+<div [hidden]="submitted" style="width: 500px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Room Code</label>
+      <input type="text" class="form-control" id="roomCode" required [(ngModel)]="Room.roomCode" name="roomCode">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Capacity</label>
+      <input type="text" class="form-control" id="rom_capacity" required [(ngModel)]="Room.rom_capacity" name="Capacity">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Floor</label>
+      <input type="text" class="form-control" id="rom_floor" required [(ngModel)]="Room.rom_floor" name="Floor">
+    </div>
+
+    <div class="form-group">
+      <label>Type</label>
+      <div class="form-control">
+        <label class="radio-inline">
+          <input type="radio" name="rom_type" value="LAB" [(ngModel)]="Room.rom_type" >
+          LAB
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="rom_type" value="Classroom" [(ngModel)]="Room.rom_type">
+          Classroom
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="rom_type" value="Seminar Hall" [(ngModel)]="Room.rom_type">
+          Seminar Hall
+        </label>
+      <label class="radio-inline">
+        <input type="radio" name="rom_type" value="general education" [(ngModel)]="Room.rom_type">
+      Library
+      </label>
+      </div>
+      </div>
+
+    <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Add Room" class="btn btn-success" (click)="createRoom()"> <i class="fa fa-plus" aria-hidden="true"></i> ADD </button>
+ </form>
+</div>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="createRoom()">Add</button>
+</div>
+
+</div>

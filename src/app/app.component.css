@@ -5,3 +5,303 @@ p {
 .page-footer {
   background-color:lightseagreen;
  }
+
+ table {
+  width: 100%;
+}
+/*
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a routerLink="departmentlist" class="nav-link" routerLinkActive="active">Department List</a>
+    </li>
+    <li class="nav-item">
+        <a routerLink="add" class="nav-link" routerLinkActive="active">Add Department</a>
+    </li>
+  </ul>
+</nav> */
+
+/* import { Component, ViewChild } from '@angular/core';
+
+import { MatDialog   } from '@angular/material/dialog';
+import {  MatTable } from '@angular/material/table';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+
+export interface UsersData {
+  name: string;
+  id: number;
+}
+
+const ELEMENT_DATA: UsersData[] = [
+  {id: 1560608769632, name: 'Artificial Intelligence'},
+  {id: 1560608796014, name: 'Machine Learning'},
+  {id: 1560608787815, name: 'Robotic Process Automation'},
+  {id: 1560608805101, name: 'Blockchain'}
+];
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  displayedColumns: string[] = ['id', 'name', 'action'];
+  dataSource = ELEMENT_DATA;
+
+  @ViewChild(MatTable,{static:true}) table: MatTable<any>;
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog(action,obj) {
+    obj.action = action;
+    const dialogRef = this.dialog.open(DialogBoxComponent, {
+      width: '250px',
+      data:obj
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.event == 'Add'){
+        this.addRowData(result.data);
+      }else if(result.event == 'Update'){
+        this.updateRowData(result.data);
+      }else if(result.event == 'Delete'){
+        this.deleteRowData(result.data);
+      }
+    });
+  }
+
+  addRowData(row_obj){
+    var d = new Date();
+    this.dataSource.push({
+      id:d.getTime(),
+      name:row_obj.name
+    });
+    this.table.renderRows();
+
+  }
+  updateRowData(row_obj){
+    this.dataSource = this.dataSource.filter((value,key)=>{
+      if(value.id == row_obj.id){
+        value.name = row_obj.name;
+      }
+      return true;
+    });
+  }
+  deleteRowData(row_obj){
+    this.dataSource = this.dataSource.filter((value,key)=>{
+      return value.id != row_obj.id;
+    });
+  }
+
+
+}
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ApiService } from './api.service';
+
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+];
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  providers: [ApiService]
+})
+export class AppComponent {
+
+    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+    dataSource = ELEMENT_DATA;
+  }
+
+  title = 'automatic-scheduler';
+ url: string = 'http://127.0.0.1:8000/routine/';
+
+constructor(private http: HttpClient) {}
+public getRoutine() {
+this.http.get(this.url).toPromise().then((data) => {
+console.log(data);
+});
+}
+}
+
+departments = [{dpt_name: 'test'}];
+selectedDepartment;
+
+constructor(private api: ApiService) {
+  this.getDepartments();
+  this.selectedDepartment = {DepartmentID: '-1', dpt_code: '' , dpt_name: '' };
+}
+getDepartments = () => {
+  this.api.getAllDepartments().subscribe(
+    data => {
+      this.departments = data;
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+departmentClicked = (department) => {
+  this.api.getOneDepartment(department.DepartmentID).subscribe(
+    data => {
+      this.selectedDepartment = data;
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+updateDepartment = () => {
+  this.api.updateDepartment(this.selectedDepartment).subscribe(
+    data => {
+      this.getDepartments();
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+createDepartment = () => {
+  this.api.createDepartment(this.selectedDepartment).subscribe(
+    data => {
+      this.departments.push(data);
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+deleteDepartment = () => {
+  this.api.deleteDepartment(this.selectedDepartment.DepartmentID).subscribe(
+    data => {
+      this.getDepartments();
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+}
+
+
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from './user.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  providers: [UserService]
+})
+export class AppComponent implements OnInit {
+  register;
+
+      constructor(private userService: UserService ) {}
+
+      ngOnInit(){
+      }
+        this.register = {
+          username: '',
+          password: '',
+          email: ''
+        };
+      }
+      registerUser(){
+        this.userService.registerNewUser(this.register).subscribe(
+          reponse => {
+            alert('User' + this.register.username + ' has been created ')
+          },
+          error => console.log('error', error)
+        );
+       }
+} */
+
+
+
+
+/* <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+     role="button" data-toggle="dropdown" aria-haspopup="true"
+     aria-expanded="false">Department</a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+
+      <a class="dropdown-item" href="http://127.0.0.1:8000/departments/">Department</a>
+      <a class="dropdown-item" href="http://127.0.0.1:8000/programs/">Program</a>
+      <a class="dropdown-item" href="http://127.0.0.1:8000/faculties/">Faculty</a>
+
+</div>
+</li>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+     role="button" data-toggle="dropdown" aria-haspopup="true"
+     aria-expanded="false">
+         Programs
+     </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+
+      <a class="dropdown-item" href="http://127.0.0.1:8000/programs/">Program</a>
+      <a class="dropdown-item" href="http://127.0.0.1:8000/courses/">Course</a>
+      <a class="dropdown-item" href="http://127.0.0.1:8000/batches/">Batch</a>
+ </div>
+</li>
+
+  </div>
+</nav>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+  <div class="container">
+    <a class="navbar-brand" href="#">Angular 9 Routing Tutorial</a>
+
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/about">About</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/signup">SignUp</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav> */

@@ -1,3 +1,7 @@
+/* @import "@bootstrap/dist/css/bootstrap.css" */
+/* nav a.active{
+  color: blue;
+} */
 .spacer {
   flex : 1 1 auto;
 }
@@ -7,9 +11,37 @@
 } */
 
 .mat-button{
-  background-color:greenyellow;
+  color: black;
+  background-color:orangered;
 }
 
+.navbar ul li {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar .dropdown-item {
+  width: auto;
+}
+
+
+.navbar-nav li:hover > ul.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu {
+  position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top:-6px;
+}
+
+/* rotate caret on hover */
+.dropdown-menu > li > a:hover:after {
+  text-decoration: underline;
+  transform: rotate(-90deg);
+}
 /* .mat-button.mat-success,
 .mat-stroked-button.mat-success {
     color: #155724;
@@ -18,3 +50,130 @@
 /* .mat-button, .mat-raised-button{
   background-color:red;
 } */
+
+
+/* <ul>
+<li *ngFor="let program of programs">
+  <a href="http://localhost:8000/programs/{{ program.programCode }}">
+  <i class="fas fa-map-pin"></i>{{ program.programCode }} - {{ program.pro_name }}
+  </a>
+  <!--  <h6 (click)="programClicked(program)">{{ program.pro_shortForm }} - {{ program.programCode }} - {{ program.pro_name }} </h6> -->
+</li>
+</ul>
+
+<ul>
+<li *ngFor="let batch of batches">
+ <span>
+    <a href="http://localhost:8000/batches/{{ batch.id }}">
+      <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>{{ batch.id }} - {{ batch.batchName }} - {{ batch.sectionName}}
+    </a>
+</span>
+</li>
+</ul>
+
+<ul>
+<li *ngFor="let course of courses">
+<span>
+    <a href="http://localhost:8000/courses/{{ course.courseCode }}">
+      <i class="fas fa-map-pin"></i>{{ course.courseID }} - {{ course.courseCode }}
+    </a>
+</span>
+
+</li>
+</ul> */
+
+
+
+
+/* <ul>
+<li *ngFor="let program of programs">
+
+  <h6 (click)="programClicked(program)">{{ program.pro_shortForm }} - {{ program.programCode }} - {{ program.pro_name }}
+  <!-- <h6 (click)="programClicked(program)">{{ program.pro_shortForm }} - {{ program.pro_name }}</h6> -->
+  <li *ngFor="let batch of batches">
+  <span>
+    <a href="http://localhost:8000/batches/{{ batch.id }}">
+      <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>{{ batch.id }} - {{ batch.batchName }} - {{ batch.sectionName}}
+    </a>
+</span>
+</li>
+
+<li *ngFor="let course of courses">
+<span>
+  <a href="http://localhost:8000/courses/{{ course.courseCode }}">
+    <i class="fas fa-map-pin"></i>{{ course.courseID }} - {{ course.courseCode }}
+  </a>
+</span>
+</li>
+</h6>
+</li>
+</ul> */
+
+
+/*
+import { Component, OnInit } from '@angular/core';
+import {MatMenuModule} from '@angular/material/menu';
+@Component({
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
+})
+export class NavbarComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+} */
+
+/*
+<mat-toolbar color="primary" class="mat-elevation-z8">
+<span><mat-icon>language</mat-icon> Automatic Scheduler</span>
+
+<div class="spacer"></div>
+<a mat-button routerLink="home">Home</a>
+<a mat-button routerLink="about">About</a>
+<a mat-button routerLink="user">User</a>
+<a mat-button routerLink="register">Register</a>
+<a mat-button routerLink="department">Department</a>
+<a mat-button routerLink="program">Program</a>
+<a mat-button routerLink="course">Course</a>
+<a mat-button routerLink="batch">Batch</a>
+<a mat-button routerLink="faculty">Faculty</a>
+<a mat-button routerLink="exam">Exam</a>
+<a mat-button routerLink="room">Room</a>
+<a mat-button routerLink="timeSlot">TimeSlot</a>
+<a mat-button routerLink="roster">Roster</a>
+<a mat-button routerLink="courseOffered">CourseOffered</a>
+<a mat-button routerLink="routine">Routine</a>
+<a mat-button routerLink="logout">Logout</a>
+</mat-toolbar>
+
+
+<!-- <a mat-button routerLink="contact">Contact</a> -->
+<!-- <a mat-raised-button color="accent"> SignUp</a> -->
+<!-- <a button mat-button color="primary">Primary</button> -->
+<!-- <a mat-button routerLink="login">Login</a> -->
+<!-- <a mat-button routerLink="signup">SignUp</a> -->
+<!-- <a mat-button routerLink="timeslot">TimeSlot</a> -->
+<!-- <a mat-button routerLink="Courseoffered">CourseOffered</a> -->
+
+
+<button mat-button [matMenuTriggerFor]="menu">Exam Scheduler</button>
+<mat-menu #menu="matMenu">
+  <a mat-button routerLink="home">Home</a>
+  <a mat-button routerLink="about">About</a>
+  <a mat-button routerLink="user">User</a>
+  <a mat-button routerLink="register">Register</a>
+  <a mat-button routerLink="department">Department</a>
+  <a mat-button routerLink="program">Program</a>
+  <a mat-button routerLink="course">Course</a>
+  <a mat-button routerLink="batch">Batch</a>
+  <a mat-button routerLink="faculty">Faculty</a>
+  <a mat-button routerLink="exam">Exam</a>
+  <a mat-button routerLink="room">Room</a>
+  <a mat-button routerLink="courseOffered">CourseOffered</a>
+<a mat-button routerLink="routine">Routine</a>
+<a mat-button routerLink="logout">Logout</a>
+</mat-menu> */
