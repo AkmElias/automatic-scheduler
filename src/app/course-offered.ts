@@ -1,10 +1,11 @@
 export class CourseOffered
 {
    courseOfferedID: number;
-   ofr_term: number;
-   ofr_year: number;
-   courseCode : number;
-   batchName: string;
-   facultyID: number;
+   term: String;
+   year: String;
+   course : String;
+   batch: String;
+   section: String;
+   faculty: String;
 }
 

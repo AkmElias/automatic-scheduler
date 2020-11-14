@@ -19,29 +19,32 @@
 <div  style="width:800px; margin:0 auto;">
 
 <hr/>
-<div *ngIf="courseOffered">
+<div *ngIf="courseOfferedInfo">
   <div>
-    <label><b>CourseOffered ID: </b></label> {{courseOffered.courseOfferedID}}
+    <label><b>CourseOffered ID: </b></label> {{courseOfferedInfo.id}}
   </div>
   <div>
-    <label><b>Term: </b></label> {{courseOffered.ofr_term}}
+    <label><b>Term: </b></label> {{courseOfferedInfo.term}}
   </div>
   <div>
-    <label><b>Year: </b></label> {{courseOffered.ofr_year}}
+    <label><b>Year: </b></label> {{courseOfferedInfo.year}}
   </div>
   <div>
-    <label><b>Batch: </b></label> {{courseOffered.batchName}}
+    <label><b>Batch: </b></label> {{courseOfferedInfo.batch}}
   </div>
   <div>
-    <label><b>Course: </b></label> {{courseOffered.courseCode}}
+    <label><b>Section: </b></label> {{courseOfferedInfo.section}}
   </div>
   <div>
-    <label><b>Faculty: </b></label> {{courseOffered.facultyID}}
+    <label><b>Course: </b></label> {{courseOfferedInfo.course}}
+  </div>
+  <div>
+    <label><b>Faculty: </b></label> {{courseOfferedInfo.faculty}}
   </div>
 </div>
 
 <br>
 <br>
-<!-- <button (click)="list()" class="btn btn-primary">Back to CourseOffered List</button><br> -->
+<!-- <button (click)="list()" class="btn btn-primary">Back to courseOfferedInfo List</button><br> -->
 <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
 </div>

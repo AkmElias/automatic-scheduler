@@ -1,3 +1,4 @@
+import { CourseOffered } from './../course-offered';
 import { SectionapiService } from './../sectionapi.service';
 import { FacultyapiService } from './../facultyapi.service';
 import { CourseapiService } from './../courseapi.service';
@@ -47,7 +48,6 @@ getCoursesOffered = () => {
       data => {
 
         this.coursesOffered = data; 
-  
         let courseOfferObject;
         let courseObject;
         let batchObject;
@@ -94,7 +94,6 @@ getCoursesOffered = () => {
                           console.log('offers',tempCourseOffer)
                         }
                       )
-                      
                     }
                   )
               
@@ -116,16 +115,7 @@ getCoursesOffered = () => {
 
 }
 
-courseOfferedClicked = (courseOffered) => {
-  this.api.getOneCourseOffered(courseOffered.courseOfferedID).subscribe(
-    data => {
-      this.selectedCourseOffered = data;
-    },
-    error => {
-      console.log(error);
-    }
-  );
-}
+
 updateCourseOffered = () => {
   this.api.updateCourseOffered(this.selectedCourseOffered).subscribe(
     data => {
@@ -146,15 +136,20 @@ createCourseOffered = () => {
     }
   );
 }
-deleteCourseOffered = () => {
-  this.api.deleteCourseOffered(this.selectedCourseOffered.courseCode).subscribe(
-    data => {
-      this.getCoursesOffered();
-    },
-    error => {
-      console.log(error);
-    }
-  );
+
+deleteCourseOffered = (courseOfferedID) => {
+  console.log('delete id: ', courseOfferedID)
+  this.finalCoursesOffered = this.finalCoursesOffered.filter(courseOffered => courseOffered.id !== courseOfferedID)
+  
+  // this.api.deleteCourseOffered(courseOfferedID).subscribe(
+  //   data => {
+  //     console.log('deleted CourseOffered Id:', data)
+  //   },
+  //   error => {
+  //     console.log(error);
+  //   }
+  // );
+
 }
 
 stepOne() {
@@ -181,7 +176,7 @@ CreatecourseOffered(){
 courseOfferedDetails(courseOfferedID){
 
   let courseOfferedInfo = this.finalCoursesOffered.filter(courseOffer => courseOffer.id === courseOfferedID)
-  this.router.navigate(['courseOffereddetails',courseOfferedID, {'info':courseOfferedInfo}]);
+  this.router.navigate(['courseOffereddetails',courseOfferedID]);
 }
 
 UpdatecourseOffered(courseOfferedID){

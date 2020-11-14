@@ -32,15 +32,15 @@
     <div class="form-control">
         <label class="radio-inline">
             <input type="radio" name="term" required #term="ngModel"
-                   value="Spring" [(ngModel)]="courseOffered.ofr_term"> Spring
+                   value="Spring" [(ngModel)]="courseOffered.term"> Spring
         </label>
         <label class="radio-inline">
             <input type="radio" name="term" required #term="ngModel"
-                   value="Summer" [(ngModel)]="courseOffered.ofr_term"> Summer
+                   value="Summer" [(ngModel)]="courseOffered.term"> Summer
         </label>
         <label class="radio-inline">
           <input type="radio" name="term" required #term="ngModel"
-                 value="Autumn" [(ngModel)]="courseOffered.ofr_term"> Autumn
+                 value="Autumn" [(ngModel)]="courseOffered.term"> Autumn
       </label>
     </div>
     <span class="help-block" *ngIf="term.errors?.required && term.touched">
@@ -50,7 +50,7 @@
 
     <div class="form-group" style="width: 400px;">
       <label for="type">Year</label>
-      <select class="form-control" id="courseOffered.ofr_year" required [(ngModel)]="courseOffered.ofr_year" name="Year">
+      <select class="form-control" id="courseOffered.year" required [(ngModel)]="courseOffered.year" name="Year">
         <option>2018</option>
         <option>2019</option>
         <option>2020</option>
@@ -66,9 +66,9 @@
 
     <div class="form-group" style="width: 400px;">
       <label for="course">Course</label>
-      <select id="courseCode" name="courseCode" [(ngModel)]="courseOffered.courseCode"
+      <select id="courseCode" name="courseCode" [(ngModel)]="courseOffered.course"
               class="form-control">
-        <option *ngFor="let course of courses" [value]="course.courseCode">
+        <option *ngFor="let course of courses" [value]="course.course">
           {{course.courseCode + '-' + course.crs_shortName}}
         </option>
       </select>
@@ -76,7 +76,7 @@
 
     <div class="form-group" style="width: 400px;">
       <label for="batch">Batch</label>
-      <select id="sel1" name="batchName" [(ngModel)]="courseOffered.batchName"
+      <select id="sel1" name="batchName" [(ngModel)]="courseOffered.batch"
               class="form-control">
         <option *ngFor="let batch of batches" [value]="batch.batchName">
           {{batch.batchName +  batch.sectionName}}
@@ -86,12 +86,12 @@
 
     <div class="form-group" style="width: 400px;">
       <label for="name">Batch</label>
-      <input type="text" class="form-control" id="batchName" required [(ngModel)]="courseOffered.batchName" name="batchName">
+      <input type="text" class="form-control" id="batchName" required [(ngModel)]="courseOffered.batch" name="batchName">
     </div>
 
     <div class="form-group" style="width: 400px;">
       <label for="faculty">Faculty</label>
-      <select id="facultyID" name="facultyID" [(ngModel)]="courseOffered.facultyID"
+      <select id="facultyID" name="facultyID" [(ngModel)]="courseOffered.faculty"
               class="form-control">
         <option *ngFor="let faculty of faculties" [value]="faculty.facultyID">
           {{faculty.fac_shortName}}
