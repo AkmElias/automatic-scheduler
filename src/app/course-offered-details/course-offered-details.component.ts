@@ -1,3 +1,4 @@
+import { ProgramapiService } from './../programapi.service';
 import { CourseOffered } from './../course-offered';
 import { Component, OnInit, Input } from '@angular/core';
 import { CourseOfferedapiService } from '../course-offeredapi.service';
@@ -24,6 +25,7 @@ export class CourseOfferedDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router, 
     private courseOfferedService: CourseOfferedapiService,
+    private programApi: ProgramapiService,
     private batchApi: BatchapiService,
     private courseApi: CourseapiService,
     private facultyApi: FacultyapiService, 
@@ -32,6 +34,7 @@ export class CourseOfferedDetailsComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.getCourseOfferedDetails(this.id);
     }
+    
 
   ngOnInit() {
 
@@ -41,12 +44,6 @@ export class CourseOfferedDetailsComponent implements OnInit {
 
 
 getCourseOfferedDetails(courseOfferedId){
-
-  let courseOfferObject;
-  let courseObject;
-  let batchObject;
-  let sectionObject;
-  let facultyObject;
 
   this.courseOfferedService.getOneCourseOffered(courseOfferedId).subscribe(data => {
 
@@ -58,31 +55,29 @@ getCourseOfferedDetails(courseOfferedId){
     this.batchApi.getOneBatch(this.courseOffered.batchName).subscribe(
       data => {
         
-        batchObject = data[0];
-        console.log('batch..',batchObject)
-        this.courseOfferedInfo.batch = batchObject.batchName
+        this.courseOfferedInfo.batch = data[0].batchName
 
         this.sectionApi.getOneSection(this.courseOffered.sectionName).subscribe(
           data => {
             
-            sectionObject = data;
-            console.log('section..',sectionObject)
-           this.courseOfferedInfo.section = sectionObject.sectionName
+           this.courseOfferedInfo.section = data.sectionName
             this.courseApi.getOneCourse(this.courseOffered.courseID).subscribe(
               data => {
 
-                courseObject = data[0];
-                console.log('course..',courseObject)
                 this.dash = ", ";
-                this.courseOfferedInfo.course = courseObject.courseCode + this.dash + courseObject.crs_title;
+                this.courseOfferedInfo.course = data[0].courseCode + this.dash + data[0].crs_title;
                 this.facultyApi.getOneFaculty(this.courseOffered.facultyID).subscribe(
                   data => {
 
-                    facultyObject = data[0];
-                    console.log('fac....',facultyObject)
                     this.dash = " ";
-                    this.courseOfferedInfo.faculty = facultyObject.fac_firstName + this.dash + facultyObject.fac_lastName
-                    console.log('offers',this.courseOfferedInfo)
+                    this.courseOfferedInfo.faculty = data[0].fac_firstName + this.dash + data[0].fac_lastName
+                    this.programApi.getOneProgram(this.courseOffered.programID).
+                    subscribe(data => {
+
+                       this.courseOfferedInfo.program = data[0].pro_name
+                       
+                    })
+                   
                   }
                 )
                 

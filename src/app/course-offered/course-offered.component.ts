@@ -23,7 +23,6 @@ title = 'List of CourseOffered';
 
 coursesOffered = [];
 finalCoursesOffered = [];
-selectedCourseOffered;
 
 sectionOne = true;
 sectionTwo = false;
@@ -38,8 +37,7 @@ constructor(private api: CourseOfferedapiService, private batchApi: BatchapiServ
    private router: Router) {
 
   this.getCoursesOffered();
-  this.selectedCourseOffered = {courseOfferedID: '-1', ofr_term: '', ofr_year: '',
-  courseCode: '', batchName: '', sectionName: '', facultyID: '' };
+  
 }
 
 getCoursesOffered = () => {
@@ -116,27 +114,6 @@ getCoursesOffered = () => {
 }
 
 
-updateCourseOffered = () => {
-  this.api.updateCourseOffered(this.selectedCourseOffered).subscribe(
-    data => {
-      this.getCoursesOffered();
-    },
-    error => {
-      console.log(error);
-    }
-  );
-}
-createCourseOffered = () => {
-  this.api.createCourseOffered(this.selectedCourseOffered).subscribe(
-    data => {
-      this.coursesOffered.push(data);
-    },
-    error => {
-      console.log(error);
-    }
-  );
-}
-
 deleteCourseOffered = (courseOfferedID) => {
   console.log('delete id: ', courseOfferedID)
   this.finalCoursesOffered = this.finalCoursesOffered.filter(courseOffered => courseOffered.id !== courseOfferedID)
@@ -174,12 +151,10 @@ CreatecourseOffered(){
 }
 
 courseOfferedDetails(courseOfferedID){
-
-  let courseOfferedInfo = this.finalCoursesOffered.filter(courseOffer => courseOffer.id === courseOfferedID)
   this.router.navigate(['courseOffereddetails',courseOfferedID]);
 }
 
-UpdatecourseOffered(courseOfferedID){
+updateCourseOffered(courseOfferedID){
   this.router.navigate(['updatecourseOffered', courseOfferedID]);
 }
 

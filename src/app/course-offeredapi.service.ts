@@ -25,11 +25,14 @@ export class CourseOfferedapiService {
     return this.http.get(this.baseurl + '/coursesOffered/' + CoursesOfferedID + '/',
     {headers: this.httpHeaders});
   }
-  updateCourseOffered(coursesOffered): Observable<any> {
-    const body = {CoursesOfferedID: coursesOffered.CoursesOfferedID , ofr_term: coursesOffered.ofr_term,
-    ofr_year: coursesOffered.ofr_year, courseCode: coursesOffered.courseCode, batchName: coursesOffered.batchName,
-    sectionName: coursesOffered.sectionName,facultyID: coursesOffered.facultyID  };
-    return this.http.put(this.baseurl + '/coursesOffered/' + coursesOffered.courseOfferedID + '/', body,
+  updateCourseOffered(coursesOffered) {
+   
+
+    const body = {id: coursesOffered.id , ofr_term: coursesOffered.ofr_term,
+    ofr_year: coursesOffered.ofr_year, courseID: coursesOffered.course, programCode:coursesOffered.program, batchName: coursesOffered.batch,
+    sectionName: coursesOffered.section,facultyID: coursesOffered.faculty  };
+    console.log('updated...', body)
+    return this.http.put(this.baseurl + '/coursesOffered/' + body.id + '/', body,
     {headers: this.httpHeaders});
   }
   createCourseOffered(coursesOffered): Observable<any> {
