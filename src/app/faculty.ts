@@ -1,6 +1,5 @@
-export class Faculty
-{
-  facultyID: number;
+export class Faculty {
+  id: number;
   fac_title: string;
   fac_firstName: string;
   fac_lastName: string;
