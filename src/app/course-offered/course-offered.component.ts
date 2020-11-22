@@ -52,7 +52,7 @@ export class CourseOfferedComponent {
         let sectionObject;
         let facultyObject;
 
-        let promises = this.coursesOffered.forEach(async (courseOffer) => {
+        this.coursesOffered.forEach(async (courseOffer) => {
           let tempCourseOffer = {
             id: Number,
             term: String,
@@ -103,44 +103,6 @@ export class CourseOfferedComponent {
             results[3][0].fac_firstName +
             this.dash +
             results[3][0].fac_lastName;
-
-          console.log("batch.......", results[0][0].batchName);
-          console.log("section.......", results[1]);
-          console.log("course.......", results[2]);
-          console.log("faculty.......", results[3]);
-
-          // this.batchApi.getOneBatch(courseOffer.batchName).subscribe((data) => {
-          //   batchObject = data[0];
-          //   tempCourseOffer.batch = batchObject.batchName;
-
-          //   this.sectionApi
-          //     .getOneSection(courseOffer.sectionName)
-          //     .subscribe((data) => {
-          //       sectionObject = data;
-          //       tempCourseOffer.section = sectionObject.sectionName;
-          //       this.courseApi
-          //         .getOneCourse(courseOffer.courseID)
-          //         .subscribe((data) => {
-          //           courseObject = data[0];
-          //           this.dash = ", ";
-          //           tempCourseOffer.course =
-          //             courseObject.courseCode +
-          //             this.dash +
-          //             courseObject.crs_title;
-          //           this.facultyApi
-          //             .getOneFaculty(courseOffer.facultyID)
-          //             .subscribe((data) => {
-          //               facultyObject = data[0];
-          //               this.dash = " ";
-          //               tempCourseOffer.faculty =
-          //                 facultyObject.fac_firstName +
-          //                 this.dash +
-          //                 facultyObject.fac_lastName;
-          //               //console.log('offers',tempCourseOffer)
-          //             });
-          //         });
-          //     });
-          // });
 
           this.finalCoursesOffered.push(tempCourseOffer);
         });
@@ -194,7 +156,7 @@ export class CourseOfferedComponent {
     this.router.navigate(["courseOffereddetails", courseOfferedID]);
   }
 
-  updateCourseOffered(courseOfferedID) {
-    this.router.navigate(["updatecourseOffered", courseOfferedID]);
+  updateCourseOffered(courseOfferedID, course) {
+    this.router.navigate(["updatecourseOffered", courseOfferedID, course]);
   }
 }
