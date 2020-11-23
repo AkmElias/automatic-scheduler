@@ -55,8 +55,6 @@ export class UpdateCourseOfferedComponent implements OnInit {
     this.getCourseOffered(this.id);
     this.getCourses();
     this.getPrograms();
-    this.getBatches();
-    this.getSections();
     this.getFaculties();
   }
 
@@ -72,8 +70,10 @@ export class UpdateCourseOfferedComponent implements OnInit {
       this.selectedYear = this.courseOffered.ofr_year;
       this.selectedCourse = 2;
       this.selectedProgram = data[0].programID;
+      this.getBatchesByProgram(this.selectedProgram);
       this.selectedBatch = this.courseOffered.batchName;
       this.selectedSection = this.courseOffered.sectionName;
+      this.getSectionsByBatch(this.selectedBatch);
       this.selectedFaculty = this.courseOffered.facultyID;
     });
   };
@@ -90,10 +90,11 @@ export class UpdateCourseOfferedComponent implements OnInit {
     });
   };
 
-  getBatches = () => {
-    this.batchApi.getAllBatches().subscribe(
+  getBatchesByProgram = (programCode) => {
+    this.batchApi.getBatchesByProgram(programCode).subscribe(
       (data) => {
         this.batches = data;
+        console.log("batchesByProgram...", data);
       },
       (error) => {
         console.log(error);
@@ -101,9 +102,10 @@ export class UpdateCourseOfferedComponent implements OnInit {
     );
   };
 
-  getSections = () => {
-    this.sectionApi.getAllSections().subscribe((data) => {
+  getSectionsByBatch = (batch) => {
+    this.sectionApi.getSectionsByBatch(batch).subscribe((data) => {
       //console.log("sections..", data);
+      this.sections = data;
     });
   };
 
@@ -138,24 +140,27 @@ export class UpdateCourseOfferedComponent implements OnInit {
     );
   }
 
+  batchByProgram() {
+    console.log("batch by programs");
+  }
+
   updateCourseOffered() {
     this.courseOfferedUpdate = {
-      id: 4,
-      ofr_term: "Spring",
-      ofr_year: 2020,
-      program: "115",
-      course: 3,
-      batch: 5,
-      section: 5,
-      faculty: 6,
+      id: this.id,
+      ofr_term: this.selectedTerm,
+      ofr_year: this.selectedYear,
+      program: this.selectedProgram,
+      course: this.selectedCourse,
+      batch: this.selectedBatch,
+      section: this.selectedSection,
+      faculty: this.selectedFaculty,
     };
 
     this.api.updateCourseOffered(this.courseOfferedUpdate).subscribe(
-      (data) => console.log(data),
+      (data) => console.log("updatedt course offered...!!", data),
       (error) => console.log(error)
     );
-    // this.courseOffered = new CourseOffered();
-    // this.gotoList();
+    alert("Course offered updated succesfully!!");
   }
 
   gotoList() {

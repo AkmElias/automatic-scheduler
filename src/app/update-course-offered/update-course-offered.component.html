@@ -76,7 +76,7 @@
       <label for="program">Program</label>
       
       <select id="program" name="program" 
-              class="form-control" [(ngModel)]='selectedProgram'>
+              class="form-control" [(ngModel)]='selectedProgram' (ngModelChange)='getBatchesByProgram(selectedProgram)'>
         <option *ngFor="let program of programs" [value]="program.programCode">
           {{program.pro_name}}
         </option>
@@ -87,7 +87,7 @@
       <label for="batch">Batch</label>
       
       <select id="batch" name="batc[h" 
-              class="form-control" [(ngModel)]='selectedBatch'>
+              class="form-control" [(ngModel)]='selectedBatch' (ngModelChange)='getSectionsByBatch(selectedBatch)'>
         <option *ngFor="let batch of batches" [value]="batch.id">
           {{batch.batchName}}
         </option>
@@ -97,9 +97,9 @@
     <div class="form-group" style="width: 400px;">
       <label for="section">Section</label>
       <select id="section" name="section" 
-              class="form-control" >
+              class="form-control" [(ngModel)]='selectedSection'>
               
-        <option *ngFor="let section of sections" [value]="section">
+        <option *ngFor="let section of sections" [value]="section.id">
           {{section.sectionName}}
         </option>
       </select>
