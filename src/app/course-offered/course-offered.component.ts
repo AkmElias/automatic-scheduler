@@ -92,9 +92,9 @@ export class CourseOfferedComponent {
           });
 
           let results = await Promise.all(promises);
-
+          console.log("courseOffered details..", results);
           tempCourseOffer.batch = results[0][0].batchName;
-          tempCourseOffer.section = results[1].sectionName;
+          tempCourseOffer.section = results[1][0].sectionName;
           this.dash = ", ";
           tempCourseOffer.course =
             results[2][0].courseCode + this.dash + results[2][0].crs_title;

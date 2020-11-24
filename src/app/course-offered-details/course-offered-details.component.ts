@@ -77,9 +77,10 @@ export class CourseOfferedDetailsComponent implements OnInit {
         });
 
         let results = await Promise.all(promises);
+
         this.courseOfferedInfo.program = results[0][0].pro_name;
         this.courseOfferedInfo.batch = results[1][0].batchName;
-        this.courseOfferedInfo.section = results[2].sectionName;
+        this.courseOfferedInfo.section = results[2][0].sectionName;
         this.dash = ", ";
         this.courseOfferedInfo.course =
           results[3][0].courseCode + this.dash + results[3][0].crs_title;

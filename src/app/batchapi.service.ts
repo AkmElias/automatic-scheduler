@@ -20,11 +20,13 @@ export class BatchapiService {
       headers: this.httpHeaders,
     });
   }
+
   getBatchesByProgram(programCode): Observable<any> {
     return this.http.get(this.baseurl + "/batches/" + programCode + "/", {
       headers: this.httpHeaders,
     });
   }
+  
   getBatchByID(id): Observable<any> {
     return this.http.get(this.baseurl + "/batch/" + id + "/", {
       headers: this.httpHeaders,

@@ -16,12 +16,12 @@ export class SectionapiService {
     });
   }
   getSectionsByBatch(batch): Observable<any> {
-    return this.http.get(this.baseurl + "/sections/" + batch + "/", {
+    return this.http.get(this.baseurl + "/sections/bt" + batch + "/", {
       headers: this.httpHeaders,
     });
   }
   getOneSection(sectionID): Observable<any> {
-    return this.http.get(this.baseurl + "/sections/" + sectionID + "/", {
+    return this.http.get(this.baseurl + "/sections/st" + sectionID + "/", {
       headers: this.httpHeaders,
     });
   }
