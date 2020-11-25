@@ -33,15 +33,15 @@
     <div class="form-control">
         <label class="radio-inline">
             <input type="radio" name="term" required #term="ngModel"
-                   value="Spring" [(ngModel)]="CourseOffered.ofr_term"> Spring
+                   value="Spring" [(ngModel)]="selectedTerm"> Spring
         </label>
         <label class="radio-inline">
             <input type="radio" name="term" required #term="ngModel"
-                   value="Summer" [(ngModel)]="CourseOffered.ofr_term"> Summer
+                   value="Summer" [(ngModel)]="selectedTerm"> Summer
         </label>
         <label class="radio-inline">
           <input type="radio" name="term" required #term="ngModel"
-                 value="Autumn" [(ngModel)]="CourseOffered.ofr_term"> Autumn
+                 value="Autumn" [(ngModel)]="selectedTerm"> Autumn
       </label>
     </div>
     <span class="help-block" *ngIf="term.errors?.required && term.touched">
@@ -51,52 +51,73 @@
 
     <div class="form-group">
       <label for="type">Year</label>
-      <select class="form-control" id="CourseOffered.ofr_year" required [(ngModel)]="CourseOffered.ofr_year" name="Year">
-        <option>2018</option>
-        <option>2019</option>
-        <option>2020</option>
-        <option>2021</option>
-        <option>2022</option>
-        <option>2023</option>
-        <option>2024</option>
-        <option>2025</option>
-        <option>2026</option>
-        <option>2027</option>
+      <select class="form-control" id="courseOffered.year" required [(ngModel)]="selectedYear" name="Year">
+        <option [value]="2018">2018</option>
+        <option [value]="2019">2019</option>
+        <option [value]="2020">2020</option>
+        <option [value]="2021">2021</option>
+        <option [value]="2022">2022</option>
+        <option [value]="2023">2023</option>
+        <option [value]="2024">2024</option>
+        <option [value]="2025">2025</option>
+        <option [value]="2026">2026</option>
+        <option [value]="2027">2027</option>
       </select>
     </div>
-
-    <div class="form-group">
-      <label for="course">Course</label>
-      <select id="courseCode" name="courseCode" [(ngModel)]="CourseOffered.courseCode"
-              class="form-control">
-        <option *ngFor="let course of courses" [value]="course.courseCode">
-          {{course.courseCode + '-' + course.crs_shortName}}
+    <div class="form-group" style="width: 400px;">
+      <label for="program">Program</label>
+      
+      <select id="program" name="program"  [(ngModel)]="selectedProgram"  required (ngModelChange)='getBatchesByProgram(selectedProgram)'
+              class="form-control" >
+        <option *ngFor="let program of programs" [value]="program.programCode">
+          {{program.pro_name}}
         </option>
       </select>
     </div>
 
-    <div class="form-group">
+
+    <div *ngIf='batchLoaded' class="form-group">
       <label for="batch">Batch</label>
-      <select id="batchName" name="batchName" [(ngModel)]="CourseOffered.batchName"
-              class="form-control">
-        <option *ngFor="let batch of batches" [value]="batch.batchName">
-          {{batch.batchName + batch.sectionName}}
+      <select id="batchName" name="batchName" 
+              class="form-control" [(ngModel)]="selectedBatch" (ngModelChange)='getSectionsByBatch(selectedBatch)' required>
+        <option *ngFor="let batch of batches" [value]="batch.id">
+          {{batch.batchName}}
         </option>
       </select>
     </div>
 
-    <div class="form-group">
+    <div *ngIf='sectionLoaded' class="form-group">
+      <label for="section">Section</label>
+      <select id="section" name="sectionName" [(ngModel)]="selectedSection" (ngModelChange) ='sectionSelected()'
+              class="form-control" required>
+        <option *ngFor="let section of sections" [value]="section.id">
+          {{section.sectionName}}
+        </option>
+      </select>
+    </div>
+
+    <div *ngIf='courseLoaded' class="form-group">
+      <label for="course">Course</label>
+      <select id="courseCode" name="courseCode" [(ngModel)]="selectedCourse"
+              class="form-control" required>
+        <option *ngFor="let course of courses" [value]="course.id">
+          {{course.courseCode + ',' + course.crs_title}}
+        </option>
+      </select>
+    </div>
+
+    <div *ngIf='courseLoaded' class="form-group">
       <label for="faculty">Faculty</label>
-      <select id="facultyID" name="facultyID" [(ngModel)]="CourseOffered.facultyID"
-              class="form-control">
-        <option *ngFor="let faculty of faculties" [value]="faculty.facultyID">
-          {{faculty.fac_shortName}}
+      <select id="facultyID" name="facultyID" [(ngModel)]="selectedFaculty" 
+              class="form-control" required>
+        <option *ngFor="let faculty of faculties" [value]="faculty.id">
+          {{faculty.fac_firstName + ' ' + faculty.fac_lastName}}
           <!-- {{faculty.fac_firstName + faculty.fac_lastName}} -->
         </option>
       </select>
     </div>
 
-    <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Add CourseOffered" class="btn btn-success" (click)="createCourseOffered()"> <i class="fa fa-plus" aria-hidden="true"></i> ADD </button>
+    <button [disabled]='!allLoaded' type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Add CourseOffered" class="btn btn-success" (click)="createCourseOffered()"> <i class="fa fa-plus" aria-hidden="true"></i> ADD </button>
  </form>
 </div>
 </div>
