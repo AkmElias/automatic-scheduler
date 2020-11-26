@@ -16,7 +16,7 @@ import { FacultyapiService } from "../facultyapi.service";
 })
 export class CreateCourseOfferedComponent {
   courseOffereds = [{ courseCode: "" }];
-  CourseOffered;
+
   courses: any = [];
   batches: any = [];
   sections: any = [];
@@ -48,7 +48,6 @@ export class CreateCourseOfferedComponent {
     private router: Router
   ) {
     this.getPrograms();
-    this.getCourses();
     this.getFaculties();
 
     this.selectedTerm = "Spring";
@@ -66,10 +65,11 @@ export class CreateCourseOfferedComponent {
       console.log("programs", data);
     });
   }
-  getCourses = () => {
-    this.courseApi.getAllCourses().subscribe(
+  getCoursesByProgram = () => {
+    this.courseApi.getCoursesByProgram(this.selectedProgram).subscribe(
       (data) => {
         this.courses = data;
+        console.log("courses by program..", data);
       },
       (error) => {
         console.log(error);
@@ -77,8 +77,9 @@ export class CreateCourseOfferedComponent {
     );
   };
 
-  getBatchesByProgram = (programCode) => {
-    this.batchApi.getBatchesByProgram(programCode).subscribe(
+  getBatchesByProgram = () => {
+    this.getCoursesByProgram();
+    this.batchApi.getBatchesByProgram(this.selectedProgram).subscribe(
       (data) => {
         this.batches = data;
         this.batchLoaded = true;
@@ -100,7 +101,31 @@ export class CreateCourseOfferedComponent {
 
   sectionSelected = () => {
     this.courseLoaded = true;
-    this.allLoaded = true;
+  };
+
+  courseSelected = () => {
+    if (
+      this.batchLoaded == true &&
+      this.sectionLoaded == true &&
+      this.courseLoaded == true &&
+      this.facultyLoaded == true
+    ) {
+      console.log("all loaded");
+      this.allLoaded = true;
+    }
+  };
+
+  facultySelected = () => {
+    this.facultyLoaded = true;
+    if (
+      this.batchLoaded == true &&
+      this.sectionLoaded == true &&
+      this.courseLoaded == true &&
+      this.facultyLoaded == true
+    ) {
+      console.log("all loaded");
+      this.allLoaded = true;
+    }
   };
 
   getFaculties = () => {
@@ -115,23 +140,27 @@ export class CreateCourseOfferedComponent {
   };
 
   createCourseOffered = () => {
-    this.courseOfferedService.createCourseOffered(this.CourseOffered).subscribe(
+    let courseOffered = {
+      term: this.selectedTerm,
+      year: this.selectedYear,
+      program: this.selectedProgram,
+      batch: this.selectedBatch,
+      section: this.selectedSection,
+      course: this.selectedCourse,
+      faculty: this.selectedFaculty,
+    };
+
+    this.courseOfferedService.createCourseOffered(courseOffered).subscribe(
       (data) => {
-        this.courseOffereds.push(data);
+        console.log("added course offered ...", data);
       },
       (error) => {
         console.log(error);
       }
     );
 
-    this.submitted = false;
     this.gotoList();
   };
-
-  onSubmit() {
-    this.submitted = true;
-    this.createCourseOffered();
-  }
 
   gotoList() {
     this.router.navigate(["/courseOffered"]);

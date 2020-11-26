@@ -21,7 +21,7 @@
 <br>
 <div  style="width:800px; margin:0 auto;">
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="createCourseOffered()">
     <!-- <div class="form-group">
       <label for="name">CourseOffered ID</label>
       <input type="text" class="form-control" id="courseOfferedID" required [(ngModel)]="CourseOffered.courseOfferedID" name="CourseOffered ID">
@@ -67,7 +67,7 @@
     <div class="form-group" style="width: 400px;">
       <label for="program">Program</label>
       
-      <select id="program" name="program"  [(ngModel)]="selectedProgram"  required (ngModelChange)='getBatchesByProgram(selectedProgram)'
+      <select id="program" name="program"  [(ngModel)]="selectedProgram"  required (ngModelChange)='getBatchesByProgram()'
               class="form-control" >
         <option *ngFor="let program of programs" [value]="program.programCode">
           {{program.pro_name}}
@@ -98,7 +98,7 @@
 
     <div *ngIf='courseLoaded' class="form-group">
       <label for="course">Course</label>
-      <select id="courseCode" name="courseCode" [(ngModel)]="selectedCourse"
+      <select id="courseCode" name="courseCode" [(ngModel)]="selectedCourse" (ngModelChange) ='courseSelected()'
               class="form-control" required>
         <option *ngFor="let course of courses" [value]="course.id">
           {{course.courseCode + ',' + course.crs_title}}
@@ -108,7 +108,7 @@
 
     <div *ngIf='courseLoaded' class="form-group">
       <label for="faculty">Faculty</label>
-      <select id="facultyID" name="facultyID" [(ngModel)]="selectedFaculty" 
+      <select id="facultyID" name="facultyID" [(ngModel)]="selectedFaculty" (ngModelChange) ='facultySelected()'
               class="form-control" required>
         <option *ngFor="let faculty of faculties" [value]="faculty.id">
           {{faculty.fac_firstName + ' ' + faculty.fac_lastName}}
@@ -117,14 +117,13 @@
       </select>
     </div>
 
-    <button [disabled]='!allLoaded' type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Add CourseOffered" class="btn btn-success" (click)="createCourseOffered()"> <i class="fa fa-plus" aria-hidden="true"></i> ADD </button>
+    <button [disabled]='!allLoaded' type="submit"  data-toggle="tooltip"
+     data-placement="left" ngbTooltip="Add CourseOffered" class="btn btn-success"> 
+     <i class="fa fa-plus" aria-hidden="true"></i> ADD </button>
  </form>
 </div>
 </div>
 
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-  <button class="btn btn-success" (click)="createCourseOffered()">Add</button>
-</div>
+
 
 </div>
