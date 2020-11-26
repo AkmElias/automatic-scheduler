@@ -96,11 +96,51 @@ export class CreateCourseOfferedComponent {
       //console.log("sections..", data);
       this.sections = data;
       this.sectionLoaded = true;
+      // course filtering because by batch section automaticaly changes every time..
+      let batchAndSection = {
+        batch: this.selectedBatch,
+        section: this.selectedSection,
+      };
+      this.courseOfferedService
+        .getAllCourseOfferedToBatchAndSection(batchAndSection)
+        .subscribe((data) => {
+          let allreadyOfferedCoursesArrayOfObjects = data;
+          let allreadyOfferedCoursesArray = [];
+          allreadyOfferedCoursesArrayOfObjects.forEach((element) => {
+            allreadyOfferedCoursesArray.push(element.courseID);
+          });
+          console.log("alrdofrcrses..", allreadyOfferedCoursesArray);
+          this.getRemainingCourses(allreadyOfferedCoursesArray);
+        });
     });
   };
 
   sectionSelected = () => {
+    let batchAndSection = {
+      batch: this.selectedBatch,
+      section: this.selectedSection,
+    };
+    //console.log("batch id and section..", batchAndSection);
+    this.courseOfferedService
+      .getAllCourseOfferedToBatchAndSection(batchAndSection)
+      .subscribe((data) => {
+        let allreadyOfferedCoursesArrayOfObjects = data;
+        let allreadyOfferedCoursesArray = [];
+        allreadyOfferedCoursesArrayOfObjects.forEach((element) => {
+          allreadyOfferedCoursesArray.push(element.courseID);
+        });
+        console.log("alrdofrcrses..", allreadyOfferedCoursesArray);
+        this.getRemainingCourses(allreadyOfferedCoursesArray);
+      });
     this.courseLoaded = true;
+  };
+
+  getRemainingCourses = (allreadyOfferedCoursesArray) => {
+    for (var i = 0; i < allreadyOfferedCoursesArray.length; i++) {
+      this.courses = this.courses.filter(
+        (course) => course.id != allreadyOfferedCoursesArray[i]
+      );
+    }
   };
 
   courseSelected = () => {

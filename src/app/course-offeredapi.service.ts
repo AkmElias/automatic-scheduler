@@ -1,3 +1,5 @@
+import { SectionapiService } from "./sectionapi.service";
+import { Batch } from "./batch";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -18,14 +20,26 @@ export class CourseOfferedapiService {
 
   getCourseOfferedByCourseOfferedID(courseOfferedID): Observable<any> {
     return this.http.get(
-      this.baseurl + "/courseOffered/" + courseOfferedID + "/",
+      this.baseurl + "/coursesOffered/" + courseOfferedID + "/",
       { headers: this.httpHeaders }
+    );
+  }
+
+  getAllCourseOfferedToBatchAndSection(batchANdSection): Observable<any> {
+    let batch = batchANdSection.batch;
+    let section = batchANdSection.section;
+
+    return this.http.get(
+      this.baseurl + "/coursesOffered/bt" + batch + "t" + section + "/",
+      {
+        headers: this.httpHeaders,
+      }
     );
   }
 
   getOneCourseOffered(CoursesOfferedID): Observable<any> {
     return this.http.get(
-      this.baseurl + "/coursesOffered/" + CoursesOfferedID + "/",
+      this.baseurl + "/coursesOffered/nt" + CoursesOfferedID + "/",
       { headers: this.httpHeaders }
     );
   }
