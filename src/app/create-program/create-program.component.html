@@ -41,7 +41,7 @@
       <label for="department">Department </label>
       <select id="DepartmentID" name="DepartmentID" [(ngModel)]="Program.DepartmentID"
               class="form-control">
-        <option *ngFor="let department of departments" [value]="department.DepartmentID">
+        <option *ngFor="let department of departments" [value]="department.id">
           {{department.dpt_name}}
         </option>
       </select>
@@ -49,11 +49,11 @@
 
     <div class="form-group">
       <label for="type">Type</label>
-      <select class="form-control" id="sel1">
-        <option>honours</option>
-        <option>masters</option>
-        <option>diploma</option>
-        <option>PhD</option>
+      <select class="form-control" id="sel1" name="pro_type" [(ngModel)]="Program.pro_type" required>
+        <option value="honours">honours</option>
+        <option value="masters">masters</option>
+        <option value="diploma">diploma</option>
+        <option value="PhD">PHD</option>
       </select>
     </div>
     <br>

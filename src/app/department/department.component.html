@@ -53,12 +53,23 @@
       <td><h6 (click)="departmentClicked(department)"><tr>{{ department.dpt_code }}</tr></h6></td>
       <td><h6 (click)="departmentClicked(department)"><tr>{{ department.dpt_name }}</tr></h6></td>
 
-      <td><a class ="btn btn-info" routerLink="/program/{{department.DepartmentID}}"><i class="fas fa-laptop-code"></i></a>
-      <td><a class ="btn btn-info" routerLink="/faculty/{{department.DepartmentID}}"><i class="fas fa-laptop-code"></i></a>
+      <td><a class ="btn btn-info" routerLink="/program/{{department.id}}"><i class="fas fa-laptop-code"></i></a>
+      <td><a class ="btn btn-info" routerLink="/faculty/{{department.id}}"><i class="fas fa-laptop-code"></i></a>
 
-      <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="departmentDetails(department.DepartmentID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
-     <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="Updatedepartment(department.DepartmentID)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
-     <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedDepartment.DepartmentID" (click)="deleteDepartment()"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+      <td><button type="button" data-toggle="tooltip" data-placement="top" 
+        ngbTooltip="View" (click)="departmentDetails(department.id)"
+         class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book">
+         </i></button></td>
+
+     <td><button type="button" data-toggle="tooltip" data-placement="top" 
+      ngbTooltip="Edit" (click)="Updatedepartment(department.id)" 
+      class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o" aria-hidden="true">
+      </i></button></td>
+      
+     <td><button type="button" data-toggle="tooltip" data-placement="top" 
+      ngbTooltip="Delete" class="btn btn-danger" 
+      (click)="deleteDepartment(department.id)">
+      <i class="fa fa-trash" aria-hidden="true"></i></button></td>
 
     </tr>
   </tbody>
@@ -66,71 +77,3 @@
 </div>
 </div>
 
-<!-- <tr *ngFor="let program of programs" (click)="programClicked(program)">
-  <td><h6 (click)="programClicked(program)"><tr>{{program.programCode}}</tr></h6></td>
-  <td><button (click)="programDetails(program.programCode)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
-  </tr>
-<tr> -->
-
-
-<!-- <body>
-  <h1>Hello, world!</h1>
-
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-  <script>
-    $(document).ready(function () {
-  $('[data-toggle="tooltip"]').tooltip();
-  $('button').tooltip();
-  alert("work");
-})
-  </script>
-</body> -->
-
-
-<!-- <td>
-  <tr *ngFor="let program of programs" (click)="programClicked(program)">
-    <td><h6 (click)="programClicked(program)">{{program.programCode}}<i class="fas fa-laptop-code"></i></h6></td>
-    <td><button (click)="programDetails(program.DepartmentID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
-    </tr>
- </td> -->
-
-
-<!-- <tr *ngFor="let department of departments" (click)="departmentClicked(department)">
-    <td><h6 (click)="departmentClicked(department)"><tr>{{ department.DepartmentID }}</tr></h6></td>
-    <td><h6 (click)="departmentClicked(department)"><tr>{{ department.dpt_code }}</tr></h6></td>
-    <td><h6 (click)="departmentClicked(department)"><tr>{{ department.dpt_name }}</tr></h6></td>
-    <td><a href="http://localhost:4200/program" title="B.Sc. Engg. in CSE" class="btn btn-secondary" style="margin-left: 10px">
-    <td><a href="http://localhost:4200/program&id={{ department.DepartmentID }}" title="B.Sc. Engg. in CSE" class="btn btn-info" style="margin-left: 10px">
-     <i class="nav-icon fas fa-laptop-code"></i></a></td>
-      <td>
-        <tr *ngFor="let program of programs" (click)="programClicked(program)">
-          <td><h6 (click)="programClicked(program)">{{program.programCode}}<i class="fas fa-laptop-code"></i></h6></td>
-          <td><button (click)="programDetails(program.DepartmentID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
-          </tr>
-       </td>
-  <button title="Program" (click)="program(department.DepartmentID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-laptop-code"></i></button></td>
-   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="departmentDetails(department.DepartmentID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
-   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="Updatedepartment(department.DepartmentID)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
-   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedDepartment.DepartmentID" (click)="deleteDepartment()"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-
-  </tr> -->
-
-  <!-- <button type="button" class="btn btn-secondary mr-2" data-toggle="tooltip" data-placement="top" ngbTooltip="Tooltip on top">
-    Tooltip on top
-  </button> -->
-
-        <!-- <td> -->
-        <!-- <tr *ngFor="let program of programs" (click)="programClicked(program)"> -->
-          <!-- <div *ngIf="program.DepartmentID == 'department.DepartmentID'"></div> -->
-          <!-- <td><h6 (click)="programClicked(program)"><i class="fas fa-laptop-code"></i></h6></td> -->
-          <!-- <td><button (click)="programClicked(program)"  *ngIf="Department.programCode==Program.DepartmentID"></button></td> -->
-          <!-- <td><button (click)="programDetails(program.DepartmentID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td> -->
-         <!-- <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Program" (click)="gotoProgram()" class="btn btn-secondary" style="margin-left: 10px"><i class="fas fa-laptop-code"></i></button></td>-->
-        <!-- <td><button (click)="programClicked(program)">{{program.programCode  }}</button></td> -->
-        <!-- <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Program" (click)="gotoProgram()" class="btn btn-secondary" style="margin-left: 10px"><i class="fas fa-laptop-code"></i></button></td> -->
-        <!-- </td> -->
-       <!-- <td><button title="Program" (click)="program(department.DepartmentID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-laptop-code"></i></button></td> -->

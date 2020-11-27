@@ -49,30 +49,29 @@
         </tr>
      </thead>
  <tbody>
-  <tr *ngFor="let program of programs" (click)="programClicked(program)">
+  <tr *ngFor="let program of programs" >
   <tr *ngFor="let program of programs  | filter:searchText">
-    <td><h6 (click)="programClicked(program)"><tr>{{program.programCode}}</tr></h6></td>
-    <td><h6 (click)="programClicked(program)"><tr>{{program.pro_name}}</tr></h6></td>
-    <td><h6 (click)="programClicked(program)"><tr>{{program.pro_shortForm}}</tr></h6></td>
-    <td><h6 (click)="programClicked(program)"><tr>{{program.DepartmentID}}</tr></h6></td>
-    <td><h6 (click)="programClicked(program)"><tr>{{program.pro_type}}</tr></h6></td>
+    <td><h6 ><tr>{{program.programCode}}</tr></h6></td>
+    <td><h6 ><tr>{{program.pro_name}}</tr></h6></td>
+    <td><h6 ><tr>{{program.pro_shortForm}}</tr></h6></td>
+    <td><h6 ><tr>{{program.DepartmentID}}</tr></h6></td>
+    <td><h6 ><tr>{{program.pro_type}}</tr></h6></td>
 
     <td><a class ="btn btn-info" routerLink="/batch/{{program.programCode}}"><i class="fas fa-laptop-code"></i></a>
     <td><a class ="btn btn-info" routerLink="/course/{{program.programCode}}"><i class="fas fa-laptop-code"></i></a>
-    <!-- <td><a class ="btn btn-info" routerLink="/program/{{program.DepartmentID}}"><i class="fas fa-laptop-code"></i></a> -->
+  
+    <td><button type="button" data-toggle="tooltip" data-placement="top"
+       ngbTooltip="View" (click)="programDetails(program.programCode)"
+        class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book">
+        </i></button></td>
 
-    <!-- <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Batch" (click)="gotoBatch()" class="btn btn-dark" style="margin-left: 10px"><i class="fas fa-university"></i></button></td> -->
-
-    <!-- <td><a href="http://localhost:4200/batch" title="Batch" class="btn btn-dark" style="margin-left: 10px">
-    <i class="nav-icon fa fa-university"></i></a></td> -->
-
-    <!-- <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Course" (click)="gotoCourse()" class="btn btn-secondary" style="margin-left: 10px"><i class="nav-icon fa fa-book"></i></button></td> -->
-
-    <!-- <td><a href="http://localhost:4200/course" title="Course" class="btn btn-secondary" style="margin-left: 10px">
-    <i class="nav-icon fa fa-book"></i></a></td> -->
-    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="programDetails(program.programCode)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
-    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="Updateprogram(program.programCode)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o"></i></button></td>
-    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedProgram.programCode" (click)="deleteProgram()"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
+    <td><button type="button" data-toggle="tooltip" data-placement="top" 
+      ngbTooltip="Edit" (click)="Updateprogram(program.programCode)" 
+      class="btn btn-success" style="margin-left: 10px">
+      <i class="fa fa-pencil-square-o"></i></button></td>
+    <td><button type="button" data-toggle="tooltip" data-placement="top" 
+      ngbTooltip="Delete" class="btn btn-danger"  (click)="deleteProgram(program.programCode)"> 
+      <i class="fa fa-trash" aria-hidden="true"></i></button></td>
     </tr>
   </tbody>
 </table>

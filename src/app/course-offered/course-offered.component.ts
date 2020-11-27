@@ -15,7 +15,6 @@ import { CourseOfferedDetailsComponent } from "../course-offered-details/course-
   selector: "app-course-offered",
   templateUrl: "./course-offered.component.html",
   styleUrls: ["./course-offered.component.css"],
-  providers: [CourseOfferedapiService],
 })
 export class CourseOfferedComponent {
   title = "List of CourseOffered";

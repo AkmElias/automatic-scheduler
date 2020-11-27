@@ -21,7 +21,7 @@
 <hr/>
 <div *ngIf="department">
   <div>
-    <label><b>DepartmentID: </b></label> {{department.DepartmentID}}
+    <label><b>DepartmentID: </b></label> {{department.id}}
   </div>
   <div>
     <label><b>Code: </b></label> {{department.dpt_code}}
@@ -35,6 +35,8 @@
 <br>
 <!-- <button (click)="list()" class="btn btn-primary">Back to Department List</button><br> -->
 
-<button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="Departmentlist()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button><br>
+<button type="button"  data-toggle="tooltip" data-placement="left" 
+ngbTooltip="BACK" (click)="Departmentlist()" class="btn btn-primary">
+<i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button><br>
 
 </div>

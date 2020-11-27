@@ -40,7 +40,7 @@
       <label for="department">Department </label>
       <select id="DepartmentID" name="DepartmentID" [(ngModel)]="program.DepartmentID"
               class="form-control">
-        <option *ngFor="let department of departments" [value]="department.DepartmentID">
+        <option *ngFor="let department of departments" [value]="department.id">
           {{department.dpt_name}}
         </option>
       </select>
