@@ -29,7 +29,7 @@ export class CourseapiService {
   }
 
   getCourseByCourseID(courseID): Observable<any> {
-    return this.http.get(this.baseurl + "/course/" + courseID + "/", {
+    return this.http.get(this.baseurl + "/courses/" + courseID + "/", {
       headers: this.httpHeaders,
     });
   }
@@ -45,23 +45,21 @@ export class CourseapiService {
     // const courseId = idSegment[0];
     // console.log(courseId);
     const body = {
-      id: course.courseID,
+      id: course.id,
       courseCode: course.courseCode,
       crs_title: course.crs_title,
       crs_shortName: course.crs_shortName,
       crs_category: course.crs_category,
       programCode: course.programCode,
     };
-    return this.http.put(
-      this.baseurl + "/courses/" + course.courseID + "/",
-      body,
-      { headers: this.httpHeaders }
-    );
+    return this.http.put(this.baseurl + "/courses/" + course.id + "/", body, {
+      headers: this.httpHeaders,
+    });
   }
 
   createCourse(course): Observable<any> {
     const body = {
-      id: course.courseID,
+      id: course.id,
       courseCode: course.courseCode,
       crs_title: course.crs_title,
       crs_shortName: course.crs_shortName,

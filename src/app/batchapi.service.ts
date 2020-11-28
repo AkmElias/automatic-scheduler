@@ -26,9 +26,9 @@ export class BatchapiService {
       headers: this.httpHeaders,
     });
   }
-  
+
   getBatchByID(id): Observable<any> {
-    return this.http.get(this.baseurl + "/batch/" + id + "/", {
+    return this.http.get(this.baseurl + "/batches/" + id + "/", {
       headers: this.httpHeaders,
     });
   }
@@ -40,7 +40,6 @@ export class BatchapiService {
   updateBatch(batch): Observable<any> {
     const body = {
       batchName: batch.batchName,
-      sectionName: batch.sectionName,
       programCode: batch.programCode,
       bat_term: batch.bat_term,
       bat_year: batch.bat_year,
@@ -52,7 +51,6 @@ export class BatchapiService {
   createBatch(batch): Observable<any> {
     const body = {
       batchName: batch.batchName,
-      sectionName: batch.sectionName,
       programCode: batch.programCode,
       bat_term: batch.bat_term,
       bat_year: batch.bat_year,

@@ -32,7 +32,6 @@
     <tr>
       <!-- <th>Batch ID</th> -->
       <th>Batch Name</th>
-      <th>Section Name</th>
       <th>Program Code</th>
       <th>Term</th>
       <th>Year</th>
@@ -46,22 +45,28 @@
     </tr>
  </thead>
  <tbody>
-  <tr *ngFor="let batch of batches" (click)="batchClicked(batch)">
+  <tr *ngFor="let batch of batches" >
   <tr *ngFor="let batch of batches  | filter:searchText">
-    <!-- <td><h6 (click)="batchClicked(batch)"><tr>{{ batch.id }}</tr></h6></td> -->
-    <td><h6 (click)="batchClicked(batch)"><tr>{{ batch.batchName }}</tr></h6></td>
-    <td><h6 (click)="batchClicked(batch)"><tr>{{ batch.sectionName }}</tr></h6></td>
-    <td><h6 (click)="batchClicked(batch)"><tr>{{ batch.programCode }}</tr></h6></td>
-    <td><h6 (click)="batchClicked(batch)"><tr>{{ batch.bat_term }}</tr></h6></td>
-    <td><h6 (click)="batchClicked(batch)"><tr>{{ batch.bat_year }}</tr></h6></td>
+    <!-- <td><h6 ><tr>{{ batch.id }}</tr></h6></td> -->
+    <td><h6 ><tr>{{ batch.batchName }}</tr></h6></td>
+    <td><h6 ><tr>{{ batch.programCode }}</tr></h6></td>
+    <td><h6 ><tr>{{ batch.bat_term }}</tr></h6></td>
+    <td><h6 ><tr>{{ batch.bat_year }}</tr></h6></td>
 
-  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="CourseOffered" (click)="gotoCourseOffered()" class="btn btn-secondary" style="margin-left: 10px"><i class="nav-icon fa fa-envelope"></i></button></td>
+  <td><button type="button" data-toggle="tooltip" data-placement="top"
+     ngbTooltip="CourseOffered" (click)="gotoCourseOffered()" class="btn btn-secondary"
+      style="margin-left: 10px"><i class="nav-icon fa fa-envelope"></i></button></td>
    <!-- <td><a href="http://localhost:4200/courseOffered" title="CourseOffered" class="btn btn-secondary" style="margin-left: 10px">
   <i class="nav-icon fa fa-envelope"></i></a></td>  -->
-  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="batchDetails(batch.id)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
-  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="Updatebatch(batch.id)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o"></i></button></td>
+  <td><button type="button" data-toggle="tooltip" data-placement="top"
+     ngbTooltip="View" (click)="batchDetails(batch.id)" class="btn btn-info" 
+     style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
+  <td><button type="button" data-toggle="tooltip" data-placement="top"
+     ngbTooltip="Edit" (click)="Updatebatch(batch.id)" class="btn btn-success"
+      style="margin-left: 10px"><i class="fa fa-pencil-square-o"></i></button></td>
   <!-- <td><button class="btn btn-primary" *ngIf="selectedBatch.batchName" (click)="updateBatch()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td> -->
-  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedBatch.batchName" (click)="deleteBatch()"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
+  <td><button type="button" data-toggle="tooltip" data-placement="top" 
+    ngbTooltip="Delete" class="btn btn-danger" (click)="deleteBatch(batch.id)"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
 
   </tr>
   </tbody>

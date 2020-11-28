@@ -22,21 +22,21 @@
 <div *ngIf="course">
   <div>
     <div>
-      <label><b>Course ID: </b></label> {{course.courseID}}
+      <label><b>Course ID: </b></label> {{course[0].id}}
   </div>
-    <label><b>Course Code: </b></label> {{course.courseCode}}
-  </div>
-  <div>
-    <label><b>Title: </b></label> {{course.crs_title}}
+    <label><b>Course Code: </b></label> {{course[0].courseCode}}
   </div>
   <div>
-    <label><b>Short Name: </b></label> {{course.crs_shortName}}
+    <label><b>Title: </b></label> {{course[0].crs_title}}
   </div>
   <div>
-    <label><b>Category: </b></label> {{course.crs_category}}
+    <label><b>Short Name: </b></label> {{course[0].crs_shortName}}
   </div>
   <div>
-    <label><b>Program Code: </b></label> {{course.programCode}}
+    <label><b>Category: </b></label> {{course[0].crs_category}}
+  </div>
+  <div>
+    <label><b>Program Code: </b></label> {{course[0].programCode}}
   </div>
 </div>
 

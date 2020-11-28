@@ -21,19 +21,23 @@
 <hr/>
 <div *ngIf="batch">
   <div>
-    <label><b>Name: </b></label> {{batch.batchName}}
+    <label><b>Name: </b></label> {{batch[0].batchName}}
   </div>
   <div>
-    <label><b>Sectioon: </b></label> {{batch.sectionName}}
+    <label><b>Sectioon: </b></label>
+    <div  *ngFor = 'let section of sections'>
+      {{ section.sectionName}}
+    </div>
+     
   </div>
   <div>
-    <label><b>Term: </b></label> {{batch.bat_term}}
+    <label><b>Term: </b></label> {{batch[0].bat_term}}
   </div>
   <div>
-    <label><b>Year: </b></label> {{batch.bat_year}}
+    <label><b>Year: </b></label> {{batch[0].bat_year}}
   </div>
   <div>
-    <label><b>Program Code: </b></label> {{batch.programCode}}
+    <label><b>Program Code: </b></label> {{batch[0].programCode}}
   </div>
 </div>
 

@@ -23,11 +23,6 @@
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name">Course ID</label>
-      <input category="text" class="form-control" id="courseID" required [(ngModel)]="Course.courseID" name="courseID">
-    </div>
-
-    <div class="form-group">
       <label for="name">Course Title</label>
       <input category="text" class="form-control" id="crs_title" required [(ngModel)]="Course.crs_title" name="crs_title">
     </div>

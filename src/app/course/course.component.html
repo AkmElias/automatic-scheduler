@@ -46,22 +46,34 @@
         </tr>
      </thead>
  <tbody>
-  <tr *ngFor="let course of courses" (click)="courseClicked(course)">
+  <tr *ngFor="let course of courses"></tr>
   <tr *ngFor="let course of courses  | filter:searchText">
-    <!-- <td><h6 (click)="courseClicked(course)"><tr>{{course.courseID}}</tr></h6></td> -->
-    <td><h6 (click)="courseClicked(course)"><tr>{{course.courseCode}}</tr></h6></td>
-    <td><h6 (click)="courseClicked(course)"><tr>{{course.crs_title}}</tr></h6></td>
-    <td><h6 (click)="courseClicked(course)"><tr>{{course.crs_shortName}}</tr></h6></td>
-    <td><h6 (click)="courseClicked(course)"><tr>{{course.crs_category}}</tr></h6></td>
-    <td><h6 (click)="courseClicked(course)"><tr>{{course.programCode}}</tr></h6></td>
+    <!-- <td><h6"><tr>{{course.id}}</tr></h6></td> -->
+    <td><h6><tr>{{course.courseCode}}</tr></h6></td>
+    <td><h6><tr>{{course.crs_title}}</tr></h6></td>
+    <td><h6><tr>{{course.crs_shortName}}</tr></h6></td>
+    <td><h6><tr>{{course.crs_category}}</tr></h6></td>
+    <td><h6><tr>{{course.programCode}}</tr></h6></td>
 
-  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="CourseOffered" (click)="gotoCourseOffered()" class="btn btn-secondary" style="margin-left: 10px"><i class="nav-icon fa fa-envelope"></i></button></td>
+  <td><button type="button" data-toggle="tooltip" data-placement="top"
+     ngbTooltip="CourseOffered" (click)="gotoCourseOffered()"
+      class="btn btn-secondary" style="margin-left: 10px">
+      <i class="nav-icon fa fa-envelope"></i></button></td>
   <!-- <td><a href="http://localhost:4200/courseOffered" title="CourseOffered" class="btn btn-secondary" style="margin-left: 10px">
   <i class="nav-icon fa fa-envelope"></i></a></td> -->
-  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="courseDetails(course.courseID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
+  <td><button type="button" data-toggle="tooltip" data-placement="top"
+     ngbTooltip="View" (click)="courseDetails(course.id)"
+      class="btn btn-info" style="margin-left: 10px">
+      <i class="fas fa-address-book"></i></button></td>
   <!-- <td><button class="btn btn-primary" *ngIf="selectedCourse.courseCode" (click)="updateCourse()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td> -->
-  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="Updatecourse(course.courseID)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o"></i></button></td>
-  <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedCourse.courseID" (click)="deleteCourse()"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
+  <td><button type="button" data-toggle="tooltip" data-placement="top" 
+    ngbTooltip="Edit" (click)="Updatecourse(course.id)"
+     class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o">
+     </i></button></td>
+  <td><button type="button" data-toggle="tooltip" data-placement="top" 
+        ngbTooltip="Delete" class="btn btn-danger"
+    (click)="deleteCourse(course.id)">
+     <i class="fa fa-trash" aria-hidden="true"></i></button></td>
 
   </tr>
   </tbody>
