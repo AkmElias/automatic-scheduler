@@ -20,7 +20,7 @@
 </div>
 <br>
 <div  style="width:800px; margin:0 auto;">
-<div [hidden]="submitted" style="width: 400px;">
+<div [hidden]="submitted" style="width: 500px;">
   <form (ngSubmit)="createCourseOffered()">
     <!-- <div class="form-group">
       <label for="name">CourseOffered ID</label>
@@ -64,7 +64,7 @@
         <option [value]="2027">2027</option>
       </select>
     </div>
-    <div class="form-group" style="width: 400px;">
+    <div class="form-group" >
       <label for="program">Program</label>
       
       <select id="program" name="program"  [(ngModel)]="selectedProgram"  required (ngModelChange)='getBatchesByProgram()'
@@ -96,7 +96,8 @@
       </select>
     </div>
 
-    <div *ngIf='courseLoaded' class="form-group">
+    <div class='course-faculty'>
+    <div *ngIf='courseLoaded' class="form-group course">
       <label for="course">Course</label>
       <select id="courseCode" name="courseCode" [(ngModel)]="selectedCourse" (ngModelChange) ='courseSelected()'
               class="form-control" required>
@@ -106,7 +107,7 @@
       </select>
     </div>
 
-    <div *ngIf='courseLoaded' class="form-group">
+    <div *ngIf='courseLoaded' class="form-group faculty">
       <label for="faculty">Faculty</label>
       <select id="facultyID" name="facultyID" [(ngModel)]="selectedFaculty" (ngModelChange) ='facultySelected()'
               class="form-control" required>
@@ -116,10 +117,39 @@
         </option>
       </select>
     </div>
-
-    <button [disabled]='!allLoaded' type="submit"  data-toggle="tooltip"
+    <button  *ngIf='courseLoaded'  data-toggle="tooltip"
+     data-placement="left"  class="btn btn-success"> 
+     <i class="fa fa-plus"></i></button>
+  </div>
+    
+     <div class='course-faculty-table'>
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <!-- <th>Faculty ID</th> -->
+            <th>Course</th>
+            <th>Faculty</th>
+            <th></th>
+          </tr>
+       </thead>
+   <tbody>
+    <tr  >
+    <tr >
+      <!-- <td><h6 ><tr>{{faculty.id}}</tr></h6></td> -->
+      <td><h6 ><tr>Structured programming</tr></h6></td>
+      <td><h6 ><tr>AK Zaman</tr></h6></td>
+     <!-- <td><button class="btn btn-primary" *ngIf="selectedFaculty.id" (click)="updateFaculty()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td> -->
+     <td><button type="button" data-toggle="tooltip" data-placement="top"
+       ngbTooltip="Delete" class="btn btn-danger"> 
+       <i class="fa fa-trash" aria-hidden="true"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+     </div>
+     <button [disabled]='!allLoaded' type="submit"  data-toggle="tooltip"
      data-placement="left" ngbTooltip="Add CourseOffered" class="btn btn-success"> 
-     <i class="fa fa-plus" aria-hidden="true"></i> ADD </button>
+     SUBMIT
+     </button>
  </form>
 </div>
 </div>
