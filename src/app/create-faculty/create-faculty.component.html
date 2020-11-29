@@ -31,19 +31,19 @@
       <label>Faculty Title</label>
       <div class="form-control">
         <label class="radio-inline">
-          <input type="radio" name="fac_title" value="Mr" [(ngModel)]="Faculty.fac_title" >
+          <input type="radio" name="fac_title" value="Mr" [(ngModel)]="faculty.fac_title" >
           Mr
         </label>
         <label class="radio-inline">
-          <input type="radio" name="fac_title" value="Mrs" [(ngModel)]="Faculty.fac_title">
+          <input type="radio" name="fac_title" value="Mrs" [(ngModel)]="faculty.fac_title">
           Mrs
         </label>
         <label class="radio-inline">
-          <input type="radio" name="fac_title" value="Dr" [(ngModel)]="Faculty.fac_title" >
+          <input type="radio" name="fac_title" value="Dr" [(ngModel)]="faculty.fac_title" >
           Dr
         </label>
         <label class="radio-inline">
-          <input type="radio" name="fac_title" value="Prof" [(ngModel)]="Faculty.fac_title">
+          <input type="radio" name="fac_title" value="Prof" [(ngModel)]="faculty.fac_title">
           Prof
         </label>
       </div>
@@ -51,17 +51,17 @@
 
     <div class="form-group">
       <label for="name">First Name</label>
-      <input type="text" class="form-control" id="fac_firstName" required [(ngModel)]="Faculty.fac_firstName" name="fac_firstName">
+      <input type="text" class="form-control" id="fac_firstName" required [(ngModel)]="faculty.fac_firstName" name="fac_firstName">
     </div>
 
     <div class="form-group">
       <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="fac_lastName" required [(ngModel)]="Faculty.fac_lastName" name="fac_lastName">
+      <input type="text" class="form-control" id="fac_lastName" required [(ngModel)]="faculty.fac_lastName" name="fac_lastName">
     </div>
 
     <div class="form-group">
       <label for="name">Short Name</label>
-      <input type="text" class="form-control" id="fac_shortName" required [(ngModel)]="Faculty.fac_shortName" name="fac_shortName">
+      <input type="text" class="form-control" id="fac_shortName" required [(ngModel)]="faculty.fac_shortName" name="fac_shortName">
     </div>
 
     <div class="form-group"
@@ -70,11 +70,11 @@
     <div class="form-control">
         <label class="radio-inline">
             <input type="radio" name="gender" required #gender="ngModel"
-                   value="Male" [(ngModel)]="Faculty.fac_gender"> Male
+                   value="Male" [(ngModel)]="faculty.fac_gender"> Male
         </label>
         <label class="radio-inline">
             <input type="radio" name="gender" required #gender="ngModel"
-                   value="Female" [(ngModel)]="Faculty.fac_gender"> Female
+                   value="Female" [(ngModel)]="faculty.fac_gender"> Female
         </label>
     </div>
     <span class="help-block" *ngIf="gender.errors?.required && gender.touched">
@@ -86,27 +86,27 @@
       <label>Faculty Title</label>
       <div class="form-control" style="width: 800px;">
         <label class="radio-inline">
-          <input type="radio" name="fac_designation" value="Professor" [(ngModel)]="Faculty.fac_designation" >
+          <input type="radio" name="fac_designation" value="Professor" [(ngModel)]="faculty.fac_designation" >
           Professor
         </label>
         <label class="radio-inline">
-          <input type="radio" name="fac_designation" value="Associate Professor" [(ngModel)]="Faculty.fac_designation">
+          <input type="radio" name="fac_designation" value="Associate Professor" [(ngModel)]="faculty.fac_designation">
           Associate Professor
         </label>
         <label class="radio-inline">
-          <input type="radio" name="fac_designation" value="Senior Lecturer" [(ngModel)]="Faculty.fac_designation">
+          <input type="radio" name="fac_designation" value="Senior Lecturer" [(ngModel)]="faculty.fac_designation">
           Senior Lecturer
         </label>
       <label class="radio-inline">
-        <input type="radio" name="fac_designation" value="Lecturer" [(ngModel)]="Faculty.fac_designation">
+        <input type="radio" name="fac_designation" value="Lecturer" [(ngModel)]="faculty.fac_designation">
         Lecturer
       </label>
       <label class="radio-inline">
-        <input type="radio" name="fac_designation" value="Head" [(ngModel)]="Faculty.fac_designation">
+        <input type="radio" name="fac_designation" value="Head" [(ngModel)]="faculty.fac_designation">
         Head
       </label>
       <label class="radio-inline">
-        <input type="radio" name="fac_designation" value="Dean" [(ngModel)]="Faculty.fac_designation">
+        <input type="radio" name="fac_designation" value="Dean" [(ngModel)]="faculty.fac_designation">
         Dean
       </label>
       </div>
@@ -114,9 +114,9 @@
 
     <div class="form-group">
       <label for="department">Department </label>
-      <select id="DepartmentID" name="DepartmentID" [(ngModel)]="Faculty.DepartmentID"
+      <select id="DepartmentID" name="DepartmentID" [(ngModel)]="faculty.DepartmentID"
               class="form-control">
-        <option *ngFor="let department of departments" [value]="department.DepartmentID">
+        <option *ngFor="let department of departments" [value]="department.id">
           {{department.dpt_name}}
         </option>
       </select>

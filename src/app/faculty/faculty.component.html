@@ -48,24 +48,32 @@
         </tr>
      </thead>
  <tbody>
-  <tr *ngFor="let faculty of faculties" (click)="facultyClicked(faculty)">
+  <tr *ngFor="let faculty of faculties" >
   <tr *ngFor="let faculty of faculties  | filter:searchText">
-    <!-- <td><h6 (click)="facultyClicked(faculty)"><tr>{{faculty.facultyID}}</tr></h6></td> -->
-    <td><h6 (click)="facultyClicked(faculty)"><tr>{{faculty.fac_title}}</tr></h6></td>
-    <td><h6 (click)="facultyClicked(faculty)"><tr>{{faculty.fac_firstName}}</tr></h6></td>
-    <td><h6 (click)="facultyClicked(faculty)"><tr>{{faculty.fac_lastName}}</tr></h6></td>
-    <td><h6 (click)="facultyClicked(faculty)"><tr>{{faculty.fac_shortName}}</tr></h6></td>
-    <td><h6 (click)="facultyClicked(faculty)"><tr>{{faculty.fac_gender}}</tr></h6></td>
-    <td><h6 (click)="facultyClicked(faculty)"><tr>{{faculty.fac_designation}}</tr></h6></td>
-    <td><h6 (click)="facultyClicked(faculty)"><tr>{{faculty.DepartmentID}}</tr></h6></td>
+    <!-- <td><h6 ><tr>{{faculty.id}}</tr></h6></td> -->
+    <td><h6 ><tr>{{faculty.fac_title}}</tr></h6></td>
+    <td><h6 ><tr>{{faculty.fac_firstName}}</tr></h6></td>
+    <td><h6 ><tr>{{faculty.fac_lastName}}</tr></h6></td>
+    <td><h6 ><tr>{{faculty.fac_shortName}}</tr></h6></td>
+    <td><h6 ><tr>{{faculty.fac_gender}}</tr></h6></td>
+    <td><h6 ><tr>{{faculty.fac_designation}}</tr></h6></td>
+    <td><h6 ><tr>{{faculty.DepartmentID}}</tr></h6></td>
 
-   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="CourseOffered" (click)="gotoCourseOffered()" class="btn btn-secondary" style="margin-left: 10px"><i class="nav-icon fa fa-envelope"></i></button></td>
+   <td><button type="button" data-toggle="tooltip" data-placement="top"
+     ngbTooltip="CourseOffered" (click)="gotoCourseOffered()" class="btn btn-secondary"
+      style="margin-left: 10px"><i class="nav-icon fa fa-envelope"></i></button></td>
    <!-- <td><a href="http://localhost:4200/courseOffered" title="CourseOffered" class="btn btn-secondary" style="margin-left: 10px">
    <i class="nav-icon fa fa-envelope"></i></a></td> -->
-   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="facultyDetails(faculty.facultyID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
-   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="Updatefaculty(faculty.facultyID)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o"></i></button></td>
-   <!-- <td><button class="btn btn-primary" *ngIf="selectedFaculty.facultyID" (click)="updateFaculty()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td> -->
-   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedFaculty.facultyID" (click)="deleteFaculty()"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
+   <td><button type="button" data-toggle="tooltip" data-placement="top"
+     ngbTooltip="View" (click)="facultyDetails(faculty.id)" class="btn btn-info"
+      style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
+   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" 
+    (click)="Updatefaculty(faculty.id)" class="btn btn-success" 
+    style="margin-left: 10px"><i class="fa fa-pencil-square-o"></i></button></td>
+   <!-- <td><button class="btn btn-primary" *ngIf="selectedFaculty.id" (click)="updateFaculty()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td> -->
+   <td><button type="button" data-toggle="tooltip" data-placement="top"
+     ngbTooltip="Delete" class="btn btn-danger"  (click)="deleteFaculty(faculty.id)"> 
+     <i class="fa fa-trash" aria-hidden="true"></i></button></td>
 
     </tr>
   </tbody>

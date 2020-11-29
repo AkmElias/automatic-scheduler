@@ -8,7 +8,6 @@ import { ProgramapiService } from '../programapi.service';
   selector: 'app-create-batch',
   templateUrl: './create-batch.component.html',
   styleUrls: ['./create-batch.component.css'],
-  providers: [BatchapiService]
 })
 export class CreateBatchComponent {
 
@@ -19,9 +18,13 @@ export class CreateBatchComponent {
 
   submitted = false;
 
-  constructor(private batchService: BatchapiService, private router: Router, private api: ProgramapiService)
+  constructor(
+    private batchService: BatchapiService, 
+    private router: Router,
+     private api: ProgramapiService
+     )
   {
-    this.Batch = {id: -1, batchName: '', sectionName: '',  programCode: '', bat_term: '', bat_year: ''};
+    this.Batch = {id: -1, batchName: '', programCode: '', bat_term: '', bat_year: ''};
     this.getPrograms();
   }
 

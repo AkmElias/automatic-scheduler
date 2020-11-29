@@ -35,9 +35,9 @@
      aria-expanded="false">Department</a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
 
-    <a class="dropdown-item" href="http://127.0.0.1:8000/departments/">Department</a>
-      <a class="dropdown-item" href="http://127.0.0.1:8000/programs/">Program</a>
-      <a class="dropdown-item" href="http://127.0.0.1:8000/faculties/">Faculty</a>
+    <a class="dropdown-item" href="http://127.0.0.1:8000/departments/">Departments</a>
+      <a class="dropdown-item" href="http://127.0.0.1:8000/programs/">Programs</a>
+      <a class="dropdown-item" href="http://127.0.0.1:8000/faculties/">Facultys</a>
 
 </div>
 </div>
@@ -50,9 +50,9 @@
      </a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
 
-      <a class="dropdown-item" href="http://127.0.0.1:8000/programs/">Program</a>
-      <a class="dropdown-item" href="http://127.0.0.1:8000/courses/">Course</a>
-      <a class="dropdown-item" href="http://127.0.0.1:8000/batches/">Batch</a>
+      <a class="dropdown-item" href="http://127.0.0.1:8000/programs/">Programs</a>
+      <a class="dropdown-item" href="http://127.0.0.1:8000/courses/">Courses</a>
+      <a class="dropdown-item" href="http://127.0.0.1:8000/batches/">Batchs</a>
  </div>
 </div>
 
@@ -106,17 +106,16 @@
         Exam Scheduler
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="http://localhost:4200/department">Department</a>
-        <a class="dropdown-item" href="http://localhost:4200/program">Program</a>
-        <a class="dropdown-item" href="http://localhost:4200/course">Course</a>
-        <a class="dropdown-item" href="http://localhost:4200/batch">Batch</a>
-        <a class="dropdown-item" href="http://localhost:4200/faculty">Faculty</a>
-        <a class="dropdown-item" href="http://localhost:4200/exam">Exam</a>
-        <a class="dropdown-item" href="http://localhost:4200/room">Room</a>
-        <a class="dropdown-item" href="http://localhost:4200/timeSlot">TimeSlot</a>
-        <a class="dropdown-item" href="http://localhost:4200/roster">Roster</a>
-        <a class="dropdown-item" href="http://localhost:4200/courseOffered">CourseOffered</a>
-        <a class="dropdown-item" href="http://localhost:4200/routine">Routine</a>
+        <a class="dropdown-item" href="http://localhost:4200/department">Departments</a>
+        <a class="dropdown-item" href="http://localhost:4200/program">Programs</a>
+        <a class="dropdown-item" href="http://localhost:4200/course">Courses</a>
+        <a class="dropdown-item" href="http://localhost:4200/batch">Batchs</a>
+        <a class="dropdown-item" href="http://localhost:4200/faculty">Faculties</a>
+        <a class="dropdown-item" href="http://localhost:4200/exam">Exams</a>
+        <a class="dropdown-item" href="http://localhost:4200/room">Rooms</a>
+        <a class="dropdown-item" href="http://localhost:4200/timeSlot">TimeSlots</a>
+        <a class="dropdown-item" href="http://localhost:4200/courseOffered">CourseOffereds</a>
+        <a class="dropdown-item" href="http://localhost:4200/routine">Routines</a>
       </div>
     </li>
 
@@ -158,10 +157,10 @@
 
 
 
-        <a class="dropdown-item" href="http://127.0.0.1:8000/batches/{{ batch.id }}">Batch</a>
-        <a class="dropdown-item" href="http://127.0.0.1:8000/courses/{{ course.courseCode }}">Course</a>
-        <a class="dropdown-item" href="http://127.0.0.1:8000/programs/{{ program.programCode }}">Program</a>
-        <a class="dropdown-item" href="http://127.0.0.1:8000/faculties/{{ faculty.facultyID }}">Faculty</a>
+        <a class="dropdown-item" href="http://127.0.0.1:8000/batches/{{ batch.id }}">Batches</a>
+        <a class="dropdown-item" href="http://127.0.0.1:8000/courses/{{ course.courseCode }}">Courses</a>
+        <a class="dropdown-item" href="http://127.0.0.1:8000/programs/{{ program.programCode }}">Programs</a>
+        <a class="dropdown-item" href="http://127.0.0.1:8000/faculties/{{ faculty.facultyID }}">Facultys</a>
         <ul>
           <a class="dropdown-item" *ngFor="let department of departments; let i = index">
 
@@ -186,9 +185,9 @@
               <ul class="dropdown-menu">
                   <!-- <li><a class="dropdown-item" href="#">Submenu</a></li>
                   <li><a class="dropdown-item" href="#">Submenu0</a></li> -->
-                  <a class="dropdown-item" href="http://localhost:4200/program">Program</a>
-                  <a class="dropdown-item" href="http://localhost:4200/faculty">Faculty</a>
-                  <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Program</a>
+                  <a class="dropdown-item" href="http://localhost:4200/program">Programs</a>
+                  <a class="dropdown-item" href="http://localhost:4200/faculty">Faculties</a>
+                  <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Programs</a>
                       <ul class="dropdown-menu">
                           <!-- <li><a class="dropdown-item" href="#">Subsubmenu1</a></li>
                           <li><a class="dropdown-item" href="#">Subsubmenu1</a></li> -->
@@ -206,7 +205,7 @@
 
                             <span>
                                 <a href="http://localhost:4200/batch/?programCode__programCode__exact={{ program.programCode }}" title="B.Sc. Engg. in CSE">
-                                  <i class="fas fa-map-pin"></i>Batch
+                                  <i class="fas fa-map-pin"></i>Batchs
                                 </a>
                             </span>
                             </h6>
@@ -215,7 +214,7 @@
 
                       </ul>
                   </li>
-                  <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Department</a>
+                  <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Departments</a>
                       <ul class="dropdown-menu">
                           <!-- <li><a class="dropdown-item" href="#">Subsubmenu2</a></li>
                           <li><a class="dropdown-item" href="#">Subsubmenu2</a></li> -->
@@ -225,13 +224,13 @@
 
                           <span>
                               <a href="http://localhost:4200/program/?DepartmentID__DepartmentID__exact={{ department.DepartmentID }}" title="B.Sc. Engg. in CSE">
-                                <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>Program
+                                <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>Programs
                               </a>
                           </span>
 
                           <span>
                               <a href="http://localhost:4200/faculty/?DepartmentID__DepartmentID__exact={{ department.DepartmentID }}" title="B.Sc. Engg. in CSE">
-                                <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>Faculty
+                                <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>Faculties
                               </a>
                           </span>
                          </li>
@@ -250,9 +249,9 @@
         Department
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="http://localhost:4200/department">Department</a>
-        <a class="dropdown-item" href="http://localhost:4200/program">Program</a>
-        <a class="dropdown-item" href="http://localhost:4200/faculty">Faculty</a>
+        <a class="dropdown-item" href="http://localhost:4200/department">Departments</a>
+        <a class="dropdown-item" href="http://localhost:4200/program">Programs</a>
+        <a class="dropdown-item" href="http://localhost:4200/faculty">Faculties</a>
         <h6>Department</h6>
         <ul>
           <li *ngFor="let department of departments">
@@ -260,13 +259,13 @@
 
         <span>
             <a href="http://localhost:4200/program/?DepartmentID__DepartmentID__exact={{ department.DepartmentID }}" title="B.Sc. Engg. in CSE">
-              <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>Program
+              <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>Programs
             </a>
         </span>
 
         <span>
             <a href="http://localhost:4200/faculty/?DepartmentID__DepartmentID__exact={{ department.DepartmentID }}" title="B.Sc. Engg. in CSE">
-              <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>Faculty
+              <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>Faculties
             </a>
         </span>
 
@@ -282,9 +281,9 @@
         Program
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="http://localhost:4200/program">Program</a>
-        <a class="dropdown-item" href="http://localhost:4200/course">Course</a>
-        <a class="dropdown-item" href="http://localhost:4200/batch">Batch</a>
+        <a class="dropdown-item" href="http://localhost:4200/program">Programs</a>
+        <a class="dropdown-item" href="http://localhost:4200/course">Courses</a>
+        <a class="dropdown-item" href="http://localhost:4200/batch">Batches</a>
         <!-- <h6>Department</h6>
 <ul>
   <a class="dropdown-item" *ngFor="let department of departments">
@@ -304,13 +303,13 @@
     <!-- <h6 (click)="programClicked(program)">{{ program.pro_shortForm }} - {{ program.pro_name }}</h6> -->
     <span>
       <a href="http://localhost:4200/course/?programCode__programCode__exact={{ program.programCode }}" title="B.Sc. Engg. in CSE">
-        <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>Course
+        <span _ngcontent-ivf-c19="" class="material-icons icon-image-preview"></span>Courses
       </a>
   </span>
 
   <span>
       <a href="http://localhost:4200/batch/?programCode__programCode__exact={{ program.programCode }}" title="B.Sc. Engg. in CSE">
-        <i class="fas fa-map-pin"></i>Batch
+        <i class="fas fa-map-pin"></i>Batches
       </a>
   </span>
   </h6>

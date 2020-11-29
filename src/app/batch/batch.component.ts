@@ -13,6 +13,7 @@ export class BatchComponent {
   searchText;
 
   batches = [{ id: 1, batchName: "" }];
+  section = 1;
   selectedBatch;
 
   programs = [{ pro_name: "" }];

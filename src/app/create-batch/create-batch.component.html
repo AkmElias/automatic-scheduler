@@ -26,12 +26,6 @@
       <label for="name">Name</label>
       <input type="text" class="form-control" id="batchName" required [(ngModel)]="Batch.batchName" name="Name">
     </div>
-
-    <div class="form-group">
-      <label for="name">Section</label>
-      <input type="text" class="form-control" id="Batch_sectionName" required [(ngModel)]="Batch.sectionName" name="Section">
-    </div>
-
     <div class="form-group"
     [class.has-error]="term.invalid && term.touched">
     <label class="control-label">Term</label>
