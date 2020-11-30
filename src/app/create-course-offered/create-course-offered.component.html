@@ -117,8 +117,8 @@
         </option>
       </select>
     </div>
-    <button  *ngIf='courseLoaded'  data-toggle="tooltip"
-     data-placement="left"  class="btn btn-success"> 
+    <button  *ngIf='courseLoaded'  
+     data-placement="left"  class="btn btn-success" (click)='addCourseFaculty()'> 
      <i class="fa fa-plus"></i></button>
   </div>
     
@@ -133,8 +133,8 @@
           </tr>
        </thead>
    <tbody>
-    <tr  >
-    <tr >
+    
+    <tr *ngFor="let cf of coursesAndFaculties">
       <!-- <td><h6 ><tr>{{faculty.id}}</tr></h6></td> -->
       <td><h6 ><tr>Structured programming</tr></h6></td>
       <td><h6 ><tr>AK Zaman</tr></h6></td>

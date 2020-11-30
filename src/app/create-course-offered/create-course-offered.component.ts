@@ -18,11 +18,13 @@ export class CreateCourseOfferedComponent {
   courseOffereds = [{ courseCode: "" }];
 
   courses: any = [];
+  tempCourses: any = [];
   batches: any = [];
   sections: any = [];
   faculties: any = [];
   programs: any = [];
-
+  coursesAndFaculties: any = [];
+  courseAndFaculty: {};
   selectedTerm: String;
   selectedYear: String;
   selectedCourse: Number;
@@ -51,12 +53,12 @@ export class CreateCourseOfferedComponent {
     this.getFaculties();
 
     this.selectedTerm = "Spring";
-    this.selectedYear = "2018";
+    this.selectedYear = "2021";
     this.selectedProgram = "";
-    this.selectedBatch = 0;
-    this.selectedSection = 0;
-    this.selectedCourse = 0;
-    this.selectedFaculty = 0;
+    this.selectedBatch = null;
+    this.selectedSection = null;
+    this.selectedCourse = null;
+    this.selectedFaculty = null;
   }
 
   getPrograms() {
@@ -65,10 +67,13 @@ export class CreateCourseOfferedComponent {
       console.log("programs", data);
     });
   }
+
   getCoursesByProgram = () => {
+    this.coursesAndFaculties = [];
     this.courseApi.getCoursesByProgram(this.selectedProgram).subscribe(
       (data) => {
         this.courses = data;
+        this.tempCourses = data;
         console.log("courses by program..", data);
       },
       (error) => {
@@ -83,6 +88,12 @@ export class CreateCourseOfferedComponent {
       (data) => {
         this.batches = data;
         this.batchLoaded = true;
+        this.sectionLoaded = false;
+        this.courseLoaded = false;
+        this.coursesAndFaculties = [];
+        this.selectedBatch = null;
+        this.selectedSection = null;
+        this.selectedCourse = null;
         console.log("batchesByProgram...", data);
       },
       (error) => {
@@ -96,22 +107,11 @@ export class CreateCourseOfferedComponent {
       //console.log("sections..", data);
       this.sections = data;
       this.sectionLoaded = true;
-      // course filtering because by batch section automaticaly changes every time..
-      let batchAndSection = {
-        batch: this.selectedBatch,
-        section: this.selectedSection,
-      };
-      this.courseOfferedService
-        .getAllCourseOfferedToBatchAndSection(batchAndSection)
-        .subscribe((data) => {
-          let allreadyOfferedCoursesArrayOfObjects = data;
-          let allreadyOfferedCoursesArray = [];
-          allreadyOfferedCoursesArrayOfObjects.forEach((element) => {
-            allreadyOfferedCoursesArray.push(element.courseID);
-          });
-          console.log("alrdofrcrses..", allreadyOfferedCoursesArray);
-          this.getRemainingCourses(allreadyOfferedCoursesArray);
-        });
+      this.courseLoaded = false;
+      this.coursesAndFaculties = [];
+      this.selectedSection = null;
+      this.selectedCourse = null;
+      this.selectedFaculty = null;
     });
   };
 
@@ -129,10 +129,13 @@ export class CreateCourseOfferedComponent {
         allreadyOfferedCoursesArrayOfObjects.forEach((element) => {
           allreadyOfferedCoursesArray.push(element.courseID);
         });
-        console.log("alrdofrcrses..", allreadyOfferedCoursesArray);
+        this.selectedCourse = null;
+        this.selectedFaculty = null;
+        this.coursesAndFaculties = [];
+        console.log("alreadyofrcrses..", allreadyOfferedCoursesArray);
         this.getRemainingCourses(allreadyOfferedCoursesArray);
+        this.courseLoaded = true;
       });
-    this.courseLoaded = true;
   };
 
   getRemainingCourses = (allreadyOfferedCoursesArray) => {
@@ -172,12 +175,29 @@ export class CreateCourseOfferedComponent {
     this.facultyApi.getAllFaculties().subscribe(
       (data) => {
         this.faculties = data;
+        this.facultyLoaded = true;
       },
       (error) => {
         console.log(error);
       }
     );
   };
+
+  addCourseFaculty = () => {
+    let crsFclt = {
+      course: this.selectedCourse,
+      faculty: this.selectedFaculty,
+    };
+    this.coursesAndFaculties.push(crsFclt);
+    this.courses = this.courses.filter(
+      (course) => course.id != this.selectedCourse
+    );
+    this.selectedCourse = 0;
+    this.selectedFaculty = 0;
+    console.log("crs array..", this.coursesAndFaculties);
+  };
+
+  deleteCFfromRow = () => {};
 
   createCourseOffered = () => {
     let courseOffered = {
@@ -190,16 +210,16 @@ export class CreateCourseOfferedComponent {
       faculty: this.selectedFaculty,
     };
 
-    this.courseOfferedService.createCourseOffered(courseOffered).subscribe(
-      (data) => {
-        console.log("added course offered ...", data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    // this.courseOfferedService.createCourseOffered(courseOffered).subscribe(
+    //   (data) => {
+    //     console.log("added course offered ...", data);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
 
-    this.gotoList();
+    //this.gotoList();
   };
 
   gotoList() {
