@@ -21,7 +21,7 @@
 <br>
 <div  style="width:800px; margin:0 auto;">
 <div [hidden]="submitted" style="width: 500px;">
-  <form (ngSubmit)="createCourseOffered()">
+  <form>
     <!-- <div class="form-group">
       <label for="name">CourseOffered ID</label>
       <input type="text" class="form-control" id="courseOfferedID" required [(ngModel)]="CourseOffered.courseOfferedID" name="CourseOffered ID">
@@ -127,8 +127,8 @@
         <thead>
           <tr>
             <!-- <th>Faculty ID</th> -->
-            <th>Course</th>
-            <th>Faculty</th>
+            <th>course</th>
+            <th>faculty</th>
             <th></th>
           </tr>
        </thead>
@@ -136,18 +136,18 @@
     
     <tr *ngFor="let cf of coursesAndFaculties">
       <!-- <td><h6 ><tr>{{faculty.id}}</tr></h6></td> -->
-      <td><h6 ><tr>Structured programming</tr></h6></td>
-      <td><h6 ><tr>AK Zaman</tr></h6></td>
+      <td><h6 ><tr>{{cf.courseName}}</tr></h6></td>
+      <td><h6 ><tr>{{cf.facultyName}}</tr></h6></td>
      <!-- <td><button class="btn btn-primary" *ngIf="selectedFaculty.id" (click)="updateFaculty()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td> -->
      <td><button type="button" data-toggle="tooltip" data-placement="top"
-       ngbTooltip="Delete" class="btn btn-danger"> 
+       ngbTooltip="Delete" class="btn btn-danger" (click)='deleteCFfromRow(cf.course)'> 
        <i class="fa fa-trash" aria-hidden="true"></i></button></td>
       </tr>
     </tbody>
   </table>
      </div>
-     <button [disabled]='!allLoaded' type="submit"  data-toggle="tooltip"
-     data-placement="left" ngbTooltip="Add CourseOffered" class="btn btn-success"> 
+     <button [disabled]='!allLoaded' data-toggle="tooltip"
+     data-placement="left" ngbTooltip="Add CourseOffered" class="btn btn-success" (click)='createCourseOffered()'> 
      SUBMIT
      </button>
  </form>

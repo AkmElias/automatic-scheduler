@@ -25,7 +25,6 @@ import { MatMenuModule } from "@angular/material/menu";
 
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NavbarComponent } from "./navbar/navbar.component";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
@@ -147,7 +146,6 @@ import { CreateRoutineDetailsComponent } from "./create-routine-details/create-r
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
     AboutComponent,
     ContactComponent,

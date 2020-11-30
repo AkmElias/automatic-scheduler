@@ -90,6 +90,7 @@ export class CreateCourseOfferedComponent {
         this.batchLoaded = true;
         this.sectionLoaded = false;
         this.courseLoaded = false;
+        this.allLoaded = false;
         this.coursesAndFaculties = [];
         this.selectedBatch = null;
         this.selectedSection = null;
@@ -108,6 +109,7 @@ export class CreateCourseOfferedComponent {
       this.sections = data;
       this.sectionLoaded = true;
       this.courseLoaded = false;
+      this.allLoaded = false;
       this.coursesAndFaculties = [];
       this.selectedSection = null;
       this.selectedCourse = null;
@@ -126,12 +128,15 @@ export class CreateCourseOfferedComponent {
       .subscribe((data) => {
         let allreadyOfferedCoursesArrayOfObjects = data;
         let allreadyOfferedCoursesArray = [];
+
         allreadyOfferedCoursesArrayOfObjects.forEach((element) => {
           allreadyOfferedCoursesArray.push(element.courseID);
         });
         this.selectedCourse = null;
         this.selectedFaculty = null;
+        this.allLoaded = false;
         this.coursesAndFaculties = [];
+
         console.log("alreadyofrcrses..", allreadyOfferedCoursesArray);
         this.getRemainingCourses(allreadyOfferedCoursesArray);
         this.courseLoaded = true;
@@ -184,40 +189,96 @@ export class CreateCourseOfferedComponent {
   };
 
   addCourseFaculty = () => {
+    let courseAdded = false;
+    this.coursesAndFaculties.forEach((cf) => {
+      if (cf.course == this.selectedCourse) {
+        courseAdded = true;
+        alert("You have added this course allready!");
+        return;
+      }
+    });
+
+    if (courseAdded) return;
+
     let crsFclt = {
       course: this.selectedCourse,
       faculty: this.selectedFaculty,
+      courseName: "",
+      facultyName: "",
     };
+
+    this.courses.forEach((course) => {
+      if (course.id == this.selectedCourse) {
+        crsFclt.courseName = course.crs_title;
+        return;
+      }
+    });
+
+    this.faculties.forEach((faculty) => {
+      if (faculty.id == this.selectedFaculty) {
+        crsFclt.facultyName =
+          faculty.fac_firstName + " " + faculty.fac_lastName;
+        return;
+      }
+    });
+
     this.coursesAndFaculties.push(crsFclt);
-    this.courses = this.courses.filter(
-      (course) => course.id != this.selectedCourse
-    );
-    this.selectedCourse = 0;
-    this.selectedFaculty = 0;
+    this.allLoaded = true;
+    // this.courses = this.courses.filter(
+    //   (course) => course.id != this.selectedCourse
+    // );
+
+    this.selectedCourse = null;
+    this.selectedFaculty = null;
     console.log("crs array..", this.coursesAndFaculties);
   };
 
-  deleteCFfromRow = () => {};
+  deleteCFfromRow = (course) => {
+    this.coursesAndFaculties = this.coursesAndFaculties.filter(
+      (cfname) => cfname.course !== course
+    );
+    if (this.coursesAndFaculties.length <= 0) {
+      this.allLoaded = false;
+    }
+    console.log("crs array..", this.coursesAndFaculties);
+  };
 
   createCourseOffered = () => {
-    let courseOffered = {
-      term: this.selectedTerm,
-      year: this.selectedYear,
-      program: this.selectedProgram,
-      batch: this.selectedBatch,
-      section: this.selectedSection,
-      course: this.selectedCourse,
-      faculty: this.selectedFaculty,
-    };
+    //alert("Are you sure to proceed!")
 
-    // this.courseOfferedService.createCourseOffered(courseOffered).subscribe(
-    //   (data) => {
-    //     console.log("added course offered ...", data);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
+    if (confirm("Are you sure to proceed!")) {
+    } else {
+      return;
+    }
+
+    this.coursesAndFaculties.forEach((cf) => {
+      if (!cf.course) return;
+      let courseOffered = {
+        term: this.selectedTerm,
+        year: this.selectedYear,
+        program: this.selectedProgram,
+        batch: this.selectedBatch,
+        section: this.selectedSection,
+        course: cf.course,
+        faculty: cf.faculty,
+      };
+
+      this.courseOfferedService.createCourseOffered(courseOffered).subscribe(
+        (data) => {
+          console.log("added course offered ...", data);
+          this.coursesAndFaculties = [];
+          this.allLoaded = false;
+          this.sectionLoaded = false;
+          this.batchLoaded = false;
+          this.courseLoaded = false;
+          this.facultyLoaded = false;
+          this.selectedProgram = "";
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    });
 
     //this.gotoList();
   };
