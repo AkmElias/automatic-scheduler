@@ -27,6 +27,7 @@ export class RoomapiService {
     {headers: this.httpHeaders});
   }
   createRoom(room): Observable<any> {
+    console.log('room in api..',room)
     const body = {roomCode: room.roomCode, rom_capacity: room.rom_capacity,
     rom_floor: room.rom_floor, rom_type: room.rom_type};
     return this.http.post(this.baseurl + '/rooms/', body,

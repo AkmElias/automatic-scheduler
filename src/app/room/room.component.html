@@ -45,16 +45,16 @@
     </tr>
  </thead>
  <tbody>
-  <tr *ngFor="let room of rooms" (click)="roomClicked(room)">
+  <tr *ngFor="let room of rooms">
   <tr *ngFor="let room of rooms  | filter:searchText">
-    <td><h6 (click)="roomClicked(room)"><tr>{{ room.roomCode }}</tr></h6></td>
-    <td><h6 (click)="roomClicked(room)"><tr>{{ room.rom_capacity }}</tr></h6></td>
-    <td><h6 (click)="roomClicked(room)"><tr>{{ room.rom_floor }}</tr></h6></td>
-    <td><h6 (click)="roomClicked(room)"><tr>{{ room.rom_type }}</tr></h6></td>
+    <td><h6 ><tr>{{ room.roomCode }}</tr></h6></td>
+    <td><h6 ><tr>{{ room.rom_capacity }}</tr></h6></td>
+    <td><h6 ><tr>{{ room.rom_floor }}</tr></h6></td>
+    <td><h6 ><tr>{{ room.rom_type }}</tr></h6></td>
 
-   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="roomDetails(room.roomCode)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
+   <!-- <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="roomDetails(room.roomCode)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" (click)="Updateroom(room.roomCode)" class="btn btn-success" style="margin-left: 10px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
-   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedRoom.roomCode" (click)="deleteRoom()"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedRoom.roomCode" (click)="deleteRoom()"><i class="fa fa-trash" aria-hidden="true"></i></button></td> -->
 
   </tr>
   </tbody>

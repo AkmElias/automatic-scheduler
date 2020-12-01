@@ -18,11 +18,11 @@ export class CreateRoomComponent {
 
   constructor(private roomService: RoomapiService, private router: Router)
   {
-    this.Room = { roomCode: '', rom_capacity: '', rom_floor: '', rom_type: ''};
-
+    
   }
 
   createRoom = () => {
+    console.log('room..',this.Room)
     this.roomService.createRoom(this.Room).subscribe(
       data => {
         this.rooms.push(data);
