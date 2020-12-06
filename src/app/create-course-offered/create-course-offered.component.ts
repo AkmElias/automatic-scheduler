@@ -122,7 +122,7 @@ export class CreateCourseOfferedComponent {
       batch: this.selectedBatch,
       section: this.selectedSection,
     };
-    //console.log("batch id and section..", batchAndSection);
+    console.log("batch id and section..", batchAndSection);
     this.courseOfferedService
       .getAllCourseOfferedToBatchAndSection(batchAndSection)
       .subscribe((data) => {

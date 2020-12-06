@@ -24,6 +24,13 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">
+              <i class="nav-icon fas fa-fw fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a routerLink="/home" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
               <i class="nav-icon fas fa-home"></i>
@@ -33,11 +40,27 @@
             </a>
           </li>
           <li class="nav-item">
+            <a routerLink="/about" class="nav-link" routerLinkActive="active">
+              <i class="nav-icon fas fa-plus"></i>
+              <p>
+                About
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/contact" class="nav-link" routerLinkActive="active">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Contact
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a routerLink="/department" class="nav-link" routerLinkActive="active">
               <!-- <i class="nav-icon fas fa-user"></i> -->
               <i class="nav-icon fas fa-building"></i>
               <p>
-                Departments
+                Department
               </p>
             </a>
           </li>
@@ -45,7 +68,7 @@
             <a routerLink="/program" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-laptop-code"></i>
               <p>
-                Programs
+                Program
               </p>
             </a>
           </li>
@@ -53,7 +76,7 @@
             <a routerLink="/course" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Courses
+                Course
               </p>
             </a>
           </li>
@@ -61,7 +84,7 @@
             <a routerLink="/batch" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fa fa-university"></i>
               <p>
-                Batches
+                Batch
               </p>
             </a>
           </li>
@@ -70,7 +93,7 @@
               <!-- <i class="nav-icon fas fa-user"></i> -->
               <i class="nav-icon fas fa-chalkboard-teacher"></i>
               <p>
-                Faculties
+                Faculty
               </p>
             </a>
           </li>
@@ -78,7 +101,7 @@
             <a routerLink="/exam" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                Exams
+                Exam
               </p>
             </a>
           </li>
@@ -86,7 +109,7 @@
             <a routerLink="/room" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-school"></i>
               <p>
-                Rooms
+                Room
               </p>
             </a>
           </li>
@@ -94,7 +117,7 @@
             <a routerLink="/timeSlot" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-clock"></i>
               <p>
-                TimeSlots
+                TimeSlot
               </p>
             </a>
           </li>
@@ -102,7 +125,7 @@
             <a routerLink="/courseOffered" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-envelope mr-2"></i>
               <p>
-                OfferedCourses
+                CourseOffered
               </p>
             </a>
           </li>
@@ -118,10 +141,16 @@
             <a routerLink="/routine" class="nav-link" routerLinkActive="active">
               <i class="fas fa-file mr-2"></i>
               <p>
-                Routines
+                Routine
               </p>
             </a>
           </li>
+          <!-- <li class="nav-item">
+            <a routerLink="/departmentlist" class="nav-link" routerLinkActive="active">Department List</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/add" class="nav-link" routerLinkActive="active">Add Department</a>
+        </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

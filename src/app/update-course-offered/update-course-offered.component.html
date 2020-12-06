@@ -72,16 +72,10 @@
       <input type='text' class="form-control" id="course"   name='course'  [(ngModel)] = "course? course : selectedCourse" readonly >
     </div>
 
-    <div class="form-group" style="width: 400px;">
+    <!-- <div class="form-group" style="width: 400px;">
       <label for="program">Program</label>
-      
-      <select id="program" name="program" 
-              class="form-control" [(ngModel)]='selectedProgram' (ngModelChange)='getBatchesByProgram(selectedProgram)'>
-        <option *ngFor="let program of programs" [value]="program.programCode">
-          {{program.pro_name}}
-        </option>
-      </select>
-    </div>
+      <input type='text' class="form-control" id="program"   name='program'  [(ngModel)] = "selectedProgram" readonly >
+    </div> -->
 
     <div class="form-group" style="width: 400px;">
       <label for="batch">Batch</label>

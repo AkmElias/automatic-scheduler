@@ -1,3 +1,4 @@
+import { ProgramapiService } from "./../programapi.service";
 import { CourseOffered } from "./../course-offered";
 import { SectionapiService } from "./../sectionapi.service";
 import { FacultyapiService } from "./../facultyapi.service";
@@ -36,6 +37,7 @@ export class CourseOfferedComponent {
     private courseApi: CourseapiService,
     private facultyApi: FacultyapiService,
     private sectionApi: SectionapiService,
+    private programApi: ProgramapiService,
     private router: Router
   ) {
     this.getCoursesOffered();
@@ -56,6 +58,7 @@ export class CourseOfferedComponent {
             id: Number,
             term: String,
             year: String,
+            program: String,
             batch: String,
             section: String,
             course: String,
@@ -70,6 +73,7 @@ export class CourseOfferedComponent {
             courseOffer.sectionName,
             courseOffer.courseID,
             courseOffer.facultyID,
+            courseOffer.programID,
           ];
 
           let i = 0;
@@ -87,6 +91,9 @@ export class CourseOfferedComponent {
             } else if (i === 3) {
               i++;
               return this.facultyApi.getOneFaculty(id).toPromise();
+            } else if (i === 4) {
+              i++;
+              return this.programApi.getOneProgram(id).toPromise();
             }
           });
 
@@ -102,6 +109,7 @@ export class CourseOfferedComponent {
             results[3][0].fac_firstName +
             this.dash +
             results[3][0].fac_lastName;
+          tempCourseOffer.program = results[4][0].pro_name;
 
           this.finalCoursesOffered.push(tempCourseOffer);
         });

@@ -49,12 +49,12 @@ export class CourseOfferedapiService {
       ofr_term: coursesOffered.ofr_term,
       ofr_year: coursesOffered.ofr_year,
       courseID: coursesOffered.course,
-      programCode: coursesOffered.program,
+      programID: coursesOffered.program,
       batchName: coursesOffered.batch,
       sectionName: coursesOffered.section,
       facultyID: coursesOffered.faculty,
     };
-    console.log("updated...", body);
+    console.log("updated...ss", body);
     return this.http.put(
       this.baseurl + "/coursesOffered/" + body.id + "/",
       body,
@@ -66,7 +66,7 @@ export class CourseOfferedapiService {
       ofr_term: coursesOffered.term,
       ofr_year: coursesOffered.year,
       courseID: coursesOffered.course,
-      programCode: coursesOffered.program,
+      programID: coursesOffered.program,
       batchName: coursesOffered.batch,
       sectionName: coursesOffered.section,
       facultyID: coursesOffered.faculty,

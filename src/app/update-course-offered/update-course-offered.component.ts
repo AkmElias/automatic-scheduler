@@ -145,6 +145,12 @@ export class UpdateCourseOfferedComponent implements OnInit {
   }
 
   updateCourseOffered() {
+    
+    if (confirm("Are you sure to proceed!")) {
+    } else {
+      return;
+    }
+
     this.courseOfferedUpdate = {
       id: this.id,
       ofr_term: this.selectedTerm,
