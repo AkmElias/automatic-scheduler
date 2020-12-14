@@ -21,60 +21,63 @@
 <br>
 <div  style="width:800px; margin:0 auto;">
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form>
     <!-- <div class="form-group">
       <label for="name">Routine ID</label>
       <input type="text" class="form-control" id="routineID" required [(ngModel)]="Routine.routineID" name="Routine ID">
     </div> -->
 
+    <div class="form-group" style="width: 400px;"
+    [class.has-error]="term.invalid && term.touched">
+      <label for="term">Term</label>
+      <div class="form-control">
+        <label class="radio-inline">
+            <input type="radio" name="term" required #term="ngModel"
+                   value="Spring" [(ngModel)]="Term"> Spring
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="term" required #term="ngModel"
+                   value="Summer" [(ngModel)]="Term"> Summer
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="term" required #term="ngModel"
+                 value="Autumn" [(ngModel)]="Term"> Autumn
+      </label>
+    </div>
+    </div>
+
     <div class="form-group">
-      <label for="courseOffered">CourseOffered</label>
-      <select id="courseOfferedID" name="courseOfferedID" [(ngModel)]="Routine.courseOfferedID"
+      <label for="year">Year</label>
+      <select id="year" name="year" [(ngModel)]="Year"
               class="form-control">
-        <option *ngFor="let courseOffered of coursesOffered" [value]="courseOffered.courseOfferedID">
-          {{courseOffered.courseOfferedID}}
+        <option *ngFor="let year of Years" [value]="year">
+          {{year}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="day">Day</label>
+      <select id="day" name="day" [(ngModel)]="Day"
+              class="form-control">
+        <option *ngFor="let day of Days" [value]="day">
+          {{day}}
         </option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="room">Room</label>
-      <select id="roomCode" name="roomCode" [(ngModel)]="Routine.roomCode"
-              class="form-control">
-        <option *ngFor="let room of rooms" [value]="room.roomCode">
-          {{room.roomCode}}
+      <label for="year">Program</label>
+      <select id="program" name="program" [(ngModel)]="Program"
+              class="form-control" (ngModelChange) ='programSelected()'>
+        <option *ngFor="let program of programs" [value]="program.pro_shortForm">
+          {{program.pro_name}}
         </option>
       </select>
     </div>
-
-    <div class="form-group">
-      <label for="exam">Exam</label>
-      <select id="examID" name="examID" [(ngModel)]="Routine.examID"
-              class="form-control">
-        <option *ngFor="let exam of exams" [value]="exam.examID">
-          {{exam.exm_type}}
-        </option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="timeSlot">timeSlot</label>
-      <select id="timeSlotID" name="timeSlotID" [(ngModel)]="Routine.timeSlotID"
-              class="form-control">
-        <option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.timeSlotID">
-          {{timeSlot.tst_day + timeSlot.tst_duration}}
-        </option>
-      </select>
-    </div>
-
-    <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="Add Routine" class="btn btn-success" (click)="createRoutine()">  <i class="fa fa-plus" aria-hidden="true"></i> ADD </button>
  </form>
 </div>
 </div>
 
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-  <button class="btn btn-success" (click)="createRoutine()">Add</button>
-</div>
+  <button [disabled]="!firstStep" class="btn btn-success" (click)="addTermYearDayProgram()">Add</button>
 
 </div>
