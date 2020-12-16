@@ -1,3 +1,6 @@
+import { TimeSlot } from "./../time-slot";
+import { SectionapiService } from "./../sectionapi.service";
+import { BatchapiService } from "./../batchapi.service";
 import { ProgramapiService } from "./../programapi.service";
 import { RoutineapiService } from "../routineapi.service";
 import { Routine } from "../routine";
@@ -14,6 +17,7 @@ import { TimeSlotapiService } from "../time-slotapi.service";
 })
 export class CreateRoutineComponent {
   id: number;
+  RoutineTitle: String;
   Term: String;
   Year: Number;
   Years = [];
@@ -22,22 +26,46 @@ export class CreateRoutineComponent {
   Program: String;
   programs = [];
   firstStep = false;
+  firstStepSubmitted = false;
+  Batch: Number;
+  batches = [];
+  Section: Number;
+  sections = [];
+  Time: String;
+  timeSlots = [];
+  Course: String;
+  courses = [];
+  Faculty: String;
+  Room: String;
+  batchAndSection: String;
+  courseAndFaculty: String;
+  secondStepSubmitted = false;
+  batchLoaded = false;
+  sectionLoaded = false;
+  timeSlotLoaded = false;
+  roomLoaded = false;
+  courseLoaded = false;
+  secondStepLoaded = false;
+
   routines = [{ routineID: "" }];
   Routine;
   coursesOffered: any = [];
   rooms: any = [];
   exams: any = [];
-  timeSlots: any = [];
   submitted = false;
 
   constructor(
     private routineService: RoutineapiService,
     private programApi: ProgramapiService,
-    private api: CourseOfferedapiService,
+    private batchApi: BatchapiService,
+    private sectionApi: SectionapiService,
+    private roomApi: RoomapiService,
+    private courseOfferedApi: CourseOfferedapiService,
     private roomService: RoomapiService,
     private timeslotService: TimeSlotapiService,
     private router: Router
   ) {
+    this.RoutineTitle = "";
     this.Routine = {
       routineID: "",
       courseOfferedID: "",
@@ -51,14 +79,27 @@ export class CreateRoutineComponent {
     this.Years = [2020, 2021, 2022, 2023, 2024, 2025];
     this.Day = "";
     this.Days = [
-      "Saturday",
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
+      "SATURDAY",
+      "SUNDAY",
+      "MONDAY",
+      "TUESDAY",
+      "WEDNESDAY",
+      "THURSDAY",
     ];
     this.Program = "";
+    this.Batch = 0;
+    this.Section = 0;
+    this.Time = "";
+    this.timeSlots = [
+      "8:00am to 9:20am",
+      "9:30am to 10:50am",
+      "11:00am to 12:30pm",
+      "12:30am to 1:50pm",
+      "2:00pm to 3:20pm",
+      "3:30pm to 4:50pm",
+    ];
+    console.log("time slots...", this.timeSlots);
+
     this.getCoursesOffered();
     this.getRooms();
     this.getTimeSlots();
@@ -74,15 +115,68 @@ export class CreateRoutineComponent {
   programSelected = () => {
     if (this.Program) {
       this.firstStep = true;
+      console.log("Program Code..", this.Program);
     }
   };
 
   addTermYearDayProgram = () => {
-    alert(`${this.Program} ${this.Day} ${this.Term} ${this.Year} `);
+    this.firstStepSubmitted = true;
+    this.batchApi.getBatchesByProgram(this.Program).subscribe((data) => {
+      this.batches = data;
+      console.log("batches..", data);
+    });
+
+    this.programs.filter((program) => {
+      if (program.programCode === this.Program)
+        this.Program = program.pro_shortForm;
+    });
+    this.RoutineTitle = `${this.Day},\n ${this.Program}, ${this.Term}, ${this.Year} `;
+    alert(`${this.Day},\n${this.Program}, ${this.Term}, ${this.Year} `);
   };
 
+  batchSelected = (batchId) => {
+    this.batchLoaded = true;
+    this.sectionApi.getSectionsByBatch(batchId).subscribe((data) => {
+      console.log("sections..", data);
+      this.sections = data;
+    });
+  };
+
+  sectionSelected = () => {
+    this.sectionLoaded = true;
+    let batchAndSection = {
+      batch: this.Batch,
+      section: this.Section,
+    };
+    this.courseOfferedApi
+      .getAllCourseOfferedToBatchAndSection(batchAndSection)
+      .subscribe((data) => {
+        console.log("offered courses..", data);
+      });
+  };
+
+  timeSlotSelected = () => {
+    this.timeSlotLoaded = true;
+  };
+
+  courseSelected = () => {
+    this.courseLoaded = true;
+    if (
+      this.batchLoaded == true &&
+      this.sectionLoaded == true &&
+      this.timeSlotLoaded == true &&
+      this.courseLoaded == true
+    ) {
+      this.secondStepLoaded = true;
+    }
+  };
+
+  facultySelected = () => {};
+
+  roomSelected = () => {};
+
   getCoursesOffered = () => {
-    this.api.getAllCoursesOffered().subscribe(
+    this.courseOfferedApi.getAllCoursesOffered().subscribe(
       (data) => {
         this.coursesOffered = data;
       },
@@ -106,7 +200,7 @@ export class CreateRoutineComponent {
   getTimeSlots = () => {
     this.timeslotService.getAllTimeSlots().subscribe(
       (data) => {
-        this.timeSlots = data;
+        //this.timeSlots = data;
       },
       (error) => {
         console.log(error);

@@ -15,145 +15,250 @@
 </div>
 
 <div class="container-fluid h-100 bg-light text-dark">
-<div class="text-center">
-  <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
-</div>
-<br>
-<div  style="width:800px; margin:0 auto;">
-<div [hidden]="submitted" style="width: 500px;">
-  <form>
-    <!-- <div class="form-group">
+  <div class="text-center">
+    <button
+      type="button"
+      data-toggle="tooltip"
+      data-placement="left"
+      ngbTooltip="BACK"
+      (click)="gotoList()"
+      class="btn btn-primary"
+    >
+      <i class="fa fa-arrow-left" aria-hidden="true"></i> BACK
+    </button>
+  </div>
+  <br />
+  <div style="width: 800px; margin: 0 auto">
+    <div [hidden]="submitted" style="width: 500px">
+      <form>
+        <!-- <div class="form-group">
       <label for="name">CourseOffered ID</label>
       <input type="text" class="form-control" id="courseOfferedID" required [(ngModel)]="CourseOffered.courseOfferedID" name="CourseOffered ID">
     </div> -->
 
-    <div class="form-group"
-    [class.has-error]="term.invalid && term.touched">
-    <label class="control-label">Term</label>
-    <div class="form-control">
-        <label class="radio-inline">
-            <input type="radio" name="term" required #term="ngModel"
-                   value="Spring" [(ngModel)]="selectedTerm"> Spring
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="term" required #term="ngModel"
-                   value="Summer" [(ngModel)]="selectedTerm"> Summer
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="term" required #term="ngModel"
-                 value="Autumn" [(ngModel)]="selectedTerm"> Autumn
-      </label>
-    </div>
-    <span class="help-block" *ngIf="term.errors?.required && term.touched">
-        Term is required
-    </span>
-    </div>
+        <div
+          class="form-group"
+          [class.has-error]="term.invalid && term.touched"
+        >
+          <label class="control-label">Term</label>
+          <div class="form-control">
+            <label class="radio-inline">
+              <input
+                type="radio"
+                name="term"
+                required
+                #term="ngModel"
+                value="Spring"
+                [(ngModel)]="selectedTerm"
+              />
+              Spring
+            </label>
+            <label class="radio-inline">
+              <input
+                type="radio"
+                name="term"
+                required
+                #term="ngModel"
+                value="Summer"
+                [(ngModel)]="selectedTerm"
+              />
+              Summer
+            </label>
+            <label class="radio-inline">
+              <input
+                type="radio"
+                name="term"
+                required
+                #term="ngModel"
+                value="Autumn"
+                [(ngModel)]="selectedTerm"
+              />
+              Autumn
+            </label>
+          </div>
+          <span
+            class="help-block"
+            *ngIf="term.errors?.required && term.touched"
+          >
+            Term is required
+          </span>
+        </div>
 
-    <div class="form-group">
-      <label for="type">Year</label>
-      <select class="form-control" id="courseOffered.year" required [(ngModel)]="selectedYear" name="Year">
-        <option [value]="2018">2018</option>
-        <option [value]="2019">2019</option>
-        <option [value]="2020">2020</option>
-        <option [value]="2021">2021</option>
-        <option [value]="2022">2022</option>
-        <option [value]="2023">2023</option>
-        <option [value]="2024">2024</option>
-        <option [value]="2025">2025</option>
-        <option [value]="2026">2026</option>
-        <option [value]="2027">2027</option>
-      </select>
-    </div>
-    <div class="form-group" >
-      <label for="program">Program</label>
-      
-      <select id="program" name="program"  [(ngModel)]="selectedProgram"  required (ngModelChange)='getBatchesByProgram()'
-              class="form-control" >
-        <option *ngFor="let program of programs" [value]="program.programCode">
-          {{program.pro_name}}
-        </option>
-      </select>
-    </div>
+        <div class="form-group">
+          <label for="type">Year</label>
+          <select
+            class="form-control"
+            id="courseOffered.year"
+            required
+            [(ngModel)]="selectedYear"
+            name="Year"
+          >
+            <option [value]="2018">2018</option>
+            <option [value]="2019">2019</option>
+            <option [value]="2020">2020</option>
+            <option [value]="2021">2021</option>
+            <option [value]="2022">2022</option>
+            <option [value]="2023">2023</option>
+            <option [value]="2024">2024</option>
+            <option [value]="2025">2025</option>
+            <option [value]="2026">2026</option>
+            <option [value]="2027">2027</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="program">Program</label>
 
+          <select
+            id="program"
+            name="program"
+            [(ngModel)]="selectedProgram"
+            required
+            (ngModelChange)="getBatchesByProgram()"
+            class="form-control"
+          >
+            <option
+              *ngFor="let program of programs"
+              [value]="program.programCode"
+            >
+              {{ program.pro_name }}
+            </option>
+          </select>
+        </div>
 
-    <div *ngIf='batchLoaded' class="form-group">
-      <label for="batch">Batch</label>
-      <select id="batchName" name="batchName" 
-              class="form-control" [(ngModel)]="selectedBatch" (ngModelChange)='getSectionsByBatch(selectedBatch)' required>
-        <option *ngFor="let batch of batches" [value]="batch.id">
-          {{batch.batchName}}
-        </option>
-      </select>
-    </div>
+        <div *ngIf="batchLoaded" class="form-group">
+          <label for="batch">Batch</label>
+          <select
+            id="batchName"
+            name="batchName"
+            class="form-control"
+            [(ngModel)]="selectedBatch"
+            (ngModelChange)="getSectionsByBatch(selectedBatch)"
+            required
+          >
+            <option *ngFor="let batch of batches" [value]="batch.id">
+              {{ batch.batchName }}
+            </option>
+          </select>
+        </div>
 
-    <div *ngIf='sectionLoaded' class="form-group">
-      <label for="section">Section</label>
-      <select id="section" name="sectionName" [(ngModel)]="selectedSection" (ngModelChange) ='sectionSelected()'
-              class="form-control" required>
-        <option *ngFor="let section of sections" [value]="section.id">
-          {{section.sectionName}}
-        </option>
-      </select>
-    </div>
+        <div *ngIf="sectionLoaded" class="form-group">
+          <label for="section">Section</label>
+          <select
+            id="section"
+            name="sectionName"
+            [(ngModel)]="selectedSection"
+            (ngModelChange)="sectionSelected()"
+            class="form-control"
+            required
+          >
+            <option *ngFor="let section of sections" [value]="section.id">
+              {{ section.sectionName }}
+            </option>
+          </select>
+        </div>
 
-    <div class='course-faculty'>
-    <div *ngIf='courseLoaded' class="form-group course">
-      <label for="course">Course</label>
-      <select id="courseCode" name="courseCode" [(ngModel)]="selectedCourse" (ngModelChange) ='courseSelected()'
-              class="form-control" required>
-        <option *ngFor="let course of courses" [value]="course.id">
-          {{course.courseCode + ',' + course.crs_title}}
-        </option>
-      </select>
-    </div>
+        <div class="course-faculty">
+          <div *ngIf="courseLoaded" class="form-group course">
+            <label for="course">Course</label>
+            <select
+              id="courseCode"
+              name="courseCode"
+              [(ngModel)]="selectedCourse"
+              (ngModelChange)="courseSelected()"
+              class="form-control"
+              required
+            >
+              <option *ngFor="let course of courses" [value]="course.id">
+                {{ course.courseCode + "," + course.crs_title }}
+              </option>
+            </select>
+          </div>
 
-    <div *ngIf='courseLoaded' class="form-group faculty">
-      <label for="faculty">Faculty</label>
-      <select id="facultyID" name="facultyID" [(ngModel)]="selectedFaculty" (ngModelChange) ='facultySelected()'
-              class="form-control" required>
-        <option *ngFor="let faculty of faculties" [value]="faculty.id">
-          {{faculty.fac_firstName + ' ' + faculty.fac_lastName}}
-          <!-- {{faculty.fac_firstName + faculty.fac_lastName}} -->
-        </option>
-      </select>
+          <div *ngIf="courseLoaded" class="form-group faculty">
+            <label for="faculty">Faculty</label>
+            <select
+              id="facultyID"
+              name="facultyID"
+              [(ngModel)]="selectedFaculty"
+              (ngModelChange)="facultySelected()"
+              class="form-control"
+              required
+            >
+              <option *ngFor="let faculty of faculties" [value]="faculty.id">
+                {{ faculty.fac_firstName + " " + faculty.fac_lastName }}
+                <!-- {{faculty.fac_firstName + faculty.fac_lastName}} -->
+              </option>
+            </select>
+          </div>
+          <button
+            *ngIf="courseLoaded"
+            data-placement="left"
+            class="btn btn-success"
+            (click)="addCourseFaculty()"
+          >
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+
+        <div class="course-faculty-table">
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <!-- <th>Faculty ID</th> -->
+                <th>course</th>
+                <th>faculty</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cf of coursesAndFaculties">
+                <!-- <td><h6 ><tr>{{faculty.id}}</tr></h6></td> -->
+                <td>
+                  <h6>
+                    <tr>
+                      {{
+                        cf.courseName
+                      }}
+                    </tr>
+                  </h6>
+                </td>
+                <td>
+                  <h6>
+                    <tr>
+                      {{
+                        cf.facultyName
+                      }}
+                    </tr>
+                  </h6>
+                </td>
+                <!-- <td><button class="btn btn-primary" *ngIf="selectedFaculty.id" (click)="updateFaculty()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td> -->
+                <td>
+                  <button
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    ngbTooltip="Delete"
+                    class="btn btn-danger"
+                    (click)="deleteCFfromRow(cf.course)"
+                  >
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button
+          [disabled]="!allLoaded"
+          data-toggle="tooltip"
+          data-placement="left"
+          ngbTooltip="Add CourseOffered"
+          class="btn btn-success"
+          (click)="createCourseOffered()"
+        >
+          SUBMIT
+        </button>
+      </form>
     </div>
-    <button  *ngIf='courseLoaded'  
-     data-placement="left"  class="btn btn-success" (click)='addCourseFaculty()'> 
-     <i class="fa fa-plus"></i></button>
   </div>
-    
-     <div class='course-faculty-table'>
-      <table class="table table-hover table-striped">
-        <thead>
-          <tr>
-            <!-- <th>Faculty ID</th> -->
-            <th>course</th>
-            <th>faculty</th>
-            <th></th>
-          </tr>
-       </thead>
-   <tbody>
-    
-    <tr *ngFor="let cf of coursesAndFaculties">
-      <!-- <td><h6 ><tr>{{faculty.id}}</tr></h6></td> -->
-      <td><h6 ><tr>{{cf.courseName}}</tr></h6></td>
-      <td><h6 ><tr>{{cf.facultyName}}</tr></h6></td>
-     <!-- <td><button class="btn btn-primary" *ngIf="selectedFaculty.id" (click)="updateFaculty()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td> -->
-     <td><button type="button" data-toggle="tooltip" data-placement="top"
-       ngbTooltip="Delete" class="btn btn-danger" (click)='deleteCFfromRow(cf.course)'> 
-       <i class="fa fa-trash" aria-hidden="true"></i></button></td>
-      </tr>
-    </tbody>
-  </table>
-     </div>
-     <button [disabled]='!allLoaded' data-toggle="tooltip"
-     data-placement="left" ngbTooltip="Add CourseOffered" class="btn btn-success" (click)='createCourseOffered()'> 
-     SUBMIT
-     </button>
- </form>
-</div>
-</div>
-
-
-
 </div>
