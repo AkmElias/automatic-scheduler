@@ -1,3 +1,5 @@
+import { FacultyapiService } from "./../facultyapi.service";
+import { CourseapiService } from "./../courseapi.service";
 import { TimeSlot } from "./../time-slot";
 import { SectionapiService } from "./../sectionapi.service";
 import { BatchapiService } from "./../batchapi.service";
@@ -33,7 +35,9 @@ export class CreateRoutineComponent {
   sections = [];
   Time: String;
   timeSlots = [];
-  Course: String;
+  Course: Number;
+  offeredCourses = [];
+  availableCourses = [];
   courses = [];
   Faculty: String;
   Room: String;
@@ -50,8 +54,11 @@ export class CreateRoutineComponent {
   routines = [{ routineID: "" }];
   Routine;
   coursesOffered: any = [];
+  selectedCourseOffered: Number;
   rooms: any = [];
   exams: any = [];
+  dayRoutineByProgram = [];
+  routineRow = {};
   submitted = false;
 
   constructor(
@@ -59,6 +66,8 @@ export class CreateRoutineComponent {
     private programApi: ProgramapiService,
     private batchApi: BatchapiService,
     private sectionApi: SectionapiService,
+    private courseApi: CourseapiService,
+    private facultyApi: FacultyapiService,
     private roomApi: RoomapiService,
     private courseOfferedApi: CourseOfferedapiService,
     private roomService: RoomapiService,
@@ -99,7 +108,15 @@ export class CreateRoutineComponent {
       "3:30pm to 4:50pm",
     ];
     console.log("time slots...", this.timeSlots);
-
+    this.routineRow = {
+      title: "",
+      batchAndSection: "",
+      timeSlot: "",
+      course: "",
+      faculty: "",
+      room: "",
+    };
+    this.selectedCourseOffered = 0;
     this.getCoursesOffered();
     this.getRooms();
     this.getTimeSlots();
@@ -151,29 +168,79 @@ export class CreateRoutineComponent {
     this.courseOfferedApi
       .getAllCourseOfferedToBatchAndSection(batchAndSection)
       .subscribe((data) => {
-        console.log("offered courses..", data);
+        this.offeredCourses = data;
+        console.log("offered courses..", this.offeredCourses);
       });
   };
 
   timeSlotSelected = () => {
     this.timeSlotLoaded = true;
+    let asignFaculty = [];
+
+    this.availableCourses = this.courses.filter((course) => {});
   };
 
-  courseSelected = () => {
+  courseSelected = async (courseOffered) => {
     this.courseLoaded = true;
     if (
       this.batchLoaded == true &&
       this.sectionLoaded == true &&
       this.timeSlotLoaded == true &&
-      this.courseLoaded == true
+      this.courseLoaded == true &&
+      this.roomLoaded == true
     ) {
       this.secondStepLoaded = true;
     }
+    let cfids = [];
+    let courseId;
+    this.offeredCourses.filter((ofcr) => {
+      if (courseOffered == ofcr.id) {
+        return (courseId = ofcr.courseID);
+      }
+    });
+    let facultyId;
+    this.offeredCourses.filter((ofcr) => {
+      if (courseOffered == ofcr.id) {
+        return (facultyId = ofcr.facultyID);
+      }
+    });
+    cfids.push(courseId);
+    cfids.push(facultyId);
+
+    let i = 0;
+    let promises = cfids.map((id) => {
+      if (i == 0) {
+        i++;
+        return this.courseApi.getOneCourse(id).toPromise();
+      }
+      if (i == 1) {
+        i++;
+        return this.facultyApi.getOneFaculty(id).toPromise();
+      }
+    });
+
+    let results = await Promise.all(promises);
+    let courseAndFacultyShortName =
+      results[0][0].crs_shortName + ", " + results[1][0].fac_shortName;
+
+    console.log("course and fac shortname..", courseAndFacultyShortName);
   };
 
   facultySelected = () => {};
 
-  roomSelected = () => {};
+  roomSelected = () => {
+    this.roomLoaded = true;
+    if (
+      this.batchLoaded == true &&
+      this.sectionLoaded == true &&
+      this.timeSlotLoaded == true &&
+      this.courseLoaded == true &&
+      this.roomLoaded == true
+    ) {
+      this.secondStepLoaded = true;
+    }
+    console.log("loded fields..", this.secondStepLoaded);
+  };
 
   getCoursesOffered = () => {
     this.courseOfferedApi.getAllCoursesOffered().subscribe(

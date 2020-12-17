@@ -110,10 +110,10 @@
     </div>
     <div *ngIf="timeSlotLoaded" class="form-group">
       <label for="courseAvailable">Course available</label>
-      <select id="courseAvailable" name="courseAvailable" [(ngModel)]="Course"
-              class="form-control" (ngModelChange) ='courseSelected()'>
-        <option *ngFor="let program of programs" [value]="program.pro_shortForm">
-          {{program.pro_name}}
+      <select id="courseAvailable" name="courseAvailable" [(ngModel)]="selectedCourseOffered"
+              class="form-control" (ngModelChange) ='courseSelected(selectedCourseOffered)'>
+        <option *ngFor="let courseOffered of offeredCourses" [value]="courseOffered.id">
+          {{courseOffered.id}}
         </option>
       </select>
     </div>
@@ -128,7 +128,7 @@
     </div>
   </form>
  
-  <button [disabled]="!secondStepSubmitted" class="btn btn-success" (click)="addTermYearDayProgram()">Add</button>
+  <button [disabled]="!secondStepLoaded" class="btn btn-success" (click)="addTermYearDayProgram()">Add</button>
 </div>
 <div class="routine-table" style="width: 800px;">
   <table class="table table-hover table-striped">
