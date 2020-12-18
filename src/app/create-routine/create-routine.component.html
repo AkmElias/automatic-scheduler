@@ -205,7 +205,7 @@
             data-placement="top"
             ngbTooltip="Delete"
             class="btn btn-danger"
-            
+            (click)="deleteRowRutine(routine.batchAndSection, routine.timeSlot)"
           >
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
@@ -213,7 +213,7 @@
       </tr>
     </tbody>
   </table>
-  <button [disabled]="!secondStepLoaded" class="btn btn-success" (click)="addTermYearDayProgram()">Submit Day routine</button>
+  <button [disabled]="!secondStepLoaded" class="btn btn-success" (click)="submitDayRoutine()">Submit Day routine</button>
 </div>
 </div>
 

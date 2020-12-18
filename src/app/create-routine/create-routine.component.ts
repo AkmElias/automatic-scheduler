@@ -70,7 +70,7 @@ export class CreateRoutineComponent {
   submitted = false;
 
   constructor(
-    private routineService: RoutineapiService,
+    private routineApi: RoutineapiService,
     private programApi: ProgramapiService,
     private batchApi: BatchapiService,
     private sectionApi: SectionapiService,
@@ -191,11 +191,7 @@ export class CreateRoutineComponent {
     this.Section = null;
     this.sections = [];
     this.offeredCourses = [];
-    this.batches.filter((batch) => {
-      if (batch.id == this.Batch) {
-        this.batchAndSection = batch.batchName + " ";
-      }
-    });
+
     this.sectionApi.getSectionsByBatch(batchId).subscribe((data) => {
       console.log("sections..", data);
       this.sections = data;
@@ -213,13 +209,21 @@ export class CreateRoutineComponent {
     this.Course = null;
     this.courses = [];
     this.offeredCourses = [];
+    this.availableCourse = [];
     this.batchAndSectionId = {
       batch: this.Batch,
       section: this.Section,
     };
+    this.batchAndSection = "";
+    this.batches.filter((batch) => {
+      if (batch.id == this.Batch) {
+        this.batchAndSection = batch.batchName + " ";
+      }
+    });
+
     this.sections.filter((section) => {
       if (section.id == this.Section) {
-        this.batchAndSection += section.sectionName;
+        return (this.batchAndSection += section.sectionName);
       }
     });
     console.log("batch and section..", this.batchAndSection);
@@ -469,8 +473,44 @@ export class CreateRoutineComponent {
     } else return true;
   };
 
+  deleteRowRutine = (batchAndSection, timeSlot) => {
+    console.log(`batch and section ${batchAndSection} timeSlot ${timeSlot}`);
+    this.routines = this.routines.filter((routine) => {
+      if (
+        routine.batchAndSection !== batchAndSection ||
+        routine.timeSlot !== timeSlot
+      ) {
+        return routine;
+      }
+    });
+  };
+
+  submitDayRoutine = async () => {
+    let promises;
+    if (confirm("Are you sure to proceed!")) {
+      console.log("dayRoutineArray..", this.routines);
+      this.routines.forEach((routine) => {
+        promises = this.routineApi.createRoutine(routine).toPromise();
+      });
+      let results = await Promise.all(promises);
+      console.log("results....day", results);
+      this.routines = [];
+      this.availableCourse = [];
+      this.courses = [];
+      this.Batch = null;
+      this.Section = null;
+      this.Time = "";
+      this.Course = null;
+      this.Faculty = null;
+      this.secondStepSubmitted = true;
+      this.secondStepSubmitted = false;
+    } else {
+      return;
+    }
+  };
+
   createRoutine = () => {
-    this.routineService.createRoutine(this.Routine).subscribe(
+    this.routineApi.createRoutine(this.Routine).subscribe(
       (data) => {
         this.routines.push(data);
       },
