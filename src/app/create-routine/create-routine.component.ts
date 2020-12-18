@@ -381,8 +381,92 @@ export class CreateRoutineComponent {
     };
     console.log("day routine..", this.routineRow);
     console.log("day routine in ids..", this.idRoutineRow);
-    this.routines.push(this.routineRow);
-    this.idRoutines.push(this.idRoutineRow);
+    let check = true;
+    check = this.checkConditions(this.routineRow);
+    console.log("check..", check);
+    if (check == false) {
+      console.log("check..", check);
+      return;
+    } else if (check == true) {
+      this.routines.push(this.routineRow);
+      this.idRoutines.push(this.idRoutineRow);
+    }
+  };
+
+  checkConditions = (tempRoutine) => {
+    let bas = false;
+    let fbitt = false;
+    let citwsbas = false;
+    let rbitt = false;
+    let nerf = false;
+    let bashcitt = false;
+    if (
+      !tempRoutine.batchAndSection ||
+      !tempRoutine.timeSlot ||
+      !tempRoutine.faculty ||
+      !tempRoutine.course ||
+      !tempRoutine.room
+    ) {
+      nerf = true;
+    }
+    if (nerf == true) {
+      alert("One or more required field missing");
+      return false;
+    }
+    let countTheGivenBas = 0;
+    this.routines.forEach((rowOfRoutine) => {
+      if (rowOfRoutine.batchAndSection === tempRoutine.batchAndSection) {
+        countTheGivenBas++;
+      }
+      if (
+        rowOfRoutine.faculty == tempRoutine.faculty &&
+        rowOfRoutine.timeSlot === tempRoutine.timeSlot
+      ) {
+        fbitt = true;
+      }
+      if (
+        rowOfRoutine.course === tempRoutine.course &&
+        rowOfRoutine.batchAndSection === tempRoutine.batchAndSection
+      ) {
+        citwsbas = true;
+      }
+      if (
+        rowOfRoutine.room === tempRoutine.room &&
+        rowOfRoutine.timeSlot === tempRoutine.timeSlot
+      ) {
+        rbitt = true;
+      }
+      if (
+        rowOfRoutine.batchAndSection === tempRoutine.batchAndSection &&
+        rowOfRoutine.timeSlot === tempRoutine.timeSlot
+      ) {
+        bashcitt = true;
+      }
+      if (countTheGivenBas >= 2) {
+        bas = true;
+      }
+    });
+
+    if (bas) {
+      alert("This section has already two classes this day.");
+      return false;
+    }
+    if (bashcitt) {
+      alert("This section has already class in this timeSlot.");
+      return false;
+    }
+    if (fbitt) {
+      alert("This faculty has already class this timeSlot.");
+      return false;
+    }
+    if (citwsbas) {
+      alert("This sectiion has already this course for the day.");
+      return false;
+    }
+    if (rbitt) {
+      alert("This room is booked for this timeSlot.");
+      return false;
+    } else return true;
   };
 
   createRoutine = () => {
