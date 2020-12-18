@@ -112,8 +112,8 @@
       <label for="courseAvailable">Course available</label>
       <select id="courseAvailable" name="courseAvailable" [(ngModel)]="selectedCourseOffered"
               class="form-control" (ngModelChange) ='courseSelected(selectedCourseOffered)'>
-        <option *ngFor="let courseOffered of offeredCourses" [value]="courseOffered.id">
-          {{courseOffered.id}}
+        <option *ngFor="let crs of availableCourse" [value]="crs.courseId">
+          {{crs.course}}
         </option>
       </select>
     </div>
@@ -121,16 +121,16 @@
       <label for="room">Room</label>
       <select id="room" name="room" [(ngModel)]="Room"
               class="form-control" (ngModelChange) ='roomSelected()'>
-        <option *ngFor="let program of programs" [value]="program.pro_shortForm">
-          {{program.pro_name}}
+        <option *ngFor="let room of rooms" [value]="room.roomCode">
+          {{room.roomCode}}
         </option>
       </select>
     </div>
   </form>
  
-  <button [disabled]="!secondStepLoaded" class="btn btn-success" (click)="addTermYearDayProgram()">Add</button>
+  <button [disabled]="!secondStepLoaded" class="btn btn-success" (click)="addRoutineRaw()">Add</button>
 </div>
-<div class="routine-table" style="width: 800px;">
+<div *ngIf="firstStepSubmitted" class="routine-table" style="width: 800px;">
   <table class="table table-hover table-striped">
     <thead>
       <tr>
@@ -145,12 +145,19 @@
       </tr>
     </thead>
     <tbody>
-      <!-- <tr >
+      <tr *ngFor='let routine of routines'>
+        <td>
+          <h6>
+            <tr>
+             
+            </tr>
+          </h6>
+        </td>
         <td>
           <h6>
             <tr>
               {{
-                cf.courseName
+                routine.batchAndSection
               }}
             </tr>
           </h6>
@@ -159,7 +166,34 @@
           <h6>
             <tr>
               {{
-                cf.facultyName
+                routine.timeSlot
+              }}
+            </tr>
+          </h6>
+        </td>
+        <td>
+          <h6>
+            <tr>
+              {{
+                routine.course
+              }}
+            </tr>
+          </h6>
+        </td>
+        <td>
+          <h6>
+            <tr>
+              {{
+                routine.faculty
+              }}
+            </tr>
+          </h6>
+        </td>
+        <td>
+          <h6>
+            <tr>
+              {{
+                routine.room
               }}
             </tr>
           </h6>
@@ -171,14 +205,15 @@
             data-placement="top"
             ngbTooltip="Delete"
             class="btn btn-danger"
-            (click)="deleteCFfromRow(cf.course)"
+            
           >
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
         </td>
-      </tr> -->
+      </tr>
     </tbody>
   </table>
+  <button [disabled]="!secondStepLoaded" class="btn btn-success" (click)="addTermYearDayProgram()">Submit Day routine</button>
 </div>
 </div>
 
