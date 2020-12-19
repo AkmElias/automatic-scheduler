@@ -149,7 +149,7 @@ export class CreateRoutineComponent {
     };
     this.getCoursesOffered();
     this.getRooms();
-    this.getTimeSlots();
+    // this.getTimeSlots();
   }
 
   getPrograms = () => {
@@ -355,16 +355,16 @@ export class CreateRoutineComponent {
     );
   };
 
-  getTimeSlots = () => {
-    this.timeslotService.getAllTimeSlots().subscribe(
-      (data) => {
-        //this.timeSlots = data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  };
+  // getTimeSlots = () => {
+  //   this.timeslotService.getAllTimeSlots().subscribe(
+  //     (data) => {
+  //       //this.timeSlots = data;
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // };
 
   addRoutineRaw = () => {
     this.routineRow = {
@@ -494,10 +494,38 @@ export class CreateRoutineComponent {
           console.log("day routine added..", data);
         });
       });
-      window.location.reload();
+      this.refreshEverything();
     } else {
       return;
     }
+  };
+
+  refreshEverything = () => {
+    this.firstStepSubmitted = false;
+    this.firstStep = false;
+    this.secondStepSubmitted = false;
+    this.batchLoaded = false;
+    this.sectionLoaded = false;
+    this.timeSlotLoaded = false;
+    this.roomLoaded = false;
+    this.courseLoaded = false;
+    this.secondStepLoaded = false;
+    this.submitted = false;
+
+    this.routines = [];
+    this.routineRow = [];
+    this.availableCourse = [];
+    this.idRoutineRow = [];
+    this.courses = [];
+    this.rooms = [];
+    this.coursesOffered = [];
+    this.Program = "";
+    this.Batch = 0;
+    this.Section = 0;
+    this.batchAndSectionId = {};
+    this.Time = "";
+    this.Course = null;
+    this.Room = "";
   };
 
   createRoutine = () => {
