@@ -489,21 +489,12 @@ export class CreateRoutineComponent {
     let promises;
     if (confirm("Are you sure to proceed!")) {
       console.log("dayRoutineArray..", this.routines);
-      this.routines.forEach((routine) => {
-        promises = this.routineApi.createRoutine(routine).toPromise();
+      this.routines.map((routine) => {
+        this.routineApi.createRoutine(routine).subscribe((data) => {
+          console.log("day routine added..", data);
+        });
       });
-      let results = await Promise.all(promises);
-      console.log("results....day", results);
-      this.routines = [];
-      this.availableCourse = [];
-      this.courses = [];
-      this.Batch = null;
-      this.Section = null;
-      this.Time = "";
-      this.Course = null;
-      this.Faculty = null;
-      this.secondStepSubmitted = true;
-      this.secondStepSubmitted = false;
+      window.location.reload();
     } else {
       return;
     }
