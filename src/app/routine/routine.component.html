@@ -15,7 +15,7 @@
   </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
-
+<!-- 
 <div *ngIf="sectionOne">
   <input class="form-control" [(ngModel)]="one">
   <button class="btn btn-primary" (click)="stepOne()">Submit</button>
@@ -43,8 +43,7 @@
 <div *ngIf="sectionTwo">
 </div>
 <div *ngIf="sectionOne">
-</div>
-
+</div> -->
 
 <div class="container">
 <div class="row">
@@ -57,13 +56,14 @@
   <thead>
     <tr>
        <!-- <th>Routine ID</th> -->
-       <th>CourseOffered</th>
-       <th>Room</th>
-       <th>Exam</th>
+       <th>Title</th>
+       <th>Batch&Section</th>
+       <th>Course</th>
+       <th>Faculty</th>
        <th>TimeSlot</th>
-       <th></th>
-       <th></th>
-       <th></th>
+       <th>Room</th>
+       <th>View</th>
+       <th>Delete</th>
        <!-- <th>View</th>
        <th>Edit</th>
        <th>Delete</th> -->
@@ -71,12 +71,14 @@
  </thead>
 
 <tbody>
-  <tr *ngFor="let routine of routines" (click)="routineClicked(routine)">
-    <!-- <td><h6 (click)="routineClicked(routine)"><tr>{{routine.routineID}}</tr></h6></td> -->
-    <td><h6 (click)="routineClicked(routine)"><tr>{{routine.title}}</tr></h6></td>
-    <td><h6 (click)="routineClicked(routine)"><tr>{{routine.room}}</tr></h6></td>
-    <td><h6 (click)="routineClicked(routine)"><tr>{{routine.course}}</tr></h6></td>
-    <td><h6 (click)="routineClicked(routine)"><tr>{{routine.batchAndSection}}</tr></h6></td>
+  <tr *ngFor="let routine of routines" >
+    <!-- <td><h6 ><tr>{{routine.routineID}}</tr></h6></td> -->
+    <td><h6 ><tr>{{routine.title}}</tr></h6></td>
+    <td><h6 ><tr>{{routine.batchAndSection}}</tr></h6></td>
+    <td><h6 ><tr>{{routine.courseName}}</tr></h6></td>
+    <td><h6 ><tr>{{routine.faculty}}</tr></h6></td>
+    <td><h6 ><tr>{{routine.timeSlot}}</tr></h6></td>
+    <td><h6 ><tr>{{routine.room}}</tr></h6></td>
 
     <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="routineDetails(routine.routineID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
     <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedRoutine.routineID" (click)="deleteRoutine()"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
