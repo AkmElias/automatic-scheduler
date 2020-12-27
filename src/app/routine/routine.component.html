@@ -14,45 +14,33 @@
     </div><!-- /.row -->
   </div><!-- /.container-fluid -->
 </div>
-<!-- /.content-header -->
-<!-- 
-<div *ngIf="sectionOne">
-  <input class="form-control" [(ngModel)]="one">
-  <button class="btn btn-primary" (click)="stepOne()">Submit</button>
-</div>
-<div *ngIf="sectionTwo">
-  <h1>Welcome to section two...</h1>
-</div>
-<div *ngIf="sectionThree">
-</div>
 
-<div *ngIf="sectionTwo">
-  <input class="form-control" [(ngModel)]="two">
-  <button class="btn btn-primary" (click)="stepTwo()">Submit</button>
-</div>
-<div *ngIf="sectionThree">
-  <h1>Welcome to section three...</h1>
-</div>
-<div *ngIf="sectionOne">
-</div>
 
-<div *ngIf="sectionThree">
-  <input class="form-control" [(ngModel)]="three">
-  <button class="btn btn-primary" (click)="stepThree()">Submit</button>
+<div class="col-md-6 center">
+  <h1>Day Rutines</h1>
+  <table class="center">
+      <thead>
+          <tr>
+              <th>Title</th>
+          </tr>
+      </thead>
+      <tr *ngFor="let title of cseRoutines">
+        <td class="center"><h6 style="cursor: pointer;"><tr><td (dblclick)="showRoutine(title)">{{title}}</td></tr></h6></td>
+      </tr>
+      <tbody>
+        
+      </tbody>
+  </table>
 </div>
-<div *ngIf="sectionTwo">
-</div>
-<div *ngIf="sectionOne">
-</div> -->
 
 <div class="container">
 <div class="row">
   <div class="container">
     <div class="text-right">
-      <b><h1><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Routine" (click)="Createroutine()" class="btn btn-primary mr-2" style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
+      <b><h1><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Routine" (click)="createRoutine()" class="btn btn-primary mr-2" style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
     </div>
   </div>
-<table class="table table-hover table-striped">
+<table *ngIf='loadRoutine' class="table table-hover table-striped">
   <thead>
     <tr>
        <!-- <th>Routine ID</th> -->
@@ -71,7 +59,7 @@
  </thead>
 
 <tbody>
-  <tr *ngFor="let routine of routines" >
+  <tr *ngFor="let routine of tempRoutines" >
     <!-- <td><h6 ><tr>{{routine.routineID}}</tr></h6></td> -->
     <td><h6 ><tr>{{routine.title}}</tr></h6></td>
     <td><h6 ><tr>{{routine.batchAndSection}}</tr></h6></td>
@@ -80,8 +68,14 @@
     <td><h6 ><tr>{{routine.timeSlot}}</tr></h6></td>
     <td><h6 ><tr>{{routine.room}}</tr></h6></td>
 
-    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View" (click)="routineDetails(routine.routineID)" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
-    <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger" *ngIf="selectedRoutine.routineID" (click)="deleteRoutine()"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
+    <td><button type="button" data-toggle="tooltip" data-placement="top" 
+      ngbTooltip="View" (click)="routineDetails(routine.id)"
+       class="btn btn-info" style="margin-left: 10px">
+       <i class="fas fa-address-book"></i>
+      </button></td>
+    <td><button type="button" data-toggle="tooltip" data-placement="top" 
+      ngbTooltip="Delete" class="btn btn-danger" 
+       (click)="deleteRoutine(routine.id)"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
     </tr>
   </tbody>
 </table>
@@ -89,66 +83,3 @@
 </div>
 </div>
 
-<div>
-  <h1>CSE Day Routine</h1>
-  <table>
-      <thead>
-          <tr>
-              <th>TimeSlot</th>
-              <th>Course</th>
-              <th>Batch</th>
-              <th>Faculty</th>
-              <th>Room</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>8:00AM-9:20AM</td>
-            <td>PHY 124</td>
-            <td>47</td>
-            <td>AK</td>
-            <td>901</td>
-          </tr>
-
-          <tr>
-            <td>9:30AM-10:50AM</td>
-            <td>PHY-1</td>
-            <td>48</td>
-            <td>AZA</td>
-            <td>902</td>
-          </tr>
-
-          <tr>
-            <td>11:00AM-12:20PM</td>
-            <td>PHY-2</td>
-            <td>49</td>
-            <td>CMW</td>
-            <td>901</td>
-          </tr>
-
-          <tr>
-            <td>12:30PM-1:50PM</td>
-            <td>NM</td>
-            <td>50</td>
-            <td>MMH</td>
-            <td>902</td>
-          </tr>
-
-          <tr>
-            <td>02:00PM-03:20PM</td>
-            <td>G&VA</td>
-            <td>47</td>
-            <td>AZ</td>
-            <td>903</td>
-          </tr>
-
-          <tr>
-            <td>03:30PM-04:50PM</td>
-            <td>DE&LT</td>
-            <td>48</td>
-            <td>MRI</td>
-            <td>908</td>
-          </tr>
-      </tbody>
-  </table>
-</div>

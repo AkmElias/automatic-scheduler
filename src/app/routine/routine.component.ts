@@ -5,25 +5,21 @@ import { Router } from "@angular/router";
 import { CreateRoutineComponent } from "../create-routine/create-routine.component";
 import { UpdateRoutineComponent } from "../update-routine/update-routine.component";
 import { RoutineDetailsComponent } from "../routine-details/routine-details.component";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-routine",
   templateUrl: "./routine.component.html",
   styleUrls: ["./routine.component.css"],
-  providers: [RoutineapiService],
 })
 export class RoutineComponent {
-  routines = [{ roomCode: "" }];
-
+  routines = [{ id: 0, title: "" }];
+  tempRoutines = [{ id: 0, title: "" }];
+  cseRoutines = new Set();
+  loadRoutine = false;
   selectedRoutine;
-  sectionOne = true;
-  sectionTwo = false;
-  sectionThree = false;
-  one = "";
-  two = "";
-  three = "";
 
-  constructor(private api: RoutineapiService, private router: Router) {
+  constructor(private routineApi: RoutineapiService, private router: Router) {
     setTimeout(() => {
       this.getRoutines();
     }, 500);
@@ -38,9 +34,14 @@ export class RoutineComponent {
     };
   }
   getRoutines = () => {
-    this.api.getAllRoutines().subscribe(
+    this.routineApi.getAllRoutines().subscribe(
       (data) => {
         this.routines = data;
+        this.tempRoutines = data;
+        this.routines.forEach((routine) => {
+          this.cseRoutines.add(routine.title);
+        });
+
         console.log("routines...", data);
       },
       (error) => {
@@ -48,65 +49,31 @@ export class RoutineComponent {
       }
     );
   };
-  routineClicked = (routine) => {
-    this.api.getOneRoutine(routine.routineID).subscribe(
-      (data) => {
-        this.selectedRoutine = data;
-      },
-      (error) => {
-        console.log(error);
-      }
+
+  showRoutine = async (title) => {
+    this.loadRoutine = true;
+    this.tempRoutines = this.routines.filter(
+      (routine) => routine.title === title
     );
-  };
-  updateRoutine = () => {
-    this.api.updateRoutine(this.selectedRoutine).subscribe(
-      (data) => {
-        this.getRoutines();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  };
-  createRoutine = () => {
-    this.api.createRoutine(this.selectedRoutine).subscribe(
-      (data) => {
-        this.routines.push(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  };
-  deleteRoutine = () => {
-    this.api.deleteRoutine(this.selectedRoutine.routineID).subscribe(
-      (data) => {
-        this.getRoutines();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    console.log("selected title..", this.routines);
   };
 
-  stepOne() {
-    this.sectionTwo = true;
-    this.sectionOne = false;
-  }
+  deleteRoutine = (routineId) => {
+    this.tempRoutines = this.routines.filter(
+      (routine) => routine.id != routineId
+    );
+    // this.routineApi.deleteRoutine(routineId).subscribe(
+    //   (data) => {
+    //     console.log("deleted routine: ", data);
+    //     // this.getRoutines();
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
+  };
 
-  stepTwo() {
-    this.sectionThree = true;
-    this.sectionOne = true;
-    this.sectionTwo = true;
-  }
-
-  stepThree() {
-    this.sectionThree = false;
-    this.sectionTwo = false;
-    this.sectionOne = false;
-  }
-
-  Createroutine() {
+  createRoutine() {
     this.router.navigate(["addroutine"]);
   }
 
