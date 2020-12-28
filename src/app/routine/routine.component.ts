@@ -1,3 +1,4 @@
+import { ProgramapiService } from "./../programapi.service";
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { RoutineapiService } from "../routineapi.service";
@@ -19,19 +20,25 @@ export class RoutineComponent {
   loadRoutine = false;
   selectedRoutine;
 
-  constructor(private routineApi: RoutineapiService, private router: Router) {
+  //search fields
+  Term: String;
+  Year: 2020;
+  Years = [];
+  Day: String;
+  Days = [];
+  searchText = "";
+  Program: String;
+  programs: [];
+
+  constructor(
+    private routineApi: RoutineapiService,
+    private programApi: ProgramapiService,
+    private router: Router
+  ) {
     setTimeout(() => {
       this.getRoutines();
     }, 500);
-
-    this.getRoutines();
-    this.selectedRoutine = {
-      routineID: "-1",
-      courseOfferedID: "",
-      roomCode: "",
-      examID: "",
-      timeSlotID: "",
-    };
+    this.initialize();
   }
   getRoutines = () => {
     this.routineApi.getAllRoutines().subscribe(
@@ -59,7 +66,7 @@ export class RoutineComponent {
   };
 
   deleteRoutine = (routineId) => {
-    this.tempRoutines = this.routines.filter(
+    this.tempRoutines = this.tempRoutines.filter(
       (routine) => routine.id != routineId
     );
     // this.routineApi.deleteRoutine(routineId).subscribe(
@@ -84,4 +91,31 @@ export class RoutineComponent {
   Updateroutine(routineID) {
     this.router.navigate(["updateroutine", routineID]);
   }
+
+  initialize = async () => {
+    this.selectedRoutine = {
+      routineID: "-1",
+      courseOfferedID: "",
+      roomCode: "",
+      examID: "",
+      timeSlotID: "",
+    };
+    this.Years = [2020, 2021, 2022, 2023, 2024, 2025];
+    this.Day = "SATURDAY";
+    this.Program = "CSE";
+    this.Days = [
+      "SATURDAY",
+      "SUNDAY",
+      "MONDAY",
+      "TUESDAY",
+      "WEDNESDAY",
+      "THURSDAY",
+    ];
+    this.programs = await this.getPrograms();
+    console.log("programs..", this.programs);
+  };
+
+  getPrograms = () => {
+    return this.programApi.getAllPrograms().toPromise();
+  };
 }

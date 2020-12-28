@@ -1,85 +1,215 @@
- <!-- Content Header (Page header) -->
- <div class="content-header">
+<!-- Content Header (Page header) -->
+<div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
         <h1 class="m-0 text-dark">List of Routine</h1>
-      </div><!-- /.col -->
+      </div>
+      <!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item active">Routine</li>
         </ol>
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
 </div>
 
 
-<div class="col-md-6 center">
-  <h1>Day Rutines</h1>
-  <table class="center">
+<div class="row container">
+  <div class='col-md-6'>
+    <div class='row' style="align-items: center; margin: 20px;">
+      <h1>Day Routines</h1>
+      <b>
+        <h1>
+          <button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Routine"
+            (click)="createRoutine()" class="btn btn-primary mr-2" style="margin-left: 10px">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </h1>
+      </b>
+    </div>
+
+    <table class="center">
       <thead>
-          <tr>
-              <th>Title</th>
-          </tr>
+        <tr>
+          <th>Title</th>
+        </tr>
       </thead>
-      <tr *ngFor="let title of cseRoutines">
-        <td class="center"><h6 style="cursor: pointer;"><tr><td (dblclick)="showRoutine(title)">{{title}}</td></tr></h6></td>
+      <tr class="continer" style="background-color: springgreen; align-content: center"
+        *ngFor="let title of cseRoutines">
+        <td>
+          <h6 style="cursor: pointer">
+      <tr>
+        <td (dblclick)="showRoutine(title)">{{ title }}</td>
       </tr>
-      <tbody>
-        
-      </tbody>
-  </table>
+      </h6>
+      </td>
+      </tr>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="col-md-6">
+    <h3>Search Routine</h3>
+    <div>
+      <form>
+        <!-- <div class="form-group">
+      <label for="name">Routine ID</label>
+      <input type="text" class="form-control" id="routineID" required [(ngModel)]="Routine.routineID" name="Routine ID">
+    </div> -->
+
+        <div class="form-group"[class.has-error]="term.invalid && term.touched">
+          <label for="term">Term</label>
+          <div class="form-control">
+            <label class="radio-inline">
+              <input type="radio" name="term" required #term="ngModel" value="Spring" [(ngModel)]="Term"> Spring
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="term" required #term="ngModel" value="Summer" [(ngModel)]="Term"> Summer
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="term" required #term="ngModel" value="Autumn" [(ngModel)]="Term"> Autumn
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="year">Year</label>
+          <select id="year" name="year" [(ngModel)]="Year" class="form-control">
+            <option *ngFor="let year of Years" [value]="year">
+              {{year}}
+            </option>
+          </select>
+        </div>
+        <!-- <div class="form-group">
+          <label for="day">Day</label>
+          <select id="day" name="day" [(ngModel)]="Day" class="form-control">
+            <option *ngFor="let day of Days" [value]="day">
+              {{day}}
+            </option>
+          </select>
+        </div> -->
+
+        <div class="form-group">
+          <label for="year">Program</label>
+          <select id="program" name="program" [(ngModel)]="Program" class="form-control">
+            <option *ngFor="let program of programs" [value]="program.programCode">
+              {{program.pro_name}}
+            </option>
+          </select>
+        </div>
+      </form>
+      <button class="btn btn-success">Search</button>
+
+    </div>
+  </div>
 </div>
 
 <div class="container">
-<div class="row">
-  <div class="container">
-    <div class="text-right">
-      <b><h1><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Routine" (click)="createRoutine()" class="btn btn-primary mr-2" style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
+  <div class="row">
+    <div class="search-programs" style="width:800px; margin:0 auto;">
+      <form>
+      <input class="form-control" type="text" name="search" size="60" name="q"
+       value="" id="searchbar" [(ngModel)]="searchText" autocomplete="off"
+        placeholder="&#61442;  Start searching for a program by name or code">
+      <!-- <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button> -->
+    </form>
     </div>
-  </div>
-<table *ngIf='loadRoutine' class="table table-hover table-striped">
-  <thead>
-    <tr>
-       <!-- <th>Routine ID</th> -->
-       <th>Title</th>
-       <th>Batch&Section</th>
-       <th>Course</th>
-       <th>Faculty</th>
-       <th>TimeSlot</th>
-       <th>Room</th>
-       <th>View</th>
-       <th>Delete</th>
-       <!-- <th>View</th>
+    <table *ngIf="loadRoutine" class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <!-- <th>Routine ID</th> -->
+          <th>Title</th>
+          <th>Batch&Section</th>
+          <th>Course</th>
+          <th>Faculty</th>
+          <th>TimeSlot</th>
+          <th>Room</th>
+          <!-- <th>View</th> -->
+          <th>Delete</th>
+          <!-- <th>View</th>
        <th>Edit</th>
        <th>Delete</th> -->
-    </tr>
- </thead>
+        </tr>
+      </thead>
 
-<tbody>
-  <tr *ngFor="let routine of tempRoutines" >
-    <!-- <td><h6 ><tr>{{routine.routineID}}</tr></h6></td> -->
-    <td><h6 ><tr>{{routine.title}}</tr></h6></td>
-    <td><h6 ><tr>{{routine.batchAndSection}}</tr></h6></td>
-    <td><h6 ><tr>{{routine.courseName}}</tr></h6></td>
-    <td><h6 ><tr>{{routine.faculty}}</tr></h6></td>
-    <td><h6 ><tr>{{routine.timeSlot}}</tr></h6></td>
-    <td><h6 ><tr>{{routine.room}}</tr></h6></td>
+      <tbody>
+        <tr *ngFor="let routine of tempRoutines">
+          <!-- <td><h6 ><tr>{{routine.routineID}}</tr></h6></td> -->
+          <td>
+            <h6>
+        <tr>
+          {{
+          routine.title
+          }}
+        </tr>
+        </h6>
+        </td>
+        <td>
+          <h6>
+            <tr>
+              {{
+              routine.batchAndSection
+              }}
+            </tr>
+          </h6>
+        </td>
+        <td>
+          <h6>
+            <tr>
+              {{
+              routine.courseName
+              }}
+            </tr>
+          </h6>
+        </td>
+        <td>
+          <h6>
+            <tr>
+              {{
+              routine.faculty
+              }}
+            </tr>
+          </h6>
+        </td>
+        <td>
+          <h6>
+            <tr>
+              {{
+              routine.timeSlot
+              }}
+            </tr>
+          </h6>
+        </td>
+        <td>
+          <h6>
+            <tr>
+              {{
+              routine.room
+              }}
+            </tr>
+          </h6>
+        </td>
 
-    <td><button type="button" data-toggle="tooltip" data-placement="top" 
-      ngbTooltip="View" (click)="routineDetails(routine.id)"
-       class="btn btn-info" style="margin-left: 10px">
-       <i class="fas fa-address-book"></i>
-      </button></td>
-    <td><button type="button" data-toggle="tooltip" data-placement="top" 
-      ngbTooltip="Delete" class="btn btn-danger" 
-       (click)="deleteRoutine(routine.id)"> <i class="fa fa-trash" aria-hidden="true"></i></button></td>
-    </tr>
-  </tbody>
-</table>
-
+        <!-- <td>
+          <button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="View"
+            (click)="routineDetails(routine.id)" class="btn btn-info" style="margin-left: 10px">
+            <i class="fas fa-address-book"></i>
+          </button>
+        </td> -->
+        <td>
+          <button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger"
+            (click)="deleteRoutine(routine.id)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-</div>
-
