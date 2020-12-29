@@ -69,6 +69,8 @@ export class CreateRoutineComponent {
   idRoutineRow = {};
   submitted = false;
 
+  routinesFromDb = [];
+
   constructor(
     private routineApi: RoutineapiService,
     private programApi: ProgramapiService,
@@ -91,6 +93,7 @@ export class CreateRoutineComponent {
       timeSlotID: "",
     };
     this.getPrograms();
+    this.getRoutines();
     this.Term = "Spring";
     this.Year = 2020;
     this.Years = [2020, 2021, 2022, 2023, 2024, 2025];
@@ -159,6 +162,11 @@ export class CreateRoutineComponent {
     });
   };
 
+  getRoutines = async () => {
+    this.routinesFromDb = await this.routineApi.getAllRoutines().toPromise();
+    console.log("routines from db..", this.routinesFromDb);
+  };
+
   programSelected = () => {
     if (this.Program && this.Term && this.Year && this.Program) {
       this.firstStep = true;
@@ -177,8 +185,8 @@ export class CreateRoutineComponent {
       if (program.programCode === this.Program)
         this.Program = program.pro_shortForm;
     });
-    this.RoutineTitle = `${this.Day},\n ${this.Program}, ${this.Term}, ${this.Year} `;
-    alert(`${this.Day},\n${this.Program}, ${this.Term}, ${this.Year} `);
+    this.RoutineTitle = `${this.Day}, ${this.Program}, ${this.Term}, ${this.Year}`;
+    alert(`${this.Day}, ${this.Program}, ${this.Term}, ${this.Year}`);
   };
 
   batchSelected = (batchId) => {
@@ -404,6 +412,22 @@ export class CreateRoutineComponent {
     let rbitt = false;
     let nerf = false;
     let bashcitt = false;
+    let basharftd = false;
+
+    //checking if this section has routine in db for this day
+
+    this.routinesFromDb.forEach((routine) => {
+      if (
+        routine.title === this.RoutineTitle &&
+        routine.batchAndSection === this.batchAndSection
+      ) {
+        basharftd = true;
+        console.log(
+          `title ${routine.title}  batch and section ${routine.batchAndSection}`
+        );
+      }
+    });
+
     if (
       !tempRoutine.batchAndSection ||
       !tempRoutine.timeSlot ||
@@ -417,6 +441,7 @@ export class CreateRoutineComponent {
       alert("One or more required field missing");
       return false;
     }
+
     let countTheGivenBas = 0;
     this.routines.forEach((rowOfRoutine) => {
       if (rowOfRoutine.batchAndSection === tempRoutine.batchAndSection) {
@@ -450,6 +475,13 @@ export class CreateRoutineComponent {
         bas = true;
       }
     });
+
+    if (basharftd) {
+      alert(
+        "This section has already classes alotted for this day previously."
+      );
+      return false;
+    }
 
     if (bas) {
       alert("This section has already two classes this day.");
