@@ -19,10 +19,10 @@ export class RoutineComponent {
   cseRoutines = new Set();
   loadRoutine = false;
   selectedRoutine;
-
+  termYearProgram = "";
   //search fields
   Term: String;
-  Year: 2020;
+  Year: Number;
   Years = [];
   Day: String;
   Days = [];
@@ -35,29 +35,39 @@ export class RoutineComponent {
     private programApi: ProgramapiService,
     private router: Router
   ) {
-    setTimeout(() => {
-      this.getRoutines();
-    }, 500);
+    this.Term = "Spring";
+    this.Year = 2020;
+    this.Program = "CSE";
+    this.getRoutines();
     this.initialize();
   }
-  getRoutines = () => {
-    this.routineApi.getAllRoutines().subscribe(
-      (data) => {
-        this.routines = data;
-        this.tempRoutines = data;
-        this.routines.forEach((routine) => {
-          this.cseRoutines.add(routine.title);
-        });
 
-        //console.log("routines...", data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  getRoutines = async () => {
+    this.routines = await this.routineApi
+      .getRoutinesByTermYearProgram(
+        `${this.Program}, ${this.Term}, ${this.Year}`
+      )
+      .toPromise();
+    this.tempRoutines = this.routines;
+    this.loadRoutine = true;
+    this.tempRoutines.forEach((routine) => {
+      this.cseRoutines.add(routine.title);
+    });
   };
 
-  getRoutinesByProgramAndSemister = () => {};
+  getRoutinesByProgramAndSemister = async () => {
+    this.termYearProgram = `${this.Program}, ${this.Term}, ${this.Year}`;
+    this.cseRoutines = new Set();
+    alert(this.termYearProgram);
+    this.routines = await this.routineApi
+      .getRoutinesByTermYearProgram(this.termYearProgram)
+      .toPromise();
+    this.tempRoutines = this.routines;
+    this.tempRoutines.forEach((routine) => {
+      this.cseRoutines.add(routine.title);
+    });
+    //console.log("routines after search.", this.tempRoutines);
+  };
 
   showRoutine = async (title) => {
     this.loadRoutine = true;
@@ -104,7 +114,7 @@ export class RoutineComponent {
     };
     this.Years = [2020, 2021, 2022, 2023, 2024, 2025];
     this.Day = "SATURDAY";
-    this.Program = "CSE";
+
     this.Days = [
       "SATURDAY",
       "SUNDAY",

@@ -16,6 +16,12 @@ export class RoutineapiService {
       headers: this.httpHeaders,
     });
   }
+  getRoutinesByTermYearProgram(termYearProgram): Observable<any> {
+    console.log("typ.", termYearProgram);
+    return this.http.get(this.baseurl + "/routines/" + termYearProgram + "/", {
+      headers: this.httpHeaders,
+    });
+  }
   getOneRoutine(routineID): Observable<any> {
     return this.http.get(this.baseurl + "/routines/" + routineID + "/", {
       headers: this.httpHeaders,
