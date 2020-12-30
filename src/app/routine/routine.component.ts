@@ -49,13 +49,15 @@ export class RoutineComponent {
           this.cseRoutines.add(routine.title);
         });
 
-        console.log("routines...", data);
+        //console.log("routines...", data);
       },
       (error) => {
         console.log(error);
       }
     );
   };
+
+  getRoutinesByProgramAndSemister = () => {};
 
   showRoutine = async (title) => {
     this.loadRoutine = true;
