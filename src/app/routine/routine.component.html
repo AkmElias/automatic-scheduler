@@ -63,7 +63,7 @@
       <input type="text" class="form-control" id="routineID" required [(ngModel)]="Routine.routineID" name="Routine ID">
     </div> -->
 
-        <div class="form-group"[class.has-error]="term.invalid && term.touched">
+        <div class="form-group" [class.has-error]="term.invalid && term.touched">
           <label for="term">Term</label>
           <div class="form-control">
             <label class="radio-inline">
@@ -110,15 +110,31 @@
   </div>
 </div>
 
+<div class="container" style="display: flex; width:800px; margin:0 auto;">
+  <label style="align-content: center; color: #098898;">Search by Batch and Section: </label>
+  <form>
+    <div class="form-group" style="flex: 1; margin: 10px;">
+      <select id="program" name="program" [(ngModel)]="batchAndSectionSearch" class="form-control"  
+      (ngModelChange) ='batchAndSectionSelected(batchAndSectionSearch)'>
+        <option *ngFor="let bas of batchAndSections" [value]="bas">
+          {{bas}}
+        </option>
+      </select>
+    </div>
+</form>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="search-programs" style="width:800px; margin:0 auto;">
       <form>
-      <input class="form-control" type="text" name="search" size="60" name="q"
-       value="" id="searchbar" [(ngModel)]="searchText" autocomplete="off"
-        placeholder="&#61442;  Start searching for a program by name or code">
-      <!-- <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button> -->
-    </form>
+        <input class="form-control" type="text" name="search" size="60" name="q" value="" id="searchbar"
+          [(ngModel)]="searchText" autocomplete="off"
+          placeholder="&#61442;  Start searching for a routin by any attribute!">
+
+
+        <!-- <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button> -->
+      </form>
     </div>
     <table *ngIf="loadRoutine" class="table table-hover table-striped">
       <thead>
@@ -139,7 +155,7 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let routine of tempRoutines">
+        <tr *ngFor="let routine of tempRoutines |filter:searchText ">
           <!-- <td><h6 ><tr>{{routine.routineID}}</tr></h6></td> -->
           <td>
             <h6>

@@ -14,12 +14,15 @@ import { Title } from "@angular/platform-browser";
   styleUrls: ["./routine.component.css"],
 })
 export class RoutineComponent {
-  routines = [{ id: 0, title: "" }];
-  tempRoutines = [{ id: 0, title: "" }];
+  routines = [{ id: 0, title: "", batchAndSection: "" }];
+  tempRoutines = [{ id: 0, title: "", batchAndSection: "" }];
+  batchAndSections = new Set();
+
   cseRoutines = new Set();
   loadRoutine = false;
   selectedRoutine;
   termYearProgram = "";
+  batchAndSectionSearch = "";
   //search fields
   Term: String;
   Year: Number;
@@ -52,12 +55,15 @@ export class RoutineComponent {
     this.loadRoutine = true;
     this.tempRoutines.forEach((routine) => {
       this.cseRoutines.add(routine.title);
+      this.batchAndSections.add(routine.batchAndSection);
     });
   };
 
   getRoutinesByProgramAndSemister = async () => {
     this.termYearProgram = `${this.Program}, ${this.Term}, ${this.Year}`;
     this.cseRoutines = new Set();
+    this.batchAndSections = new Set();
+
     alert(this.termYearProgram);
     this.routines = await this.routineApi
       .getRoutinesByTermYearProgram(this.termYearProgram)
@@ -65,8 +71,18 @@ export class RoutineComponent {
     this.tempRoutines = this.routines;
     this.tempRoutines.forEach((routine) => {
       this.cseRoutines.add(routine.title);
+      this.batchAndSections.add(routine.batchAndSection);
     });
-    //console.log("routines after search.", this.tempRoutines);
+    console.log("batch after search.", this.batchAndSections);
+  };
+
+  getBatchAndSectionsFromRoutineByProgram = () => {};
+
+  batchAndSectionSelected = (bas) => {
+    console.log("bas..", bas);
+    this.tempRoutines = this.routines.filter((routine) => {
+      return routine.batchAndSection === bas;
+    });
   };
 
   showRoutine = async (title) => {
