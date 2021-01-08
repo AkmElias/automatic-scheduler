@@ -190,7 +190,7 @@ export class CreateCourseOfferedComponent {
   };
 
   addCourseFaculty = () => {
-    if (this.selectedCourse === null || this.selectedFaculty) {
+    if (this.selectedCourse === null || this.selectedFaculty === null) {
       alert("Required field missing!!");
       return;
     }
