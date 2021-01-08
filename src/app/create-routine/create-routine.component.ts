@@ -85,13 +85,6 @@ export class CreateRoutineComponent {
     private router: Router
   ) {
     this.RoutineTitle = "";
-    this.Routine = {
-      routineID: "",
-      courseOfferedID: "",
-      roomCode: "",
-      examID: "",
-      timeSlotID: "",
-    };
     this.getPrograms();
     this.getRoutines();
     this.Term = "Spring";
@@ -168,7 +161,7 @@ export class CreateRoutineComponent {
   };
 
   programSelected = () => {
-    if (this.Program && this.Term && this.Year && this.Program) {
+    if (this.Program && this.Term && this.Year) {
       this.firstStep = true;
       // console.log("Program Code..", this.Program);
     }
@@ -235,6 +228,7 @@ export class CreateRoutineComponent {
       }
     });
     console.log("batch and section..", this.batchAndSection);
+
     await this.courseOfferedApi
       .getAllCourseOfferedToBatchAndSection(this.batchAndSectionId)
       .subscribe((data) => {
@@ -246,12 +240,10 @@ export class CreateRoutineComponent {
             courseId: offer.courseID,
             course: "",
           };
-          await this.courseApi
-            .getOneCourse(offer.courseID)
-            .subscribe((data) => {
-              tempCourse.course = data[0].crs_title;
-              this.availableCourse.push(tempCourse);
-            });
+          this.courseApi.getOneCourse(offer.courseID).subscribe((data) => {
+            tempCourse.course = data[0].crs_title;
+            this.availableCourse.push(tempCourse);
+          });
         });
         this.Course = null;
         this.Time = "";
@@ -318,8 +310,10 @@ export class CreateRoutineComponent {
       this.rooms = data;
     });
     let results = await Promise.all(promises);
+
     let courseAndFacultyShortName =
       results[0][0].crs_shortName + ", " + results[1][0].fac_shortName;
+
     this.courseShortName = results[0][0].crs_shortName;
     this.facultyShortName = results[1][0].fac_shortName;
     console.log("course and fac shortname..", courseAndFacultyShortName);
@@ -478,7 +472,7 @@ export class CreateRoutineComponent {
 
     if (basharftd) {
       alert(
-        "This section has already classes alotted for this day previously."
+        "This section has already classes alotted for this day previously in db."
       );
       return false;
     }
@@ -559,25 +553,6 @@ export class CreateRoutineComponent {
     this.Course = null;
     this.Room = "";
   };
-
-  createRoutine = () => {
-    this.routineApi.createRoutine(this.Routine).subscribe(
-      (data) => {
-        this.routines.push(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-
-    this.submitted = false;
-    this.gotoList();
-  };
-
-  onSubmit() {
-    this.submitted = true;
-    this.createRoutine();
-  }
 
   gotoList() {
     this.router.navigate(["/routine"]);

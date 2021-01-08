@@ -144,6 +144,7 @@ export class CreateCourseOfferedComponent {
   };
 
   getRemainingCourses = (allreadyOfferedCoursesArray) => {
+    this.courses = this.tempCourses;
     for (var i = 0; i < allreadyOfferedCoursesArray.length; i++) {
       this.courses = this.courses.filter(
         (course) => course.id != allreadyOfferedCoursesArray[i]
@@ -189,6 +190,10 @@ export class CreateCourseOfferedComponent {
   };
 
   addCourseFaculty = () => {
+    if (this.selectedCourse === null || this.selectedFaculty) {
+      alert("Required field missing!!");
+      return;
+    }
     let courseAdded = false;
     this.coursesAndFaculties.forEach((cf) => {
       if (cf.course == this.selectedCourse) {
@@ -222,7 +227,16 @@ export class CreateCourseOfferedComponent {
       }
     });
 
+    //filtering added course from total reamining courses
+
     this.coursesAndFaculties.push(crsFclt);
+
+    this.coursesAndFaculties.forEach((element) => {
+      this.courses = this.courses.filter(
+        (course) => course.id != element.course
+      );
+    });
+
     this.allLoaded = true;
     // this.courses = this.courses.filter(
     //   (course) => course.id != this.selectedCourse
