@@ -160,7 +160,7 @@ export class CreateCourseOfferedComponent {
       this.facultyLoaded == true
     ) {
       console.log("all loaded");
-      this.allLoaded = true;
+      //this.allLoaded = true;
     }
   };
 
@@ -173,7 +173,7 @@ export class CreateCourseOfferedComponent {
       this.facultyLoaded == true
     ) {
       console.log("all loaded");
-      this.allLoaded = true;
+      //this.allLoaded = true;
     }
   };
 

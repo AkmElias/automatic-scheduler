@@ -19,8 +19,8 @@
   <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
 </div>
 <br>
-<div  style="width:800px; margin:0 auto;">
-<div [hidden]="submitted" style="width: 400px;">
+<div  style="width: 550px; margin: auto auto 10px auto; background-color: lightgreen; z-index: 1; border-radius: 3px; padding: 40px;">
+<div [hidden]="submitted" >
   <form (ngSubmit)="onSubmit()" class="justify-content-center">
     <!-- <div class="form-group">
       <label for="name">Faculty ID</label>
@@ -83,33 +83,22 @@
     </div>
 
     <div class="form-group">
-      <label>Faculty Title</label>
-      <div class="form-control" style="width: 800px;">
-        <label class="radio-inline">
-          <input type="radio" name="fac_designation" value="Professor" [(ngModel)]="faculty.fac_designation" >
-          Professor
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="fac_designation" value="Associate Professor" [(ngModel)]="faculty.fac_designation">
-          Associate Professor
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="fac_designation" value="Senior Lecturer" [(ngModel)]="faculty.fac_designation">
+      <label for="name">Faculty Title</label>
+      <select id="fac_designation" name="fac_designation" [(ngModel)]="faculty.fac_designation"
+              class="form-control">
+        <option  value="professior">
+          Professior
+        </option>
+        <option  value="associate professior">
+          Associate professior
+        </option>
+        <option  value="lecturer">
+          Lecturer
+        </option>
+        <option  value="senior lecturer">
           Senior Lecturer
-        </label>
-      <label class="radio-inline">
-        <input type="radio" name="fac_designation" value="Lecturer" [(ngModel)]="faculty.fac_designation">
-        Lecturer
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="fac_designation" value="Head" [(ngModel)]="faculty.fac_designation">
-        Head
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="fac_designation" value="Dean" [(ngModel)]="faculty.fac_designation">
-        Dean
-      </label>
-      </div>
+        </option>
+      </select>
       </div>
 
     <div class="form-group">

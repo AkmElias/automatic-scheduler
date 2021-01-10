@@ -1,41 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
-import { Router } from  '@angular/router';
-import { User } from  '../user';
-import { AuthService } from  '../auth.service';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { User } from "../user";
+import { AuthService } from "../auth.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
-  constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder ) { }
+  authForm;
+  isSubmitted = false;
 
-  authForm: FormGroup;
-  isSubmitted  =  false;
+  ngOnInit() {}
 
-//   ngOnInit(): void {
-//   }
-
-// }
-ngOnInit() {
-  this.authForm  =  this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
-  });
-}
-
-get formControls() { return this.authForm.controls; }
-
-signIn(){
-  this.isSubmitted = true;
-  if(this.authForm.invalid){
-    return;
+  get formControls() {
+    return this.authForm.controls;
   }
-  this.authService.signIn(this.authForm.value);
-  this.router.navigateByUrl('/admin');
-};
+
+  signIn() {
+    this.isSubmitted = true;
+    // if (this.authForm.invalid) {
+    //   return;
+    // }
+    this.authService.loginUser(this.authForm).subscribe((response) => {
+      console.log("login response..", response);
+      //this.authService.signIn(this.authForm);
+    });
+
+    this.router.navigateByUrl("/admin");
+  }
 }

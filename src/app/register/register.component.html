@@ -9,15 +9,13 @@
     <div class="card">
 
       <div class="card-header bg-dark">
-        <h1 class="text-white text-center">Register or Login </h1>
+        <h1 class="text-white text-center">Register</h1>
         </div>
 
       <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
-
         <form action="/action_page.php">
           <div class="input-group mb-3">
-            <input [(ngModel)]="input.username" type="text" class="form-control" id="fname" name="name" placeholder="Name" required>
+            <input [(ngModel)]="register.username" type="text" class="form-control" id="fname" name="name" placeholder="Name" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -25,7 +23,15 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input [(ngModel)]="input.password" type="password" class="form-control" id="pwd" name="password" placeholder="Password" required>
+            <input [(ngModel)]="register.email" type="email" class="form-control" id="pwd" name="email" placeholder="Email" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input [(ngModel)]="register.password" type="password" class="form-control" id="pwd" name="password" placeholder="Password" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -34,9 +40,9 @@
           </div>
 
 
-        <div class="row">
-          <button class="btn btn-primary" (click)="onRegister()">Register User</button>
-          <button class="btn btn-success" (click)="onLogin()">Login User</button>
+        <div class="text-center">
+          <button class="btn btn-primary text-center" (click)="registerUser()">Register User</button>
+          <!-- <button class="btn btn-success" (click)="onLogin()">Login User</button> -->
         </div>
    </form>
   </div>

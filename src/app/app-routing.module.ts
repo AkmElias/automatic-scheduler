@@ -10,7 +10,6 @@ import { CourseComponent } from "./course/course.component";
 import { BatchComponent } from "./batch/batch.component";
 import { FacultyComponent } from "./faculty/faculty.component";
 import { ExamComponent } from "./exam/exam.component";
-import { RoomComponent } from "./room/room.component";
 import { TimeSlotComponent } from "./time-slot/time-slot.component";
 import { RosterComponent } from "./roster/roster.component";
 import { CourseOfferedComponent } from "./course-offered/course-offered.component";
@@ -96,7 +95,6 @@ const routes: Routes = [
   { path: "batch", component: BatchComponent, canActivate: [AuthGuard] },
   { path: "faculty", component: FacultyComponent, canActivate: [AuthGuard] },
   { path: "exam", component: ExamComponent },
-  { path: "room", component: RoomComponent },
   { path: "roster", component: RosterComponent },
   { path: "timeSlot", component: TimeSlotComponent },
   { path: "courseOffered", component: CourseOfferedComponent },
@@ -226,7 +224,6 @@ const routes: Routes = [
       { path: "batch", component: BatchComponent },
       { path: "faculty", component: FacultyComponent },
       { path: "exam", component: ExamComponent },
-      { path: "room", component: RoomComponent },
       { path: "roster", component: RosterComponent },
       { path: "timeSlot", component: TimeSlotComponent },
       { path: "courseOffered", component: CourseOfferedComponent },

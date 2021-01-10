@@ -19,8 +19,8 @@
   <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
 </div>
 <br>
-<div  style="width:800px; margin:0 auto;">
-<div [hidden]="submitted" style="width: 400px;">
+<div  style="width: 550px; margin: auto auto 10px auto; background-color: lightgreen; z-index: 1; border-radius: 3px; padding: 40px;">
+<div [hidden]="submitted">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Course Title</label>
@@ -39,34 +39,23 @@
 
     <div class="form-group">
       <label for="name">Category</label>
-      <input category="text" class="form-control" id="crs_category" required [(ngModel)]="Course.crs_category" name="crs_category">
+      <select id="crs_category" name="crs_category" [(ngModel)]="Course.crs_category"
+              class="form-control">
+        <option  value="major">
+          Major
+        </option>
+        <option  value="core">
+          Core
+        </option>
+        <option  value="science & mathematics">
+          Science & Mathematics
+        </option>
+        <option  value="general education">
+          General Education
+        </option>
+      </select>
       </div>
 
-      <div class="form-group">
-        <label>Course Title</label>
-        <div class="form-control" style="width: 800px;">
-          <label class="radio-inline">
-            <input type="radio" name="crs_category" value="major" [(ngModel)]="Course.crs_category" >
-            major
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="crs_category" value="core" [(ngModel)]="Course.crs_category">
-            core
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="crs_category" value="science & mathematics" [(ngModel)]="Course.crs_category">
-            science & mathematics
-          </label>
-        <label class="radio-inline">
-          <input type="radio" name="crs_category" value="general education" [(ngModel)]="Course.crs_category">
-          general education
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="crs_category" value="optional" [(ngModel)]="Course.crs_category">
-          optional
-        </label>
-        </div>
-        </div>
 
     <div class="form-group">
       <label for="program">Program Code</label>

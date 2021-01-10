@@ -1,56 +1,23 @@
-<h1 style="text-align:center">
-Login Page
-</h1>
-<div class="login">
-  <h2 class="login-header">Login</h2>
-  <form [formGroup]="authForm" class="login-container" (ngSubmit)="signIn()">
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
-      <input type="email" placeholder="Email" formControlName="email">
-    </p>
-    <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
-      <div *ngIf="formControls.email.errors.required">Email is required</div>
-    </div>
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
-      <input type="password" placeholder="Password" formControlName="password">
-    </p>
-    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
-      <div *ngIf="formControls.password.errors.required">Password is required</div>
-    </div>
-    <p>
-      <input type="submit" value="Login">
-    </p>
-  </form>
-</div>
-
-<!-- <div>
-  <mat-card>
-    <form>
-      <mat-form-field>
-        <input matInput placeholder="Username">
-      </mat-form-field>
-
-      <mat-form-field class="">
-        <mat-label>name</mat-label>
-        <input matInput type="Password"[placeholder="Password"]>
-      </mat-form-field>
-    </form>
-  </mat-card>
-</div> -->
-
-
 <div class="login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a href="../../index2.html"><b>Admin</b>LTE</a>
+      <a href="../../index2.html">
+        <!-- <b>Register or Login</b> -->
+      </a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
+
+      <div class="card-header bg-dark">
+        <h1 class="text-white text-center">Login</h1>
+        </div>
+
       <div class="card-body login-card-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
-        <form action="../../index3.html" method="post">
+        <form action="/action_page.php">
           <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Email">
+            <input [(ngModel)]="authForm.username" type="text" class="form-control" id="fname" name="name" placeholder="User Name" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -58,49 +25,19 @@ Login Page
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Password">
+            <input [(ngModel)]="authForm.password" type="password" class="form-control" id="pwd" name="password" placeholder="Password" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-8">
-              <div class="icheck-primary">
-                <input type="checkbox" id="remember">
-                <label for="remember">
-                  Remember Me
-                </label>
-              </div>
-            </div>
-            <!-- /.col -->
-            <div class="col-4">
-              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-            </div>
-            <!-- /.col -->
-          </div>
-        </form>
 
-        <div class="social-auth-links text-center mb-3">
-          <p>- OR -</p>
-          <a href="#" class="btn btn-block btn-primary">
-            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-          </a>
-          <a href="#" class="btn btn-block btn-danger">
-            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-          </a>
+
+        <div class="text-center">
+          <!-- <button class="btn btn-primary text-center" (click)="registerUser()">R</button> -->
+          <button class="btn btn-success" (click)="signIn()">Login User</button>
         </div>
-        <!-- /.social-auth-links -->
-
-        <p class="mb-1">
-          <a href="forgot-password.html">I forgot my password</a>
-        </p>
-        <p class="mb-0">
-          <a href="register.html" class="text-center">Register a new membership</a>
-        </p>
-      </div>
-      <!-- /.login-card-body -->
-    </div>
+   </form>
   </div>
   </div>

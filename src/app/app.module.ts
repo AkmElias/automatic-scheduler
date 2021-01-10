@@ -3,7 +3,6 @@ import { NgModule } from "@angular/core";
 import { ConfirmEqualValidatorDirective } from "./shared/confirm-equal-validator.directive";
 // import { SelectRequiredValidatorDirective } from  '@angular/core';
 // import { EqualValidatorDirective } from './shared/equal.validator.directive';
-
 import { AppRoutingModule } from "./app-routing.module";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
@@ -57,7 +56,6 @@ import { FacultyComponent } from "./faculty/faculty.component";
 import { FacultyapiService } from "./facultyapi.service";
 import { ExamComponent } from "./exam/exam.component";
 import { ExamapiService } from "./examapi.service";
-import { RoomComponent } from "./room/room.component";
 import { RoomapiService } from "./roomapi.service";
 import { TimeSlotComponent } from "./time-slot/time-slot.component";
 import { TimeSlotapiService } from "./time-slotapi.service";
@@ -77,6 +75,7 @@ import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { MainComponent } from "./main/main.component";
 import { HeaderComponent } from "./main/header/header.component";
+import { RoomComponent } from "./roster/room/room.component";
 import { FooterComponent } from "./main//footer/footer.component";
 import { MainSidebarComponent } from "./main/main-sidebar/main-sidebar.component";
 import { ControlSidebarComponent } from "./main/control-sidebar/control-sidebar.component";
@@ -163,7 +162,6 @@ import { CreateRoutineDetailsComponent } from "./create-routine-details/create-r
     FacultyComponent,
     RosterComponent,
     RoutineComponent,
-    RoomComponent,
     TimeSlotComponent,
     CourseOfferedComponent,
     DialogBoxComponent,
@@ -174,6 +172,7 @@ import { CreateRoutineDetailsComponent } from "./create-routine-details/create-r
     FooterComponent,
     MainSidebarComponent,
     ControlSidebarComponent,
+    RoomComponent,
     // SelectRequiredValidatorDirective,
     ConfirmEqualValidatorDirective,
     DepartmentListComponent,
@@ -232,7 +231,7 @@ import { CreateRoutineDetailsComponent } from "./create-routine-details/create-r
     MatTableModule,
     MatDialogModule,
     CdkTableModule,
-
+    FormsModule,
     MatButtonToggleModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
