@@ -1,3 +1,4 @@
+import { EventEmitterService } from "./event-emitter.service";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { ConfirmEqualValidatorDirective } from "./shared/confirm-equal-validator.directive";
@@ -261,6 +262,7 @@ import { CreateRoutineDetailsComponent } from "./create-routine-details/create-r
     CreateRoutineapiService,
     RoutineapiService,
     AuthGuard,
+    EventEmitterService,
   ],
   bootstrap: [AppComponent],
 })

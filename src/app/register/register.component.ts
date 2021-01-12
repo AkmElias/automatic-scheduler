@@ -1,6 +1,8 @@
+import { AuthService } from "./../auth.service";
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { UserService } from "../user.service";
+import { Router } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @Component({
@@ -12,7 +14,15 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 export class RegisterComponent implements OnInit {
   //  register;
   register;
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private authService: AuthService
+  ) {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigateByUrl("/");
+    }
+  }
 
   ngOnInit() {
     this.register = {
@@ -35,7 +45,8 @@ export class RegisterComponent implements OnInit {
     this.userService.registerUser(this.register).subscribe(
       (response) => {
         console.log("created user: ", response);
-        alert("User " + this.register.username + " has been created ");
+        alert("User " + this.register.username + " rsgistered successfully");
+        this.router.navigateByUrl("/login");
       },
       (error) => {
         alert("The user may be created allready or something went wrong!");

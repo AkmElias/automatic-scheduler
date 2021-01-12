@@ -15,15 +15,17 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a routerLink="/contact" class="nav-link">Contact</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      <li *ngIf ='!isLoggedIn' class="nav-item d-none d-sm-inline-block">
         <a routerLink="/register" class="nav-link">Register</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      <li *ngIf ='!isLoggedIn' class="nav-item d-none d-sm-inline-block">
         <a routerLink="/login" class="nav-link">Login</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a routerLink="/" class="nav-link">Logout</a>
-      </li>
+     
     </ul>
+   
+      <button *ngIf ='isLoggedIn' class="btn" style="float: right;" (click)="logout()">Logout</button>
+    
   </nav>
+ 
   <!-- /.navbar -->
