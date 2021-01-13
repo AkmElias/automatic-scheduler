@@ -1,64 +1,72 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BatchapiService } from '../batchapi.service';
-import { Router } from '@angular/router';
-import { ProgramapiService } from '../programapi.service';
+import { AuthService } from "./../auth.service";
+import { Component, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { BatchapiService } from "../batchapi.service";
+import { Router } from "@angular/router";
+import { ProgramapiService } from "../programapi.service";
 
 @Component({
-  selector: 'app-create-batch',
-  templateUrl: './create-batch.component.html',
-  styleUrls: ['./create-batch.component.css'],
+  selector: "app-create-batch",
+  templateUrl: "./create-batch.component.html",
+  styleUrls: ["./create-batch.component.css"],
 })
 export class CreateBatchComponent {
-
-
-  batches = [{batchName: '' }];
+  batches = [{ batchName: "" }];
   Batch;
   programs: any = [];
 
   submitted = false;
-
+  isLoggedIn: boolean;
   constructor(
-    private batchService: BatchapiService, 
+    private batchService: BatchapiService,
     private router: Router,
-     private api: ProgramapiService
-     )
-  {
-    this.Batch = {id: -1, batchName: '', programCode: '', bat_term: '', bat_year: ''};
+    private api: ProgramapiService,
+    private authService: AuthService
+  ) {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigateByUrl("/");
+    }
+    this.Batch = {
+      id: -1,
+      batchName: "",
+      programCode: "",
+      bat_term: "",
+      bat_year: "",
+    };
     this.getPrograms();
   }
 
   getPrograms = () => {
     this.api.getAllPrograms().subscribe(
-      data => {
+      (data) => {
         this.programs = data;
       },
-      error => {
+      (error) => {
         console.log(error);
       }
     );
-  }
+  };
 
   createBatch = () => {
     this.batchService.createBatch(this.Batch).subscribe(
-      data => {
+      (data) => {
         this.batches.push(data);
       },
-      error => {
+      (error) => {
         console.log(error);
       }
     );
 
     this.submitted = false;
     this.gotoList();
-  }
+  };
 
-    onSubmit() {
+  onSubmit() {
     this.submitted = true;
     this.createBatch();
   }
 
   gotoList() {
-    this.router.navigate(['/batch']);
+    this.router.navigate(["/batch"]);
   }
 }

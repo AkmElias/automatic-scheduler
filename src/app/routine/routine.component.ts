@@ -7,6 +7,7 @@ import { CreateRoutineComponent } from "../create-routine/create-routine.compone
 import { UpdateRoutineComponent } from "../update-routine/update-routine.component";
 import { RoutineDetailsComponent } from "../routine-details/routine-details.component";
 import { Title } from "@angular/platform-browser";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-routine",
@@ -32,12 +33,15 @@ export class RoutineComponent {
   searchText = "";
   Program: String;
   programs: [];
+  isLoggedIn: boolean;
 
   constructor(
     private routineApi: RoutineapiService,
     private programApi: ProgramapiService,
+    private authService: AuthService,
     private router: Router
   ) {
+    this.isLoggedIn = this.authService.isLoggedIn();
     this.Term = "Spring";
     this.Year = 2020;
     this.Program = "CSE";

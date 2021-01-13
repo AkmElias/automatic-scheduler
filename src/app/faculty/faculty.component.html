@@ -25,7 +25,7 @@
       <input class="form-control" type="text"  name="search" size="60" value="" id="searchbar" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a faculty by id  or name or designation">
     </div>
 
-<b><h1><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Faculty" (click)="Createfaculty()" class="btn btn-primary mr-2"  style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
+<b><h1><button 8ngIf='isLoggedIn' type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Faculty" (click)="Createfaculty()" class="btn btn-primary mr-2"  style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
 
     <table class="table table-hover table-striped">
       <thead>

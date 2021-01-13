@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DepartmentapiService } from "../departmentapi.service";
 import { Router } from "@angular/router";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-department",
@@ -13,8 +14,13 @@ export class DepartmentComponent {
 
   departments = [{ id: 1, dpt_name: "test" }];
   selectedDepartment;
-
-  constructor(private api: DepartmentapiService, private router: Router) {
+  isLoggedIn: boolean;
+  constructor(
+    private api: DepartmentapiService,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.isLoggedIn = this.authService.isLoggedIn();
     this.getDepartments();
     this.selectedDepartment = { id: "-1", dpt_code: "", dpt_name: "test" };
   }

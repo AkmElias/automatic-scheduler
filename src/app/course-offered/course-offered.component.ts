@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 import { CreateCourseOfferedComponent } from "../create-course-offered/create-course-offered.component";
 import { UpdateCourseOfferedComponent } from "../update-course-offered/update-course-offered.component";
 import { CourseOfferedDetailsComponent } from "../course-offered-details/course-offered-details.component";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-course-offered",
@@ -30,7 +31,7 @@ export class CourseOfferedComponent {
   two = "";
   three = "";
   dash: String;
-
+  isLoggedIn: boolean;
   constructor(
     private api: CourseOfferedapiService,
     private batchApi: BatchapiService,
@@ -38,8 +39,10 @@ export class CourseOfferedComponent {
     private facultyApi: FacultyapiService,
     private sectionApi: SectionapiService,
     private programApi: ProgramapiService,
+    private authService: AuthService,
     private router: Router
   ) {
+    this.isLoggedIn = this.authService.isLoggedIn();
     this.getCoursesOffered();
   }
 

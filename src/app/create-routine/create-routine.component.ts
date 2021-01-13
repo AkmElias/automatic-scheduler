@@ -1,3 +1,4 @@
+import { AuthService } from "./../auth.service";
 import { FacultyapiService } from "./../facultyapi.service";
 import { CourseapiService } from "./../courseapi.service";
 import { TimeSlot } from "./../time-slot";
@@ -82,8 +83,12 @@ export class CreateRoutineComponent {
     private courseOfferedApi: CourseOfferedapiService,
     private roomService: RoomapiService,
     private timeslotService: TimeSlotapiService,
+    private authService: AuthService,
     private router: Router
   ) {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigateByUrl("/");
+    }
     this.RoutineTitle = "";
     this.getPrograms();
     this.getRoutines();

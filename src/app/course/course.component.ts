@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { CourseapiService } from "../courseapi.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Course } from "../course";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-course",
@@ -21,12 +22,14 @@ export class CourseComponent {
 
   id: number;
   course: Course;
-
+  isLoggedIn: boolean;
   constructor(
     private api: CourseapiService,
+    private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
   ) {
+    this.isLoggedIn = this.authService.isLoggedIn();
     this.getCourses();
     this.selectedCourse = {
       courseID: "-1",

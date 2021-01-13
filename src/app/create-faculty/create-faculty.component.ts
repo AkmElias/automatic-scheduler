@@ -1,3 +1,4 @@
+import { AuthService } from "./../auth.service";
 import { FacultyapiService } from "../facultyapi.service";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
@@ -17,9 +18,13 @@ export class CreateFacultyComponent {
 
   constructor(
     private facultyService: FacultyapiService,
+    private authService: AuthService,
     private router: Router,
     private api: DepartmentapiService
   ) {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigateByUrl("/");
+    }
     this.faculty = {
       fac_title: "",
       fac_firstName: "",

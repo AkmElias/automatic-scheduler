@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { BatchapiService } from "../batchapi.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Batch } from "../batch";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-batch",
@@ -21,12 +22,14 @@ export class BatchComponent {
 
   id: number;
   batch: Batch;
-
+  isLoggedIn: boolean;
   constructor(
     private api: BatchapiService,
+    private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
   ) {
+    this.isLoggedIn = this.authService.isLoggedIn();
     // this.getBatches();
     this.selectedBatch = {
       id: -1,

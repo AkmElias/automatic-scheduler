@@ -3,6 +3,7 @@ import { FacultyapiService } from "../facultyapi.service";
 import { DepartmentapiService } from "../departmentapi.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Faculty } from "../faculty";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-faculty",
@@ -21,13 +22,15 @@ export class FacultyComponent {
 
   id: number;
   faculty: Faculty;
-
+  isLoggedIn: boolean;
   constructor(
     private api: FacultyapiService,
     private router: Router,
     private route: ActivatedRoute,
-    private deptapi: DepartmentapiService
+    private deptapi: DepartmentapiService,
+    private authService: AuthService
   ) {
+    this.isLoggedIn = this.authService.isLoggedIn();
     // this.getFaculties();
     this.selectedFaculty = {
       facultyID: "-1",

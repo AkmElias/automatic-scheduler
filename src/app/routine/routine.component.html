@@ -19,18 +19,19 @@
   <!-- /.container-fluid -->
 </div>
 
+<h1>
+  <button *ngIf='isLoggedIn' type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Routine"
+    (click)="createRoutine()" class="btn btn-primary mr-2" style="margin-left: 10px">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+  </button>
+</h1>
 
 <div class="row container">
-  <div class='col-md-6'>
+  <!-- <div class='col-md-6'>
     <div class='row' style="align-items: center; margin: 20px;">
       <h1>Day Routines</h1>
       <b>
-        <h1>
-          <button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Routine"
-            (click)="createRoutine()" class="btn btn-primary mr-2" style="margin-left: 10px">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-          </button>
-        </h1>
+       
       </b>
     </div>
 
@@ -52,9 +53,9 @@
       </tr>
       <tbody></tbody>
     </table>
-  </div>
+  </div> -->
 
-  <div class="col-md-6">
+  <div style="width: 650px; margin: auto auto 10px auto; background-color: lightgreen; z-index: 1; border-radius: 3px; padding: 20px;">
     <h3>Search Routine</h3>
     <div>
       <form>
@@ -63,9 +64,9 @@
       <input type="text" class="form-control" id="routineID" required [(ngModel)]="Routine.routineID" name="Routine ID">
     </div> -->
 
-        <div class="form-group" [class.has-error]="term.invalid && term.touched">
+        <div class="form-group"  [class.has-error]="term.invalid && term.touched">
           <label for="term">Term</label>
-          <div class="form-control">
+          <div class="form-control" style='display: flex; justify-content: space-evenly;'>
             <label class="radio-inline">
               <input type="radio" name="term" required #term="ngModel" value="Spring" [(ngModel)]="Term"> Spring
             </label>
@@ -104,7 +105,7 @@
           </select>
         </div>
       </form>
-      <button class="btn btn-success" (click)='getRoutinesByProgramAndSemister()'>Search</button>
+      <button class="btn btn-success btn-block" (click)='getRoutinesByProgramAndSemister()'>Search</button>
 
     </div>
   </div>

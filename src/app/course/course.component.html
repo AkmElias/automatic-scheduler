@@ -27,7 +27,7 @@
          placeholder="&#61442;  Start searching for a course by name or code">
     </div>
 
-    <b><h1><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Course" (click)="Createcourse()" class="btn btn-primary mr-2" style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
+    <b><h1><button *ngIf='isLoggedIn' type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Course" (click)="Createcourse()" class="btn btn-primary mr-2" style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
 
     <table class="table table-hover table-striped">
       <thead>

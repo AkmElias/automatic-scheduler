@@ -1,5 +1,5 @@
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="display: flex; justify-content: space-between;">
   <!-- <nav class="main-header navbar navbar-expand navbar-dark navbar-primary"> -->
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -15,16 +15,19 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a routerLink="/contact" class="nav-link">Contact</a>
       </li>
-      <li *ngIf ='!isLoggedIn' class="nav-item d-none d-sm-inline-block">
-        <a routerLink="/register" class="nav-link">Register</a>
-      </li>
-      <li *ngIf ='!isLoggedIn' class="nav-item d-none d-sm-inline-block">
-        <a routerLink="/login" class="nav-link">Login</a>
-      </li>
      
     </ul>
    
-      <button *ngIf ='isLoggedIn' class="btn" style="float: right;" (click)="logout()">Logout</button>
+      <div>
+        <li *ngIf ='!isLoggedIn' class="nav-item d-none d-sm-inline-block">
+          <a routerLink="/register" class="nav-link">Register</a>
+        </li>
+        <li *ngIf ='!isLoggedIn' class="nav-item d-none d-sm-inline-block">
+          <a routerLink="/login" class="nav-link">Login</a>
+        </li>
+        <button  *ngIf ='isLoggedIn' class="btn btn-danger" style="float: right;" (click)="logout()">Logout</button>
+      </div>
+    
     
   </nav>
  

@@ -3,6 +3,7 @@ import { ProgramapiService } from "../programapi.service";
 import { DepartmentapiService } from "../departmentapi.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Program } from "../program";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-program",
@@ -21,13 +22,16 @@ export class ProgramComponent {
 
   id: number;
   program: Program;
+  isLoggedIn: boolean;
 
   constructor(
     private api: ProgramapiService,
+    private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
     private deptapi: DepartmentapiService
   ) {
+    this.isLoggedIn = this.authService.isLoggedIn();
     this.selectedProgram = {
       programCode: "-1",
       pro_name: "test",

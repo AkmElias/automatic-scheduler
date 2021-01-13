@@ -1,3 +1,4 @@
+import { AuthService } from "./../auth.service";
 import { CourseOfferedapiService } from "../course-offeredapi.service";
 import { CourseOffered } from "../course-offered";
 import { Component, OnInit } from "@angular/core";
@@ -46,9 +47,13 @@ export class CreateCourseOfferedComponent {
     private sectionApi: SectionapiService,
     private courseApi: CourseapiService,
     private batchApi: BatchapiService,
+    private authService: AuthService,
     private facultyApi: FacultyapiService,
     private router: Router
   ) {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigateByUrl("/");
+    }
     this.getPrograms();
     this.getFaculties();
 
