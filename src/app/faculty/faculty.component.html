@@ -25,7 +25,7 @@
       <input class="form-control" type="text"  name="search" size="60" value="" id="searchbar" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a faculty by id  or name or designation">
     </div>
 
-<b><h1><button 8ngIf='isLoggedIn' type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Faculty" (click)="Createfaculty()" class="btn btn-primary mr-2"  style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
+<b><h1><button *ngIf='isLoggedIn' type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Faculty" (click)="Createfaculty()" class="btn btn-primary mr-2"  style="margin-left: 10px"><i class="fa fa-plus" aria-hidden="true"></i></button></h1></b>
 
     <table class="table table-hover table-striped">
       <thead>
@@ -40,8 +40,8 @@
           <th>DepartmentID</th>
           <th>CourseOffered</th>
           <th></th>
-          <th></th>
-          <th></th>
+          <th *ngIf='isLoggedIn'></th>
+          <th *ngIf='isLoggedIn'></th>
           <!-- <th>View</th>
           <th>Edit</th>
           <th>Delete</th> -->
@@ -67,11 +67,11 @@
    <td><button type="button" data-toggle="tooltip" data-placement="top"
      ngbTooltip="View" (click)="facultyDetails(faculty.id)" class="btn btn-info"
       style="margin-left: 10px"><i class="fas fa-address-book"></i></button></td>
-   <td><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" 
+   <td *ngIf='isLoggedIn'><button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Edit" 
     (click)="Updatefaculty(faculty.id)" class="btn btn-success" 
     style="margin-left: 10px"><i class="fa fa-pencil-square-o"></i></button></td>
    <!-- <td><button class="btn btn-primary" *ngIf="selectedFaculty.id" (click)="updateFaculty()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td> -->
-   <td><button type="button" data-toggle="tooltip" data-placement="top"
+   <td *ngIf='isLoggedIn'><button type="button" data-toggle="tooltip" data-placement="top"
      ngbTooltip="Delete" class="btn btn-danger"  (click)="deleteFaculty(faculty.id)"> 
      <i class="fa fa-trash" aria-hidden="true"></i></button></td>
 

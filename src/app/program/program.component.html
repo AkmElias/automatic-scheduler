@@ -41,8 +41,8 @@
            <th>Batch</th>
            <th>Course</th>
            <th></th>
-           <th></th>
-           <th></th>
+           <th *ngIf='isLoggedIn'></th>
+           <th *ngIf='isLoggedIn'></th>
            <!-- <th>View</th>
            <th>Edit</th>
            <th>Delete</th> -->
@@ -65,11 +65,11 @@
         class="btn btn-info" style="margin-left: 10px"><i class="fas fa-address-book">
         </i></button></td>
 
-    <td><button type="button" data-toggle="tooltip" data-placement="top" 
+    <td *ngIf='isLoggedIn'><button type="button" data-toggle="tooltip" data-placement="top" 
       ngbTooltip="Edit" (click)="Updateprogram(program.programCode)" 
       class="btn btn-success" style="margin-left: 10px">
       <i class="fa fa-pencil-square-o"></i></button></td>
-    <td><button type="button" data-toggle="tooltip" data-placement="top" 
+    <td *ngIf='isLoggedIn'><button type="button" data-toggle="tooltip" data-placement="top" 
       ngbTooltip="Delete" class="btn btn-danger"  (click)="deleteProgram(program.programCode)"> 
       <i class="fa fa-trash" aria-hidden="true"></i></button></td>
     </tr>

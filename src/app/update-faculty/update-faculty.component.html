@@ -19,34 +19,32 @@
   <div class="text-center">
     <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
 </div>
-<div  style="width:800px; margin:0 auto;">
+<div  style="width: fit-content; margin: auto auto 10px auto; background-color: lightgreen; z-index: 1; border-radius: 3px; padding: 40px;">
 <form>
     <!-- <div class="form-group" style="width: 400px;">
       <label for="name">Faculty ID</label>
       <input type="text" class="form-control" id="facultyID" required [(ngModel)]="faculty.facultyID" name="facultyID">
     </div> -->
 
-    <div class="form-group" style="width: 400px;">
-      <label>Faculty Title</label>
-      <div class="form-control">
-        <label class="radio-inline">
-          <input type="radio" name="fac_title" value="Mr" [(ngModel)]="faculty[0].fac_title" >
-          Mr
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="fac_title" value="Mrs" [(ngModel)]="faculty[0].fac_title">
-          Mrs
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="fac_title" value="Dr" [(ngModel)]="faculty[0].fac_title" >
-          Dr
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="fac_title" value="Prof" [(ngModel)]="faculty[0].fac_title">
-          Prof
-        </label>
+    <div class="form-group">
+      <label for="name">Faculty Title</label>
+      <select id="fac_designation" name="fac_designation" [(ngModel)]="faculty[0].fac_title"
+              class="form-control">
+        <option  value="professior">
+          Professior
+        </option>
+        <option  value="associate professior">
+          Associate professior
+        </option>
+        <option  value="lecturer">
+          Lecturer
+        </option>
+        <option  value="senior lecturer">
+          Senior Lecturer
+        </option>
+      </select>
       </div>
-      </div>
+
 
     <div class="form-group" style="width: 400px;">
       <label for="name">First Name</label>
@@ -82,36 +80,26 @@
     </div>
 
     <div class="form-group">
-      <label>faculty Title</label>
-      <div class="form-control" style="width: 800px;">
-        <label class="radio-inline">
-          <input type="radio" name="fac_designation" value="Professor" [(ngModel)]="faculty[0].fac_designation" >
-          Professor
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="fac_designation" value="Associate Professor" [(ngModel)]="faculty[0].fac_designation">
-          Associate Professor
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="fac_designation" value="Senior Lecturer" [(ngModel)]="faculty[0].fac_designation">
+      <label for="name">Faculty Title</label>
+      <select id="fac_designation" name="fac_designation" [(ngModel)]="faculty[0].fac_designation"
+              class="form-control">
+        <option  value="professior">
+          Professior
+        </option>
+        <option  value="associate professior">
+          Associate professior
+        </option>
+        <option  value="lecturer">
+          Lecturer
+        </option>
+        <option  value="senior lecturer">
           Senior Lecturer
-        </label>
-      <label class="radio-inline">
-        <input type="radio" name="fac_designation" value="Lecturer" [(ngModel)]="faculty[0].fac_designation">
-        Lecturer
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="fac_designation" value="Head" [(ngModel)]="faculty[0].fac_designation">
-        Head
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="fac_designation" value="Dean" [(ngModel)]="faculty[0].fac_designation">
-        Dean
-      </label>
-      </div>
+        </option>
+      </select>
       </div>
 
-    <div class="form-group" style="width: 400px;">
+
+    <div class="form-group">
       <label for="department">Department </label>
       <select id="DepartmentID" name="DepartmentID" [(ngModel)]="faculty[0].DepartmentID"
               class="form-control">

@@ -8,6 +8,7 @@ import { AuthService } from "../auth.service";
 @Component({
   selector: "app-batch",
   templateUrl: "./batch.component.html",
+  styleUrls: ["./batch.component.css"],
 })
 export class BatchComponent {
   title = "List of Batch";

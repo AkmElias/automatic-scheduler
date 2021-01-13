@@ -19,14 +19,14 @@
   <!-- /.container-fluid -->
 </div>
 
-<h1>
+<!-- <h1>
   <button *ngIf='isLoggedIn' type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Routine"
     (click)="createRoutine()" class="btn btn-primary mr-2" style="margin-left: 10px">
     <i class="fa fa-plus" aria-hidden="true"></i>
   </button>
-</h1>
+</h1> -->
 
-<div class="row container">
+<div class="container">
   <!-- <div class='col-md-6'>
     <div class='row' style="align-items: center; margin: 20px;">
       <h1>Day Routines</h1>
@@ -56,6 +56,10 @@
   </div> -->
 
   <div style="width: 650px; margin: auto auto 10px auto; background-color: lightgreen; z-index: 1; border-radius: 3px; padding: 20px;">
+    <button *ngIf='isLoggedIn' type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Add Routine"
+    (click)="createRoutine()" class="btn btn-success btn-block" style="margin-bottom: 10px">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+  </button>
     <h3>Search Routine</h3>
     <div>
       <form>
@@ -148,7 +152,7 @@
           <th>TimeSlot</th>
           <th>Room</th>
           <!-- <th>View</th> -->
-          <th>Delete</th>
+          <th *ngIf='isLoggedIn'>Delete</th>
           <!-- <th>View</th>
        <th>Edit</th>
        <th>Delete</th> -->
@@ -219,7 +223,7 @@
             <i class="fas fa-address-book"></i>
           </button>
         </td> -->
-        <td>
+        <td *ngIf='isLoggedIn'>
           <button type="button" data-toggle="tooltip" data-placement="top" ngbTooltip="Delete" class="btn btn-danger"
             (click)="deleteRoutine(routine.id)">
             <i class="fa fa-trash" aria-hidden="true"></i>

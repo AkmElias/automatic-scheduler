@@ -19,7 +19,7 @@
   <button type="button"  data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" (click)="gotoList()" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
 </div>
 <br>
-<div  style="width:800px; margin:0 auto;">
+<div  style="width: fit-content; margin: auto auto 10px auto; background-color: lightgreen; z-index: 1; border-radius: 3px; padding: 40px;">
    <form>
       <div class="form-group" style="width: 400px;">
         <label for="name">Course Title</label>
@@ -42,29 +42,22 @@
         </div>
 
         <div class="form-group">
-          <label>Course Title</label>
-          <div class="form-control" style="width: 800px;">
-            <label class="radio-inline">
-              <input type="radio" name="crs_category" value="major" [(ngModel)]="course[0].crs_category" >
-              major
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="crs_category" value="core" [(ngModel)]="course[0].crs_category">
-              core
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="crs_category" value="science & mathematics" [(ngModel)]="course[0].crs_category">
-              science & mathematics
-            </label>
-          <label class="radio-inline">
-            <input type="radio" name="crs_category" value="general education" [(ngModel)]="course[0].crs_category">
-            general education
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="crs_category" value="optional" [(ngModel)]="course[0].crs_category">
-            optional
-          </label>
-          </div>
+          <label for="name">Category</label>
+          <select id="crs_category" name="crs_category" [(ngModel)]="course[0].crs_category"
+                  class="form-control">
+            <option  value="major">
+              Major
+            </option>
+            <option  value="core">
+              Core
+            </option>
+            <option  value="science & mathematics">
+              Science & Mathematics
+            </option>
+            <option  value="general education">
+              General Education
+            </option>
+          </select>
           </div>
 
       <div class="form-group" style="width: 400px;">

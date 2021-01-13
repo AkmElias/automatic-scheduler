@@ -1,4 +1,4 @@
-th {
+th{
   background-color: SlateBlue;
   color: white;
 }
@@ -26,9 +26,6 @@ table {
   border-collapse: collapse;
 }
 
-th {
-  text-align: center;
-}
 
 
 
@@ -50,8 +47,6 @@ th {
 .form-control::placeholder  {
   font-family: FontAwesome;
 }
-
-
 
 
 * {
