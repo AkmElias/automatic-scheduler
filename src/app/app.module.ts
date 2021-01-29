@@ -138,6 +138,7 @@ import { CourseOfferedDetailsComponent } from "./course-offered-details/course-o
 import { CreateRoutineComponent } from "./create-routine/create-routine.component";
 import { UpdateRoutineComponent } from "./update-routine/update-routine.component";
 import { RoutineDetailsComponent } from "./routine-details/routine-details.component";
+import { GenerateRoutineComponent } from "./generate-routine/generate-routine.component";
 
 import { CreateCreateRoutineComponent } from "./create-create-routine/create-create-routine.component";
 import { UpdateCreateRoutineComponent } from "./update-create-routine/update-create-routine.component";
@@ -174,6 +175,7 @@ import { CreateRoutineDetailsComponent } from "./create-routine-details/create-r
     MainSidebarComponent,
     ControlSidebarComponent,
     RoomComponent,
+    GenerateRoutineComponent,
     // SelectRequiredValidatorDirective,
     ConfirmEqualValidatorDirective,
     DepartmentListComponent,

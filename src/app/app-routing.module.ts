@@ -1,3 +1,4 @@
+import { GenerateRoutineComponent } from "./generate-routine/generate-routine.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
@@ -153,7 +154,8 @@ const routes: Routes = [
     component: CourseOfferedDetailsComponent,
   },
 
-  { path: "addroutine", component: CreateRoutineComponent },
+  // { path: "addroutine", component: CreateRoutineComponent },
+  { path: "addroutine", component: GenerateRoutineComponent },
   { path: "updateroutine/:id", component: UpdateRoutineComponent },
   { path: "routinedetails/:id", component: RoutineDetailsComponent },
 

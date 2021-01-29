@@ -74,11 +74,10 @@
       <button [disabled]="!firstStep" class="btn btn-success btn-block" (click)="addTermYearDayProgram()">Next</button>
     </div>
     <!-- <h4 *ngIf='firstStepSubmitted'>{RoutineTitle}</h4> -->
-    <div  *ngIf='firstStepSubmitted' class="text-center" > 
+    <div *ngIf='firstStepSubmitted' class="text-center">
       <h5>{{RoutineTitle}}</h5>
     </div>
-    <div *ngIf='firstStepSubmitted' class="form-group" 
-      [class.has-error]="term.invalid && term.touched">
+    <div *ngIf='firstStepSubmitted' class="form-group" [class.has-error]="term.invalid && term.touched">
       <form>
         <div class="form-group">
           <label for="batch">Batch</label>

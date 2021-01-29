@@ -1,0 +1,75 @@
+.routine-table {
+  width: fit-content;
+  margin: auto auto 10px auto;
+  background-color: lightgreen;
+  z-index: 1;
+  border-radius: 3px;
+  padding: 40px;
+}
+
+.routine-table-title{
+    color: #a24d06;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+}
+
+.routine-table-row {
+  min-height: 250px;
+  min-width: 200px;
+}
+
+.routine-table-box {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: fit-content;
+  max-width: 150px;
+  min-height: 120px;
+  padding: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ffee11;
+  border: 1px solid lightgray;
+}
+
+.routine-table-box-add {
+  position: absolute;
+  font-size: 10px !important;
+  z-index: 5;
+  bottom: 0px;
+  right: 0px;
+}
+
+.single-class{
+  padding: 2px;
+  margin: 2px;
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 3px;
+  position: relative;
+}
+
+.single-class-delete{
+  font-size: 10px;
+  position: absolute;
+  top: 0.5px;
+  left: 0.5px;
+  z-index: 2;
+  cursor: pointer;
+  color: red;
+}
+
+.single-class-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.single-class-info-p {
+  padding: 1px;
+  font-size: 10px;
+  margin-bottom: 2px;
+}

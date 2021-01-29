@@ -1,0 +1,260 @@
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h3 class="m-0 text-dark">Add Routine</h3>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Add Routine</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid h-100 bg-light text-dark">
+    <div class="text-center">
+        <button type="button" data-toggle="tooltip" data-placement="left" ngbTooltip="BACK" class="btn btn-primary"><i
+                class="fa fa-arrow-left" aria-hidden="true"></i> BACK</button>
+    </div>
+    <br>
+    <div [hidden]="firstStepSubmitted"
+        style="width: fit-content; margin: auto auto 10px auto; background-color: lightgreen; z-index: 1; border-radius: 3px; padding: 40px;">
+        <div>
+            <form>
+
+                <div class="form-group" style="width: 550px;" [class.has-error]="term.invalid && term.touched">
+                    <label for="term">Term</label>
+                    <div class="form-control" style="display: flex; justify-content: space-around;">
+                        <label class="radio-inline">
+                            <input type="radio" name="term" required #term="ngModel" value="Spring" [(ngModel)]="Term">
+                            Spring
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="term" required #term="ngModel" value="Summer" [(ngModel)]="Term">
+                            Summer
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="term" required #term="ngModel" value="Autumn" [(ngModel)]="Term">
+                            Autumn
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Year</label>
+                    <select id="year" name="year" [(ngModel)]="Year" class="form-control">
+                        <option *ngFor="let year of Years" [value]="year">
+                            {{year}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="year">Program</label>
+                    <select id="program" name="program" [(ngModel)]="Program" class="form-control"
+                        (ngModelChange)='programSelected()'>
+                        <option *ngFor="let program of Programs" [value]="program.programCode">
+                            {{program.pro_name}}
+                        </option>
+                    </select>
+                </div>
+            </form>
+            <button class="btn btn-success btn-block" (click)='submitFirstStep()'>Generte routine</button>
+        </div>
+    </div>
+    <div [hidden]="!firstStepSubmitted" class="routine-table">
+        <h3 class="routine-table-title">{{Title}}</h3>
+        <table class="table table-hover table-stripped">
+            <thead>
+                <tr>
+                    <!-- <th>Routine ID</th> -->
+                    <th></th>
+                    <th *ngFor='let timeSlot of TimeSlots'>{{timeSlot}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="routine-table-row" *ngFor='let day of Days'>
+                    <td>{{day}}</td>
+                    <td>
+                        <div class='routine-table-box'>
+                            <div class="single-class">
+                                <i class='fa fa-times single-class-delete'></i>
+                                <div class="single-class-info">
+                                    <p class="single-class-info-p">40 A, CNN</p>
+                                    <p class="single-class-info-p">AZA, 900</p>
+                                </div>
+                            </div>
+                            <div class="single-class">
+                                <i class='fa fa-times single-class-delete'></i>
+                                <div class="single-class-info">
+                                    <p class="single-class-info-p">40 A, CNN</p>
+                                    <p class="single-class-info-p">AZA, 900</p>
+                                </div>
+                            </div>
+                            <div class="single-class">
+                                <i class='fa fa-times single-class-delete'></i>
+                                <div class="single-class-info">
+                                    <p class="single-class-info-p">40 A, CNN</p>
+                                    <p class="single-class-info-p">AZA, 900</p>
+                                </div>
+                            </div>
+                            <div class="single-class">
+                                <i class='fa fa-times single-class-delete'></i>
+                                <div class="single-class-info">
+                                    <p class="single-class-info-p">40 A, CNN</p>
+                                    <p class="single-class-info-p">AZA, 900</p>
+                                </div>
+                            </div>
+                            <div class="single-class">
+                                <i class='fa fa-times single-class-delete'></i>
+                                <div class="single-class-info">
+                                    <p class="single-class-info-p">40 A, CNN</p>
+                                    <p class="single-class-info-p">AZA, 900</p>
+                                </div>
+                            </div>
+                            <p *ngIf=" day == Day && TimeSlot == '8.30am to 9.20am' ">{{tempRoutine}} </p>
+                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                                (click)='setDayAndTimeSlot(day,"8.30am to 9.20am")' ngbTooltip="Add Routine"
+                                class="btn btn-success routine-table-box-add">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class='routine-table-box'>
+                            <p>No routines at this timeslot</p>
+                            <p *ngIf=" day == Day && TimeSlot == '9.30am to 10.50am' ">{{tempRoutine}} </p>
+                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                                (click)='setDayAndTimeSlot(day,"9.30am to 10.50am")' ngbTooltip="Add Routine"
+                                class="btn btn-success routine-table-box-add">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class='routine-table-box'>
+                            <p>No routines at this timeslot</p>
+                            <p *ngIf=" day == Day && TimeSlot == '11.00am to 12.20pm' ">{{tempRoutine}} </p>
+                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                                (click)='setDayAndTimeSlot(day,"11.00am to 12.20pm")' ngbTooltip="Add Routine"
+                                class="btn btn-success routine-table-box-add">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class='routine-table-box'>
+                            <p>No routines at this timeslot</p>
+                            <p *ngIf=" day == Day && TimeSlot == '12.30pm to 1.50pm' ">{{tempRoutine}} </p>
+                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                                (click)='setDayAndTimeSlot(day,"12.30pm to 1.50pm")' ngbTooltip="Add Routine"
+                                class="btn btn-success routine-table-box-add">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class='routine-table-box'>
+                            <p>No routines at this timeslot</p>
+                            <p *ngIf=" day == Day && TimeSlot == '2.00pm to 3.20pm' ">{{tempRoutine}} </p>
+                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                                (click)='setDayAndTimeSlot(day,"2.00pm to 3.20pm")' ngbTooltip="Add Routine"
+                                class="btn btn-success routine-table-box-add">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class='routine-table-box'>
+                            <p>No routines at this timeslot</p>
+                            <p *ngIf=" day == Day && TimeSlot == '3.30pm to 4.50pm' ">{{tempRoutine}} </p>
+                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                                (click)='setDayAndTimeSlot(day,"3.30pm to 4.50pm")' ngbTooltip="Add Routine"
+                                class="btn btn-success routine-table-box-add">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- modal -->
+
+<div class="modal fade" id="routineModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" [class.has-error]="term.invalid && term.touched">
+                    <form>
+                        <div class="form-group">
+                            <label for="batch">Batch</label>
+                            <select id="batch" name="batch" [(ngModel)]="Batch" class="form-control"
+                                (ngModelChange)='batchSelected(Batch)'>
+                                <option *ngFor="let batch of batches" [value]="batch.id">
+                                    {{batch.batchName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div *ngIf="batchLoaded" class="form-group">
+                            <label for="section">Section</label>
+                            <select id="section" name="section" [(ngModel)]="Section" class="form-control"
+                                (ngModelChange)='sectionSelected()'>
+                                <option *ngFor="let section of sections" [value]="section.id">
+                                    {{section.sectionName}}
+                                </option>
+                            </select>
+                        </div>
+                        <!-- <div *ngIf="sectionLoaded" class="form-group">
+                            <label for="timeSlot">Timeslot</label>
+                            <select id="timeSlot" name="timeSlot" [(ngModel)]="Time" class="form-control"
+                                (ngModelChange)='timeSlotSelected()'>
+                                <option *ngFor="let time of timeSlots" [value]="time">
+                                    {{time}}
+                                </option>
+                            </select>
+                        </div> -->
+                        <div *ngIf="sectionLoaded" class="form-group">
+                            <label for="courseAvailable">Course available</label>
+                            <select id="courseAvailable" name="courseAvailable" [(ngModel)]="selectedCourseOffered"
+                                class="form-control" (ngModelChange)='courseSelected(selectedCourseOffered)'>
+                                <option *ngFor="let crs of availableCourse" [value]="crs.courseId">
+                                    {{crs.course}}
+                                </option>
+                            </select>
+                        </div>
+                        <div *ngIf="courseLoaded" class="form-group">
+                            <label for="room">Room</label>
+                            <select id="room" name="room" [(ngModel)]="Room" class="form-control"
+                                (ngModelChange)='roomSelected()'>
+                                <option *ngFor="let room of rooms" [value]="room.roomCode">
+                                    {{room.roomCode}}
+                                </option>
+                            </select>
+                        </div>
+                    </form>
+
+                    <!-- <button [disabled]="!secondStepLoaded" class="btn btn-success btn-block "
+                        (click)="addRoutineRaw()">Add</button> -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button [disabled]='!secondStepLoaded' type="button" class="btn btn-primary" (click)="addClass()">add
+                    class</button>
+            </div>
+        </div>
+    </div>
+</div>
