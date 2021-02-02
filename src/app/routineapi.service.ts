@@ -46,6 +46,7 @@ export class RoutineapiService {
       title: routine.title,
       batchAndSection: routine.batchAndSection,
       timeSlot: routine.timeSlot,
+      day: routine.day,
       courseName: routine.course,
       faculty: routine.faculty,
       room: routine.room,
