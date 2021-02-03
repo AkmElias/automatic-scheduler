@@ -100,7 +100,7 @@ const routes: Routes = [
   { path: "timeSlot", component: TimeSlotComponent },
   { path: "courseOffered", component: CourseOfferedComponent },
   { path: "createRoutine", component: CreateRoutinesComponent },
-  { path: "routine", component: RoutineComponent },
+  { path: "routine", component: GenerateRoutineComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
