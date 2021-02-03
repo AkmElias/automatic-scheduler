@@ -15,7 +15,7 @@ export class CreateCourseComponent {
   courses = [{ pro_name: "" }];
   Course;
   programs: any = [];
-
+  credits = [3, 1.5, 2, 4];
   submitted = false;
 
   constructor(
@@ -34,6 +34,7 @@ export class CreateCourseComponent {
       crs_shortName: "",
       crs_category: "",
       programCode: "",
+      crs_credit: 0,
     };
     this.getPrograms();
   }

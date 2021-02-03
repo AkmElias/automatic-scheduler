@@ -352,7 +352,7 @@
                     <td>
                         <div class='routine-table-box'>
                             <p *ngIf='mondayTwelveThirty.length == 0'>No routine at this timeSlot</p>
-                            <div class="single-class" *ngFor='let routine mondayTwelveThirty'>
+                            <div class="single-class" *ngFor='let routine of mondayTwelveThirty'>
                                 <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
@@ -464,7 +464,7 @@
                     <td>
                         <div class='routine-table-box'>
                             <p *ngIf='tuesdayTwelveThirty.length == 0'>No routine at this timeSlot</p>
-                            <div class="single-class" *ngFor='let routine tuesdayTwelveThirty'>
+                            <div class="single-class" *ngFor='let routine of tuesdayTwelveThirty'>
                                 <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>

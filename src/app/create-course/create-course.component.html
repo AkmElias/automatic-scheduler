@@ -55,10 +55,19 @@
         </option>
       </select>
       </div>
-
+     <div class='form-group'>
+       <label for='credit'>Credit</label>
+       <select id="crs_credit" name="crs_credit" [(ngModel)]="Course.crs_credit"
+              class="form-control">
+        <option  *ngFor='let credit of credits' [value]="credit">
+          {{credit}}
+        </option>
+      
+      </select>
+     </div>
 
     <div class="form-group">
-      <label for="program">Program Code</label>
+      <label for="program">Program</label>
       <select id="programCode" name="programCode" [(ngModel)]="Course.programCode"
               class="form-control">
         <option *ngFor="let program of programs" [value]="program.programCode">

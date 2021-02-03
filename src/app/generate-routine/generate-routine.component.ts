@@ -208,6 +208,8 @@ export class GenerateRoutineComponent implements OnInit {
       .toPromise();
     this.populateColumnsArrayWithAppropriateroutine();
     console.log("routines by title..", this.routines);
+    console.log("monday twelve thirty..", this.mondayTwelveThirty);
+    console.log("tuesday twelve thirty..", this.tuesdayTwelveThirty);
   };
 
   populateColumnsArrayWithAppropriateroutine = () => {

@@ -51,6 +51,7 @@ export class CourseapiService {
       crs_shortName: course.crs_shortName,
       crs_category: course.crs_category,
       programCode: course.programCode,
+      crs_credit: course.crs_credit,
     };
     return this.http.put(this.baseurl + "/courses/" + course.id + "/", body, {
       headers: this.httpHeaders,
@@ -65,7 +66,9 @@ export class CourseapiService {
       crs_shortName: course.crs_shortName,
       crs_category: course.crs_category,
       programCode: course.programCode,
+      crs_credit: course.crs_credit,
     };
+    console.log("body", body);
     return this.http.post(this.baseurl + "/courses/", body, {
       headers: this.httpHeaders,
     });
