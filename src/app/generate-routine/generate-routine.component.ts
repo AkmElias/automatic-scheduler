@@ -600,14 +600,107 @@ export class GenerateRoutineComponent implements OnInit {
       room: this.Room,
     };
     // this.tempRoutine = `${this.batchAndSection}, ${this.courseShortName}, ${this.facultyShortName}, ${this.Room}`;
+    //check conditions....
+    let check = this.checkConditions(this.routineRow);
     console.log("temp routine..", this.routineRow);
-    this.routineApi.createRoutine(this.routineRow).subscribe((data) => {
-      console.log("added class..", data);
-      this.emptyColumnsArray();
-      this.getRoutines();
-      this.clearForm();
-    });
+    if (check == true) {
+      this.routineApi.createRoutine(this.routineRow).subscribe((data) => {
+        console.log("added class..", data);
+        this.clearForm();
+        this.emptyColumnsArray();
+        this.getRoutines();
+      });
+    } else {
+      return;
+    }
     //alert(this.tempRoutine);
+  };
+
+  checkConditions = (tempRoutine) => {
+    if (
+      !tempRoutine.batchAndSection ||
+      !tempRoutine.course ||
+      !tempRoutine.faculty ||
+      !tempRoutine.room
+    ) {
+      alert("One or more required field missing");
+      return false;
+    }
+
+    let creditWiseClass = false;
+    let moreThanTwoClass = false;
+    let sectionHasClassInTimeSlot = false;
+    let facultyHasClassInTimeSlot = false;
+    let courseHasAlreadyInThisDay = false;
+    let roomiSBooked = false;
+    let two = 0;
+    let threeCredit = 0;
+
+    this.routines.forEach((routine) => {
+      if (
+        this.Day === routine.day &&
+        this.batchAndSection === routine.batchAndSection
+      ) {
+        two++;
+      }
+      if (
+        this.courseShortName == routine.course &&
+        this.batchAndSection == routine.batchAndSection
+      ) {
+        threeCredit++;
+      }
+      if (
+        this.batchAndSection == routine.batchAndSection &&
+        this.Day == routine.day &&
+        this.TimeSlot == routine.timeSlot
+      ) {
+        sectionHasClassInTimeSlot = true;
+      } else if (
+        this.facultyShortName == routine.faculty &&
+        this.Day == routine.day &&
+        this.TimeSlot == routine.timeSlot
+      ) {
+        facultyHasClassInTimeSlot = true;
+      } else if (
+        this.courseShortName == routine.course &&
+        this.batchAndSection == routine.batchAndSection &&
+        this.Day == routine.day
+      ) {
+        courseHasAlreadyInThisDay = true;
+      } else if (
+        this.Room == routine.room &&
+        this.Day == routine.day &&
+        this.TimeSlot == routine.timeSlot
+      ) {
+        roomiSBooked = true;
+      } else if (two >= 2) {
+        moreThanTwoClass = true;
+      }
+      if (threeCredit >= 2) {
+        creditWiseClass = true;
+      }
+    });
+    console.log(`moreThanTwoClass: ${moreThanTwoClass}, creditWiseClass: ${creditWiseClass}, sectionHasClassInTimeSLot: ${sectionHasClassInTimeSlot}, 
+    facultyHasClass: ${facultyHasClassInTimeSlot}, courseHasAlrerady: ${courseHasAlreadyInThisDay}, roomIsBooked: ${roomiSBooked} `);
+    if (moreThanTwoClass) {
+      alert("This section has already two classes this day.");
+      return false;
+    } else if (creditWiseClass) {
+      alert("This course can't be offered more than twice in a week.");
+      return false;
+    } else if (sectionHasClassInTimeSlot) {
+      alert("This section has already class in this timeSlot.");
+      return false;
+    } else if (facultyHasClassInTimeSlot) {
+      alert("This faculty has already class this timeSlot.");
+      return false;
+    } else if (courseHasAlreadyInThisDay) {
+      alert("This sectiion has already this course for the day.");
+      return false;
+    } else if (roomiSBooked) {
+      alert("This room is booked for this timeSlot.");
+      return false;
+    } else return true;
   };
 
   clearForm = () => {
@@ -687,6 +780,17 @@ export class GenerateRoutineComponent implements OnInit {
     this.fridayTwelveThirty = [];
     this.fridayTwo = [];
     this.fridayThreeThirty = [];
+  };
+
+  deleteClass = (id) => {
+    if (confirm("Are you sure to delete!")) {
+      this.routines = this.routines.filter((routine) => routine.id != id);
+      this.emptyColumnsArray();
+      this.populateColumnsArrayWithAppropriateroutine();
+      this.routineApi.deleteRoutine(id).subscribe(async (data) => {});
+    } else {
+      return;
+    }
   };
 
   ngOnInit(): void {}
