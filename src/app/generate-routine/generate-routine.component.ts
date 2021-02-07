@@ -131,7 +131,7 @@ export class GenerateRoutineComponent implements OnInit {
   fridayTwelveThirty = [];
   fridayTwo = [];
   fridayThreeThirty = [];
-
+  loggedIn = false;
   constructor(
     private programApi: ProgramapiService,
     private batchApi: BatchapiService,
@@ -145,6 +145,11 @@ export class GenerateRoutineComponent implements OnInit {
     private routineApi: RoutineapiService,
     private router: Router
   ) {
+    if (this.authService.isLoggedIn()) {
+      this.loggedIn = true;
+    } else {
+      this.loggedIn = false;
+    }
     this.firstStepSubmitted = false;
     this.Days = [
       "SATURDAY",
@@ -208,8 +213,8 @@ export class GenerateRoutineComponent implements OnInit {
       .toPromise();
     this.populateColumnsArrayWithAppropriateroutine();
     console.log("routines by title..", this.routines);
-    console.log("monday twelve thirty..", this.mondayTwelveThirty);
-    console.log("tuesday twelve thirty..", this.tuesdayTwelveThirty);
+    // console.log("monday twelve thirty..", this.mondayTwelveThirty);
+    // console.log("tuesday twelve thirty..", this.tuesdayTwelveThirty);
   };
 
   populateColumnsArrayWithAppropriateroutine = () => {
@@ -789,7 +794,7 @@ export class GenerateRoutineComponent implements OnInit {
       this.routines = this.routines.filter((routine) => routine.id != id);
       this.emptyColumnsArray();
       this.populateColumnsArrayWithAppropriateroutine();
-      this.routineApi.deleteRoutine(id).subscribe(async (data) => {});
+      this.routineApi.deleteRoutine(id).subscribe((data) => {});
     } else {
       return;
     }

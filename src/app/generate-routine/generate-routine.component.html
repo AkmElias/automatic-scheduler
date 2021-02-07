@@ -81,14 +81,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='saturdayEight.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of saturdayEight'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(saturday,eight)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -99,14 +99,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='saturdayNineThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of saturdayNineThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(saturday,nineThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -117,14 +117,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='saturdayEleven.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of saturdayEleven'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(saturday,eleven)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -135,14 +135,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='saturdayTwelveThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of saturdayTwelveThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn'  type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(saturday,twelveThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -153,14 +153,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='saturdayTwo.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of saturdayTwo'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(saturday,two)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -171,14 +171,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='saturdayThreeThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of saturdayThreeThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(saturday,threeThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -192,14 +192,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='sundayEight.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of sundayEight'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(sunday,eight)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -210,13 +210,13 @@
                         <div class='routine-table-box'>
                             <p *ngIf='sundayNineThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of sundayNineThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(sunday,nineThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -227,13 +227,13 @@
                         <div class='routine-table-box'>
                             <p *ngIf='sundayEleven.length == 0'>No routine at this timeSlot</p>
                             <div  class="single-class" *ngFor='let routine of sundayEleven'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(sunday,eleven)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -244,13 +244,13 @@
                         <div class='routine-table-box'>
                             <p *ngIf='sundayTwelveThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of sundayTwelveThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(sunday,twelveThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -261,13 +261,13 @@
                         <div class='routine-table-box'>
                             <p *ngIf='sundayTwo.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of sundayTwo'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(sunday,two)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -278,13 +278,13 @@
                         <div class='routine-table-box'>
                             <p *ngIf='sundayThreeThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of sundayThreeThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(sunday,threeThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -298,7 +298,7 @@
                         <div class='routine-table-box'>
                             <p *ngIf='mondayEight.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of mondayEight'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
@@ -306,7 +306,7 @@
                             </div>
 
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(monday,eight)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -317,14 +317,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='mondayNineThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of mondayNineThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(monday,nineThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -335,14 +335,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='mondayEleven.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of mondayEleven'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(monday,eleven)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -353,14 +353,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='mondayTwelveThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of mondayTwelveThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(monday,twelveThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -371,14 +371,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='mondayTwo.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of mondayTwo'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(monday,two)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -389,14 +389,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='mondayThreeThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of mondayThreeThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(monday,threeThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -410,7 +410,7 @@
                         <div class='routine-table-box'>
                             <p *ngIf='tuesdayEight.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of tuesdayEight'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
@@ -418,7 +418,7 @@
                             </div>
 
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn'  type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(tuesday,eight)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -429,14 +429,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='tuesdayNineThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of tuesdayNineThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(tuesday,nineThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -447,14 +447,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='tuesdayEleven.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of tuesdayEleven'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(tuesday,eleven)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -465,14 +465,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='tuesdayTwelveThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of tuesdayTwelveThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(tuesday,twelveThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -483,14 +483,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='tuesdayTwo.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of tuesdayTwo'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(tuesday,two)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -501,14 +501,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='tuesdayThreeThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of tuesdayThreeThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(tuesday,threeThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -522,14 +522,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='wednesdayEight.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of wednesdayEight'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(wednesday,eight)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -540,14 +540,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='wednesdayNineThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of wednesdayNineThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(wednesday,nineThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -558,14 +558,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='wednesdayEleven.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of wednesdayEleven'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(wednesday,eleven)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -576,14 +576,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='wednesdayTwelveThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of wednesdayTwelveThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(wednesday,twelveThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -594,14 +594,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='wednesdayTwo.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of wednesdayTwo'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(wednesday,two)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -612,14 +612,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='wednesdayThreeThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of wednesdayThreeThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(wednesday,threeThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -633,14 +633,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='thursdayEight.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of thursdayEight'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(thursday,eight)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -651,14 +651,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='thursdayNineThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of thursdayNineThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(thursday,nineThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -669,14 +669,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='thursdayEleven.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of thursdayEleven'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(thursday,eleven)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -687,14 +687,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='thursdayTwelveThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of thursdayTwelveThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(thursday,twelveThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -705,14 +705,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='thursdayTwo.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of thursdayTwo'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(thursday,two)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -723,14 +723,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='thursdayThreeThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of thursdayThreeThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(thursday,threeThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -744,14 +744,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='fridayEight.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of fridayEight'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(friday,eight)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -762,14 +762,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='fridayNineThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of fridayNineThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(friday,nineThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -780,14 +780,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='fridayEleven.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of fridayEleven'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(friday,eleven)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -798,14 +798,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='fridayTwelveThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of fridayTwelveThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(friday,twelveThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -816,14 +816,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='fridayTwo.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of fridayTwo'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(friday,two)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
@@ -834,14 +834,14 @@
                         <div class='routine-table-box'>
                             <p *ngIf='fridayThreeThirty.length == 0'>No routine at this timeSlot</p>
                             <div class="single-class" *ngFor='let routine of fridayThreeThirty'>
-                                <i class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
+                                <i *ngIf='loggedIn' class='fa fa-times single-class-delete' (click)='deleteClass(routine.id)'></i>
                                 <div class="single-class-info">
                                     <p class="single-class-info-p">{{routine.batchAndSection}}, {{routine.courseName}}</p>
                                     <p class="single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
                                 </div>
                             </div>
 
-                            <button type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
+                            <button *ngIf='loggedIn' type="button" data-toggle="modal" data-target="#routineModal" data-placement="top"
                                 (click)='setDayAndTimeSlot(friday,threeThirty)' ngbTooltip="Add Routine"
                                 class="btn btn-success routine-table-box-add">
                                 <i class="fa fa-plus" aria-hidden="true" ></i>
