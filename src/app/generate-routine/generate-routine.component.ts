@@ -9,7 +9,8 @@ import { CourseOfferedapiService } from "../course-offeredapi.service";
 import { CourseapiService } from "../courseapi.service";
 import { FacultyapiService } from "../facultyapi.service";
 import { RoomapiService } from "../roomapi.service";
-import { TimeSlotapiService } from "../time-slotapi.service";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 @Component({
   selector: "app-generate-routine",
@@ -19,6 +20,7 @@ import { TimeSlotapiService } from "../time-slotapi.service";
 export class GenerateRoutineComponent implements OnInit {
   id: number;
   backButton = false;
+  neverTrue = true;
   Days = [];
   Day = "";
   tempRoutine = "";
@@ -89,6 +91,7 @@ export class GenerateRoutineComponent implements OnInit {
   two = "2.00pm to 3.20pm";
   threeThirty = "3.30pm to 4.50pm";
 
+  dayTime = "";
   saturdayEight = [];
   saturdayNineThirty = [];
   saturdayEleven = [];
@@ -180,6 +183,42 @@ export class GenerateRoutineComponent implements OnInit {
     this.Course = null;
     programApi.getAllPrograms().subscribe((data) => {
       this.Programs = data;
+    });
+  }
+
+  exportAsPDF(data) {
+    html2canvas(data, { allowTaint: true }).then((canvas) => {
+      let HTML_Width = canvas.width;
+      let HTML_Height = canvas.height;
+      let top_left_margin = 15;
+      let PDF_Width = HTML_Width + top_left_margin * 3;
+      let PDF_Height = PDF_Width * 1.5 + top_left_margin * 3;
+      let canvas_image_width = HTML_Width;
+      let canvas_image_height = HTML_Height;
+      let totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+      canvas.getContext("2d");
+      let imgData = canvas.toDataURL("image/jpeg", 1.0);
+      let pdf = new jsPDF("p", "px", [PDF_Width, PDF_Height]);
+      pdf.addImage(
+        imgData,
+        "JPG",
+        top_left_margin,
+        top_left_margin,
+        canvas_image_width,
+        canvas_image_height
+      );
+      for (let i = 1; i <= totalPDFPages; i++) {
+        pdf.addPage([PDF_Width, PDF_Height], "p");
+        pdf.addImage(
+          imgData,
+          "JPG",
+          top_left_margin,
+          -(PDF_Height * i) + top_left_margin * 4,
+          canvas_image_width,
+          canvas_image_height
+        );
+      }
+      pdf.save(`${this.Title}.pdf`);
     });
   }
 
@@ -425,6 +464,7 @@ export class GenerateRoutineComponent implements OnInit {
   setDayAndTimeSlot = (day, time) => {
     this.Day = day;
     this.TimeSlot = time;
+    this.dayTime = `${this.Day},${this.TimeSlot}`;
     console.log(
       `day: ${this.Day} timeSlot: ${this.TimeSlot} Program: ${this.Program}`
     );
@@ -444,9 +484,17 @@ export class GenerateRoutineComponent implements OnInit {
     this.sectionApi.getSectionsByBatch(batchId).subscribe((data) => {
       console.log("sections..", data);
       this.sections = data;
+      this.filterSections();
       this.Section = null;
     });
     this.Section = null;
+  };
+
+  filterSections = () => {
+    if (this.Day == this.saturday) {
+      if (this.TimeSlot == this.eight) {
+      }
+    }
   };
 
   sectionSelected = async () => {
