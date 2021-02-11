@@ -8,7 +8,7 @@
 }
 
 .routine-table-title{
-    color: #a24d06;
+    color: #000;
     padding: 10px;
     margin: 5px;
     text-align: center;
@@ -22,14 +22,12 @@
 .routine-table-box {
   position: relative;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: fit-content;
-  min-width: 120px;
-  min-height: 120px;
+  justify-content: initial;
+  width: 100%;
+  height: max-content;
   padding: 2px;
   flex-wrap: wrap;
-  background-color: #ffee11;
+  background-color: #1cb975d4;
   border: 1px solid lightgray;
 }
 
