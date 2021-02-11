@@ -466,6 +466,7 @@ export class GenerateRoutineComponent implements OnInit {
   };
 
   setDayAndTimeSlot = (day, time) => {
+    this.clearForm();
     this.Day = day;
     this.TimeSlot = time;
     this.dayTime = `${this.Day},${this.TimeSlot}`;
@@ -489,29 +490,12 @@ export class GenerateRoutineComponent implements OnInit {
     this.sectionApi.getSectionsByBatch(batchId).subscribe((data) => {
       console.log("sections..", data);
       this.sections = data;
-      this.filterSections();
       this.Section = null;
     });
     this.Section = null;
   };
 
-  filterSections = () => {
-    if (this.Day == this.saturday) {
-      if (this.TimeSlot == this.eight) {
-      }
-    }
-  };
-
   sectionSelected = async () => {
-    this.sectionLoaded = true;
-    this.timeSlotLoaded = false;
-    this.courseLoaded = false;
-    this.roomLoaded = false;
-    this.secondStepLoaded = false;
-    this.Course = null;
-    this.courses = [];
-    this.offeredCourses = [];
-    this.availableCourse = [];
     this.batchAndSectionId = {
       batch: this.Batch,
       section: this.Section,
@@ -528,44 +512,379 @@ export class GenerateRoutineComponent implements OnInit {
       }
     });
     console.log("batch and section..", this.batchAndSection);
-    this.courseOfferedApi
-      .getAllCourseOfferedToBatchAndSection(this.batchAndSectionId)
-      .subscribe((data) => {
-        this.offeredCourses = data;
-        this.Course = null;
-        this.offeredCourses.forEach(async (offer) => {
-          let tempCourse = {
-            faculty: offer.facultyID,
-            courseId: offer.courseID,
-            course: "",
-          };
-          this.courseApi.getOneCourse(offer.courseID).subscribe((data) => {
-            tempCourse.course = data[0].crs_title;
-            this.availableCourse.push(tempCourse);
+
+    let sectionInThisTimeSlot = this.filterSections();
+
+    if (sectionInThisTimeSlot == true) {
+      alert(`${this.batchAndSection} has class in this time slot.`);
+    } else {
+      this.sectionLoaded = true;
+      this.timeSlotLoaded = false;
+      this.courseLoaded = false;
+      this.roomLoaded = false;
+      this.secondStepLoaded = false;
+      this.Course = null;
+      this.courses = [];
+      this.offeredCourses = [];
+      this.availableCourse = [];
+      this.courseOfferedApi
+        .getAllCourseOfferedToBatchAndSection(this.batchAndSectionId)
+        .subscribe((data) => {
+          this.offeredCourses = data;
+          this.Course = null;
+          this.offeredCourses.forEach(async (offer) => {
+            let tempCourse = {
+              faculty: offer.facultyID,
+              courseId: offer.courseID,
+              course: "",
+            };
+            this.courseApi.getOneCourse(offer.courseID).subscribe((data) => {
+              tempCourse.course = data[0].crs_title;
+              this.availableCourse.push(tempCourse);
+            });
           });
+          this.Course = null;
+          this.Time = "";
+          console.log("offered courses..", this.offeredCourses);
         });
-        this.Course = null;
-        this.Time = "";
-        console.log("offered courses..", this.offeredCourses);
-      });
-    //assuming time slot selected ..
-    this.timeSlotLoaded = true;
-    this.courseLoaded = false;
-    this.roomLoaded = false;
-    this.secondStepLoaded = false;
-    this.Course = null;
-    this.Room = null;
-    let asignFaculty = [];
-    this.batchAndSectionId = {
-      batch: this.Batch,
-      section: this.Section,
-    };
-    this.getRooms();
-    console.log(
-      "offered courses with crs title and facultyid..",
-      this.availableCourse
-    );
-    this.availableCourses = this.courses.filter((course) => {});
+      //assuming time slot selected ..
+      this.timeSlotLoaded = true;
+      this.courseLoaded = false;
+      this.roomLoaded = false;
+      this.secondStepLoaded = false;
+      this.Course = null;
+      this.Room = null;
+      let asignFaculty = [];
+      this.batchAndSectionId = {
+        batch: this.Batch,
+        section: this.Section,
+      };
+      this.getRooms();
+      console.log(
+        "offered courses with crs title and facultyid..",
+        this.availableCourse
+      );
+      this.availableCourses = this.courses.filter((course) => {});
+    }
+  };
+
+  filterSections = () => {
+    let sectionInThisTimeSlot = false;
+    if (this.Day == this.saturday) {
+      if (this.TimeSlot == this.eight) {
+        this.saturdayEight.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.saturdayNineThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.saturdayEleven.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.saturdayTwelveThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.saturdayTwo.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.saturdayThreeThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+    }
+
+    if (this.Day == this.sunday) {
+      if (this.TimeSlot == this.eight) {
+        this.sundayEight.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.sundayNineThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.sundayEleven.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.sundayTwelveThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.sundayTwo.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.sundayThreeThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+    }
+
+    if (this.Day == this.monday) {
+      if (this.TimeSlot == this.eight) {
+        this.mondayEight.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.mondayNineThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.mondayEleven.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.mondayTwelveThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.mondayTwo.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.mondayThreeThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+    }
+
+    if (this.Day == this.tuesday) {
+      if (this.TimeSlot == this.eight) {
+        this.tuesdayEight.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.tuesdayNineThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.tuesdayEleven.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.tuesdayTwelveThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.tuesdayTwo.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.tuesdayThreeThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+    }
+
+    if (this.Day == this.wednesday) {
+      if (this.TimeSlot == this.eight) {
+        this.wednesdayEight.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.wednesdayNineThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.wednesdayEleven.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.wednesdayTwelveThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.wednesdayTwo.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.wednesdayThreeThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+    }
+
+    if (this.Day == this.thursday) {
+      if (this.TimeSlot == this.eight) {
+        this.thursdayEight.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.thursdayNineThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.thursdayEleven.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.thursdayTwelveThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.thursdayTwo.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.thursdayThreeThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+    }
+
+    if (this.Day == this.friday) {
+      if (this.TimeSlot == this.eight) {
+        this.fridayEight.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.fridayNineThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.fridayEleven.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.fridayTwelveThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.fridayTwo.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.fridayThreeThirty.forEach((routine) => {
+          if (routine.batchAndSection === this.batchAndSection) {
+            sectionInThisTimeSlot = true;
+          }
+        });
+      }
+    }
+    return sectionInThisTimeSlot;
   };
 
   courseSelected = async (courseOffered) => {
