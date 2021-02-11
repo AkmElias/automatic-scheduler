@@ -135,6 +135,7 @@ export class GenerateRoutineComponent implements OnInit {
   fridayTwo = [];
   fridayThreeThirty = [];
   loggedIn = false;
+
   constructor(
     private programApi: ProgramapiService,
     private batchApi: BatchapiService,
@@ -172,6 +173,7 @@ export class GenerateRoutineComponent implements OnInit {
       "3.30pm to 4.50pm",
     ];
     this.Years = [2020, 2021, 2022, 2023, 2024, 2025];
+    this.getRooms();
     this.Term = "Spring";
     this.Year = 2021;
     this.Program = "";
@@ -186,13 +188,15 @@ export class GenerateRoutineComponent implements OnInit {
     });
   }
 
-  exportAsPDF(data) {
+  exportAsPDF(data, id) {
+    let doc = document.getElementById(id);
+    console.log("doc data: ", doc);
     html2canvas(data, { allowTaint: true }).then((canvas) => {
       let HTML_Width = canvas.width;
       let HTML_Height = canvas.height;
       let top_left_margin = 15;
-      let PDF_Width = HTML_Width + top_left_margin * 3;
-      let PDF_Height = PDF_Width * 1.5 + top_left_margin * 3;
+      let PDF_Width = HTML_Width + top_left_margin * 2;
+      let PDF_Height = PDF_Width * 1 + top_left_margin * 2;
       let canvas_image_width = HTML_Width;
       let canvas_image_height = HTML_Height;
       let totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
@@ -469,6 +473,7 @@ export class GenerateRoutineComponent implements OnInit {
       `day: ${this.Day} timeSlot: ${this.TimeSlot} Program: ${this.Program}`
     );
     this.timeSlotLoaded = true;
+    this.getRooms();
   };
 
   batchSelected = (batchId) => {
@@ -550,12 +555,12 @@ export class GenerateRoutineComponent implements OnInit {
     this.secondStepLoaded = false;
     this.Course = null;
     this.Room = null;
-    this.rooms = [];
     let asignFaculty = [];
     this.batchAndSectionId = {
       batch: this.Batch,
       section: this.Section,
     };
+    this.getRooms();
     console.log(
       "offered courses with crs title and facultyid..",
       this.availableCourse
@@ -568,7 +573,6 @@ export class GenerateRoutineComponent implements OnInit {
     this.roomLoaded = false;
     this.secondStepLoaded = false;
     this.Room = null;
-    this.rooms = [];
     let cfids = [];
     this.availableCourse.filter((ofcr) => {
       if (courseOffered == ofcr.courseId) {
@@ -593,9 +597,7 @@ export class GenerateRoutineComponent implements OnInit {
         return this.facultyApi.getOneFaculty(id).toPromise();
       }
     });
-    this.roomApi.getAllRooms().subscribe((data) => {
-      this.rooms = data;
-    });
+
     let results = await Promise.all(promises);
     let courseAndFacultyShortName =
       results[0][0].crs_shortName + ", " + results[1][0].fac_shortName;
@@ -604,7 +606,280 @@ export class GenerateRoutineComponent implements OnInit {
     console.log("course and fac shortname..", courseAndFacultyShortName);
   };
 
-  facultySelected = () => {};
+  roomFilter = () => {
+    if (this.Day == this.saturday) {
+      if (this.TimeSlot == this.eight) {
+        this.saturdayEight.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.saturdayNineThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.saturdayEleven.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.saturdayTwelveThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.saturdayTwo.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.saturdayThreeThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+    }
+
+    if (this.Day == this.sunday) {
+      if (this.TimeSlot == this.eight) {
+        this.sundayEight.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.sundayNineThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.sundayEleven.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.sundayTwelveThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.sundayTwo.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.sundayThreeThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+    }
+
+    if (this.Day == this.monday) {
+      if (this.TimeSlot == this.eight) {
+        this.mondayEight.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.mondayNineThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.mondayEleven.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.mondayTwelveThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.mondayTwo.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.mondayThreeThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+    }
+
+    if (this.Day == this.tuesday) {
+      if (this.TimeSlot == this.eight) {
+        this.tuesdayEight.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.tuesdayNineThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.tuesdayEleven.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.tuesdayTwelveThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.tuesdayTwo.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.tuesdayThreeThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+    }
+
+    if (this.Day == this.wednesday) {
+      if (this.TimeSlot == this.eight) {
+        this.wednesdayEight.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.wednesdayNineThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.wednesdayEleven.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.wednesdayTwelveThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.wednesdayTwo.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.wednesdayThreeThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+    }
+
+    if (this.Day == this.thursday) {
+      if (this.TimeSlot == this.eight) {
+        this.thursdayEight.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.thursdayNineThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.thursdayEleven.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.thursdayTwelveThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.thursdayTwo.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.thursdayThreeThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+    }
+
+    if (this.Day == this.friday) {
+      if (this.TimeSlot == this.eight) {
+        this.fridayEight.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.nineThirty) {
+        this.fridayNineThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.eleven) {
+        this.fridayEleven.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.twelveThirty) {
+        this.fridayTwelveThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.two) {
+        this.fridayTwo.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+      if (this.TimeSlot == this.threeThirty) {
+        this.fridayThreeThirty.forEach((routine) => {
+          let rm = routine.room;
+          this.rooms = this.rooms.filter((room) => room.roomCode != rm);
+        });
+      }
+    }
+  };
 
   roomSelected = () => {
     this.secondStepLoaded = true;
@@ -633,14 +908,10 @@ export class GenerateRoutineComponent implements OnInit {
   };
 
   getRooms = () => {
-    // this.roomService.getAllRooms().subscribe(
-    //   (data) => {
-    //     this.rooms = data;
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
+    this.roomApi.getAllRooms().subscribe((data) => {
+      this.rooms = data;
+      this.roomFilter();
+    });
   };
 
   addClass = () => {
@@ -664,6 +935,7 @@ export class GenerateRoutineComponent implements OnInit {
         this.clearForm();
         this.emptyColumnsArray();
         this.getRoutines();
+        this.roomFilter();
       });
     } else {
       return;

@@ -68,7 +68,7 @@
     </div>
 
 
-    <button [hidden]="!firstStepSubmitted" style="margin: 2px;" (click)="exportAsPDF(contentsToConvert)">DOWNLOAD PDF</button>
+    <button [hidden]="!firstStepSubmitted" style="margin: 2px;" (click)="exportAsPDF(contentsToConvert,'content')">DOWNLOAD PDF</button>
 
 
     <div [hidden]="!firstStepSubmitted" class="routine-table" id="pdfTable" #contentToConvert>
@@ -947,7 +947,7 @@
 
     <div class="pdf-container" id="pdf-content">
 
-        <div [hidden]="!firstStepSubmitted" #contentsToConvert>
+        <div [hidden]="!firstStepSubmitted" id="content" #contentsToConvert>
             <h3 class="pdf-table-title text-center">{{Title}}</h3>
             <table class='table table-bordered'>
                 <thead>
