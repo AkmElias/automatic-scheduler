@@ -75,7 +75,7 @@
   padding: 2px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: initial;
   align-items: center;
 }
 
