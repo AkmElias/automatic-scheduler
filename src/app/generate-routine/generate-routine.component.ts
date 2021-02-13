@@ -1290,7 +1290,7 @@ export class GenerateRoutineComponent implements OnInit {
         two++;
       }
       if (
-        this.courseShortName == routine.course &&
+        this.courseShortName == routine.courseName &&
         this.batchAndSection == routine.batchAndSection
       ) {
         threeCredit++;
@@ -1308,7 +1308,7 @@ export class GenerateRoutineComponent implements OnInit {
       ) {
         facultyHasClassInTimeSlot = true;
       } else if (
-        this.courseShortName == routine.course &&
+        this.courseShortName == routine.courseName &&
         this.batchAndSection == routine.batchAndSection &&
         this.Day == routine.day
       ) {
