@@ -945,9 +945,69 @@
         </table>
     </div>
 
+<div class="pdf-container" id="pdf">
+  <div [hidden]="!firstStepSubmitted" id="content">
+    <h3 class="pdf-table-title text-center">{{Title}}</h3>
+    <table class='table table-bordered'>
+     <thead>
+         <th>Day</th>
+         <th>Batch</th>
+         <th *ngFor='let timeSlot of TimeSlots'>{{timeSlot}}</th>
+     </thead>
+     <tbody>
+         <tr>
+             <td></td>
+             <td></td>
+             <td>
+                <tr>
+                    <td>Course </td>
+                    <td>Faculty</td>
+                </tr>
+             </td>
+             <td>
+                <tr>
+                    <td>Course</td>
+                    <td>Faculty</td>
+                </tr>
+             </td>
+             <td>
+                <tr>
+                    <td>Course</td>
+                    <td>Faculty</td>
+                </tr>
+             </td>
+             <td>
+                <tr>
+                    <td>Course</td>
+                    <td>Faculty</td>
+                </tr>
+             </td>
+             <td>
+                <tr>
+                    <td>Course</td>
+                    <td>Faculty</td>
+                </tr>
+             </td> <td>
+                <tr>
+                    <td>Course</td>
+                    <td>Faculty</td>
+                </tr>
+             </td>
+         </tr>
+         <tr>
+             <td>SAT</td>
+             <!-- <tr *ngFor='let batch of batches'>
+
+             </tr> -->
+         </tr>
+     </tbody>
+    </table>
+  </div>
+</div>
+
     <div class="pdf-container" id="pdf-content">
 
-        <div [hidden]="!firstStepSubmitted" id="content" #contentsToConvert>
+        <div  [hidden]="!firstStepSubmitted" id="content" #contentsToConvert>
             <h3 class="pdf-table-title text-center">{{Title}}</h3>
             <table class='table table-bordered'>
                 <thead>

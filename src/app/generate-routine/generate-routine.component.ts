@@ -1,3 +1,4 @@
+import { Faculty } from "./../faculty";
 import { RoutineapiService } from "./../routineapi.service";
 import { ProgramapiService } from "./../programapi.service";
 import { Component, OnInit } from "@angular/core";
@@ -41,6 +42,7 @@ export class GenerateRoutineComponent implements OnInit {
   Time: String;
   timeSlots = [];
   Course: Number;
+  courseCredit = 0;
   offeredCourses = [];
   availableCourses = [];
   courses = [];
@@ -165,11 +167,11 @@ export class GenerateRoutineComponent implements OnInit {
       "FRIDAY",
     ];
     this.TimeSlots = [
-      "8.00am to 9.20am",
+      "8am to 9.20am",
       "9.30am to 10.50am",
-      "11.00am to 12.20pm",
+      "11am to 12.20pm",
       "12.30pm to 1.50pm",
-      "2.00pm to 3.20pm",
+      "2pm to 3.20pm",
       "3.30pm to 4.50pm",
     ];
     this.Years = [2020, 2021, 2022, 2023, 2024, 2025];
@@ -537,16 +539,18 @@ export class GenerateRoutineComponent implements OnInit {
               faculty: offer.facultyID,
               courseId: offer.courseID,
               course: "",
+              courseCredit: 0,
             };
             this.courseApi.getOneCourse(offer.courseID).subscribe((data) => {
               tempCourse.course = data[0].crs_title;
+              tempCourse.courseCredit = data[0].crs_credit;
               this.availableCourse.push(tempCourse);
             });
           });
           this.Course = null;
           this.Time = "";
-          console.log("offered courses..", this.offeredCourses);
         });
+
       //assuming time slot selected ..
       this.timeSlotLoaded = true;
       this.courseLoaded = false;
@@ -564,7 +568,7 @@ export class GenerateRoutineComponent implements OnInit {
         "offered courses with crs title and facultyid..",
         this.availableCourse
       );
-      this.availableCourses = this.courses.filter((course) => {});
+      // this.availableCourses = this.courses.filter((course) => {});
     }
   };
 
@@ -888,6 +892,10 @@ export class GenerateRoutineComponent implements OnInit {
   };
 
   courseSelected = async (courseOffered) => {
+    console.log(
+      "offered courses with crs title and facultyid..",
+      this.availableCourse
+    );
     this.courseLoaded = true;
     this.roomLoaded = false;
     this.secondStepLoaded = false;
@@ -895,14 +903,12 @@ export class GenerateRoutineComponent implements OnInit {
     let cfids = [];
     this.availableCourse.filter((ofcr) => {
       if (courseOffered == ofcr.courseId) {
-        return (this.Course = ofcr.courseId);
+        this.Course = ofcr.courseId;
+        this.Faculty = ofcr.faculty;
+        this.courseCredit = ofcr.courseCredit;
       }
     });
-    this.availableCourse.filter((ofcr) => {
-      if (courseOffered == ofcr.courseId) {
-        return (this.Faculty = ofcr.faculty);
-      }
-    });
+
     cfids.push(this.Course);
     cfids.push(this.Faculty);
     let i = 0;
@@ -1249,6 +1255,7 @@ export class GenerateRoutineComponent implements OnInit {
     let check = this.checkConditions(this.routineRow);
     console.log("temp routine..", this.routineRow);
     if (check == true) {
+      alert("Class added!");
       this.routineApi.createRoutine(this.routineRow).subscribe((data) => {
         console.log("added class..", data);
         this.clearForm();
@@ -1273,6 +1280,16 @@ export class GenerateRoutineComponent implements OnInit {
       return false;
     }
 
+    let classNo = 0;
+
+    if (this.courseCredit == 1.5) {
+      classNo = 2;
+    } else if (this.courseCredit == 3) {
+      classNo = 2;
+    } else if (this.courseCredit == 4.5) {
+      classNo = 3;
+    }
+    console.log("class No: ", classNo);
     let creditWiseClass = false;
     let moreThanTwoClass = false;
     let sectionHasClassInTimeSlot = false;
@@ -1280,7 +1297,7 @@ export class GenerateRoutineComponent implements OnInit {
     let courseHasAlreadyInThisDay = false;
     let roomiSBooked = false;
     let two = 0;
-    let threeCredit = 0;
+    let creditClass = 0;
 
     this.routines.forEach((routine) => {
       if (
@@ -1293,7 +1310,7 @@ export class GenerateRoutineComponent implements OnInit {
         this.courseShortName == routine.courseName &&
         this.batchAndSection == routine.batchAndSection
       ) {
-        threeCredit++;
+        creditClass++;
       }
       if (
         this.batchAndSection == routine.batchAndSection &&
@@ -1319,10 +1336,8 @@ export class GenerateRoutineComponent implements OnInit {
         this.TimeSlot == routine.timeSlot
       ) {
         roomiSBooked = true;
-      } else if (two >= 2) {
-        moreThanTwoClass = true;
       }
-      if (threeCredit >= 2) {
+      if (creditClass >= classNo) {
         creditWiseClass = true;
       }
     });
@@ -1332,7 +1347,7 @@ export class GenerateRoutineComponent implements OnInit {
       alert("This section has already two classes this day.");
       return false;
     } else if (creditWiseClass) {
-      alert("This course can't be offered more than twice in a week.");
+      alert(`This course can't be offered more than ${classNo} in a week.`);
       return false;
     } else if (sectionHasClassInTimeSlot) {
       alert("This section has already class in this timeSlot.");
