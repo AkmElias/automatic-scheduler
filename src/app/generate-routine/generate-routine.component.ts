@@ -137,7 +137,8 @@ export class GenerateRoutineComponent implements OnInit {
   fridayTwo = [];
   fridayThreeThirty = [];
   loggedIn = false;
-
+  batchAndSections;
+  batchAndSectionsArray;
   constructor(
     private programApi: ProgramapiService,
     private batchApi: BatchapiService,
@@ -256,10 +257,25 @@ export class GenerateRoutineComponent implements OnInit {
     this.routines = await this.routineApi
       .getRoutinesByTermYearProgram(this.Title)
       .toPromise();
+    this.getBatchesAndSections();
     this.populateColumnsArrayWithAppropriateroutine();
     console.log("routines by title..", this.routines);
     // console.log("monday twelve thirty..", this.mondayTwelveThirty);
     // console.log("tuesday twelve thirty..", this.tuesdayTwelveThirty);
+  };
+
+  getBatchesAndSections = () => {
+    this.batchAndSectionsArray = [];
+    this.batchAndSections = new Set();
+    this.routines.forEach((routine) => {
+      this.batchAndSections.add(routine.batchAndSection);
+    });
+    this.batchAndSections.forEach((bas) => {
+      this.batchAndSectionsArray.push(bas);
+    });
+    this.batchAndSectionsArray.sort();
+
+    console.log("batches and sections..", this.batchAndSectionsArray);
   };
 
   populateColumnsArrayWithAppropriateroutine = () => {
@@ -1259,6 +1275,7 @@ export class GenerateRoutineComponent implements OnInit {
       this.routineApi.createRoutine(this.routineRow).subscribe((data) => {
         console.log("added class..", data);
         this.clearForm();
+        this.getBatchesAndSections();
         this.emptyColumnsArray();
         this.getRoutines();
         this.roomFilter();

@@ -91,3 +91,33 @@
   margin-bottom: 2px;
   color: #fff;
 }
+.pdf-table-title{
+  padding: 3px;
+  margin: 2px;
+  background-color: initial;
+  text-align: center;
+}
+
+.day{
+  width: 100%;
+  padding: 3px;
+  color: #fff;
+  text-align: center;
+  margin-top: 3px;
+  margin-bottom: -2px;
+  background-color: rgb(54,99,66);
+}
+
+.short-form{
+  font-size: 14px;
+}
+
+.table-column{
+  width: 100%;
+  height: fit-content;
+  font-size: 12px;
+  background-color: rgb(54,99,66);
+  color: #fff;
+}
+
+
