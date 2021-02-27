@@ -68,7 +68,8 @@
     </div>
 
 
-    <button [hidden]="!firstStepSubmitted" style="margin: 2px;" (click)="exportAsPDF(contentsToConvert,'content')">DOWNLOAD PDF</button>
+    <button [hidden]="!firstStepSubmitted" style="margin: 2px;"
+        (click)="exportAsPDF(contentsToConvert,'content')">DOWNLOAD PDF</button>
 
 
     <div [hidden]="!firstStepSubmitted" class="routine-table" id="pdfTable" #contentToConvert>
@@ -945,465 +946,1205 @@
         </table>
     </div>
 
-    <div class="pdf-container" id="pdf-content">
-
-        <div  [hidden]="!firstStepSubmitted" id="content" #contentsToConvert>
-            <h3 class="pdf-table-title text-center">{{Title}}</h3>
+    <div class="pdf-container" id="pdf" #contentsToConvert>
+        <div [hidden]="!firstStepSubmitted" id="content">
+            <h4 class="pdf-table-title text-center">{{Title}}</h4>
+            <p class='day'>SATURDAY</p>
             <table class='table table-bordered'>
                 <thead>
-                    <tr>
-                        <!-- <th>Routine ID</th> -->
-                        <th></th>
-                        <th *ngFor='let timeSlot of TimeSlots'>{{timeSlot}}</th>
-                    </tr>
+                    <th>Batch</th>
+                    <th *ngFor='let timeSlot of TimeSlots'>
+                        <p class="short-form">{{timeSlot}}</p>
+                    </th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>SATURDAY</td>
+                        <td></td>
                         <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of saturdayEight'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
+                    <tr>
+                        <td>
+                            <p class="short-form">course</p>
                         </td>
                         <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of saturdayNineThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of saturdayEleven'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of saturdayTwelveThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of saturdayTwo'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of saturdayThreeThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
+                            <p class="short-form">Faculty Room</p>
                         </td>
 
                     </tr>
-                    <tr>
-                        <td>SUNDAY</td>
+                    </td>
+                    <td>
+                        <tr>
+                            <td>
+                                <p class="short-form">course</p>
+                            </td>
+                            <td>
+                                <p class="short-form">Faculty Room</p>
+                            </td>
+
+                        </tr>
+                    </td>
+                    <td>
+                        <tr>
+                            <td>
+                                <p class="short-form">course</p>
+                            </td>
+                            <td>
+                                <p class="short-form">Faculty Room</p>
+                            </td>
+                        </tr>
+                    </td>
+                    <td>
+                        <tr>
+                            <td>
+                                <p class="short-form">course</p>
+                            </td>
+                            <td>
+                                <p class="short-form">Faculty Room</p>
+                            </td>
+
+                        </tr>
+                    </td>
+                    <td>
+                        <tr>
+                            <td>
+                                <p class="short-form">course</p>
+                            </td>
+                            <td>
+                                <p class="short-form">Faculty Room</p>
+                            </td>
+                        </tr>
+                    </td>
+                    <td>
+                        <tr>
+                            <td>
+                                <p class="short-form">course</p>
+                            </td>
+                            <td>
+                                <p class="short-form">Faculty Room</p>
+                            </td>
+                        </tr>
+                    </td>
+                    </tr>
+                    <tr *ngFor='let bas of batchAndSectionsArray'>
+                        <td>{{bas}}</td>
+                        <!-- <tr *ngFor='let batch of batches'>
+
+             </tr> -->
                         <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of sundayEight'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
+                            <div *ngFor='let routine of saturdayEight'>
+                    <tr *ngIf='bas == routine.batchAndSection'>
+                        <td class="table-column">
+                            <p>{{routine.courseName}}</p>
                         </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of sundayNineThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
+                        <td class="table-column">
+                            <p>{{routine.faculty}}</p>
                         </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of sundayEleven'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of sundayTwelveThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of sundayTwo'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of sundayThreeThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
+                        <td class="table-column">
+                            <p>{{routine.room}}</p>
                         </td>
                     </tr>
-                    <tr>
-                        <td>MONDAY</td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of mondayEight'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of mondayNineThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of mondayEleven'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of mondayTwelveThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of mondayTwo'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of mondayThreeThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>TUESDAY</td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of tuesdayEight'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of tuesdayNineThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of tuesdayEleven'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of tuesdayTwelveThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of tuesdayTwo'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of tuesdayThreeThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>WEDNESDAY</td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of wednesdayEight'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of wednesdayNineThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of wednesdayEleven'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of wednesdayTwelveThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of wednesdayTwo'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of wednesdayThreeThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>THURSDAY</td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of thursdayEight'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of thursdayNineThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of thursdayEleven'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of thursdayTwelveThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of thursdayTwo'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of thursdayThreeThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>FRIDAY</td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of fridayEight'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of fridayNineThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of fridayEleven'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of fridayTwelveThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of fridayTwo'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="pdf-table-box">
-                                <div class="pdf-single-class" *ngFor='let routine of fridayThreeThirty'>
-                                    <p class="pdf-single-class-info-p">{{routine.batchAndSection}},
-                                        {{routine.courseName}}
-                                    </p>
-                                    <p class="pdf-single-class-info-p">{{routine.faculty}}, {{routine.room}}</p>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of saturdayNineThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of saturdayEleven'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of saturdayTwelveThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of saturdayTwo'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of saturdayThreeThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+
+        <p class='day'>SUNDAY</p>
+        <table class='table table-bordered'>
+            <thead>
+                <th>Batch</th>
+                <th *ngFor='let timeSlot of TimeSlots'>
+                    <p class="short-form">{{timeSlot}}</p>
+                </th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>
+                <tr>
+                    <td>
+                        <p class="short-form">course</p>
+                    </td>
+                    <td>
+                        <p class="short-form">Faculty Room</p>
+                    </td>
+                </tr>
+                </td>
+                <td>
+                    <tr>
+                        <td>
+                            <p class="short-form">course</p>
+                        </td>
+                        <td>
+                            <p class="short-form">Faculty Room</p>
+                        </td>
+                    </tr>
+                </td>
+                <td>
+                    <tr>
+                        <td>
+                            <p class="short-form">course</p>
+                        </td>
+                        <td>
+                            <p class="short-form">Faculty Room</p>
+                        </td>
+                    </tr>
+                </td>
+                <td>
+                    <tr>
+                        <td>
+                            <p class="short-form">course</p>
+                        </td>
+                        <td>
+                            <p class="short-form">Faculty Room</p>
+                        </td>
+                    </tr>
+                </td>
+                <td>
+                    <tr>
+                        <td>
+                            <p class="short-form">course</p>
+                        </td>
+                        <td>
+                            <p class="short-form">Faculty Room</p>
+                        </td>
+                    </tr>
+                </td>
+                <td>
+                    <tr>
+                        <td>
+                            <p class="short-form">course</p>
+                        </td>
+                        <td>
+                            <p class="short-form">Faculty Room</p>
+                        </td>
+                    </tr>
+                </td>
+                </tr>
+                <tr *ngFor='let bas of batchAndSectionsArray'>
+                    <td>{{bas}}</td>
+                    <!-- <tr *ngFor='let batch of batches'>
+         </tr> -->
+                    <td>
+                        <div *ngFor='let routine of sundayEight'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
     </div>
+    </td>
+    <td>
+        <div *ngFor='let routine of sundayNineThirty'>
+            <tr *ngIf='bas == routine.batchAndSection'>
+                <td class="table-column">
+                    <p>{{routine.courseName}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.faculty}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.room}}</p>
+                </td>
+            </tr>
+        </div>
+    </td>
+    <td>
+        <div *ngFor='let routine of sundayEleven'>
+            <tr *ngIf='bas == routine.batchAndSection'>
+                <td class="table-column">
+                    <p>{{routine.courseName}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.faculty}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.room}}</p>
+                </td>
+            </tr>
+        </div>
+    </td>
+    <td>
+        <div *ngFor='let routine of sundayTwelveThirty'>
+            <tr *ngIf='bas == routine.batchAndSection'>
+                <td class="table-column">
+                    <p>{{routine.courseName}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.faculty}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.room}}</p>
+                </td>
+            </tr>
+        </div>
+    </td>
+    <td>
+        <div *ngFor='let routine of sundayTwo'>
+            <tr *ngIf='bas == routine.batchAndSection'>
+                <td class="table-column">
+                    <p>{{routine.courseName}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.faculty}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.room}}</p>
+                </td>
+            </tr>
+        </div>
+    </td>
+    <td>
+        <div *ngFor='let routine of sundayThreeThirty'>
+            <tr *ngIf='bas == routine.batchAndSection'>
+                <td class="table-column">
+                    <p>{{routine.courseName}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.faculty}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.room}}</p>
+                </td>
+            </tr>
+        </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+    <p class='day'>MONNDAY</p>
+    <table class='table table-bordered'>
+        <thead>
+            <th>Batch</th>
+            <th *ngFor='let timeSlot of TimeSlots'>
+                <p class="short-form">{{timeSlot}}</p>
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+            </td>
+            <td>
+                <tr>
+                    <td>
+                        <p class="short-form">course</p>
+                    </td>
+                    <td>
+                        <p class="short-form">Faculty Room</p>
+                    </td>
+                </tr>
+            </td>
+            <td>
+                <tr>
+                    <td>
+                        <p class="short-form">course</p>
+                    </td>
+                    <td>
+                        <p class="short-form">Faculty Room</p>
+                    </td>
+                </tr>
+            </td>
+            <td>
+                <tr>
+                    <td>
+                        <p class="short-form">course</p>
+                    </td>
+                    <td>
+                        <p class="short-form">Faculty Room</p>
+                    </td>
+                </tr>
+            </td>
+            <td>
+                <tr>
+                    <td>
+                        <p class="short-form">course</p>
+                    </td>
+                    <td>
+                        <p class="short-form">Faculty Room</p>
+                    </td>
+                </tr>
+            </td>
+            <td>
+                <tr>
+                    <td>
+                        <p class="short-form">course</p>
+                    </td>
+                    <td>
+                        <p class="short-form">Faculty Room</p>
+                    </td>
+                </tr>
+            </td>
+            </tr>
+            <tr *ngFor='let bas of batchAndSectionsArray'>
+                <td>{{bas}}</td>
+                <!-- <tr *ngFor='let batch of batches'>
+     </tr> -->
+                <td>
+                    <div *ngFor='let routine of mondayEight'>
+            <tr *ngIf='bas == routine.batchAndSection'>
+                <td class="table-column">
+                    <p>{{routine.courseName}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.faculty}}</p>
+                </td>
+                <td class="table-column">
+                    <p>{{routine.room}}</p>
+                </td>
+            </tr>
+</div>
+</td>
+<td>
+    <div *ngFor='let routine of mondayNineThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+            <td class="table-column">
+                <p>{{routine.courseName}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.faculty}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.room}}</p>
+            </td>
+        </tr>
+    </div>
+</td>
+<td>
+    <div *ngFor='let routine of mondayEleven'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+            <td class="table-column">
+                <p>{{routine.courseName}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.faculty}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.room}}</p>
+            </td>
+        </tr>
+    </div>
+</td>
+<td>
+    <div *ngFor='let routine of mondayTwelveThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+            <td class="table-column">
+                <p>{{routine.courseName}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.faculty}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.room}}</p>
+            </td>
+        </tr>
+    </div>
+</td>
+<td>
+    <div *ngFor='let routine of mondayTwo'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+            <td class="table-column">
+                <p>{{routine.courseName}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.faculty}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.room}}</p>
+            </td>
+        </tr>
+    </div>
+</td>
+<td>
+    <div *ngFor='let routine of mondayThreeThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+            <td class="table-column">
+                <p>{{routine.courseName}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.faculty}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.room}}</p>
+            </td>
+        </tr>
+    </div>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p class='day'>TUESDAY</p>
+<table class='table table-bordered'>
+    <thead>
+        <th>Batch</th>
+        <th *ngFor='let timeSlot of TimeSlots'>
+            <p class="short-form">{{timeSlot}}</p>
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>
+        <tr>
+            <td>
+                <p class="short-form">course</p>
+            </td>
+            <td>
+                <p class="short-form">Faculty Room</p>
+            </td>
+        </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        </tr>
+        <tr *ngFor='let bas of batchAndSectionsArray'>
+            <td>{{bas}}</td>
+            <!-- <tr *ngFor='let batch of batches'>
+ </tr> -->
+            <td>
+                <div *ngFor='let routine of tuesdayEight'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+            <td class="table-column">
+                <p>{{routine.courseName}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.faculty}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.room}}</p>
+            </td>
+        </tr>
+        </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of tuesdayNineThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of tuesdayEleven'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of tuesdayTwelveThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of tuesdayTwo'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of tuesdayThreeThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+<p class='day'>WEDNESDAY</p>
+<table class='table table-bordered'>
+    <thead>
+        <th>Batch</th>
+        <th *ngFor='let timeSlot of TimeSlots'>
+            <p class="short-form">{{timeSlot}}</p>
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>
+        <tr>
+            <td>
+                <p class="short-form">course</p>
+            </td>
+            <td>
+                <p class="short-form">Faculty Room</p>
+            </td>
+        </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        </tr>
+        <tr *ngFor='let bas of batchAndSectionsArray'>
+            <td>{{bas}}</td>
+            <!-- <tr *ngFor='let batch of batches'>
+ </tr> -->
+            <td>
+                <div *ngFor='let routine of wednesdayEight'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+            <td class="table-column">
+                <p>{{routine.courseName}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.faculty}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.room}}</p>
+            </td>
+        </tr>
+        </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of wednesdayNineThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of wednesdayEleven'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of wednesdayTwelveThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of wednesdayTwo'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of wednesdayThreeThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+<p class='day'>THURSDAY</p>
+<table class='table table-bordered'>
+    <thead>
+        <th>Batch</th>
+        <th *ngFor='let timeSlot of TimeSlots'>
+            <p class="short-form">{{timeSlot}}</p>
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>
+        <tr>
+            <td>
+                <p class="short-form">course</p>
+            </td>
+            <td>
+                <p class="short-form">Faculty Room</p>
+            </td>
+        </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        </tr>
+        <tr *ngFor='let bas of batchAndSectionsArray'>
+            <td>{{bas}}</td>
+            <!-- <tr *ngFor='let batch of batches'>
+ </tr> -->
+            <td>
+                <div *ngFor='let routine of thursdayEight'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+            <td class="table-column">
+                <p>{{routine.courseName}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.faculty}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.room}}</p>
+            </td>
+        </tr>
+        </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of thursdayNineThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of thursdayEleven'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of thursdayTwelveThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of thursdayTwo'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of thursdayThreeThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+<p class='day'>FRIDAY</p>
+<table class='table table-bordered'>
+    <thead>
+        <th>Batch</th>
+        <th *ngFor='let timeSlot of TimeSlots'>
+            <p class="short-form">{{timeSlot}}</p>
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>
+        <tr>
+            <td>
+                <p class="short-form">course</p>
+            </td>
+            <td>
+                <p class="short-form">Faculty Room</p>
+            </td>
+        </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <td>
+                    <p class="short-form">course</p>
+                </td>
+                <td>
+                    <p class="short-form">Faculty Room</p>
+                </td>
+            </tr>
+        </td>
+        </tr>
+        <tr *ngFor='let bas of batchAndSectionsArray'>
+            <td>{{bas}}</td>
+            <!-- <tr *ngFor='let batch of batches'>
+ </tr> -->
+            <td>
+                <div *ngFor='let routine of fridayEight'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+            <td class="table-column">
+                <p>{{routine.courseName}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.faculty}}</p>
+            </td>
+            <td class="table-column">
+                <p>{{routine.room}}</p>
+            </td>
+        </tr>
+        </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of fridayNineThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of fridayEleven'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of fridayTwelveThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of fridayTwo'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        <td>
+            <div *ngFor='let routine of fridayThreeThirty'>
+                <tr *ngIf='bas == routine.batchAndSection'>
+                    <td class="table-column">
+                        <p>{{routine.courseName}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.faculty}}</p>
+                    </td>
+                    <td class="table-column">
+                        <p>{{routine.room}}</p>
+                    </td>
+                </tr>
+            </div>
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
 
 </div>
 
