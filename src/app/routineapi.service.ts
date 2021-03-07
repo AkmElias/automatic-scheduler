@@ -48,7 +48,9 @@ export class RoutineapiService {
       timeSlot: routine.timeSlot,
       day: routine.day,
       courseName: routine.course,
+      courseTitle: routine.courseTitle,
       faculty: routine.faculty,
+      facultyFullName: routine.facultyFullName,
       room: routine.room,
     };
     return this.http.post(this.baseurl + "/routines/", body, {

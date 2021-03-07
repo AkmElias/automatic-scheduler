@@ -93,6 +93,9 @@ export class GenerateRoutineComponent implements OnInit {
   two = "2.00pm to 3.20pm";
   threeThirty = "3.30pm to 4.50pm";
 
+  courseTitle = ""
+  facultyFullName = "";
+
   dayTime = "";
   saturdayEight = [];
   saturdayNineThirty = [];
@@ -943,8 +946,11 @@ export class GenerateRoutineComponent implements OnInit {
     let courseAndFacultyShortName =
       results[0][0].crs_shortName + ", " + results[1][0].fac_shortName;
     this.courseShortName = results[0][0].crs_shortName;
+    this.courseTitle = results[0][0].crs_title;
     this.facultyShortName = results[1][0].fac_shortName;
-    console.log("course and fac shortname..", courseAndFacultyShortName);
+    this.facultyFullName = results[1][0].fac_firstName + " " + results[1][0].fac_lastName
+
+    console.log("course and fac shortname..", this.facultyFullName);
   };
 
   roomFilter = () => {
@@ -1263,7 +1269,9 @@ export class GenerateRoutineComponent implements OnInit {
       batchAndSection: this.batchAndSection,
       timeSlot: this.TimeSlot,
       course: this.courseShortName,
+      courseTitle: this.courseTitle,
       faculty: this.facultyShortName,
+      facultyFullName: this.facultyFullName,
       room: this.Room,
     };
     // this.tempRoutine = `${this.batchAndSection}, ${this.courseShortName}, ${this.facultyShortName}, ${this.Room}`;
@@ -1358,7 +1366,7 @@ export class GenerateRoutineComponent implements OnInit {
         creditWiseClass = true;
       }
     });
-    console.log(`moreThanTwoClass: ${moreThanTwoClass}, creditWiseClass: ${creditWiseClass}, sectionHasClassInTimeSLot: ${sectionHasClassInTimeSlot}, 
+    console.log(`moreThanTwoClass: ${moreThanTwoClass}, creditWiseClass: ${creditWiseClass}, sectionHasClassInTimeSLot: ${sectionHasClassInTimeSlot},
     facultyHasClass: ${facultyHasClassInTimeSlot}, courseHasAlrerady: ${courseHasAlreadyInThisDay}, roomIsBooked: ${roomiSBooked} `);
     if (moreThanTwoClass) {
       alert("This section has already two classes this day.");
