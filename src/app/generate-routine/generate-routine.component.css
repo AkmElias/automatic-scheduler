@@ -22,8 +22,10 @@
 .routine-table-box {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: initial;
   width: 100%;
+  min-height: 80px;
   height: max-content;
   padding: 2px;
   flex-wrap: wrap;
@@ -66,7 +68,6 @@
 
 .single-class-info{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
@@ -111,7 +112,7 @@
   text-align: center;
   margin-top: 3px;
   margin-bottom: -2px;
-  background-color: rgb(54,99,66);
+  background-color: rgb(109 232 127);
 }
 
 .sunDay{
@@ -121,7 +122,7 @@
   text-align: center;
   margin-top: 3px;
   margin-bottom: -2px;
-  background-color: rgb(167, 179, 6);
+  background-color: rgb(199 206 104);
 }
 
 .monDay{
@@ -131,7 +132,7 @@
   text-align: center;
   margin-top: 3px;
   margin-bottom: -2px;
-  background-color: rgb(3, 58, 90);
+  background-color: rgb(98 173 216);
 }
 
 .tuesDay{
@@ -141,7 +142,7 @@
   text-align: center;
   margin-top: 3px;
   margin-bottom: -2px;
-  background-color: rgb(54,99,66);
+  background-color: rgb(109 232 127);
 }
 
 .wednesDay{
@@ -151,7 +152,7 @@
   text-align: center;
   margin-top: 3px;
   margin-bottom: -2px;
-  background-color: rgb(167, 179, 6);
+  background-color: rgb(199 206 104);
 }
 
 .thursDay{
@@ -161,7 +162,7 @@
   text-align: center;
   margin-top: 3px;
   margin-bottom: -2px;
-  background-color: rgb(3, 58, 90);
+  background-color: rgb(98 173 216);
 }
 
 .friDay{
@@ -171,7 +172,7 @@
   text-align: center;
   margin-top: 3px;
   margin-bottom: -2px;
-  background-color: rgb(95, 14, 14);
+  background-color: rgb(239 145 113);
 }
 
 
