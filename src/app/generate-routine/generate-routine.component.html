@@ -918,65 +918,69 @@
         <tbody>
           <tr>
             <td></td>
-            <td>
+            <td style="background-color: skyblue;">
           <tr>
-            <td style="background-color: skyblue;">
-              <p class="short-form">Course Room</p>
-            </td>
-            <td style="background-color: skyblue;">
-              <p class="short-form">Faculty</p>
-            </td>
-
+              <td>
+                <p class="short-form">Course Room</p>
+              </td>
+              <td>
+                <p class="short-form">Faculty</p>
+              </td>
           </tr>
-          </td>
-          <td>
+
+          </td >
+          <td style="background-color: lightgreen;">
             <tr>
-              <td style="background-color: lightgreen;">
+              <td >
                 <p class="short-form">Course Room</p>
               </td>
-              <td style="background-color: lightgreen;">
+              <td >
                 <p class="short-form">Faculty</p>
               </td>
 
             </tr>
           </td>
-          <td>
+
+          <td style="background-color: lightseagreen;">
             <tr>
-              <td style="background-color: lightseagreen;">
+              <td >
                 <p class="short-form">Course Room</p>
               </td>
-              <td style="background-color: lightseagreen;">
+              <td>
                 <p class="short-form">Faculty</p>
               </td>
             </tr>
           </td>
-          <td>
+
+          <td style="background-color: skyblue;">
             <tr>
-              <td style="background-color: skyblue;">
+              <td >
                 <p class="short-form">Course Room</p>
               </td>
-              <td style="background-color: skyblue;">
+              <td>
                 <p class="short-form">Faculty</p>
               </td>
 
             </tr>
           </td>
-          <td>
+
+          <td style="background-color: lightgreen;">
             <tr>
-              <td style="background-color: lightgreen;">
+              <td >
                 <p class="short-form">Course Room</p>
               </td>
-              <td style="background-color: lightgreen;">
+              <td >
                 <p class="short-form">Faculty</p>
               </td>
             </tr>
           </td>
-          <td>
+
+          <td style="background-color: lightseagreen;">
             <tr>
-              <td style="background-color: lightseagreen;">
+              <td >
                 <p class="short-form">Course Room</p>
               </td>
-              <td style="background-color: lightseagreen;">
+              <td >
                 <p class="short-form">Faculty</p>
               </td>
             </tr>
@@ -990,13 +994,13 @@
             <td style="background-color: skyblue;">
               <div *ngFor='let routine of saturdayEight'>
           <tr *ngIf='bas == routine.batchAndSection'>
-            <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-              <p>{{routine.courseName}}</p>
-              <p>{{routine.room}}</p>
+           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+              <p class="course-p">{{routine.courseName}}</p>
+              <p class="room-p">{{routine.room}}</p>
             </td>
             <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-              <p>{{routine.faculty}}</p>
-            </td>
+              <p class="faculty-p">{{routine.faculty}}</p>
+            </td> 
           </tr>
     </div>
     </td>
@@ -1004,12 +1008,12 @@
       <div *ngFor='let routine of saturdayNineThirty'>
         <tr *ngIf='bas == routine.batchAndSection'>
           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-            <p>{{routine.courseName}}</p>
-            <p>{{routine.room}}</p>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
           </td>
           <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-            <p>{{routine.faculty}}</p>
-          </td>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
         </tr>
       </div>
     </td>
@@ -1017,12 +1021,12 @@
       <div *ngFor='let routine of saturdayEleven'>
         <tr *ngIf='bas == routine.batchAndSection'>
           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-            <p>{{routine.courseName}}</p>
-            <p>{{routine.room}}</p>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
           </td>
           <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-            <p>{{routine.faculty}}</p>
-          </td>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
         </tr>
       </div>
     </td>
@@ -1030,12 +1034,12 @@
       <div *ngFor='let routine of saturdayTwelveThirty'>
         <tr *ngIf='bas == routine.batchAndSection'>
           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-            <p>{{routine.courseName}}</p>
-            <p>{{routine.room}}</p>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
           </td>
           <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-            <p>{{routine.faculty}}</p>
-          </td>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
         </tr>
       </div>
     </td>
@@ -1043,12 +1047,12 @@
       <div *ngFor='let routine of saturdayTwo'>
         <tr *ngIf='bas == routine.batchAndSection'>
           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-            <p>{{routine.courseName}}</p>
-            <p>{{routine.room}}</p>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
           </td>
           <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-            <p>{{routine.faculty}}</p>
-          </td>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
         </tr>
       </div>
     </td>
@@ -1056,12 +1060,12 @@
       <div *ngFor='let routine of saturdayThreeThirty'>
         <tr *ngIf='bas == routine.batchAndSection'>
           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-            <p>{{routine.courseName}}</p>
-            <p>{{routine.room}}</p>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
           </td>
           <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-            <p>{{routine.faculty}}</p>
-          </td>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
         </tr>
       </div>
     </td>
@@ -1080,65 +1084,69 @@
       <tbody>
         <tr>
           <td></td>
-          <td>
+          <td style="background-color: skyblue;">
         <tr>
-          <td style="background-color: skyblue;">
-            <p class="short-form">Course Room</p>
-          </td>
-          <td style="background-color: skyblue;">
-            <p class="short-form">Faculty</p>
-          </td>
-
+            <td>
+              <p class="short-form">Course Room</p>
+            </td>
+            <td>
+              <p class="short-form">Faculty</p>
+            </td>
         </tr>
-        </td>
-        <td>
+
+        </td >
+        <td style="background-color: lightgreen;">
           <tr>
-            <td style="background-color: lightgreen;">
+            <td >
               <p class="short-form">Course Room</p>
             </td>
-            <td style="background-color: lightgreen;">
+            <td >
               <p class="short-form">Faculty</p>
             </td>
 
           </tr>
         </td>
-        <td>
+
+        <td style="background-color: lightseagreen;">
           <tr>
-            <td style="background-color: lightseagreen;">
+            <td >
               <p class="short-form">Course Room</p>
             </td>
-            <td style="background-color: lightseagreen;">
+            <td>
               <p class="short-form">Faculty</p>
             </td>
           </tr>
         </td>
-        <td>
+
+        <td style="background-color: skyblue;">
           <tr>
-            <td style="background-color: skyblue;">
+            <td >
               <p class="short-form">Course Room</p>
             </td>
-            <td style="background-color: skyblue;">
+            <td>
               <p class="short-form">Faculty</p>
             </td>
 
           </tr>
         </td>
-        <td>
+
+        <td style="background-color: lightgreen;">
           <tr>
-            <td style="background-color: lightgreen;">
+            <td >
               <p class="short-form">Course Room</p>
             </td>
-            <td style="background-color: lightgreen;">
+            <td >
               <p class="short-form">Faculty</p>
             </td>
           </tr>
         </td>
-        <td>
+
+        <td style="background-color: lightseagreen;">
           <tr>
-            <td style="background-color: lightseagreen;">
+            <td >
               <p class="short-form">Course Room</p>
             </td>
-            <td style="background-color: lightseagreen;">
+            <td >
               <p class="short-form">Faculty</p>
             </td>
           </tr>
@@ -1153,12 +1161,12 @@
             <div *ngFor='let routine of sundayEight'>
         <tr *ngIf='bas == routine.batchAndSection'>
           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-            <p>{{routine.courseName}}</p>
-            <p>{{routine.room}}</p>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
           </td>
           <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-            <p>{{routine.faculty}}</p>
-          </td>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
         </tr>
   </div>
   </td>
@@ -1166,12 +1174,12 @@
     <div *ngFor='let routine of sundayNineThirty'>
       <tr *ngIf='bas == routine.batchAndSection'>
         <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-          <p>{{routine.courseName}}</p>
-          <p>{{routine.room}}</p>
+          <p class="course-p">{{routine.courseName}}</p>
+          <p class="room-p">{{routine.room}}</p>
         </td>
         <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-          <p>{{routine.faculty}}</p>
-        </td>
+          <p class="faculty-p">{{routine.faculty}}</p>
+        </td> 
       </tr>
     </div>
   </td>
@@ -1179,12 +1187,12 @@
     <div *ngFor='let routine of sundayEleven'>
       <tr *ngIf='bas == routine.batchAndSection'>
         <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-          <p>{{routine.courseName}}</p>
-          <p>{{routine.room}}</p>
+          <p class="course-p">{{routine.courseName}}</p>
+          <p class="room-p">{{routine.room}}</p>
         </td>
         <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-          <p>{{routine.faculty}}</p>
-        </td>
+          <p class="faculty-p">{{routine.faculty}}</p>
+        </td> 
       </tr>
     </div>
   </td>
@@ -1192,12 +1200,12 @@
     <div *ngFor='let routine of sundayTwelveThirty'>
       <tr *ngIf='bas == routine.batchAndSection'>
         <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-          <p>{{routine.courseName}}</p>
-          <p>{{routine.room}}</p>
+          <p class="course-p">{{routine.courseName}}</p>
+          <p class="room-p">{{routine.room}}</p>
         </td>
         <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-          <p>{{routine.faculty}}</p>
-        </td>
+          <p class="faculty-p">{{routine.faculty}}</p>
+        </td> 
       </tr>
     </div>
   </td>
@@ -1205,12 +1213,12 @@
     <div *ngFor='let routine of sundayTwo'>
       <tr *ngIf='bas == routine.batchAndSection'>
         <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-          <p>{{routine.courseName}}</p>
-          <p>{{routine.room}}</p>
+          <p class="course-p">{{routine.courseName}}</p>
+          <p class="room-p">{{routine.room}}</p>
         </td>
         <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-          <p>{{routine.faculty}}</p>
-        </td>
+          <p class="faculty-p">{{routine.faculty}}</p>
+        </td> 
       </tr>
     </div>
   </td>
@@ -1218,12 +1226,12 @@
     <div *ngFor='let routine of sundayThreeThirty'>
       <tr *ngIf='bas == routine.batchAndSection'>
         <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-          <p>{{routine.courseName}}</p>
-          <p>{{routine.room}}</p>
+          <p class="course-p">{{routine.courseName}}</p>
+          <p class="room-p">{{routine.room}}</p>
         </td>
         <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-          <p>{{routine.faculty}}</p>
-        </td>
+          <p class="faculty-p">{{routine.faculty}}</p>
+        </td> 
       </tr>
     </div>
   </td>
@@ -1243,65 +1251,69 @@
     <tbody>
       <tr>
         <td></td>
-        <td>
+        <td style="background-color: skyblue;">
       <tr>
-        <td style="background-color: skyblue;">
-          <p class="short-form">Course Room</p>
-        </td>
-        <td style="background-color: skyblue;">
-          <p class="short-form">Faculty</p>
-        </td>
-
+          <td>
+            <p class="short-form">Course Room</p>
+          </td>
+          <td>
+            <p class="short-form">Faculty</p>
+          </td>
       </tr>
-      </td>
-      <td>
+
+      </td >
+      <td style="background-color: lightgreen;">
         <tr>
-          <td style="background-color: lightgreen;">
+          <td >
             <p class="short-form">Course Room</p>
           </td>
-          <td style="background-color: lightgreen;">
+          <td >
             <p class="short-form">Faculty</p>
           </td>
 
         </tr>
       </td>
-      <td>
+
+      <td style="background-color: lightseagreen;">
         <tr>
-          <td style="background-color: lightseagreen;">
+          <td >
             <p class="short-form">Course Room</p>
           </td>
-          <td style="background-color: lightseagreen;">
+          <td>
             <p class="short-form">Faculty</p>
           </td>
         </tr>
       </td>
-      <td>
+
+      <td style="background-color: skyblue;">
         <tr>
-          <td style="background-color: skyblue;">
+          <td >
             <p class="short-form">Course Room</p>
           </td>
-          <td style="background-color: skyblue;">
+          <td>
             <p class="short-form">Faculty</p>
           </td>
 
         </tr>
       </td>
-      <td>
+
+      <td style="background-color: lightgreen;">
         <tr>
-          <td style="background-color: lightgreen;">
+          <td >
             <p class="short-form">Course Room</p>
           </td>
-          <td style="background-color: lightgreen;">
+          <td >
             <p class="short-form">Faculty</p>
           </td>
         </tr>
       </td>
-      <td>
+
+      <td style="background-color: lightseagreen;">
         <tr>
-          <td style="background-color: lightseagreen;">
+          <td >
             <p class="short-form">Course Room</p>
           </td>
-          <td style="background-color: lightseagreen;">
+          <td >
             <p class="short-form">Faculty</p>
           </td>
         </tr>
@@ -1313,15 +1325,15 @@
 
          </tr> -->
         <td style="background-color: skyblue;">
-          <div  *ngFor='let routine of mondayEight'>
+          <div *ngFor='let routine of mondayEight'>
       <tr *ngIf='bas == routine.batchAndSection'>
         <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-          <p>{{routine.courseName}}</p>
-          <p>{{routine.room}}</p>
+          <p class="course-p">{{routine.courseName}}</p>
+          <p class="room-p">{{routine.room}}</p>
         </td>
         <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-          <p>{{routine.faculty}}</p>
-        </td>
+          <p class="faculty-p">{{routine.faculty}}</p>
+        </td> 
       </tr>
 </div>
 </td>
@@ -1329,12 +1341,12 @@
   <div *ngFor='let routine of mondayNineThirty'>
     <tr *ngIf='bas == routine.batchAndSection'>
       <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-        <p>{{routine.courseName}}</p>
-        <p>{{routine.room}}</p>
+        <p class="course-p">{{routine.courseName}}</p>
+        <p class="room-p">{{routine.room}}</p>
       </td>
       <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-        <p>{{routine.faculty}}</p>
-      </td>
+        <p class="faculty-p">{{routine.faculty}}</p>
+      </td> 
     </tr>
   </div>
 </td>
@@ -1342,12 +1354,12 @@
   <div *ngFor='let routine of mondayEleven'>
     <tr *ngIf='bas == routine.batchAndSection'>
       <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-        <p>{{routine.courseName}}</p>
-        <p>{{routine.room}}</p>
+        <p class="course-p">{{routine.courseName}}</p>
+        <p class="room-p">{{routine.room}}</p>
       </td>
       <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-        <p>{{routine.faculty}}</p>
-      </td>
+        <p class="faculty-p">{{routine.faculty}}</p>
+      </td> 
     </tr>
   </div>
 </td>
@@ -1355,12 +1367,12 @@
   <div *ngFor='let routine of mondayTwelveThirty'>
     <tr *ngIf='bas == routine.batchAndSection'>
       <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-        <p>{{routine.courseName}}</p>
-        <p>{{routine.room}}</p>
+        <p class="course-p">{{routine.courseName}}</p>
+        <p class="room-p">{{routine.room}}</p>
       </td>
       <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-        <p>{{routine.faculty}}</p>
-      </td>
+        <p class="faculty-p">{{routine.faculty}}</p>
+      </td> 
     </tr>
   </div>
 </td>
@@ -1368,12 +1380,12 @@
   <div *ngFor='let routine of mondayTwo'>
     <tr *ngIf='bas == routine.batchAndSection'>
       <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-        <p>{{routine.courseName}}</p>
-        <p>{{routine.room}}</p>
+        <p class="course-p">{{routine.courseName}}</p>
+        <p class="room-p">{{routine.room}}</p>
       </td>
       <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-        <p>{{routine.faculty}}</p>
-      </td>
+        <p class="faculty-p">{{routine.faculty}}</p>
+      </td> 
     </tr>
   </div>
 </td>
@@ -1381,12 +1393,12 @@
   <div *ngFor='let routine of mondayThreeThirty'>
     <tr *ngIf='bas == routine.batchAndSection'>
       <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-        <p>{{routine.courseName}}</p>
-        <p>{{routine.room}}</p>
+        <p class="course-p">{{routine.courseName}}</p>
+        <p class="room-p">{{routine.room}}</p>
       </td>
       <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-        <p>{{routine.faculty}}</p>
-      </td>
+        <p class="faculty-p">{{routine.faculty}}</p>
+      </td> 
     </tr>
   </div>
 </td>
@@ -1405,65 +1417,69 @@
   <tbody>
     <tr>
       <td></td>
-      <td>
+      <td style="background-color: skyblue;">
     <tr>
-      <td style="background-color: skyblue;">
-        <p class="short-form">Course Room</p>
-      </td>
-      <td style="background-color: skyblue;">
-        <p class="short-form">Faculty</p>
-      </td>
-
+        <td>
+          <p class="short-form">Course Room</p>
+        </td>
+        <td>
+          <p class="short-form">Faculty</p>
+        </td>
     </tr>
-    </td>
-    <td>
+
+    </td >
+    <td style="background-color: lightgreen;">
       <tr>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
 
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightseagreen;">
       <tr>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightseagreen;">
+        <td>
           <p class="short-form">Faculty</p>
         </td>
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: skyblue;">
       <tr>
-        <td style="background-color: skyblue;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: skyblue;">
+        <td>
           <p class="short-form">Faculty</p>
         </td>
 
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightgreen;">
       <tr>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightseagreen;">
       <tr>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
       </tr>
@@ -1475,85 +1491,85 @@
 
        </tr> -->
       <td style="background-color: skyblue;">
-        <div  *ngFor='let routine of tuesdayEight'>
+        <div *ngFor='let routine of tuesdayEight'>
     <tr *ngIf='bas == routine.batchAndSection'>
       <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-        <p>{{routine.courseName}}</p>
-        <p>{{routine.room}}</p>
+        <p class="course-p">{{routine.courseName}}</p>
+        <p class="room-p">{{routine.room}}</p>
       </td>
       <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-        <p>{{routine.faculty}}</p>
-      </td>
+        <p class="faculty-p">{{routine.faculty}}</p>
+      </td> 
     </tr>
-</div>
-</td>
-<td style="background-color: lightgreen;">
-<div *ngFor='let routine of tuesdayNineThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: lightgreen;">
+      <div *ngFor='let routine of tuesdayNineThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightseagreen;">
-<div *ngFor='let routine of tuesdayEleven'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    <td style="background-color: lightseagreen;">
+      <div *ngFor='let routine of tuesdayEleven'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: skyblue;">
+      <div *ngFor='let routine of tuesdayTwelveThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: skyblue;">
-<div *ngFor='let routine of tuesdayTwelveThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    <td style="background-color: lightgreen;">
+      <div *ngFor='let routine of tuesdayTwo'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: lightseagreen;">
+      <div *ngFor='let routine of tuesdayThreeThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightgreen;">
-<div *ngFor='let routine of tuesdayTwo'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
-    </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
-    </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightseagreen;">
-<div *ngFor='let routine of tuesdayThreeThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
-    </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
-    </td>
-  </tr>
-</div>
-</td>
-</tr>
-</tbody>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -1568,65 +1584,69 @@
   <tbody>
     <tr>
       <td></td>
-      <td>
+      <td style="background-color: skyblue;">
     <tr>
-      <td style="background-color: skyblue;">
-        <p class="short-form">Course Room</p>
-      </td>
-      <td style="background-color: skyblue;">
-        <p class="short-form">Faculty</p>
-      </td>
-
+        <td>
+          <p class="short-form">Course Room</p>
+        </td>
+        <td>
+          <p class="short-form">Faculty</p>
+        </td>
     </tr>
-    </td>
-    <td>
+
+    </td >
+    <td style="background-color: lightgreen;">
       <tr>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
 
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightseagreen;">
       <tr>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightseagreen;">
+        <td>
           <p class="short-form">Faculty</p>
         </td>
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: skyblue;">
       <tr>
-        <td style="background-color: skyblue;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: skyblue;">
+        <td>
           <p class="short-form">Faculty</p>
         </td>
 
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightgreen;">
       <tr>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightseagreen;">
       <tr>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
       </tr>
@@ -1638,85 +1658,85 @@
 
        </tr> -->
       <td style="background-color: skyblue;">
-        <div  *ngFor='let routine of wednesdayEight'>
+        <div *ngFor='let routine of wednesdayEight'>
     <tr *ngIf='bas == routine.batchAndSection'>
       <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-        <p>{{routine.courseName}}</p>
-        <p>{{routine.room}}</p>
+        <p class="course-p">{{routine.courseName}}</p>
+        <p class="room-p">{{routine.room}}</p>
       </td>
       <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-        <p>{{routine.faculty}}</p>
-      </td>
+        <p class="faculty-p">{{routine.faculty}}</p>
+      </td> 
     </tr>
-</div>
-</td>
-<td style="background-color: lightgreen;">
-<div *ngFor='let routine of wednesdayNineThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: lightgreen;">
+      <div *ngFor='let routine of wednesdayNineThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightseagreen;">
-<div *ngFor='let routine of wednesdayEleven'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    <td style="background-color: lightseagreen;">
+      <div *ngFor='let routine of wednesdayEleven'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: skyblue;">
+      <div *ngFor='let routine of wednesdayTwelveThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: skyblue;">
-<div *ngFor='let routine of wednesdayTwelveThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    <td style="background-color: lightgreen;">
+      <div *ngFor='let routine of wednesdayTwo'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: lightseagreen;">
+      <div *ngFor='let routine of wednesdayThreeThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightgreen;">
-<div *ngFor='let routine of wednesdayTwo'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
-    </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
-    </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightseagreen;">
-<div *ngFor='let routine of wednesdayThreeThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
-    </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
-    </td>
-  </tr>
-</div>
-</td>
-</tr>
-</tbody>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -1731,65 +1751,69 @@
   <tbody>
     <tr>
       <td></td>
-      <td>
+      <td style="background-color: skyblue;">
     <tr>
-      <td style="background-color: skyblue;">
-        <p class="short-form">Course Room</p>
-      </td>
-      <td style="background-color: skyblue;">
-        <p class="short-form">Faculty</p>
-      </td>
-
+        <td>
+          <p class="short-form">Course Room</p>
+        </td>
+        <td>
+          <p class="short-form">Faculty</p>
+        </td>
     </tr>
-    </td>
-    <td>
+
+    </td >
+    <td style="background-color: lightgreen;">
       <tr>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
 
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightseagreen;">
       <tr>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightseagreen;">
+        <td>
           <p class="short-form">Faculty</p>
         </td>
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: skyblue;">
       <tr>
-        <td style="background-color: skyblue;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: skyblue;">
+        <td>
           <p class="short-form">Faculty</p>
         </td>
 
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightgreen;">
       <tr>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightseagreen;">
       <tr>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
       </tr>
@@ -1801,85 +1825,85 @@
 
        </tr> -->
       <td style="background-color: skyblue;">
-        <div  *ngFor='let routine of thursdayEight'>
+        <div *ngFor='let routine of thursdayEight'>
     <tr *ngIf='bas == routine.batchAndSection'>
       <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-        <p>{{routine.courseName}}</p>
-        <p>{{routine.room}}</p>
+        <p class="course-p">{{routine.courseName}}</p>
+        <p class="room-p">{{routine.room}}</p>
       </td>
       <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-        <p>{{routine.faculty}}</p>
-      </td>
+        <p class="faculty-p">{{routine.faculty}}</p>
+      </td> 
     </tr>
-</div>
-</td>
-<td style="background-color: lightgreen;">
-<div *ngFor='let routine of thursdayNineThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: lightgreen;">
+      <div *ngFor='let routine of thursdayNineThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightseagreen;">
-<div *ngFor='let routine of thursdayEleven'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    <td style="background-color: lightseagreen;">
+      <div *ngFor='let routine of thursdayEleven'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: skyblue;">
+      <div *ngFor='let routine of thursdayTwelveThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: skyblue;">
-<div *ngFor='let routine of thursdayTwelveThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    <td style="background-color: lightgreen;">
+      <div *ngFor='let routine of thursdayTwo'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: lightseagreen;">
+      <div *ngFor='let routine of thursdayThreeThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightgreen;">
-<div *ngFor='let routine of thursdayTwo'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
-    </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
-    </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightseagreen;">
-<div *ngFor='let routine of thursdayThreeThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
-    </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
-    </td>
-  </tr>
-</div>
-</td>
-</tr>
-</tbody>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -1894,65 +1918,69 @@
   <tbody>
     <tr>
       <td></td>
-      <td>
+      <td style="background-color: skyblue;">
     <tr>
-      <td style="background-color: skyblue;">
-        <p class="short-form">Course Room</p>
-      </td>
-      <td style="background-color: skyblue;">
-        <p class="short-form">Faculty</p>
-      </td>
-
+        <td>
+          <p class="short-form">Course Room</p>
+        </td>
+        <td>
+          <p class="short-form">Faculty</p>
+        </td>
     </tr>
-    </td>
-    <td>
+
+    </td >
+    <td style="background-color: lightgreen;">
       <tr>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
 
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightseagreen;">
       <tr>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightseagreen;">
+        <td>
           <p class="short-form">Faculty</p>
         </td>
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: skyblue;">
       <tr>
-        <td style="background-color: skyblue;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: skyblue;">
+        <td>
           <p class="short-form">Faculty</p>
         </td>
 
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightgreen;">
       <tr>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightgreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
       </tr>
     </td>
-    <td>
+
+    <td style="background-color: lightseagreen;">
       <tr>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Course Room</p>
         </td>
-        <td style="background-color: lightseagreen;">
+        <td >
           <p class="short-form">Faculty</p>
         </td>
       </tr>
@@ -1964,85 +1992,85 @@
 
        </tr> -->
       <td style="background-color: skyblue;">
-        <div  *ngFor='let routine of fridayEight'>
+        <div *ngFor='let routine of fridayEight'>
     <tr *ngIf='bas == routine.batchAndSection'>
       <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-        <p>{{routine.courseName}}</p>
-        <p>{{routine.room}}</p>
+        <p class="course-p">{{routine.courseName}}</p>
+        <p class="room-p">{{routine.room}}</p>
       </td>
       <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-        <p>{{routine.faculty}}</p>
-      </td>
+        <p class="faculty-p">{{routine.faculty}}</p>
+      </td> 
     </tr>
-</div>
-</td>
-<td style="background-color: lightgreen;">
-<div *ngFor='let routine of fridayNineThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: lightgreen;">
+      <div *ngFor='let routine of fridayNineThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightseagreen;">
-<div *ngFor='let routine of fridayEleven'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    <td style="background-color: lightseagreen;">
+      <div *ngFor='let routine of fridayEleven'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: skyblue;">
+      <div *ngFor='let routine of fridayTwelveThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: skyblue;">
-<div *ngFor='let routine of fridayTwelveThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
+    <td style="background-color: lightgreen;">
+      <div *ngFor='let routine of fridayTwo'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
+    <td style="background-color: lightseagreen;">
+      <div *ngFor='let routine of fridayThreeThirty'>
+        <tr *ngIf='bas == routine.batchAndSection'>
+          <td class="table-column" ngbTooltip={{routine.courseTitle}}>
+            <p class="course-p">{{routine.courseName}}</p>
+            <p class="room-p">{{routine.room}}</p>
+          </td>
+          <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
+            <p class="faculty-p">{{routine.faculty}}</p>
+          </td> 
+        </tr>
+      </div>
     </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightgreen;">
-<div *ngFor='let routine of fridayTwo'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
-    </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
-    </td>
-  </tr>
-</div>
-</td>
-<td style="background-color: lightseagreen;">
-<div *ngFor='let routine of fridayThreeThirty'>
-  <tr *ngIf='bas == routine.batchAndSection'>
-    <td class="table-column" ngbTooltip={{routine.courseTitle}}>
-      <p>{{routine.courseName}}</p>
-      <p>{{routine.room}}</p>
-    </td>
-    <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
-      <p>{{routine.faculty}}</p>
-    </td>
-  </tr>
-</div>
-</td>
-</tr>
-</tbody>
+    </tr>
+  </tbody>
 </table>
 
 

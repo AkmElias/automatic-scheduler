@@ -33,10 +33,16 @@
 
 .routine-table-box-add {
   position: absolute;
-  font-size: 10px !important;
+  font-size: 12px !important;
+  width: fit-content !important;
+  height: fit-content !important;
   z-index: 5;
-  bottom: 0px;
-  right: 0px;
+  color: #f3ca05;
+  background-color: transparent;
+  border: 0px;
+  bottom: 2px;
+  padding: 1px !important;
+  right: 4px;
 }
 
 .single-class{
@@ -179,6 +185,21 @@
   font-size: 12px;
   /* background-color: rgb(54,99,66); */
   color: #000;
+}
+
+.course-p{
+  font-weight: 700;
+  color: darkgreen;
+}
+
+.room-p{
+  font-weight: 700;
+  color: darkmagenta;
+}
+
+.faculty-p{
+  font-weight: 700;
+  color: darkgoldenrod;
 }
 
 
