@@ -139,6 +139,7 @@ export class GenerateRoutineComponent implements OnInit {
   fridayTwelveThirty = [];
   fridayTwo = [];
   fridayThreeThirty = [];
+  courseTobeOmmites = [];
   loggedIn = false;
   batchAndSections;
   batchAndSectionsArray;
@@ -563,7 +564,8 @@ export class GenerateRoutineComponent implements OnInit {
             this.courseApi.getOneCourse(offer.courseID).subscribe((data) => {
               tempCourse.course = data[0].crs_title;
               tempCourse.courseCredit = data[0].crs_credit;
-              this.availableCourse.push(tempCourse);
+              if(!this.filterCourses(tempCourse))
+                  this.availableCourse.push(tempCourse);
             });
           });
           this.Course = null;
@@ -583,10 +585,13 @@ export class GenerateRoutineComponent implements OnInit {
         section: this.Section,
       };
       this.getRooms();
+
       console.log(
         "offered courses with crs title and facultyid..",
         this.availableCourse
       );
+
+
       // this.availableCourses = this.courses.filter((course) => {});
     }
   };
@@ -909,6 +914,33 @@ export class GenerateRoutineComponent implements OnInit {
     }
     return sectionInThisTimeSlot;
   };
+
+  filterCourses = (tempCourse) => {
+    let classNo = 0;
+    this.courseCredit = tempCourse.courseCredit;
+    let title = tempCourse.course;
+
+    if (this.courseCredit == 1.5) {
+      classNo = 2;
+    } else if (this.courseCredit == 3) {
+      classNo = 2;
+    } else if (this.courseCredit == 4.5) {
+      classNo = 3;
+    }
+
+    let creditWiseClass = false;
+    let creditClass = 0;
+
+    this.routines.forEach(routine => {
+      if(title == routine.courseTitle && this.batchAndSection == routine.batchAndSection) {
+           creditClass++;
+      }
+    })
+
+    if(creditClass >= classNo ){
+      return true;
+    } else return false;
+  }
 
   courseSelected = async (courseOffered) => {
     console.log(
@@ -1396,14 +1428,15 @@ export class GenerateRoutineComponent implements OnInit {
     this.courseLoaded = false;
     this.roomLoaded = false;
     this.secondStepLoaded = false;
-    this.Section = null;
+    this.Section = 0;
     this.sections = [];
     this.offeredCourses = [];
     this.Batch = 0;
     this.Section = 0;
+    this.Course = 0;
     this.batchAndSectionId = {};
-    this.Faculty = null;
-    this.Course = null;
+    this.Faculty = 0;
+    this.Course = 0;
   };
 
   backToFirstStep = () => {
