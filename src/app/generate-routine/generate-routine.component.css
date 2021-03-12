@@ -84,8 +84,17 @@
   flex-wrap: wrap;
   justify-content: initial;
   align-items: center;
+  margin-bottom: 3px;
 }
 
+.hr{
+  font-size: 16px;
+  color: #fff !important;
+}
+
+.pdf-table{
+  margin-bottom: -2px;
+}
 .pdf-single-class{
   padding: 2px;
   margin: 2px;

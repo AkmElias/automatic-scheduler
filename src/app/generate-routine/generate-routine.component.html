@@ -950,7 +950,7 @@
     <div [hidden]="!firstStepSubmitted" id="content">
       <h4 class="pdf-table-title text-center">{{Title}}</h4>
       <p class='day'>SATURDAY</p>
-      <table class='table table-bordered'>
+      <table class='table table-bordered pdf-table'>
         <thead>
           <th>Batch</th>
           <th *ngFor='let timeSlot of TimeSlots'>
@@ -1038,7 +1038,7 @@
           <tr *ngIf='bas == routine.batchAndSection'>
            <td class="table-column" ngbTooltip={{routine.courseTitle}}>
               <p class="course-p">{{routine.courseName}}</p>
-              <hr/>
+              <hr class="hr"/>
               <p class="room-p">{{routine.room}}</p>
             </td>
             <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
@@ -1052,7 +1052,7 @@
         <tr *ngIf='bas == routine.batchAndSection'>
           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
             <p class="course-p">{{routine.courseName}}</p>
-            <hr/>
+            <hr class="hr"/>
             <p class="room-p">{{routine.room}}</p>
           </td>
           <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
@@ -1066,7 +1066,7 @@
         <tr *ngIf='bas == routine.batchAndSection'>
           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
             <p class="course-p">{{routine.courseName}}</p>
-            <hr/>
+            <hr class="hr"/>
             <p class="room-p">{{routine.room}}</p>
           </td>
           <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
@@ -1080,7 +1080,7 @@
         <tr *ngIf='bas == routine.batchAndSection'>
           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
             <p class="course-p">{{routine.courseName}}</p>
-            <hr/>
+            <hr class="hr"/>
             <p class="room-p">{{routine.room}}</p>
           </td>
           <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
@@ -1094,7 +1094,7 @@
         <tr *ngIf='bas == routine.batchAndSection'>
           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
             <p class="course-p">{{routine.courseName}}</p>
-            <hr/>
+            <hr class="hr"/>
             <p class="room-p">{{routine.room}}</p>
           </td>
           <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
@@ -1108,7 +1108,7 @@
         <tr *ngIf='bas == routine.batchAndSection'>
           <td class="table-column" ngbTooltip={{routine.courseTitle}}>
             <p class="course-p">{{routine.courseName}}</p>
-            <hr/>
+            <hr class="hr"/>
             <p class="room-p">{{routine.room}}</p>
           </td>
           <td class="table-column" ngbTooltip={{routine.facultyFullName}}>
@@ -1122,7 +1122,7 @@
     </table>
 
     <p class='sunDay'>SUNDAY</p>
-    <table class='table table-bordered'>
+    <table class='table table-bordered pdf-table'>
       <thead>
         <th>Batch</th>
         <th *ngFor='let timeSlot of TimeSlots'>
@@ -1295,7 +1295,7 @@
 
 
   <p class='monDay'>MONDAY</p>
-  <table class='table table-bordered'>
+  <table class='table table-bordered pdf-table'>
     <thead>
       <th>Batch</th>
       <th *ngFor='let timeSlot of TimeSlots'>
@@ -1467,7 +1467,7 @@
 </table>
 
 <p class='tuesDay'>TUESDAY</p>
-<table class='table table-bordered'>
+<table class='table table-bordered pdf-table'>
   <thead>
     <th>Batch</th>
     <th *ngFor='let timeSlot of TimeSlots'>
@@ -1640,7 +1640,7 @@
 
 
 <p class='wednesDay'>WEDNESDAY</p>
-<table class='table table-bordered'>
+<table class='table table-bordered pdf-table'>
   <thead>
     <th>Batch</th>
     <th *ngFor='let timeSlot of TimeSlots'>
@@ -1813,7 +1813,7 @@
 
 
 <p class='thursDay'>THURSDAY</p>
-<table class='table table-bordered'>
+<table class='table table-bordered pdf-table'>
   <thead>
     <th>Batch</th>
     <th *ngFor='let timeSlot of TimeSlots'>
@@ -1986,7 +1986,7 @@
 
 
 <p class='friDay'>FRIDAY</p>
-<table class='table table-bordered'>
+<table class='table table-bordered pdf-table'>
   <thead>
     <th>Batch</th>
     <th *ngFor='let timeSlot of TimeSlots'>

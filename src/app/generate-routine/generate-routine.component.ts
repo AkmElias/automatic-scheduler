@@ -1400,10 +1400,7 @@ export class GenerateRoutineComponent implements OnInit {
     });
     console.log(`moreThanTwoClass: ${moreThanTwoClass}, creditWiseClass: ${creditWiseClass}, sectionHasClassInTimeSLot: ${sectionHasClassInTimeSlot},
     facultyHasClass: ${facultyHasClassInTimeSlot}, courseHasAlrerady: ${courseHasAlreadyInThisDay}, roomIsBooked: ${roomiSBooked} `);
-    if (moreThanTwoClass) {
-      alert("This section has already two classes this day.");
-      return false;
-    } else if (creditWiseClass) {
+    if (creditWiseClass) {
       alert(`This course can't be offered more than ${classNo} in a week.`);
       return false;
     } else if (sectionHasClassInTimeSlot) {
@@ -1411,9 +1408,6 @@ export class GenerateRoutineComponent implements OnInit {
       return false;
     } else if (facultyHasClassInTimeSlot) {
       alert("This faculty has already class this timeSlot.");
-      return false;
-    } else if (courseHasAlreadyInThisDay) {
-      alert("This sectiion has already this course for the day.");
       return false;
     } else if (roomiSBooked) {
       alert("This room is booked for this timeSlot.");
