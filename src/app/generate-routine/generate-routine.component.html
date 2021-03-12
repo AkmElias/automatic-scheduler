@@ -2206,9 +2206,11 @@
                             </select>
                         </div> -->
             <div *ngIf="sectionLoaded" class="form-group">
-              <label for="courseAvailable">Course available</label>
-              <select id="courseAvailable" name="courseAvailable" [(ngModel)]="selectedCourseOffered"
+              <label *ngIf='availableCourse.length' for="courseAvailable">Course available</label>
+              <label *ngIf='!availableCourse.length'>No course Remain for this BatchAndSection</label>
+              <select *ngIf='availableCourse.length' id="courseAvailable" name="courseAvailable" [(ngModel)]="selectedCourseOffered"
                 class="form-control" (ngModelChange)='courseSelected(selectedCourseOffered)'>
+               
                 <option *ngFor="let crs of availableCourse" [value]="crs.courseId">
                   {{crs.course}}
                 </option>
