@@ -14,10 +14,11 @@ export class ProgramComponent {
   title = "List of Program";
   searchText;
 
-  programs = [{ programCode: "115", pro_name: "test" }];
+  programs = [];
+  tempPrograms = [];
   selectedProgram;
 
-  departments = [{ dpt_name: "test" }];
+  departments = [];
   selectedDepartment;
 
   id: number;
@@ -32,6 +33,7 @@ export class ProgramComponent {
     private deptapi: DepartmentapiService
   ) {
     this.isLoggedIn = this.authService.isLoggedIn();
+    // this.programs = [{ programCode: "115", pro_name: "test" , DepartmentID: 0,departmentName: 'sd'}]
     this.selectedProgram = {
       programCode: "-1",
       pro_name: "test",
@@ -39,7 +41,7 @@ export class ProgramComponent {
       DepartmentID: "",
       pro_type: "",
     };
-    this.getPrograms();
+    // this.getPrograms();
   }
 
   ngOnInit() {
@@ -53,6 +55,7 @@ export class ProgramComponent {
         (data) => {
           console.log(data);
           this.programs = data;
+         
         },
         (error) => console.log(error)
       );
@@ -62,7 +65,30 @@ export class ProgramComponent {
   getPrograms = () => {
     this.api.getAllPrograms().subscribe(
       (data) => {
-        this.programs = data;
+        // this.programs = data;
+        this.tempPrograms = data;
+        let i = 0;
+        console.log('programs..',data)
+        data.forEach((prgm,index) => {
+          this.deptapi.getOneDepartment(prgm.DepartmentID).subscribe(res => {
+            let program  = {
+              programCode: '',
+              pro_name: '',
+              pro_type: '',
+              pro_shortForm: '',
+              departmentName: ''
+            }
+            program.programCode = this.tempPrograms[index].programCode;
+            program.pro_name = this.tempPrograms[index].pro_name;
+            program.pro_type = this.tempPrograms[index].pro_type;
+            program.pro_shortForm = this.tempPrograms[index].pro_shortForm;
+            program.departmentName = res.dpt_name;
+            this.programs.push(program)
+            console.log('departments: ',this.programs)
+          })
+          i++;
+        })
+       
       },
       (error) => {
         console.log(error);

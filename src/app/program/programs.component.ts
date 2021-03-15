@@ -21,12 +21,14 @@ title = 'List of Program';
 searchText;
 
 programs = [{pro_name: 'test'}];
-selectedProgram;
+departments = [];
 
-departments = [{dpt_name: 'test'}];
 selectedDepartment;
+  selectedProgram: { programCode: string; pro_name: string; pro_shortForm: string; DepartmentID: string; pro_type: string; };
 
-constructor(private api: ProgramapiService, private router: Router) {
+constructor(private api: ProgramapiService,
+   private departmentApi: DepartmentapiService,
+    private router: Router) {
 
   setTimeout(() => {
     this.getPrograms();
@@ -37,10 +39,21 @@ constructor(private api: ProgramapiService, private router: Router) {
   this.getDepartments();
   this.selectedDepartment = {DepartmentID: '-1', dpt_code: '' , dpt_name: 'test' };
 }
+  getDepartments() {
+    throw new Error('Method not implemented.');
+  }
 getPrograms = () => {
   this.api.getAllPrograms().subscribe(
     data => {
       this.programs = data;
+      console.log('department: ',data);
+      this.programs.forEach(program => {
+        this.departmentApi.getOneDepartment(program.DepartmentID).subscribe( data => {
+          console.log('department: ',data);
+        }
+          
+        )
+      })
     },
     error => {
       console.log(error);
@@ -88,16 +101,16 @@ deleteProgram = () => {
   );
 }
 
-getDepartments = () => {
-  this.api.getAllDepartments().subscribe(
-    data => {
-      this.departments = data;
-    },
-    error => {
-      console.log(error);
-    }
-  );
-}
+// getDepartments = () => {
+//   this.api.getAllDepartments().subscribe(
+//     data => {
+//       this.departments = data;
+//     },
+//     error => {
+//       console.log(error);
+//     }
+//   );
+// }
 departmentClicked = (department) => {
   this.api.getOneDepartment(department.DepartmentID).subscribe(
     data => {

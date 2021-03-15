@@ -36,7 +36,7 @@
            <th>Program Code</th>
            <th>Name</th>
            <th>Short Form</th>
-           <th>Department ID</th>
+           <th>Department</th>
            <th>Type</th>
            <th>Batch</th>
            <th>Course</th>
@@ -50,11 +50,11 @@
      </thead>
  <tbody>
   <tr *ngFor="let program of programs" >
-  <tr *ngFor="let program of programs  | filter:searchText">
+  <tr *ngFor="let program of programs | filter:searchText">
     <td><h6 ><tr>{{program.programCode}}</tr></h6></td>
     <td><h6 ><tr>{{program.pro_name}}</tr></h6></td>
     <td><h6 ><tr>{{program.pro_shortForm}}</tr></h6></td>
-    <td><h6 ><tr>{{program.DepartmentID}}</tr></h6></td>
+    <td><h6 ><tr>{{program.departmentName}}</tr></h6></td>
     <td><h6 ><tr>{{program.pro_type}}</tr></h6></td>
 
     <td><a class ="btn btn-info" routerLink="/batch/{{program.programCode}}"><i class="fas fa-laptop-code"></i></a>

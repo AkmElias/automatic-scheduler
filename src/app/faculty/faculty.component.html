@@ -37,8 +37,6 @@
           <th>Short Name</th>
           <th>Gender</th>
           <th>Designation</th>
-          <th>DepartmentID</th>
-          <th>CourseOffered</th>
           <th></th>
           <th *ngIf='isLoggedIn'></th>
           <th *ngIf='isLoggedIn'></th>
@@ -57,11 +55,11 @@
     <td><h6 ><tr>{{faculty.fac_shortName}}</tr></h6></td>
     <td><h6 ><tr>{{faculty.fac_gender}}</tr></h6></td>
     <td><h6 ><tr>{{faculty.fac_designation}}</tr></h6></td>
-    <td><h6 ><tr>{{faculty.DepartmentID}}</tr></h6></td>
+  
 
-   <td><button type="button" data-toggle="tooltip" data-placement="top"
+   <!-- <td><button type="button" data-toggle="tooltip" data-placement="top"
      ngbTooltip="CourseOffered" (click)="gotoCourseOffered()" class="btn btn-secondary"
-      style="margin-left: 10px"><i class="nav-icon fa fa-envelope"></i></button></td>
+      style="margin-left: 10px"><i class="nav-icon fa fa-envelope"></i></button></td> -->
    <!-- <td><a href="http://localhost:4200/courseOffered" title="CourseOffered" class="btn btn-secondary" style="margin-left: 10px">
    <i class="nav-icon fa fa-envelope"></i></a></td> -->
    <td><button type="button" data-toggle="tooltip" data-placement="top"
