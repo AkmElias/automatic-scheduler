@@ -33,6 +33,9 @@ export class ProgramComponent {
     private deptapi: DepartmentapiService
   ) {
     this.isLoggedIn = this.authService.isLoggedIn();
+    if(!this.isLoggedIn){
+      this.router.navigateByUrl('/login');
+    }
     // this.programs = [{ programCode: "115", pro_name: "test" , DepartmentID: 0,departmentName: 'sd'}]
     this.selectedProgram = {
       programCode: "-1",
@@ -83,6 +86,7 @@ export class ProgramComponent {
             program.pro_type = this.tempPrograms[index].pro_type;
             program.pro_shortForm = this.tempPrograms[index].pro_shortForm;
             program.departmentName = res.dpt_name;
+            
             this.programs.push(program)
             console.log('departments: ',this.programs)
           })

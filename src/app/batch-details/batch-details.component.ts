@@ -3,6 +3,7 @@ import { Batch } from "../batch";
 import { Component, OnInit, Input } from "@angular/core";
 import { BatchapiService } from "../batchapi.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-batch-details",
@@ -17,9 +18,14 @@ export class BatchDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private authApi: AuthService,
     private batchService: BatchapiService,
     private sectionApi: SectionapiService
-  ) {}
+  ) {
+    if(!this.authApi.isLoggedIn()){
+      this.router.navigateByUrl('/login')
+    }
+  }
 
   ngOnInit() {
     this.batch = new Batch();

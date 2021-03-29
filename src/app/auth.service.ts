@@ -14,7 +14,12 @@ export class AuthService {
       headers: this.httpHeaders,
     });
   }
-
+  
+  signUpUser(userData): Observable<any> {
+    return this.http.post("http://localhost:8000/users/",userData, {
+      headers: this.httpHeaders,
+    })
+  }
   public signIn(token) {
     localStorage.setItem("ACCESS_TOKEN", token);
   }

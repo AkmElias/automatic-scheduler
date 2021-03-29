@@ -90,6 +90,8 @@ import { DepartmentDetailsComponent } from "./department-details/department-deta
 import { DepartmentListComponent } from "./department-list/department-list.component";
 import { UpdateDepartmentComponent } from "./update-department/update-department.component";
 
+import {ForgetPassword} from './forget-password/forgetPassword.component'
+
 import { User } from "./user";
 import { Department } from "./department";
 import { Program } from "./program";
@@ -143,6 +145,7 @@ import { GenerateRoutineComponent } from "./generate-routine/generate-routine.co
 import { CreateCreateRoutineComponent } from "./create-create-routine/create-create-routine.component";
 import { UpdateCreateRoutineComponent } from "./update-create-routine/update-create-routine.component";
 import { CreateRoutineDetailsComponent } from "./create-routine-details/create-routine-details.component";
+import { PasswordResetApiService } from "./passwordresetapi.service";
 
 @NgModule({
   declarations: [
@@ -213,7 +216,7 @@ import { CreateRoutineDetailsComponent } from "./create-routine-details/create-r
     CreateRoutineComponent,
     UpdateRoutineComponent,
     RoutineDetailsComponent,
-
+    ForgetPassword
     // MyfilterPipe
     // EqualValidatorDirective
   ],
@@ -265,6 +268,7 @@ import { CreateRoutineDetailsComponent } from "./create-routine-details/create-r
     RoutineapiService,
     AuthGuard,
     EventEmitterService,
+    PasswordResetApiService
   ],
   bootstrap: [AppComponent],
 })

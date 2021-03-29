@@ -25,6 +25,9 @@
         <li *ngIf ='!isLoggedIn' class="nav-item d-none d-sm-inline-block">
           <a routerLink="/login" class="nav-link">Login</a>
         </li>
+        <li *ngIf ='!isLoggedIn' class="nav-item d-none d-sm-inline-block">
+          <a routerLink="/signup" class="nav-link">Register</a>
+        </li>
         <button  *ngIf ='isLoggedIn' class="btn btn-danger" style="float: right;" (click)="logout()">Logout</button>
       </div>
     

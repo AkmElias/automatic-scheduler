@@ -1,25 +1,51 @@
-<div class="container">
-  <div class="logo">Create a new account!</div>
-  <div class="sign-up-item">
-    <form #myform="ngForm" (ngSubmit)="(myform)" class="form form-sign-up">
+<div class="login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="../../index2.html">
+        <!-- <b>Register or Login</b> -->
+      </a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
 
-      <div class="form-field">
-            <label class="user" for="sign-up-username"><span class="hidden">Name</span></label>
-            <input name="name" id="sign-up-username" type="email" class="form-input" placeholder="Name" ngModel required>
-      </div>
-      <div class="form-field">
-        <label class="user" for="sign-up-email"><span class="hidden">Email</span></label>
-        <input name="email" id="sign-up-email" type="email" class="form-input" placeholder="Email" ngModel required>
-      </div>
+      <div class="card-header bg-dark">
+        <h1 class="text-white text-center">SignUp</h1>
+        </div>
 
-      <div class="form-field">
-        <label class="lock" for="sign-up-password"><span class="hidden">Password</span></label>
-        <input name="password" id="sign-up-password" type="password" class="form-input" placeholder="Password" ngModel required>
-      </div>
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Sign up to access</p>
 
-      <div class="form-field">
-        <input type="submit" value="SignUp">
-      </div>
-    </form>
+        <form action="/action_page.php">
+          <div class="input-group mb-3">
+            <input [(ngModel)]="username" type="text" class="form-control" id="fname" name="name" placeholder="User Name" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input [(ngModel)]="email" type="email" class="form-control" id="fname" name="email" placeholder="Email" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input [(ngModel)]="password" type="password" class="form-control" id="pwd" name="password" placeholder="Password" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+
+        <div class="text-center">
+          <!-- <button class="btn btn-primary text-center" (click)="registerUser()">R</button> -->
+          <button class="btn btn-success" (click)="signUp()">SignUp</button>
+        </div>
+   </form>
   </div>
-</div>
+  </div>

@@ -59,6 +59,10 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  navigateToForget() {
+    this.router.navigateByUrl('/forget-password')
+  }
+
   headerComponentFunction() {
     this.eventEmitterService.checkLog();
   }

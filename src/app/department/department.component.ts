@@ -21,6 +21,9 @@ export class DepartmentComponent {
     private router: Router
   ) {
     this.isLoggedIn = this.authService.isLoggedIn();
+    if(!this.isLoggedIn){
+      this.router.navigateByUrl('/login');
+    }
     this.getDepartments();
     this.selectedDepartment = { id: "-1", dpt_code: "", dpt_name: "test" };
   }

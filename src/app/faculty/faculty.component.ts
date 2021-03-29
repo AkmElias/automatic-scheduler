@@ -31,6 +31,9 @@ export class FacultyComponent {
     private authService: AuthService
   ) {
     this.isLoggedIn = this.authService.isLoggedIn();
+    if(!this.isLoggedIn){
+      this.router.navigateByUrl('/login');
+    }
     // this.getFaculties();
     this.selectedFaculty = {
       facultyID: "-1",

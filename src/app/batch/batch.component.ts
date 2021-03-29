@@ -31,6 +31,9 @@ export class BatchComponent {
     private route: ActivatedRoute
   ) {
     this.isLoggedIn = this.authService.isLoggedIn();
+    if(!this.isLoggedIn){
+      this.router.navigateByUrl("/login");
+    }
     // this.getBatches();
     this.selectedBatch = {
       id: -1,

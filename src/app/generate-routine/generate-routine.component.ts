@@ -156,6 +156,9 @@ export class GenerateRoutineComponent implements OnInit {
     private routineApi: RoutineapiService,
     private router: Router
   ) {
+    if(!this.authService.isLoggedIn()){
+      this.router.navigateByUrl('/login');
+    }
     if (this.authService.isLoggedIn()) {
       this.loggedIn = true;
     } else {
@@ -261,6 +264,8 @@ export class GenerateRoutineComponent implements OnInit {
     this.routines = await this.routineApi
       .getRoutinesByTermYearProgram(this.Title)
       .toPromise();
+
+
     this.getBatchesAndSections();
     this.populateColumnsArrayWithAppropriateroutine();
     console.log("routines by title..", this.routines);
@@ -274,9 +279,11 @@ export class GenerateRoutineComponent implements OnInit {
     this.routines.forEach((routine) => {
       this.batchAndSections.add(routine.batchAndSection);
     });
+
     this.batchAndSections.forEach((bas) => {
       this.batchAndSectionsArray.push(bas);
     });
+
     this.batchAndSectionsArray.sort();
 
     console.log("batches and sections..", this.batchAndSectionsArray);

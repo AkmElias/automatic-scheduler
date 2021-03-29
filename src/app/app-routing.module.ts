@@ -75,6 +75,7 @@ import { CreateRoutineDetailsComponent } from "./create-routine-details/create-r
 import { CreateRoutineComponent } from "./create-routine/create-routine.component";
 import { UpdateRoutineComponent } from "./update-routine/update-routine.component";
 import { RoutineDetailsComponent } from "./routine-details/routine-details.component";
+import { ForgetPassword } from "./forget-password/forgetPassword.component";
 
 const routes: Routes = [
   // { path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -83,6 +84,7 @@ const routes: Routes = [
   { path: "signup", component: SignUpComponent },
   { path: "register", component: RegisterComponent },
   { path: "auth", component: AuthComponent },
+  {path: "forget-password", component: ForgetPassword},
   { path: "admin", component: AdminComponent, canActivate: [AuthGuard] },
   { path: "navbar", component: NavbarComponent },
   { path: "dashboard", component: DashboardComponent },

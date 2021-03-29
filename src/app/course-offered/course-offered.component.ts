@@ -43,6 +43,9 @@ export class CourseOfferedComponent {
     private router: Router
   ) {
     this.isLoggedIn = this.authService.isLoggedIn();
+    if(!this.isLoggedIn){
+      this.router.navigateByUrl('/login');
+    }
     this.getCoursesOffered();
   }
 
